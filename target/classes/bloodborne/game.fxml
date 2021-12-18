@@ -61,6 +61,11 @@
             <TextArea fx:id="gunText" editable="false" layoutX="168.0" layoutY="161.0" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: none; -fx-font-size: 15px;" text="No gun equipped" wrapText="true" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="167.0" layoutY="148.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="167.0" layoutY="211.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <TextField fx:id="dmgBoostText" layoutX="7.0" layoutY="233.0" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 18px;" stylesheets="@stylesheet.css" text="Damage boost : 0" />
+            <TextField fx:id="dodgeRateText" layoutX="7.0" layoutY="257.0" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 18px;" stylesheets="@stylesheet.css" text="Dodge rate : 0.3" />
+            <TextField fx:id="boostLeftText" layoutX="153.0" layoutY="233.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 18px;" stylesheets="@stylesheet.css" text="Boost left : 0" />
+            <TextField fx:id="hitRateText" layoutX="153.0" layoutY="257.0" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 18px;" stylesheets="@stylesheet.css" text="Hit rate : 0.0" />
+            <TextField fx:id="visceralRateText" layoutX="7.0" layoutY="281.0" prefHeight="25.0" prefWidth="141.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 18px;" stylesheets="@stylesheet.css" text="Visceral rate : 0.0" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
