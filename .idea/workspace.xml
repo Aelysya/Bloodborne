@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="added stats texts to HUD">
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/NPCs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/NPCs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,6 +101,14 @@
       <option name="presentableId" value="Default" />
       <updated>1638529030736</updated>
     </task>
+    <task id="LOCAL-00001" summary="added stats texts to HUD">
+      <created>1639871465846</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1639871465846</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +121,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added stats texts to HUD" />
+    <option name="LAST_COMMIT_MESSAGE" value="added stats texts to HUD" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

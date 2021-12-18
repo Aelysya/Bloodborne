@@ -8,7 +8,7 @@
 			"health": "20",
 			"damage": "2",
 			"dodgeRate": "0.0",
-			"bloodEchoes": ""
+			"bloodEchoes": "500"
 		}
 	},
 	{
@@ -19,7 +19,8 @@
 			"name": "Executioner",
 			"health": "20",
 			"damage": "3",
-			"dodgeRate": "0.1"
+			"dodgeRate": "0.1",
+			"bloodEchoes": "1500"
 		}
 	},
 	{
@@ -30,7 +31,8 @@
 			"name": "Wolf Beast",
 			"health": "17",
 			"damage": "3",
-			"dodgeRate": "0.2"
+			"dodgeRate": "0.2",
+			"bloodEchoes": "300"
 		}
 	},
 	{
@@ -41,7 +43,8 @@
 			"name": "Yharnam Beast",
 			"health": "10",
 			"damage": "1",
-			"dodgeRate": "0.1"
+			"dodgeRate": "0.1",
+			"bloodEchoes": "100"
 		}
 	},
 	{
@@ -52,7 +55,8 @@
 			"name": "Yharnam Beast",
 			"health": "10",
 			"damage": "1",
-			"dodgeRate": "0.1"
+			"dodgeRate": "0.1",
+			"bloodEchoes": "100"
 		}
 	},
 	{
@@ -63,7 +67,8 @@
 			"name": "Wolf Beast",
 			"health": "17",
 			"damage": "3",
-			"dodgeRate": "0.2"
+			"dodgeRate": "0.2",
+			"bloodEchoes": "300"
 		}
 	},
 	{
@@ -74,7 +79,8 @@
 			"name": "Wolf Beast",
 			"health": "17",
 			"damage": "3",
-			"dodgeRate": "0.2"
+			"dodgeRate": "0.2",
+			"bloodEchoes": "300"
 		}
 	},
 	{
@@ -85,7 +91,8 @@
 			"name": "Brainsucker",
 			"health": "20",
 			"damage": "2",
-			"dodgeRate": "0.0"
+			"dodgeRate": "0.0",
+			"bloodEchoes": "500"
 		}
 	},
 	{
@@ -96,7 +103,8 @@
 			"name": "Cleric Beast",
 			"health": "50",
 			"damage": "7",
-			"dodgeRate": "0.1"
+			"dodgeRate": "0.1",
+			"bloodEchoes": "4000"
 		}
 	}
 ]
