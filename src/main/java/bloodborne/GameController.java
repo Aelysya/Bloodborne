@@ -45,6 +45,21 @@ public class GameController {
     TextField bulletAmountText;
 
     @FXML
+    TextField dmgBoostText;
+
+    @FXML
+    TextField boostLeftText;
+
+    @FXML
+    TextField dodgeRateText;
+
+    @FXML
+    TextField hitRateText;
+
+    @FXML
+    TextField visceralRateText;
+
+    @FXML
     ImageView imageID;
 
     @FXML
@@ -75,6 +90,11 @@ public class GameController {
         }
         vialAmountText.setText(Integer.toString(hunter.getVialsNumber()));
         bulletAmountText.setText(Integer.toString(hunter.getBulletsNumber()));
+        dmgBoostText.setText("Damage boost : " + hunter.getDamageBoost());
+        boostLeftText.setText("Boost left : " + hunter.getBoostLeft());
+        dodgeRateText.setText("Dodge rate : " + hunter.getDodgeRate());
+        hitRateText.setText("Hit rate : " + hunter.getHitRate());
+        visceralRateText.setText("Visceral rate : " + hunter.getVisceralRate());
     }
 
     public void updateWeapons(Hunter hunter){
@@ -90,6 +110,7 @@ public class GameController {
         } else {
             gunText.setText(hunter.getFireArm().getNAME() + "\n" + hunter.getFireArm().getCurrentDamage() + " damage");
         }
+        updateHUD(hunter);
     }
 
     public void onKeyPressedWriteLine(KeyEvent keyEvent) {

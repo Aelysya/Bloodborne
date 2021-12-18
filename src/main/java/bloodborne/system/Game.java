@@ -215,6 +215,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You try to use something that you don't have or doesn't exist.");
         }
+        CONTROLLER.updateHUD(HUNTER);
     }//TODO change to letter by letter printing
 
     public void takeFunction(String itemName) {
@@ -249,6 +250,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You try to equip a weapon that you don't have or doesn't exist.");
         }
+        CONTROLLER.updateHUD(HUNTER);
     }//TODO change to letter by letter printing
 
     public void initiateFightFunction(String target) {
@@ -272,24 +274,11 @@ public class Game {
         }
     }//TODO change to letter by letter printing
 
-    public void statusFunction() { //TODO Maybe remove the function when HUD is completed ?
-        String trickWeaponText = HUNTER.getTrickWeaponToString();
-        String fireArmText = HUNTER.getFireArmToString();
-        String ratesText = HUNTER.getRates();
-
-        String sb = "HP : " +
-                HUNTER.getHealthPoints() +
-                "/30\n" +
-                "Trick Weapon : " +
-                trickWeaponText +
-                "Gun : " +
-                fireArmText +
-                ratesText +
-                "-----------------------------\n" +
+    public void statusFunction() {
+        String s = "-----------------------------\n" +
                 HUNTER.showInventory() +
                 "-----------------------------";
-
-        CONTROLLER.writeInstantly(sb);
+        CONTROLLER.writeInstantly(s);
         SOUND_MANAGER.playSoundEffect("inventory_list.wav");
     }
 
@@ -316,6 +305,7 @@ public class Game {
                     CONTROLLER.updateHUD(HUNTER);
                     return;
                 }
+                CONTROLLER.updateHUD(HUNTER);
             }
         } else { //Ranged attack
             if(!HUNTER.canShoot()){
@@ -391,6 +381,7 @@ public class Game {
 
     public void switchFunction() {
         CONTROLLER.writeInstantly(HUNTER.switchTrickWeaponState());
+        CONTROLLER.updateHUD(HUNTER);
     }
 
     public void fleeFunction() {

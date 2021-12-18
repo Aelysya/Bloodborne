@@ -80,6 +80,10 @@ public class Hunter extends Entity{
         return vialsNumber;
     }
 
+    public int getBoostLeft(){
+        return boostLeft;
+    }
+
     public String heal(SoundManager soundManager){
         StringBuilder s = new StringBuilder();
 
@@ -208,6 +212,14 @@ public class Hunter extends Entity{
     @Override
     public double getDodgeRate(){
         return trickWeapon == null ? DODGE_RATE : trickWeapon.getCurrentDodgeRate();
+    }
+
+    public double getHitRate(){
+        return fireArm == null ? 0 : fireArm.getHIT_RATE();
+    }
+
+    public double getVisceralRate(){
+        return fireArm == null ? 0 : fireArm.getVISCERAL_RATE();
     }
 
     @Override
