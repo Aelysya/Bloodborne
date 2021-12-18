@@ -1,0 +1,181 @@
+[
+	{
+		"id": "saw-cleaver",
+		"type": "TrickWeapon",
+		"description": "One of the trick weapons of the workshop, commonly used in the hunting business.\nThis saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force. The saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
+		"attributes": {
+			"name": "Saw Cleaver",
+			"imagePath": "saw_cleaver.png",
+			"damage": "4",
+			"baseDodgeRate": "0.3",
+			"switchedDamage": "5",
+			"switchedDodgeRate": "0.2"
+		}
+	},
+	{
+		"id": "saw-spear",
+		"type": "TrickWeapon",
+		"description": "One of the trick weapons of the workshop, commonly used by those who dedicate themselves to the hunt. This saw, effective at drawing the blood of beasts, transforms into a medium-range spear. The saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
+		"attributes": {
+			"name": "Saw Spear",
+			"imagePath": "saw_spear.png",
+			"damage": "3",
+			"baseDodgeRate": "0.4",
+			"switchedDamage": "4",
+			"switchedDodgeRate": "0.3"
+		}
+	},
+	{
+		"id": "hunter-axe",
+		"type": "TrickWeapon",
+		"description": "One of the trick weapons of the workshop, commonly used on the hunt. Retains the qualities of an axe, but offers a wider palette of attacks by transforming. No matter their pasts, beasts are no more than beasts. Some choose this axe to play the part of executioner.",
+		"attributes": {
+			"name": "Hunter Axe",
+			"imagePath": "hunter_axe.png",
+			"damage": "5",
+			"baseDodgeRate": "0.2",
+			"switchedDamage": "6",
+			"switchedDodgeRate": "0.1"
+		}
+	},
+	{
+		"id": "blades-of-mercy",
+		"type": "TrickWeapon",
+		"description": "The blades of mercy. A special trick weapon passed down among hunters of hunters. The weapon's warped blades are forged with siderite, a rare mineral of the heavens.",
+		"attributes": {
+			"name": "Blades of Mercy",
+			"imagePath": "blades_of_mercy.png",
+			"damage": "5",
+			"baseDodgeRate": "0.4",
+			"switchedDamage": "4",
+			"switchedDodgeRate": "0.6"
+		}
+	},
+	{
+		"id": "kirkhammer",
+		"type": "TrickWeapon",
+		"description": "A trick weapon typically used by Healing Church hunters. On the one side, an easily handled silver sword. On the other, a giant obtuse stone weapon, characterized by a blunt strike and extreme force of impact. The Church takes a heavy-handed, merciless stance toward the plague of beasts, an irony not lost upon the wielders of this most symbolic weapon.",
+		"attributes": {
+			"name": "Kirkhammer",
+			"imagePath": "kirkhammer.png",
+			"damage": "4",
+			"baseDodgeRate": "0.4",
+			"switchedDamage": "6",
+			"switchedDodgeRate": "0.2"
+		}
+	},
+	{
+		"id": "hunter-pistol",
+		"type": "FireArm",
+		"description": "Pistol made at the workshop, for hunters stalking beasts. Hunter firearms are specially crafted to employ Quicksilver Bullets fused with the wielder's own blood, boosting damage against beasts.",
+		"attributes": {
+			"name": "Hunter Pistol",
+			"imagePath": "hunter_pistol.png",
+			"damage": "3",
+			"bulletUse": "1",
+			"hitRate": "0.8",
+			"visceralRate": "0.3"
+		}
+	},
+	{
+		"id": "hunter-blunderbuss",
+		"type": "FireArm",
+		"description": "A blunderbuss created at the workshop for the hunters' line of work. The impact of this highly-effective weapon counters beasts' swift movements, and its wide spread is nigh-on guaranteed to hit the mark.",
+		"attributes": {
+			"name": "Hunter Blunderbuss",
+			"imagePath": "hunter_blunderbuss.png",
+			"damage": "4",
+			"bulletUse": "1",
+			"hitRate": "0.9",
+			"visceralRate": "0.2"
+		}
+	},
+	{
+		"id": "cannon",
+		"type": "FireArm",
+		"description": "Large prototype firearms fashioned by the workshop heretics, the Powder Kegs. Use of this weapon is equivalent to toting a mounted cannon, complete with its ridiculous weight, staggering kick, and lavish use of Quicksilver Bullets, into battle. Such a monstrosity was doomed from the start, and indeed its development was cut short. Yet, against impossibly gigantic foes, it might be just the thing.",
+		"attributes": {
+			"name": "Cannon",
+			"imagePath": "cannon.png",
+			"damage": "6",
+			"bulletUse": "3",
+			"hitRate": "0.6",
+			"visceralRate": "0.1"
+		}
+	},
+	{
+		"id": "evelyn",
+		"type": "FireArm",
+		"description": "Special pistol used by the vileblood hunters of Cainhurst. It is more precise and deadly than the classic hunter pistol, but is also rarer.",
+		"attributes": {
+			"name": "Evelyn",
+			"imagePath": "evelyn.png",
+			"damage": "5",
+			"bulletUse": "1",
+			"hitRate": "0.95",
+			"visceralRate": "0.4"
+		}
+	},
+	{
+		"id": "clinic-fire-paper",
+		"type": "Paper",
+		"description": "A special kind of paper imbued with fire power. If you use it on your weapon it will do more damage for some attacks.",
+		"attributes": {
+			"name": "Fire paper",
+			"damageBoost": "2",
+			"type": "fire"
+		}
+	},
+	{
+		"id": "graveyard-bolt-paper",
+		"type": "Paper",
+		"description": "A special kind of paper imbued with bolt power. If you use it on your weapon it will do more damage for some attacks.",
+		"attributes": {
+			"name": "Bolt paper",
+			"damageBoost": "3",
+			"type": "bolt"
+		}
+	},
+	{
+		"id": "campfire-fire-paper",
+		"type": "Paper",
+		"description": "A special kind of paper imbued with Fire power. If you USE it on your weapon it will do more damage for some attacks.",
+		"attributes": {
+			"name": "Fire paper",
+			"damageBoost": "2",
+			"type": "fire"
+		}
+	},
+	{
+		"id": "central-house-key",
+		"type": "Key",
+		"description": "A black key, who knows what it opens",
+		"attributes": {
+			"name": "black key"
+		}
+	},
+	{
+		"id": "small-square-key",
+		"type": "Key",
+		"description": "A small key, who knows what it opens",
+		"attributes": {
+			"name": "Small key"
+		}
+	},
+	{
+		"id": "round-key",
+		"type": "Key",
+		"description": "A round key given to you by Henryk before his last breath. You can now go north from the Front bridge to go finish your mission.",
+		"attributes": {
+			"name": "Round key"
+		}
+	},
+	{
+		"id": "olek-amulet",
+		"type": "Amulet",
+		"description": "An amulet that belonged to the now dead hunter Olek. Maybe you can find someone out there that knows how to USE it ?",
+		"attributes": {
+			"name": "Amulet"
+		}
+	}
+]

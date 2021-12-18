@@ -1,0 +1,48 @@
+
+@font-face {
+    font-family: VT323;
+    src: url('VT323-Regular.ttf');
+}
+
+.text-area {
+    -fx-font-size: 23px;
+    -fx-font-family: 'VT323', monospace;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+
+.text-area .content {
+    -fx-background-color: black;
+}
+
+#hunterTitle {
+    -fx-font-size: 25px;
+    -fx-border-color: white;
+}
+
+.text-field {
+    -fx-font-size: 23px;
+    -fx-font-family: 'VT323', monospace;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-color: black;
+}
+.text-field:disabled {
+    -fx-opacity: 1;
+}
+.text-area:disabled {
+    -fx-opacity: 1;
+}
+
+.bor-pane {
+    -fx-open-tab-animation: NONE;
+    -fx-close-tab-animation: NONE;
+}
+
+
+
+
+
+
+
