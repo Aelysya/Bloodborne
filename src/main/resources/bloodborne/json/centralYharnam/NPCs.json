@@ -8,7 +8,8 @@
 			"health": "20",
 			"damage": "2",
 			"dodgeRate": "0.0",
-			"bloodEchoes": "500"
+			"bloodEchoes": "500",
+			"lootValue": "2"
 		}
 	},
 	{
@@ -20,7 +21,8 @@
 			"health": "20",
 			"damage": "3",
 			"dodgeRate": "0.1",
-			"bloodEchoes": "1500"
+			"bloodEchoes": "1500",
+			"lootValue": "3"
 		}
 	},
 	{
@@ -32,7 +34,8 @@
 			"health": "17",
 			"damage": "3",
 			"dodgeRate": "0.2",
-			"bloodEchoes": "300"
+			"bloodEchoes": "300",
+			"lootValue": "1"
 		}
 	},
 	{
@@ -44,7 +47,8 @@
 			"health": "10",
 			"damage": "1",
 			"dodgeRate": "0.1",
-			"bloodEchoes": "100"
+			"bloodEchoes": "100",
+			"lootValue": "0"
 		}
 	},
 	{
@@ -56,7 +60,8 @@
 			"health": "10",
 			"damage": "1",
 			"dodgeRate": "0.1",
-			"bloodEchoes": "100"
+			"bloodEchoes": "100",
+			"lootValue": "0"
 		}
 	},
 	{
@@ -68,7 +73,8 @@
 			"health": "17",
 			"damage": "3",
 			"dodgeRate": "0.2",
-			"bloodEchoes": "300"
+			"bloodEchoes": "300",
+			"lootValue": "1"
 		}
 	},
 	{
@@ -80,7 +86,8 @@
 			"health": "17",
 			"damage": "3",
 			"dodgeRate": "0.2",
-			"bloodEchoes": "300"
+			"bloodEchoes": "300",
+			"lootValue": "1"
 		}
 	},
 	{
@@ -92,7 +99,8 @@
 			"health": "20",
 			"damage": "2",
 			"dodgeRate": "0.0",
-			"bloodEchoes": "500"
+			"bloodEchoes": "500",
+			"lootValue": "2"
 		}
 	},
 	{
@@ -104,7 +112,34 @@
 			"health": "50",
 			"damage": "7",
 			"dodgeRate": "0.1",
-			"bloodEchoes": "4000"
+			"bloodEchoes": "4000",
+			"lootValue": "4"
+		}
+	},
+	{
+		"id": "eileen-enemy",
+		"type": "Enemy",
+		"description": "You shouldn't be able to see this sentence, report the bug if you do anyway.",
+		"attributes": {
+			"name": "Eileen",
+			"health": "30",
+			"damage": "5",
+			"dodgeRate": "0.3",
+			"bloodEchoes": "2000",
+			"lootValue": "3"
+		}
+	},
+	{
+		"id": "alfred-enemy",
+		"type": "Enemy",
+		"description": "You shouldn't be able to see this sentence, report the bug if you do anyway.",
+		"attributes": {
+			"name": "Alfred",
+			"health": "25",
+			"damage": "4",
+			"dodgeRate": "0.2",
+			"bloodEchoes": "1500",
+			"lootValue": "2"
 		}
 	}
 ]
