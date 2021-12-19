@@ -81,7 +81,7 @@ public class CommandHandler {
                 - SWitch : Switch the state of your trick weapon
                 - Activate [object] : Activate an object in your current location
                 - Take [object] : Pick up an object in your current location
-                - Equip [weapon] : Equip a weapon in your inventory
+                - Equip [object] : Equip a weapon or a rune from your inventory
                 - Fight [target] : Initiate a fight with the target
                 - TalK [NPC] : Engage conversation with target NPC
                 - Inventory : Display your inventory's content
@@ -156,6 +156,22 @@ public class CommandHandler {
             default -> GAME.writeInstantly("Unknown command !");
         }
     } //TODO change to letter by letter printing
+
+    public void runeTextAnalyzer(String textLine) {
+        String[] args = textLine.split("\\s+", 2);
+
+        if(args.length == 0){
+            return;
+        }
+
+        String position = args[0];
+
+        switch(position){
+            case "1", "2", "3" -> GAME.runeDecisionFunction(Integer.parseInt(position)-1);
+            case "c", "cancel" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
+            default -> GAME.writeInstantly("You can't memorize a rune at this position.");
+        }
+    }
 
     public void fightTextAnalyzer(String textLine) throws TooFewArgumentsException {
         String[] args = textLine.split("\\s+", 2);

@@ -1,6 +1,7 @@
 package bloodborne;
 
 import bloodborne.entities.Hunter;
+import bloodborne.items.Rune;
 import bloodborne.system.Game;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
@@ -15,6 +16,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+
+import java.util.List;
 
 public class GameController {
     @FXML
@@ -37,6 +40,9 @@ public class GameController {
 
     @FXML
     TextField currentHP;
+
+    @FXML
+    TextField bloodEchoesText;
 
     @FXML
     TextField vialAmountText;
@@ -69,6 +75,15 @@ public class GameController {
     ImageView gunImage;
 
     @FXML
+    ImageView rune1;
+
+    @FXML
+    ImageView rune2;
+
+    @FXML
+    ImageView rune3;
+
+    @FXML
     BorderPane borderpane;
 
     private Game game;
@@ -84,10 +99,11 @@ public class GameController {
     }
 
     public void updateHUD(Hunter hunter){
-        currentHP.setText(hunter.getHealthPoints() + " / 30 HP");
+        currentHP.setText("HP: " + hunter.getHealthPoints() + "/30");
         if(hunter.getHealthPoints() == 0){
-            currentHP.setStyle("-fx-text-fill: red; -fx-font-size: 30px; -fx-background-color: none;");
+            currentHP.setStyle("-fx-text-fill: red;");
         }
+        bloodEchoesText.setText(Integer.toString(hunter.getBloodEchoes()));
         vialAmountText.setText(Integer.toString(hunter.getVialsNumber()));
         bulletAmountText.setText(Integer.toString(hunter.getBulletsNumber()));
         dmgBoostText.setText("Damage boost: " + hunter.getDamageBoost());
@@ -111,6 +127,25 @@ public class GameController {
             gunText.setText(hunter.getFireArm().getNAME() + "\n" + hunter.getFireArm().getCurrentDamage() + " damage");
         }
         updateHUD(hunter);
+    }
+
+    public void updateRunes(Hunter hunter) {
+        List<Rune> runes = hunter.getRUNE_LIST();
+        if (runes.size() >= 1){
+            rune1.setImage(new Image(String.valueOf(getClass().getResource("images/runes/" + runes.get(0).getIcon()))));
+            if (runes.size() >= 2){
+                rune2.setImage(new Image(String.valueOf(getClass().getResource("images/runes/" + runes.get(1).getIcon()))));
+                if (runes.size() >= 3){
+                    rune3.setImage(new Image(String.valueOf(getClass().getResource("images/runes/" + runes.get(2).getIcon()))));
+                } else {
+                    rune3.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty_rune.png"))));
+                }
+            } else {
+                rune2.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty_rune.png"))));
+            }
+        } else {
+            rune1.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty_rune.png"))));
+        }
     }
 
     public void onKeyPressedWriteLine(KeyEvent keyEvent) {

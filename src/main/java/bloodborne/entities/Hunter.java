@@ -2,9 +2,8 @@ package bloodborne.entities;
 
 import bloodborne.items.*;
 import bloodborne.sounds.SoundManager;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+
+import java.util.*;
 
 enum DamageType {FIRE, BOLT, BASE}
 
@@ -19,6 +18,7 @@ public class Hunter extends Entity{
     private int bulletsNumber;
     private DamageType damageType;
     private int bloodEchoes;
+    private final List<Rune> RUNE_LIST;
 
     private static final Map<String, String> CONSTRUCT_MAP = new HashMap<>();
     static{
@@ -35,6 +35,7 @@ public class Hunter extends Entity{
         bulletsNumber = 0;
         damageType = DamageType.BASE;
         bloodEchoes = 0;
+        RUNE_LIST = new ArrayList<>();
     }
 
     public void addItem(Item item){
@@ -43,6 +44,26 @@ public class Hunter extends Entity{
 
     public void removeItem(Item item){
         INVENTORY.removeItem(item);
+    }
+
+    public void addVials(int vialAmount){
+        vialsNumber+=vialAmount;
+    }
+
+    public void addBullets(int bulletAmount){
+        bulletsNumber+=bulletAmount;
+    }
+
+    public void wasteBullet(){
+        bulletsNumber--;
+    }
+
+    public void gainBloodEchoes(int amount){
+        bloodEchoes+=amount;
+    }
+
+    public void spendBloodEchoes(int amount){
+        bloodEchoes-=amount;
     }
 
     public Item getItemByName(String itemName){
@@ -58,40 +79,100 @@ public class Hunter extends Entity{
         return returnedItem;
     }
 
-    public boolean hasItem(String itemId){
-        return INVENTORY.hasItem(itemId);
-    }
-
     public String showInventory(){
         return INVENTORY.showInventory();
-    }
-
-    public void addVials(int vialAmount){
-        vialsNumber+=vialAmount;
-    }
-
-    public void addBullets(int bulletAmount){
-        bulletsNumber+=bulletAmount;
-    }
-
-    public void wasteBullet(){
-        bulletsNumber--;
     }
 
     public int getVialsNumber(){
         return vialsNumber;
     }
 
+    public int getBulletsNumber(){
+        return bulletsNumber;
+    }
+
     public int getBloodEchoes(){
         return bloodEchoes;
     }
 
-    public void gainBloodEchoes(int amount){
-        bloodEchoes+=amount;
-    }
-
     public int getBoostLeft(){
         return boostLeft;
+    }
+
+    public int getDamageBoost() {
+        return damageBoost;
+    }
+
+    public TrickWeapon getTrickWeapon() {
+        if(trickWeapon == null){
+            return null;
+        }
+        return trickWeapon;
+    }
+
+    public FireArm getFireArm() {
+        if(fireArm == null){
+            return null;
+        }
+        return fireArm;
+    }
+
+    public int getNumberOfRunes(){
+        return RUNE_LIST.size();
+    }
+
+    @Override
+    public int getDamage() {
+        return (trickWeapon == null) ? 1 : trickWeapon.getCurrentDamage() + this.damageBoost;
+    }
+
+    public String getDamageType(){
+        return damageType.toString();
+    }
+
+    public int getFireArmDamage() {
+        return (fireArm == null) ? 0 : fireArm.getCurrentDamage();
+    }
+
+    @Override
+    public double getDodgeRate(){
+        return trickWeapon == null ? DODGE_RATE : trickWeapon.getCurrentDodgeRate();
+    }
+
+    public double getHitRate(){
+        return fireArm == null ? 0 : fireArm.getHIT_RATE();
+    }
+
+    public double getVisceralRate(){
+        return fireArm == null ? 0 : fireArm.getVISCERAL_RATE();
+    }
+
+    public String getTrickWeaponIcon(){
+        String path;
+        if(trickWeapon == null){
+            path = "empty_hand.png";
+        } else {
+            path = trickWeapon.getIcon();
+        }
+        return path;
+    }
+
+    public String getFireArmIcon(){
+        String path;
+        if(fireArm == null){
+            path = "empty_hand.png";
+        } else {
+            path = fireArm.getIcon();
+        }
+        return path;
+    }
+
+    public List<Rune> getRUNE_LIST(){
+        return RUNE_LIST;
+    }
+
+    public boolean hasItem(String itemId){
+        return INVENTORY.hasItem(itemId);
     }
 
     public String heal(SoundManager soundManager){
@@ -116,15 +197,6 @@ public class Hunter extends Entity{
         return s.toString();
     }
 
-    public void regenAfterVisceral(int amount){ //TODO verify it works correctly
-        if(healthPoints != 30){
-            healthPoints+=amount;
-            if(healthPoints>30){
-                healthPoints=30;
-            }
-        }
-    }
-
     public String equipTrickWeapon(TrickWeapon weapon) {
         if (trickWeapon != null) {
             this.INVENTORY.addItem(trickWeapon);
@@ -143,6 +215,30 @@ public class Hunter extends Entity{
         fireArm = weapon;
 
         return "You equipped the " + weapon.getNAME() + " as your gun.";
+    }
+
+    public String equipRune(Rune rune, int position){
+        if (position != -1){ //-1 is when we have less than 3 runes equipped and just want to add one more
+            RUNE_LIST.add(position, rune);
+            INVENTORY.addItem(RUNE_LIST.remove(position+1));
+        }
+        RUNE_LIST.add(rune);
+        INVENTORY.removeItem(rune);
+        return rune.getEquipText();
+    }
+
+    public boolean hasRune(String runeName){
+        boolean hasRune = false;
+        for(Rune r : RUNE_LIST){
+            if(RUNE_LIST.isEmpty()){
+                break;
+            }
+            if(r.getNAME().equals(runeName)){
+                hasRune = true;
+                break;
+            }
+        }
+        return hasRune;
     }
 
     public String switchTrickWeaponState(){
@@ -169,23 +265,48 @@ public class Hunter extends Entity{
         }
     }
 
-    public int getDamageBoost() {
-        return damageBoost;
-    }
-
-    public TrickWeapon getTrickWeapon() {
-        if(trickWeapon == null){
-            return null;
+    @Override
+    public boolean attack(Entity target) {
+        int finalDamage = getDamage(); //To avoid losing one instance of boosted damage from the code below
+        if(boostLeft != 0){
+            boostLeft--;
+            if(boostLeft == 0){
+                damageBoost = 0;
+                damageType = DamageType.BASE;
+            }
         }
-        return trickWeapon;
+        return target.takeDamage(finalDamage);
     }
 
-    public FireArm getFireArm() {
+    public void regenAfterVisceral(int amount){ //TODO verify it works correctly
+        if(healthPoints != 30){
+            healthPoints+=amount;
+            if(healthPoints>30){
+                healthPoints=30;
+            }
+        }
+    }
+
+    public boolean shoot(Entity target) {
+        bulletsNumber-=fireArm.getBULLET_USE();
+        return target.takeDamage(getFireArmDamage());
+    }
+
+    public boolean cantShoot(){
+        boolean cantShoot = false;
         if(fireArm == null){
-            return null;
+            cantShoot = true;
+        } else {
+            int usage = fireArm.getBULLET_USE();
+            if((bulletsNumber - usage) < 0){
+                cantShoot = true;
+            }
         }
-        return fireArm;
+        return cantShoot;
     }
+
+
+    //Deprecated methods
 
     public String getTrickWeaponToString(){
         return getTrickWeapon() != null ? getTrickWeapon().getNAME() + ", deals " + getTrickWeapon().getCurrentDamage() + " (+ " + getDamageBoost() + ") damage\n" :
@@ -208,86 +329,5 @@ public class Hunter extends Entity{
             rates += ", hit rate : " + fireArm.getHIT_RATE() + ", visceral rate : " + fireArm.getVISCERAL_RATE();
         }
         return rates + "\n";
-    }
-
-    @Override
-    public int getDamage() {
-        return (trickWeapon == null) ? 1 : trickWeapon.getCurrentDamage() + this.damageBoost;
-    }
-
-    public int getFireArmDamage() {
-        return (fireArm == null) ? 0 : fireArm.getCurrentDamage();
-    }
-
-    @Override
-    public double getDodgeRate(){
-        return trickWeapon == null ? DODGE_RATE : trickWeapon.getCurrentDodgeRate();
-    }
-
-    public double getHitRate(){
-        return fireArm == null ? 0 : fireArm.getHIT_RATE();
-    }
-
-    public double getVisceralRate(){
-        return fireArm == null ? 0 : fireArm.getVISCERAL_RATE();
-    }
-
-    @Override
-    public boolean attack(Entity target) {
-        int finalDamage = getDamage(); //To avoid losing one instance of boosted damage from the code below
-        if(boostLeft != 0){
-            boostLeft--;
-            if(boostLeft == 0){
-                damageBoost = 0;
-                damageType = DamageType.BASE;
-            }
-        }
-        return target.takeDamage(finalDamage);
-    }
-
-    public String getDamageType(){
-        return damageType.toString();
-    }
-
-    public boolean shoot(Entity target) {
-        bulletsNumber-=fireArm.getBULLET_USE();
-        return target.takeDamage(getFireArmDamage());
-    }
-
-    public boolean canShoot(){
-        boolean canShoot = true;
-        if(fireArm == null){
-            canShoot = false;
-        } else {
-            int usage = fireArm.getBULLET_USE();
-            if((bulletsNumber - usage) < 0){
-                canShoot = false;
-            }
-        }
-        return canShoot;
-    }
-
-    public int getBulletsNumber(){
-        return bulletsNumber;
-    }
-
-    public String getTrickWeaponIcon(){
-        String path;
-        if(trickWeapon == null){
-            path = "empty_hand.png";
-        } else {
-            path = trickWeapon.getIcon();
-        }
-        return path;
-    }
-
-    public String getFireArmIcon(){
-        String path;
-        if(fireArm == null){
-            path = "empty_hand.png";
-        } else {
-            path = fireArm.getIcon();
-        }
-        return path;
     }
 }

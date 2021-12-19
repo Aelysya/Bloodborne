@@ -5,7 +5,11 @@
 		"imagePath": "zones/yharnam/clinic.png",
 		"songPath": "",
 		"items": {
-			"fire paper": "clinic-fire-paper"
+			"fire paper": "clinic-fire-paper",
+			"moon-rune": "moon-rune",
+			"eye-rune": "eye-rune",
+			"heir-rune": "heir-rune",
+			"lake-rune": "lake-rune"
 		},
 		"props": {
 			"bag": "clinic-bag",
@@ -120,7 +124,9 @@
 		"description": "You are in the back of the clinic, a BRAINSUCKER (F) is in the middle of the room. He clearly saw you but doesn't seem to be aggressive. There is an old CABINET (L) behind him and a CHEST (A) on your right. The north leads to the Graveyard annex. There is a hole in the floor on the west but if you go down you won't be able to climb back.",
 		"imagePath": "zones/yharnam/back-clinic.png",
 		"songPath": "",
-		"items": {},
+		"items": {
+			"coldblood": "back-clinic-coldblood-dew"
+		},
 		"props": {
 			"chest": "back-clinic-chest",
 			"cabinet": "back-clinic-cabinet",

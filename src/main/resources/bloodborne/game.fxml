@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane fx:id="entireWindow" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bloodborne.GameController">
@@ -32,45 +33,63 @@
       </VBox>
       <AnchorPane id="HUD" fx:id="HUDAnchorPane" layoutY="599.0" prefHeight="401.0" prefWidth="269.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 1px;" stylesheets="@stylesheet.css">
          <children>
-            <TextField id="hunterTitle" alignment="TOP_CENTER" editable="false" layoutX="67.0" layoutY="6.0" prefHeight="21.0" prefWidth="137.0" stylesheets="@stylesheet.css" text="Hunter" />
-            <TextField id="currentHP" fx:id="currentHP" editable="false" layoutX="60.0" layoutY="45.0" prefHeight="51.0" prefWidth="159.0" style="-fx-font-size: 30; -fx-background-color: none;" stylesheets="@stylesheet.css" text="30 / 30 HP" />
-            <ImageView fx:id="trickWeaponImage" fitHeight="60.0" fitWidth="60.0" layoutX="108.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+            <TextField id="hunterTitle" alignment="TOP_CENTER" editable="false" layoutX="89.0" layoutY="8.0" prefHeight="23.0" prefWidth="90.0" style="-fx-padding: 0px;" stylesheets="@stylesheet.css" text="Hunter" />
+            <TextField id="currentHP" fx:id="currentHP" editable="false" layoutX="13.0" layoutY="49.0" prefHeight="31.0" prefWidth="112.0" stylesheets="@stylesheet.css" text="HP: 30/30" />
+            <ImageView fx:id="trickWeaponImage" fitHeight="60.0" fitWidth="60.0" layoutX="105.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/items/empty_hand.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="gunImage" fitHeight="60.0" fitWidth="60.0" layoutX="108.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="gunImage" fitHeight="60.0" fitWidth="60.0" layoutX="105.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/items/empty_hand.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="24.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="21.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/items/vial.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="24.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="21.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/items/bullet.png" />
                </image>
             </ImageView>
-            <TextField fx:id="vialAmountText" alignment="CENTER_RIGHT" editable="false" layoutX="48.0" layoutY="121.0" prefHeight="42.0" prefWidth="51.0" style="-fx-font-size: 25; -fx-background-color: none;" text="2" />
-            <TextField fx:id="bulletAmountText" alignment="CENTER_RIGHT" editable="false" layoutX="48.0" layoutY="184.0" prefHeight="51.0" prefWidth="51.0" style="-fx-font-size: 25; -fx-background-color: none;" text="0" />
-            <TextArea fx:id="trickWeaponText" editable="false" layoutX="168.0" layoutY="93.0" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: none; -fx-font-size: 15px;" text="No weapon equipped&#10;1 damage" wrapText="true" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="11.0" layoutX="167.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-            <TextArea fx:id="gunText" editable="false" layoutX="168.0" layoutY="161.0" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: none; -fx-font-size: 15px;" text="No gun equipped" wrapText="true" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="167.0" layoutY="148.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="167.0" layoutY="211.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-            <TextField fx:id="dmgBoostText" layoutX="7.0" layoutY="233.0" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Damage boost: 0" />
-            <TextField fx:id="dodgeRateText" layoutX="7.0" layoutY="257.0" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Dodge rate: 0.3" />
-            <TextField fx:id="boostLeftText" layoutX="157.0" layoutY="233.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Boost left: 0" />
-            <TextField fx:id="hitRateText" layoutX="157.0" layoutY="257.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Hit rate: 0.0" />
-            <TextField fx:id="visceralRateText" layoutX="7.0" layoutY="281.0" prefHeight="25.0" prefWidth="147.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Visceral rate: 0.0" />
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="17.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
+            <TextField fx:id="vialAmountText" alignment="CENTER_RIGHT" editable="false" layoutX="45.0" layoutY="127.0" prefHeight="42.0" prefWidth="51.0" style="-fx-font-size: 25; -fx-background-color: none;" text="2" />
+            <TextField fx:id="bulletAmountText" alignment="CENTER_RIGHT" editable="false" layoutX="45.0" layoutY="190.0" prefHeight="51.0" prefWidth="51.0" style="-fx-font-size: 25; -fx-background-color: none;" text="0" />
+            <TextArea fx:id="trickWeaponText" editable="false" layoutX="165.0" layoutY="99.0" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: none; -fx-font-size: 15px;" text="No weapon equipped&#10;1 damage" wrapText="true" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="11.0" layoutX="164.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <TextArea fx:id="gunText" editable="false" layoutX="165.0" layoutY="167.0" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: none; -fx-font-size: 15px;" text="No gun equipped" wrapText="true" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="164.0" layoutY="154.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="164.0" layoutY="217.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <TextField fx:id="dmgBoostText" layoutX="7.0" layoutY="321.0" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Damage boost: 0" />
+            <TextField fx:id="dodgeRateText" layoutX="7.0" layoutY="345.0" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Dodge rate: 0.3" />
+            <TextField fx:id="boostLeftText" layoutX="157.0" layoutY="321.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Boost left: 0" />
+            <TextField fx:id="hitRateText" layoutX="157.0" layoutY="345.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Hit rate: 0.0" />
+            <TextField fx:id="visceralRateText" layoutX="7.0" layoutY="369.0" prefHeight="25.0" prefWidth="147.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Visceral rate: 0.0" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="156.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/items/blood_echoes.png" />
+                  <Image url="@images/blood_echoes.png" />
                </image>
             </ImageView>
+            <Line endX="142.0" endY="56.0" layoutX="121.0" layoutY="259.0" startX="-114.0" startY="56.0" stroke="#fff7f7" strokeWidth="1.5" />
+            <ImageView fx:id="rune1" fitHeight="60.0" fitWidth="60.0" layoutX="21.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/items/empty_hand.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rune2" fitHeight="60.0" fitWidth="60.0" layoutX="105.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/items/empty_hand.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rune3" fitHeight="60.0" fitWidth="60.0" layoutX="189.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/items/empty_hand.png" />
+               </image>
+            </ImageView>
+            <Line endX="142.0" endY="56.0" layoutX="121.0" layoutY="181.0" startX="-114.0" startY="56.0" stroke="#fff7f7" strokeWidth="1.5" />
+            <TextField fx:id="bloodEchoesText" layoutX="181.0" layoutY="49.0" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 30px;" stylesheets="@stylesheet.css" text="0" />
          </children></AnchorPane>
    </children>
 </AnchorPane>

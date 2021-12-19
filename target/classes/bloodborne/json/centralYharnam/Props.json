@@ -66,7 +66,7 @@
 	{
 		"id": "back-clinic-cabinet",
 		"type": "ConditionalProp",
-		"description": "You scatter through the various document on the cabinet and you find a medical REPORT (L). You open the drawers and manage to find a blood vial.",
+		"description": "You scatter through the various document on the cabinet and you find a medical REPORT (L). You open the drawers and manage to find a blood vial and a COLDBLOOD DEW (T).",
 		"attributes": {
 			"name": "Cabinet",
 			"isActionable": "false",

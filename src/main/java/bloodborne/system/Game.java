@@ -16,7 +16,7 @@ import java.util.Locale;
 
 import static java.lang.Thread.sleep;
 
-enum TextAnalyzer {EXPLORATION, FIGHT, DEATH, QUIT, START, WIN}
+enum TextAnalyzer {EXPLORATION, FIGHT, RUNE, DEATH, QUIT, START, WIN}
 
 public class Game {
 
@@ -35,6 +35,7 @@ public class Game {
     private final SoundManager SOUND_MANAGER;
     private final Zone ZONE;
     private Entity currentlyFoughtEntity;
+    private Rune memorizedRune;
     private TextAnalyzer analyzer;
 
     public Game(GameController Controller) {
@@ -62,6 +63,7 @@ public class Game {
             switch (analyzer) {
                 case QUIT -> COMMAND_HANDLER.quitTextAnalyzer(line);
                 case FIGHT -> COMMAND_HANDLER.fightTextAnalyzer(line);
+                case RUNE -> COMMAND_HANDLER.runeTextAnalyzer(line);
                 case START -> COMMAND_HANDLER.startTextAnalyzer(line);
                 case DEATH -> COMMAND_HANDLER.deathTextAnalyzer(line);
                 case WIN -> COMMAND_HANDLER.winTextAnalyzer(line);
@@ -231,19 +233,29 @@ public class Game {
     }//TODO change to letter by letter printing
 
 
-    public void equipFunction(String weapon) {
-        if (HUNTER.getItemByName(weapon) != null) {
-            try {
-                Weapon w = (Weapon) HUNTER.getItemByName(weapon);
-                if(w instanceof TrickWeapon){
-                    CONTROLLER.writeInstantly(HUNTER.equipTrickWeapon((TrickWeapon) w));
+    public void equipFunction(String object) {
+        Item item = HUNTER.getItemByName(object);
+        if (item != null) {
+            if (item instanceof Weapon){
+                if(item instanceof TrickWeapon){
+                    CONTROLLER.writeInstantly(HUNTER.equipTrickWeapon((TrickWeapon) item));
                 } else {
-                    CONTROLLER.writeInstantly(HUNTER.equipFireArm((FireArm) w));
+                    CONTROLLER.writeInstantly(HUNTER.equipFireArm((FireArm) item));
                 }
                 SOUND_MANAGER.playSoundEffect("weapon_equip.wav");
                 CONTROLLER.updateWeapons(HUNTER);
-            } catch (ClassCastException e) {
-                CONTROLLER.writeInstantly("This item is not a weapon");
+            } else if (item instanceof Rune){
+                if(HUNTER.getNumberOfRunes() >= 3){
+                    setAnalyzer(TextAnalyzer.RUNE);
+                    memorizedRune = (Rune) item;
+                    CONTROLLER.writeInstantly("You already have 3 runes equipped, which one do you want to replace ? [1/2/3/cancel]");
+                } else {
+                    CONTROLLER.writeInstantly(HUNTER.equipRune((Rune) item, -1)); //-1 to just add the rune to the list
+                    SOUND_MANAGER.playSoundEffect("weapon_equip.wav");
+                    CONTROLLER.updateRunes(HUNTER);
+                }
+            } else {
+                CONTROLLER.writeInstantly("This item is not a weapon nor a rune.");
             }
         } else {
             CONTROLLER.writeInstantly("You try to equip a weapon that you don't have or doesn't exist.");
@@ -251,12 +263,23 @@ public class Game {
         CONTROLLER.updateHUD(HUNTER);
     }//TODO change to letter by letter printing
 
+    public void runeDecisionFunction(int position){
+        CONTROLLER.writeInstantly(HUNTER.equipRune(memorizedRune, position));
+        SOUND_MANAGER.playSoundEffect("weapon_equip.wav");
+        CONTROLLER.updateRunes(HUNTER);
+        setAnalyzer(TextAnalyzer.EXPLORATION);
+    }
+
     public void initiateFightFunction(String target) {
         Entity eTarget = ZONE.getCurrentPlace().getNpcByName(target);
         if (eTarget instanceof Enemy) {
-            CONTROLLER.writeInstantly("You engage the enemy. Now you must fight or flee.");
-            setAnalyzer(TextAnalyzer.FIGHT);
-            currentlyFoughtEntity = ZONE.getCurrentPlace().getNPCS().get(target);
+            if (eTarget.isDead()){
+                CONTROLLER.writeInstantly("This enemy is already dead.");
+            } else {
+                CONTROLLER.writeInstantly("You engage the enemy. Now you must fight or flee.");
+                setAnalyzer(TextAnalyzer.FIGHT);
+                currentlyFoughtEntity = ZONE.getCurrentPlace().getNPCS().get(target);
+            }
         } else {
             CONTROLLER.writeInstantly("You try to engage a fight with something that doesn't exist.");
         }
@@ -306,7 +329,7 @@ public class Game {
                 CONTROLLER.updateHUD(HUNTER);
             }
         } else { //Ranged attack
-            if(!HUNTER.canShoot()){
+            if(HUNTER.cantShoot()){
                 CONTROLLER.writeInstantly("You don't have enough quicksilver bullets left to shoot.");
                 return;
             } else if (HUNTER.getFireArm() == null){
@@ -447,7 +470,7 @@ public class Game {
     }
 
     public void shootFunction() {
-        if(!HUNTER.canShoot()){
+        if(HUNTER.cantShoot()){
             CONTROLLER.writeInstantly("You don't have enough quicksilver bullets left to shoot.");
         } else if (HUNTER.getFireArm() == null){
             CONTROLLER.writeInstantly("You have no gun equipped.");
