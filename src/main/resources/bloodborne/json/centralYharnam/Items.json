@@ -177,5 +177,14 @@
 		"attributes": {
 			"name": "Amulet"
 		}
+	},
+	{
+		"id": "back-clinic-coldblood-dew",
+		"type": "Coldblood",
+		"description": "Droplet of coldblood containing Blood Echoes. Hunters sustained by the dream gain strength from Blood Echoes. They imbibe the blood with thoughts of reverence, indeed gratitude, for their victims.",
+		"attributes": {
+			"name": "Coldblood dew",
+			"value": "350"
+		}
 	}
 ]

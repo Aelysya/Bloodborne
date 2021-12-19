@@ -11,6 +11,7 @@ import bloodborne.zone.Zone;
 import bloodborne.zone.ZoneLoader;
 
 import javax.swing.*;
+import javax.xml.stream.events.EndElement;
 import java.util.Locale;
 
 import static java.lang.Thread.sleep;
@@ -365,6 +366,8 @@ public class Game {
             if (!fromVisceral) {
                 SOUND_MANAGER.playSoundEffect("enemy_killed.wav");
             }
+            Enemy e = (Enemy) enemy;
+            CONTROLLER.writeInstantly(e.loot(HUNTER));
             setAnalyzer(TextAnalyzer.EXPLORATION);
         } else {
             CONTROLLER.transitionImage("prey_slaughtered.png");

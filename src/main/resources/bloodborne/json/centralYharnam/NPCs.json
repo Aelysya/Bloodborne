@@ -9,7 +9,7 @@
 			"damage": "2",
 			"dodgeRate": "0.0",
 			"bloodEchoes": "500",
-			"lootValue": "2"
+			"lootValue": "uncommon"
 		}
 	},
 	{
@@ -22,7 +22,7 @@
 			"damage": "3",
 			"dodgeRate": "0.1",
 			"bloodEchoes": "1500",
-			"lootValue": "3"
+			"lootValue": "rare"
 		}
 	},
 	{
@@ -35,7 +35,7 @@
 			"damage": "3",
 			"dodgeRate": "0.2",
 			"bloodEchoes": "300",
-			"lootValue": "1"
+			"lootValue": "common"
 		}
 	},
 	{
@@ -48,7 +48,7 @@
 			"damage": "1",
 			"dodgeRate": "0.1",
 			"bloodEchoes": "100",
-			"lootValue": "0"
+			"lootValue": "basic"
 		}
 	},
 	{
@@ -61,7 +61,7 @@
 			"damage": "1",
 			"dodgeRate": "0.1",
 			"bloodEchoes": "100",
-			"lootValue": "0"
+			"lootValue": "basic"
 		}
 	},
 	{
@@ -74,7 +74,7 @@
 			"damage": "3",
 			"dodgeRate": "0.2",
 			"bloodEchoes": "300",
-			"lootValue": "1"
+			"lootValue": "common"
 		}
 	},
 	{
@@ -87,7 +87,7 @@
 			"damage": "3",
 			"dodgeRate": "0.2",
 			"bloodEchoes": "300",
-			"lootValue": "1"
+			"lootValue": "common"
 		}
 	},
 	{
@@ -100,7 +100,7 @@
 			"damage": "2",
 			"dodgeRate": "0.0",
 			"bloodEchoes": "500",
-			"lootValue": "2"
+			"lootValue": "uncommon"
 		}
 	},
 	{
@@ -113,7 +113,7 @@
 			"damage": "7",
 			"dodgeRate": "0.1",
 			"bloodEchoes": "4000",
-			"lootValue": "4"
+			"lootValue": "very rare"
 		}
 	},
 	{
@@ -126,7 +126,7 @@
 			"damage": "5",
 			"dodgeRate": "0.3",
 			"bloodEchoes": "2000",
-			"lootValue": "3"
+			"lootValue": "rare"
 		}
 	},
 	{
@@ -139,7 +139,7 @@
 			"damage": "4",
 			"dodgeRate": "0.2",
 			"bloodEchoes": "1500",
-			"lootValue": "2"
+			"lootValue": "uncommon"
 		}
 	}
 ]

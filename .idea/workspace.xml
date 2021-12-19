@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="allowed use of paper in fights, modified sound effect for killing basic monster to add gained blood echoes effect">
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="added loot values to NPC json file, added eileen and alfred enemy version in NPC json file">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/gain_echoes.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Items.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/NPCs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/NPCs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Props.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -133,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639934019516</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added loot values to NPC json file, added eileen and alfred enemy version in NPC json file">
+      <created>1639934486313</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1639934486313</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,7 +168,8 @@
     <MESSAGE value="added stats texts to HUD" />
     <MESSAGE value="added blood echoes values to NPC in json file" />
     <MESSAGE value="allowed use of paper in fights, modified sound effect for killing basic monster to add gained blood echoes effect" />
-    <option name="LAST_COMMIT_MESSAGE" value="allowed use of paper in fights, modified sound effect for killing basic monster to add gained blood echoes effect" />
+    <MESSAGE value="added loot values to NPC json file, added eileen and alfred enemy version in NPC json file" />
+    <option name="LAST_COMMIT_MESSAGE" value="added loot values to NPC json file, added eileen and alfred enemy version in NPC json file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
