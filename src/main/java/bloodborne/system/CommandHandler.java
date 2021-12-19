@@ -84,7 +84,7 @@ public class CommandHandler {
                 - Equip [weapon] : Equip a weapon in your inventory
                 - Fight [target] : Initiate a fight with the target
                 - TalK [NPC] : Engage conversation with target NPC
-                - Status : Display current status and inventory
+                - Inventory : Display your inventory's content
                 - mute/unmute : Mutes or unmutes the music
                 - Quit : Quit the game, all progress will be lost""";
 
@@ -147,7 +147,7 @@ public class CommandHandler {
             }
             case "h", "help" -> GAME.writeInstantly(EXPLORATION_HELP_TEXT);
             case "l", "look" -> GAME.lookFunction(target);
-            case "s", "status" -> GAME.statusFunction();
+            case "i", "inventory" -> GAME.inventoryFunction();
             case "hl", "heal" -> GAME.healFunction();
             case "sw", "switch" -> GAME.switchFunction();
             case "mute" -> GAME.muteGame();
@@ -165,26 +165,36 @@ public class CommandHandler {
         }
 
         String command = args[0];
-        //String target = args[1];
+        String target = "";
+
+        if(args.length == 2){
+            target = args[1];
+        }
 
         String FIGHT_HELP_TEXT = """
                 Currently available commands (capitalized characters for shortcut) :
                 - Attack : Attack the enemy with your Trick weapon, you'll have a chance to dodge it's attack
                 - SHoot : Attack the enemy with your gun, you'll have a chance to stagger it, canceling it's attack and performing a visceral attack
                 - SWitch : Switch the state of your trick weapon
+                - Use [object] : Use an object in your inventory, only some objects can be used while fighting
                 - Flee : Try to flee the fight, you will take some damage if you do this
                 - HeaL : Use a blood vial to heal you
-                - Status : Display current status and inventory
                 - mute/unmute : Mutes or unmutes the music""";
 
         switch (command) {
+            case "u", "use" -> {
+                if (target.equals("")) {
+                    throw new TooFewArgumentsException();
+                } else {
+                    GAME.usePaperInFightFunction(target);
+                }
+            }
             case "h", "help" -> GAME.writeInstantly(FIGHT_HELP_TEXT);
             case "a", "attack" -> GAME.resolveFight("melee");
             case "sh", "shoot" -> GAME.resolveFight("range");
             case "sw", "switch" -> GAME.switchFunction();
             case "f", "flee" -> GAME.fleeFunction();
             case "hl", "heal" -> GAME.healFunction();
-            case "s", "status" -> GAME.statusFunction();
             case "mute" -> GAME.muteGame();
             case "unmute" -> GAME.unMuteGame();
             default -> GAME.writeInstantly("Unknown command !"); //TODO Add a function to allow use of papers and only these items

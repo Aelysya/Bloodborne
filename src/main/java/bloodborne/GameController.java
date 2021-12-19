@@ -90,11 +90,11 @@ public class GameController {
         }
         vialAmountText.setText(Integer.toString(hunter.getVialsNumber()));
         bulletAmountText.setText(Integer.toString(hunter.getBulletsNumber()));
-        dmgBoostText.setText("Damage boost : " + hunter.getDamageBoost());
-        boostLeftText.setText("Boost left : " + hunter.getBoostLeft());
-        dodgeRateText.setText("Dodge rate : " + hunter.getDodgeRate());
-        hitRateText.setText("Hit rate : " + hunter.getHitRate());
-        visceralRateText.setText("Visceral rate : " + hunter.getVisceralRate());
+        dmgBoostText.setText("Damage boost: " + hunter.getDamageBoost());
+        boostLeftText.setText("Boost left: " + hunter.getBoostLeft());
+        dodgeRateText.setText("Dodge rate: " + hunter.getDodgeRate());
+        hitRateText.setText("Hit rate: " + hunter.getHitRate());
+        visceralRateText.setText("Visceral rate: " + hunter.getVisceralRate());
     }
 
     public void updateWeapons(Hunter hunter){

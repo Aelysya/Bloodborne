@@ -4,10 +4,7 @@ import bloodborne.GameController;
 import bloodborne.entities.*;
 import bloodborne.environment.*;
 import bloodborne.exceptions.TooFewArgumentsException;
-import bloodborne.items.FireArm;
-import bloodborne.items.Item;
-import bloodborne.items.TrickWeapon;
-import bloodborne.items.Weapon;
+import bloodborne.items.*;
 import bloodborne.sounds.SoundManager;
 import bloodborne.zone.Place;
 import bloodborne.zone.Zone;
@@ -274,7 +271,7 @@ public class Game {
         }
     }//TODO change to letter by letter printing
 
-    public void statusFunction() {
+    public void inventoryFunction() {
         String s = "-----------------------------\n" +
                 HUNTER.showInventory() +
                 "-----------------------------";
@@ -383,6 +380,23 @@ public class Game {
         CONTROLLER.writeInstantly(HUNTER.switchTrickWeaponState());
         CONTROLLER.updateHUD(HUNTER);
     }
+
+    public void usePaperInFightFunction(String object) {
+        String objString = object.toLowerCase(Locale.ROOT);
+        Item item = HUNTER.getItemByName(object);
+        if (item != null) {
+            if (item instanceof Paper){
+                CONTROLLER.writeInstantly(item.use(HUNTER, SOUND_MANAGER));
+            } else {
+                CONTROLLER.writeInstantly("You can't use this item in the middle of a fight");
+            }
+        } else if (objString.equals("blood vial")){
+            healFunction();
+        } else {
+            CONTROLLER.writeInstantly("You try to use something that you don't have or doesn't exist.");
+        }
+        CONTROLLER.updateHUD(HUNTER);
+    }//TODO change to letter by letter printing
 
     public void fleeFunction() {
         if (HUNTER.takeDamage(5)) {

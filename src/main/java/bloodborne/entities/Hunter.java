@@ -18,6 +18,7 @@ public class Hunter extends Entity{
     private int vialsNumber;
     private int bulletsNumber;
     private DamageType damageType;
+    private int bloodEchoes;
 
     private static final Map<String, String> CONSTRUCT_MAP = new HashMap<>();
     static{
@@ -33,6 +34,7 @@ public class Hunter extends Entity{
         vialsNumber = 2;
         bulletsNumber = 0;
         damageType = DamageType.BASE;
+        bloodEchoes = 0;
     }
 
     public void addItem(Item item){
@@ -78,6 +80,14 @@ public class Hunter extends Entity{
 
     public int getVialsNumber(){
         return vialsNumber;
+    }
+
+    public int getBloodEchoes(){
+        return bloodEchoes;
+    }
+
+    public void gainBloodEchoes(int amount){
+        bloodEchoes+=amount;
     }
 
     public int getBoostLeft(){
