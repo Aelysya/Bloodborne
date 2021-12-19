@@ -5,11 +5,7 @@
 		"imagePath": "zones/yharnam/clinic.png",
 		"songPath": "",
 		"items": {
-			"fire paper": "clinic-fire-paper",
-			"moon-rune": "moon-rune",
-			"eye-rune": "eye-rune",
-			"heir-rune": "heir-rune",
-			"lake-rune": "lake-rune"
+			"fire paper": "clinic-fire-paper"
 		},
 		"props": {
 			"bag": "clinic-bag",
