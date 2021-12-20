@@ -59,7 +59,11 @@ public class Hunter extends Entity{
     }
 
     public void gainBloodEchoes(int amount){
-        bloodEchoes+=amount;
+        int finalAmount = amount;
+        if (hasRune("Moon rune")){
+            finalAmount*=0.3;
+        }
+        bloodEchoes+=finalAmount;
     }
 
     public void spendBloodEchoes(int amount){
@@ -278,7 +282,24 @@ public class Hunter extends Entity{
         return target.takeDamage(finalDamage);
     }
 
-    public void regenAfterVisceral(int amount){ //TODO verify it works correctly
+    @Override
+    public boolean takeDamage(int damage){
+        int finalDamage = damage;
+        if (hasRune("Lake rune")){
+            finalDamage--;
+        }
+        if((healthPoints - finalDamage) < 0 ){
+            healthPoints = 0;
+        } else {
+            healthPoints-=finalDamage;
+        }
+        return getHealthPoints() <= 0;
+    }
+
+    public void regenAfterVisceral(int amount){
+        if (hasRune("Heir rune")){
+            gainBloodEchoes(500);
+        }
         if(healthPoints != 30){
             healthPoints+=amount;
             if(healthPoints>30){

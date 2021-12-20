@@ -1,11 +1,11 @@
 [
 	{
 		"name": "clinic",
-		"description": "You are in a small medical room. Apart from the two beds, the only interesting things here are the SHELVES (L) and a BAG (L) left on the other bed. You see a hole in the roof but you can't reach it. The only way out is to go to north.",
+		"description": "You are in a small medical room, a lantern on the ground illuminates the surroundings. Apart from the two beds, the only interesting things here are the SHELVES (L) and a BAG (L) left on the other bed. You see a hole in the roof but you can't reach it. The only way out is to go to north.",
 		"imagePath": "zones/yharnam/clinic.png",
 		"songPath": "",
 		"items": {
-			"fire paper": "clinic-fire-paper"
+			"fire-paper": "clinic-fire-paper"
 		},
 		"props": {
 			"bag": "clinic-bag",
@@ -46,7 +46,7 @@
 				"attributes": {
 					"conditionType": "ActivatedProp",
 					"objectName": "graveyard-lever",
-					"conditionFalseText": "The ladder is still out of your reach maybe you can find a way to make it drop down ?"
+					"conditionFalseText": "The ladder is still out of your reach, you need to find a way to make it drop down."
 				}
 			},
 			"east": {
@@ -91,7 +91,9 @@
 		"description": "You are in a smaller part of the graveyard. A WOLF (F) beast is busy feasting on a CORPSE (L) and did not see you yet. The south leads to another part of the Clinic. The west leads back to the Graveyard",
 		"imagePath": "zones/yharnam/graveyard-annex.png",
 		"songPath": "",
-		"items": {},
+		"items": {
+			"heir-rune": "heir-rune"
+		},
 		"props": {
 			"corpse": "graveyard-annex-corpse"
 		},
@@ -242,7 +244,8 @@
 		"imagePath": "zones/yharnam/square.png",
 		"songPath": "",
 		"items": {
-			"blades": "blades-of-mercy"
+			"blades": "blades-of-mercy",
+			"eye-rune": "eye-rune"
 		},
 		"props": {
 			"structure": "square-stone-structure"
@@ -275,12 +278,15 @@
 	},
 	{
 		"name": "back-bridge",
-		"description": "You arrive on the back side of the Yharnam bridge, from here you see the majority of the CITY (L). Below are the sewers, but it is no longer water flowing in the channels... A WOLF (F) beast roams not far away. Going west you will reach the front part of the bridge. The south path leads to the square.",
+		"description": "You arrive on the back side of the Yharnam bridge, from here you see the majority of the CITY (L). Below are the sewers, but it is no longer water flowing in the channels... A WOLF (F) beast roams not far away from a wooden CRATE (T). Going west you will reach the front part of the bridge. The south path leads to the square.",
 		"imagePath": "zones/yharnam/back-bridge.png",
 		"songPath": "",
-		"items": {},
+		"items": {
+			"moon-rune": "moon-rune"
+		},
 		"props": {
-			"city": "back-bridge-city"
+			"city": "back-bridge-city",
+			"crate": "back-bridge-crate"
 		},
 		"exits": {
 			"west": {

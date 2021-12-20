@@ -373,7 +373,11 @@ public class Game {
         if (Math.random() < HUNTER.getDodgeRate()){ //Player dodges the attack
             CONTROLLER.writeInstantly("You avoided your enemy's attack.");
         } else {
-            CONTROLLER.writeInstantly("You took " + currentlyFoughtEntity.getDamage() + " damage !");
+            if (HUNTER.hasRune("Lake rune")){
+                CONTROLLER.writeInstantly("You took " + (currentlyFoughtEntity.getDamage()-1) + " damage !");
+            } else {
+                CONTROLLER.writeInstantly("You took " + currentlyFoughtEntity.getDamage() + " damage !");
+            }
             if (currentlyFoughtEntity.attack(HUNTER)){ //Player is dead
                 death();
                 CONTROLLER.updateHUD(HUNTER);

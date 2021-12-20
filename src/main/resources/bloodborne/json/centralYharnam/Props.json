@@ -40,7 +40,7 @@
 	{
 		"id": "graveyard-annex-corpse",
 		"type": "ConditionalProp",
-		"description": "You search through the remnants of the corpse only to find yourself covered in blood. You found nothing of value.",
+		"description": "You search through the remnants of the corpse and found a strange thing in it's pockets, a HEIR RUNE (T).",
 		"attributes": {
 			"name": "Corpse",
 			"isActionable": "false",
@@ -122,7 +122,7 @@
 	{
 		"id": "campfire-campfire",
 		"type": "Prop",
-		"description": "You examine the campfire and its surroundings, you find a blood vial and 5 quicksilver bullets among the blood-drunks' stuff. Further inspection makes you find a fire paper and a hunter blunderbuss.",
+		"description": "You examine the campfire and its surroundings, you find a blood vial and 5 quicksilver bullets among the blood-drunks' stuff. Further inspection makes you find a FIRE PAPER (T) and a HUNTER BLUNDERBUSS (T).",
 		"attributes": {
 			"name": "Campfire",
 			"isActionable": "false",
@@ -146,7 +146,7 @@
 	{
 		"id": "square-stone-structure",
 		"type": "Prop",
-		"description": "You examine the stone structure in more detail. You are unable to tell what it represents. Looking a little harder, you find a weapon under some rubble: the BLADES OF MERCY (T). They are in very good condition and are still sharp, they were recently lost.",
+		"description": "You examine the stone structure in more detail. You are unable to tell what it represents. Looking a little harder, you find a weapon under some rubble: the BLADES OF MERCY (T). They are in very good condition and are still sharp, they were recently lost. You also find an EYE RUNE (T).",
 		"attributes": {
 			"name": "Stone structure",
 			"isActionable": "false"
@@ -215,6 +215,16 @@
 		"attributes": {
 			"name": "City view",
 			"isActionable": "false"
+		}
+	},
+	{
+		"id": "back-bridge-crate",
+		"type": "Prop",
+		"description": "You brake open the crate to searching through it's content. You find a blood vial and a MOON RUNE (T)",
+		"attributes": {
+			"name": "Crate",
+			"isActionable": "false",
+			"vialsContained": "1"
 		}
 	},
 	{
