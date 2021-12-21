@@ -410,6 +410,7 @@ public class Game {
     public void switchFunction() {
         CONTROLLER.writeInstantly(HUNTER.switchTrickWeaponState());
         CONTROLLER.updateHUD(HUNTER);
+        CONTROLLER.updateWeapons(HUNTER);
     }
 
     public void usePaperInFightFunction(String object) {

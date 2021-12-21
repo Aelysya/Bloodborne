@@ -140,7 +140,7 @@ public class Hunter extends Entity{
 
     @Override
     public double getDodgeRate(){
-        return trickWeapon == null ? DODGE_RATE : trickWeapon.getCurrentDodgeRate();
+        return trickWeapon == null ? Double.parseDouble(ATTRIBUTES.get("dodgeRate")) : trickWeapon.getCurrentDodgeRate();
     }
 
     public double getHitRate(){
@@ -342,7 +342,7 @@ public class Hunter extends Entity{
     public String getRates(){
         String rates = "Dodge rate : ";
         if(trickWeapon == null){
-            rates += DODGE_RATE;
+            rates += Double.parseDouble(ATTRIBUTES.get("dodgeRate"));
         } else {
             rates += trickWeapon.getCurrentDodgeRate();
         }

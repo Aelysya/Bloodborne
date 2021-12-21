@@ -34,4 +34,9 @@ public class ConditionalExit extends Exit{
     public boolean isTraversable(){
         return condition.checkCondition();
     }
+
+    @Override
+    public String getDescription(){
+        return condition.checkCondition() ? ATTRIBUTES.get("altDescription") : ATTRIBUTES.get("description");
+    }
 }

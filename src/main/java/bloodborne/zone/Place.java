@@ -60,10 +60,6 @@ public class Place {
         return SONG_PATH;
     }
 
-    public HashMap<String, Item> getITEMS() {
-        return ITEMS;
-    }
-
     public HashMap<String, Prop> getPROPS() {
         return PROPS;
     }

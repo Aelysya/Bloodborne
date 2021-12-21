@@ -14,8 +14,10 @@ public class Exit {
         ATTRIBUTES = att;
     }
 
-    public void initialize(Zone zone) throws ReflectionException{
+    public void initialize(Zone zone) throws ReflectionException{}
 
+    public String getDescription(){
+        return ATTRIBUTES.get("description");
     }
 
     public String getConditionFalseText(){
