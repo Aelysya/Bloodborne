@@ -7,29 +7,21 @@ import java.util.Map;
 
 public class FireArm extends Weapon{
 
-    private final double HIT_RATE;
-    private final double VISCERAL_RATE;
-    private final int BULLET_USE;
-
     public FireArm(String id, String description, Map<String, String> att) {
         super(id, description, att);
-        HIT_RATE = Double.parseDouble(att.get("hitRate"));
-        VISCERAL_RATE = Double.parseDouble(att.get("visceralRate"));
-        BULLET_USE = Integer.parseInt(att.get("bulletUse"));
     }
-
 
     @Override
     public int getCurrentDamage() {
-        return DAMAGE;
+        return Integer.parseInt(ATTRIBUTES.get("damage"));
     }
 
     public double getHIT_RATE(){
-        return HIT_RATE;
+        return Double.parseDouble(ATTRIBUTES.get("hitRate"));
     }
 
     public double getVISCERAL_RATE() {
-        return VISCERAL_RATE;
+        return Double.parseDouble(ATTRIBUTES.get("visceralRate"));
     }
 
     @Override
@@ -38,6 +30,6 @@ public class FireArm extends Weapon{
     }
 
     public int getBULLET_USE() {
-        return BULLET_USE;
+        return Integer.parseInt(ATTRIBUTES.get("bulletUse"));
     }
 }

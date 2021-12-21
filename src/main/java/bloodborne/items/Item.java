@@ -8,14 +8,12 @@ import java.util.Map;
 public abstract class Item {
 
     private final String ID;
-    private final String NAME;
     private final String DESCRIPTION;
     private boolean isTaken;
     protected final Map<String, String> ATTRIBUTES;
 
     public Item(String id, String description, Map<String, String> att) {
         ID = id;
-        NAME = att.get("name");
         DESCRIPTION = description;
         isTaken = false;
         ATTRIBUTES = att;
@@ -30,7 +28,7 @@ public abstract class Item {
     }
 
     public String getNAME() {
-        return NAME;
+        return ATTRIBUTES.get("name");
     }
 
     public boolean isTaken() {
@@ -40,7 +38,7 @@ public abstract class Item {
     public String take(Hunter hunter) {
         isTaken = true;
         hunter.addItem(this);
-        return "You took the " + NAME;
+        return "You took the " + ATTRIBUTES.get("name");
     }
 
     public abstract String use(Hunter hunter, SoundManager soundManager);

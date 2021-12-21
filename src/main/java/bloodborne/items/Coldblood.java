@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class Coldblood extends Item{
 
-
     public Coldblood(String id, String description, Map<String, String> att) {
         super(id, description, att);
     }

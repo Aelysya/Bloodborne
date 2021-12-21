@@ -190,7 +190,7 @@
 	{
 		"id": "moon-rune",
 		"type": "Rune",
-		"description": "A secret symbol left by Caryll, runesmith of Byrgenwerth.A transcription of \"Moon\" as spoken by the Great Ones inhabiting the nightmare. Gain more Blood Echoes. The Great Ones that inhabit the nightmare are sympathetic in spirit, and often answer when called upon.",
+		"description": "A secret symbol left by Caryll, runesmith of Byrgenwerth. A transcription of \"Moon\" as spoken by the Great Ones inhabiting the nightmare. Gain more Blood Echoes. The Great Ones that inhabit the nightmare are sympathetic in spirit, and often answer when called upon.",
 		"attributes": {
 			"name": "Moon rune",
 			"imagePath": "moon.png",
@@ -220,11 +220,11 @@
 	{
 		"id": "heir-rune",
 		"type": "Rune",
-		"description": "A secret symbol left by Caryll, runesmith of Byrgenwerth. A transcription of \"Eye\" as spoken by left-behind Great Ones. Allows one to make additional discoveries. Eyes symbolize the truth Master Willem sought in his research. Disillusioned by the limits of human intellect, Master Willem looked to beings from higher planes for guidance, and sought to line his brain with eyes in order to elevate his thoughts.",
+		"description": "A Caryll rune that transcribes inhuman sounds. The \"Heir\" sees sentimentality in the warmth of blood, and acknowledges visceral attacks as one of the darker hunter techniques. Blood echoes gained from visceral attacks. Perhaps the \"Heir\" is a hunter who bears the echoing will of those before him.",
 		"attributes": {
 			"name": "Heir rune",
 			"imagePath": "heir.png",
-			"equipText": "You equipped the Eye rune, you now gain more loot from killed enemies."
+			"equipText": "You equipped the Heir rune, you now gain blood echoes when performing a visceral attack on enemies."
 		}
 	}
 ]

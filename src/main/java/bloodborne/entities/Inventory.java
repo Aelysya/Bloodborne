@@ -8,24 +8,24 @@ import java.util.Map;
 
 public class Inventory {
 
-    private Map<String, Item> items;
+    private final Map<String, Item> ITEMS;
 
     public Inventory(){
-        items = new HashMap<>();
+        ITEMS = new HashMap<>();
     }
 
     public void addItem(Item item){
-        items.put(item.getID(), item);
+        ITEMS.put(item.getID(), item);
     }
 
     public void removeItem(Item item){
-        items.remove(item.getID());
+        ITEMS.remove(item.getID());
     }
 
     public void removeItemByName(String itemName) {
-        for(Item i : items.values()){
+        for(Item i : ITEMS.values()){
             if(i.getNAME().equals(itemName)){
-                items.remove(i);
+                ITEMS.remove(i);
                 break;
             }
         }
@@ -34,7 +34,7 @@ public class Inventory {
     public String showInventory(){
         StringBuilder s = new StringBuilder();
 
-        for(Item item: items.values()) {
+        for(Item item: ITEMS.values()) {
             s.append(item.getNAME())
                     .append("\n");
         }
@@ -45,7 +45,7 @@ public class Inventory {
     public Item getItemByName(String itemName){
         Item item = null;
         String iName;
-        for(Item i : items.values()){
+        for(Item i : ITEMS.values()){
             iName = i.getNAME().toLowerCase(Locale.ROOT);
             if(iName.equals(itemName)){
                 item = i;
@@ -56,14 +56,14 @@ public class Inventory {
     }
 
     public Item getItemById(String itemId){
-        return items.get(itemId);
+        return ITEMS.get(itemId);
     }
 
     public int getNumberOfItems(){
-        return items.size();
+        return ITEMS.size();
     }
 
     public boolean hasItem(String itemId){
-        return items.containsKey(itemId);
+        return ITEMS.containsKey(itemId);
     }
 }

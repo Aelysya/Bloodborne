@@ -4,14 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="added many new images to resources directory and adjusted game.fxml">
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="added rune effects and some changes to json files">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/hunters_dream_theme.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Friendly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Friendly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/FireArm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/FireArm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Paper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Paper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/sounds/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/sounds/SoundManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/NPCs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/NPCs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Places.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Props.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/ambient_theme.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/ambient_theme.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/cleric_beast_theme.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/cleric_beast_theme.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/Items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/NPCs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/NPCs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/Props.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/SoundManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/sounds/SoundManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/ambient_theme.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/cleric_beast_theme.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +99,7 @@
       <recent name="bloodborne.zone" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\maxim\Desktop\bloodborne\src\main\resources\bloodborne\sounds\themes" />
       <recent name="C:\Users\maxim\Desktop\bloodborne\src\main\resources\bloodborne\images" />
       <recent name="C:\Users\maxim\Desktop\bloodborne\src\main\resources\bloodborne\images\zones\yharnam" />
       <recent name="C:\Users\maxim\Desktop\bloodborne\src\main\java\bloodborne" />
@@ -167,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639952634548</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added rune effects and some changes to json files">
+      <created>1640031395473</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1640031395473</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,7 +220,8 @@
     <MESSAGE value="added Coldblood class and blood echoes are now counted in Hunter class" />
     <MESSAGE value="added rune equip system and images" />
     <MESSAGE value="added many new images to resources directory and adjusted game.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="added many new images to resources directory and adjusted game.fxml" />
+    <MESSAGE value="added rune effects and some changes to json files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added rune effects and some changes to json files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

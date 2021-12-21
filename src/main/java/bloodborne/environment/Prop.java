@@ -9,7 +9,6 @@ import java.util.Map;
 public class Prop {
 
     private final String ID;
-    private final String NAME;
     private final String DESCRIPTION;
     private boolean isActivated;
     public boolean hasBeenLooted;
@@ -17,7 +16,6 @@ public class Prop {
 
     public Prop(String id, String description, Map<String, String> att){
         ID = id;
-        NAME = att.get("name");
         DESCRIPTION = description;
         isActivated = false;
         hasBeenLooted = false;
@@ -31,7 +29,7 @@ public class Prop {
     }
 
     public String getNAME() {
-        return NAME;
+        return ATTRIBUTES.get("name");
     }
 
     public String getDESCRIPTION() {

@@ -6,15 +6,12 @@ import java.util.Map;
 
 public class Friendly extends Prop{
 
-    private final String SPEECH;
-
-    public Friendly(String id, String description, Map<String, String> attributes) {
-        super(id, description, attributes);
-        SPEECH = attributes.get("speech");
+    public Friendly(String id, String description, Map<String, String> att) {
+        super(id, description, att);
     }
 
     public String talk() {
-        return SPEECH;
+        return ATTRIBUTES.get("speech");
     }
 
     @Override

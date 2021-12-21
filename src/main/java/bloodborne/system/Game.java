@@ -296,7 +296,8 @@ public class Game {
     }//TODO change to letter by letter printing
 
     public void inventoryFunction() {
-        String s = "-----------------------------\n" +
+        String s = "Inventory content :\n" +
+                "-----------------------------\n" +
                 HUNTER.showInventory() +
                 "-----------------------------";
         CONTROLLER.writeInstantly(s);

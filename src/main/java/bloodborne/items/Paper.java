@@ -7,17 +7,12 @@ import java.util.Map;
 
 public class Paper extends Item{
 
-    private final int DAMAGE_BOOST;
-    private final String TYPE;
-
     public Paper(String id, String description, Map<String, String> att) {
         super(id, description, att);
-        DAMAGE_BOOST = Integer.parseInt(att.get("damageBoost"));
-        TYPE = att.get("type");
     }
 
     public String getTYPE(){
-        return TYPE;
+        return ATTRIBUTES.get("type");
     }
 
     @Override
@@ -29,7 +24,7 @@ public class Paper extends Item{
             if(hunter.getDamageBoost() != 0){
                 txt = "You recently used a paper onto your weapon and it's effect has not ran out yet.";
             } else {
-                hunter.boostDamage(DAMAGE_BOOST, this, soundManager);
+                hunter.boostDamage(Integer.parseInt(ATTRIBUTES.get("damageBoost")), this, soundManager);
                 txt = "You apply the paper onto your trick weapon. It will now do more damage for some attacks.";
             }
         }

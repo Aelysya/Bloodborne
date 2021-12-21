@@ -5,17 +5,15 @@ import java.util.Map;
 public abstract class Entity {
 
     private final String ID;
-    protected int healthPoints;
-    protected final double DODGE_RATE;
     private final String DESCRIPTION;
     protected final Map<String, String> ATTRIBUTES;
+    protected int healthPoints;
 
     public Entity(String id, String description, Map<String, String> att) {
         ID = id;
         DESCRIPTION = description;
-        healthPoints = Integer.parseInt(att.get("health"));
-        DODGE_RATE = Double.parseDouble(att.get("dodgeRate"));
         ATTRIBUTES = att;
+        healthPoints = Integer.parseInt(att.get("health"));
     }
 
     public String getID() {
@@ -27,7 +25,19 @@ public abstract class Entity {
     }
 
     public double getDodgeRate() {
-        return DODGE_RATE;
+        return Double.parseDouble(ATTRIBUTES.get("dodgeRate"));
+    }
+
+    public boolean isDead(){
+        return this.healthPoints <= 0;
+    }
+
+    public String getDESCRIPTION() {
+        return DESCRIPTION;
+    }
+
+    public void fullRegen(){
+        healthPoints = Integer.parseInt(ATTRIBUTES.get("health"));
     }
 
     public boolean takeDamage(int damage) {
@@ -42,12 +52,4 @@ public abstract class Entity {
     public abstract int getDamage();
 
     public abstract boolean attack(Entity target);
-
-    public boolean isDead(){
-        return this.healthPoints <= 0;
-    }
-
-    public String getDESCRIPTION() {
-        return DESCRIPTION;
-    }
 }

@@ -77,7 +77,6 @@ public class CommandHandler {
                 - Look [target] : Get a description of the target, or of surroundings if none
                 - Go north|east|south|west : Move towards the direction given
                 - Use [object] : Use an object in your inventory
-                - HeaL : Use a blood vial to heal you
                 - SWitch : Switch the state of your trick weapon
                 - Activate [object] : Activate an object in your current location
                 - Take [object] : Pick up an object in your current location

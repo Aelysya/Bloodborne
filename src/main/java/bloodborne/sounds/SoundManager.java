@@ -10,10 +10,12 @@ import java.util.Objects;
 public class SoundManager {
 
     private Clip sound;
+    private String currentTheme;
     private float usualVolume = 0f;
     private boolean isSoundMuted;
 
     public SoundManager(){
+        currentTheme = "nothing";
         try{
             sound = AudioSystem.getClip();
             sound.loop(Clip.LOOP_CONTINUOUSLY);
@@ -66,64 +68,67 @@ public class SoundManager {
     }
 
     public void setLoopingSound(String fileName) {
-        try {
-            File audioFile;
-            AudioInputStream audioIn;
-            URL resource = SoundManager.class.getResource(fileName);
-            assert resource != null;
-            audioFile = Paths.get(resource.toURI()).toFile();
-            audioIn = AudioSystem.getAudioInputStream(audioFile);
+        if (!currentTheme.equals(fileName)){
+            try {
+                currentTheme = fileName;
+                File audioFile;
+                AudioInputStream audioIn;
+                URL resource = SoundManager.class.getResource("themes/" + fileName);
+                assert resource != null;
+                audioFile = Paths.get(resource.toURI()).toFile();
+                audioIn = AudioSystem.getAudioInputStream(audioFile);
 
-            if(!sound.isRunning()){
+                if(!sound.isRunning()){
+                    sound.stop();
+                    sound.close();
+                    sound.open(audioIn);
+                    float clipVolume;
+                    if(isSoundMuted){
+                        clipVolume = 0f;
+                        usualVolume = 0.3f;
+                    }
+                    else {
+                        clipVolume = 0.3f;
+                    }
+                    setVolume(clipVolume,sound);
+                    sound.loop(Clip.LOOP_CONTINUOUSLY);
+                } else {
+                    Thread myThread = new Thread(() -> {
+                        try {
+                            while (0.001f < getVolume(sound)){
+                                float newVolume = getVolume(sound)/(1.5f);
+                                //System.out.println("vol : " +getVolume(loopingSound));
+                                setVolume(newVolume,sound);
+                                Thread.sleep(500);
+                            }
+                            sound.stop();
+                            sound.close();
+                            sound.open(audioIn);
+                            float clipVolume;
+                            if(isSoundMuted){
+                                clipVolume = 0f;
+                                usualVolume = 0.3f;
+                            }
+                            else {
+                                clipVolume = 0.3f;
+                            }
+                            setVolume(clipVolume, sound);
+                            sound.loop(Clip.LOOP_CONTINUOUSLY);
+                        } catch (LineUnavailableException | IOException|InterruptedException e) {
+                            sound.stop();
+                            sound.close();
+                        }
+
+                    });
+                    myThread.start();
+                }
+
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | URISyntaxException e) {
                 sound.stop();
                 sound.close();
-                sound.open(audioIn);
-                float clipVolume;
-                if(isSoundMuted){
-                    clipVolume = 0f;
-                    usualVolume = 0.3f;
-                }
-                else {
-                    clipVolume = 0.3f;
-                }
-                setVolume(clipVolume,sound);
-                sound.loop(Clip.LOOP_CONTINUOUSLY);
-            } else {
-                Thread myThread = new Thread(() -> {
-                    try {
-                        while (0.001f < getVolume(sound)){
-                            float newVolume = getVolume(sound)/(1.5f);
-                            //System.out.println("vol : " +getVolume(loopingSound));
-                            setVolume(newVolume,sound);
-                            Thread.sleep(500);
-                        }
-                        sound.stop();
-                        sound.close();
-                        sound.open(audioIn);
-                        float clipVolume;
-                        if(isSoundMuted){
-                            clipVolume = 0f;
-                            usualVolume = 0.3f;
-                        }
-                        else {
-                            clipVolume = 0.3f;
-                        }
-                        setVolume(clipVolume, sound);
-                        sound.loop(Clip.LOOP_CONTINUOUSLY);
-                    } catch (LineUnavailableException | IOException|InterruptedException e) {
-                        sound.stop();
-                        sound.close();
-                    }
 
-                });
-                myThread.start();
+                e.printStackTrace();
             }
-
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | URISyntaxException e) {
-            sound.stop();
-            sound.close();
-
-            e.printStackTrace();
         }
     }
 }
