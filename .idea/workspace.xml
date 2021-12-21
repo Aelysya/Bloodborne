@@ -4,16 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Removed all unnecessary attributes from the classes and refactored the getters accordingly">
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Added methods to Place and Exit classes for future use of alternative descriptions">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/LootedProp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/zone/ConditionalExit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/zone/ConditionalExit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/zone/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/zone/Exit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/zone/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/zone/Place.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/back-bridge.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/back-bridge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/back-clinic.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/back-clinic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/boss-room.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/boss-room.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/campfire.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/campfire.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/clinic.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/clinic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/front-bridge.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/front-bridge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/graveyard-annex.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/graveyard-annex.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/graveyard.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/graveyard.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/house.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/house.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/loading-screen.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/loading-screen.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/lower-sewers.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/lower-sewers.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/small-square.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/small-square.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/square.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/square.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/straight-path.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/straight-path.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/upper-sewers.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/upper-sewers.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/yharnam/useless-path.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/useless-path.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/NPCs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/NPCs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/centralYharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Props.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Inventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Friendly.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/Friendly.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/FireArm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/FireArm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Paper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Paper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/TrickWeapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/TrickWeapon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/Items.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/NPCs.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/Places.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/centralYharnam/Props.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/TextAnalyzer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/TextAnalyzer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ConditionalExit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ConditionalExit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/Exit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/Exit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/Place.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/Place.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640105051183</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added methods to Place and Exit classes for future use of alternative descriptions">
+      <created>1640118768759</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1640118768759</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,7 +252,8 @@
     <MESSAGE value="added many new images to resources directory and adjusted game.fxml" />
     <MESSAGE value="added rune effects and some changes to json files" />
     <MESSAGE value="Removed all unnecessary attributes from the classes and refactored the getters accordingly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed all unnecessary attributes from the classes and refactored the getters accordingly" />
+    <MESSAGE value="Added methods to Place and Exit classes for future use of alternative descriptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added methods to Place and Exit classes for future use of alternative descriptions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

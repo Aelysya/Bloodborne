@@ -11,14 +11,14 @@ public class Prop {
     private final String ID;
     private final String DESCRIPTION;
     private boolean isActivated;
-    public boolean hasBeenLooted;
+    private boolean hasBeenLooked;
     protected final Map<String, String> ATTRIBUTES;
 
     public Prop(String id, String description, Map<String, String> att){
         ID = id;
         DESCRIPTION = description;
         isActivated = false;
-        hasBeenLooted = false;
+        hasBeenLooked = false;
         ATTRIBUTES = att;
     }
 
@@ -44,10 +44,14 @@ public class Prop {
         return isActivated;
     }
 
+    public boolean hasBeenLooked(){
+        return hasBeenLooked;
+    }
+
     public String lookReaction(Hunter hunter){
-        if(ATTRIBUTES.get("isContainer") == null && !hasBeenLooted){
+        if(ATTRIBUTES.get("isContainer") == null && !hasBeenLooked){
             addConsumables(hunter);
-            hasBeenLooted = true;
+            hasBeenLooked = true;
         }
         return getDESCRIPTION();
     }

@@ -10,8 +10,6 @@ import bloodborne.zone.Place;
 import bloodborne.zone.Zone;
 import bloodborne.zone.ZoneLoader;
 
-import javax.swing.*;
-import javax.xml.stream.events.EndElement;
 import java.util.Locale;
 
 import static java.lang.Thread.sleep;
@@ -28,15 +26,15 @@ public class Game {
             ----------------------------
             """;
 
-    private String zoneName = "centralYharnam"; //TODO make the player choose the zone at beginning
     private final Hunter HUNTER;
     private final CommandHandler COMMAND_HANDLER;
     private final GameController CONTROLLER;
     private final SoundManager SOUND_MANAGER;
+    private TextAnalyzer analyzer;
     private final Zone ZONE;
     private Entity currentlyFoughtEntity;
+    //private String currentZone = "central_yharnam"; //TODO Make others zones for the game
     private Rune memorizedRune;
-    private TextAnalyzer analyzer;
 
     public Game(GameController Controller) {
         CONTROLLER = Controller;
@@ -45,7 +43,7 @@ public class Game {
         SOUND_MANAGER.setLoopingSound("ambient_theme.wav");
         HUNTER = new Hunter();
         ZONE = new Zone(HUNTER);
-        ZoneLoader.loadZone(zoneName, ZONE);
+        ZoneLoader.loadZone("central_yharnam", ZONE);
         currentlyFoughtEntity = null;
         analyzer = TextAnalyzer.START;
     }
