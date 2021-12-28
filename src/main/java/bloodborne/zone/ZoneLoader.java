@@ -24,7 +24,7 @@ public final class ZoneLoader {
             loadEnemies(zoneName, zone);
             loadProps(zoneName, zone);
             loadPlaces(zoneName, zone);
-            zone.changePlace(zone.getPlaceByName(Zone.STARTING_LOCATION)); //TODO Make player choose zone at the beginning
+            zone.changePlace(zone.getPlaceByName(Zone.STARTING_LOCATION));
 
             initializeProps(zone);
             initializePlaces(zone);

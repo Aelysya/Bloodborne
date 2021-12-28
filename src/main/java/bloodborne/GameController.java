@@ -18,6 +18,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class GameController {
     @FXML
@@ -87,6 +89,7 @@ public class GameController {
     BorderPane borderpane;
 
     private Game game;
+    private final Lock LOCK = new ReentrantLock(true);
 
     public void setGame(Game game) {
         this.game = game;
@@ -157,7 +160,27 @@ public class GameController {
     }
 
     public void writeInstantly(String txt) {
-        displayScreen.appendText((txt + "\n"));
+        displayScreen.appendText((txt));
+    }
+
+    public void writeLetterByLetter(String txt){ //TODO Verify it doesn't crashes the game anymore
+        writeLine.setDisable(true);
+        Thread myThread = new Thread(() -> {
+            LOCK.lock();
+            char[] characters = txt.toCharArray();
+            for( char leChar : characters){
+                try {
+                    Thread.sleep(15);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                displayScreen.appendText(""+leChar);
+            }
+            displayScreen.appendText("\n");
+            LOCK.unlock();
+            writeLine.setDisable(false);
+        });
+        myThread.start();
     }
 
     public void transitionImage(String imageURL)  {

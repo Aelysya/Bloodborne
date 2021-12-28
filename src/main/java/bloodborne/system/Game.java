@@ -9,10 +9,8 @@ import bloodborne.sounds.SoundManager;
 import bloodborne.zone.Place;
 import bloodborne.zone.Zone;
 import bloodborne.zone.ZoneLoader;
-
 import java.util.Locale;
 
-import static java.lang.Thread.sleep;
 
 enum TextAnalyzer {EXPLORATION, FIGHT, RUNE, DEATH, QUIT, START, WIN}
 
@@ -43,7 +41,7 @@ public class Game {
         SOUND_MANAGER.setLoopingSound("ambient_theme.wav");
         HUNTER = new Hunter();
         ZONE = new Zone(HUNTER);
-        ZoneLoader.loadZone("central_yharnam", ZONE);
+        ZoneLoader.loadZone("legacy_yharnam", ZONE);
         currentlyFoughtEntity = null;
         analyzer = TextAnalyzer.START;
     }
@@ -69,7 +67,7 @@ public class Game {
             }
 
         } catch (TooFewArgumentsException | InterruptedException e) {
-            writeInstantly("No target for the command.");
+            CONTROLLER.writeInstantly("No target for the command.");
         }
     }
 
@@ -88,13 +86,13 @@ public class Game {
                 You don't have time to wonder why you are still alive or how you ended up there. A big monster is still roaming the streets of Yharnam and you have to deal with it.
                 You quickly grab the two blood vials left on the beside table next to you and get up.
                 """;
-        CONTROLLER.writeInstantly(START_TEXT + "\n\n" + ZONE.getCurrentPlace().getDESCRIPTION());
-    }//TODO change to letter by letter printing
+        CONTROLLER.writeLetterByLetter(START_TEXT + "\n\n" + ZONE.getCurrentPlace().getDESCRIPTION());
+    }
 
     public void death() {
         SOUND_MANAGER.playSoundEffect("you_died.wav");
         CONTROLLER.transitionImage("you_died.jpg");
-        CONTROLLER.writeInstantly(DEATH_TEXT + "\nEnter Y to quit");
+        CONTROLLER.writeLetterByLetter(DEATH_TEXT + "\nEnter Y to quit");
         setAnalyzer(TextAnalyzer.DEATH);
     }
 
@@ -123,14 +121,14 @@ public class Game {
                 } else {
                     CONTROLLER.transitionImage("placeholder.png");
                 }
-                CONTROLLER.writeInstantly(currentPlace.getDESCRIPTION());
+                CONTROLLER.writeLetterByLetter(currentPlace.getDESCRIPTION());
             } else {
                 CONTROLLER.writeInstantly(currentPlace.getExitByName(direction).getConditionFalseText());
             }
         }
-    }//TODO change to letter by letter printing
+    }
 
-    public void teleportFunction(String destination) {
+    public void teleportFunction(String destination) { //To use the teleport command, use the id of the place you want to go to
         if(ZONE.getPlaceByName(destination) != null){
             ZONE.changePlace(ZONE.getPlaceByName(destination));
             SOUND_MANAGER.playSoundEffect("change_zone.wav");
@@ -154,35 +152,35 @@ public class Game {
         Item item = ZONE.getCurrentPlace().getItemByName(target);
         Entity eTarget = ZONE.getCurrentPlace().getNpcByName(target);
         if (currentPlace.getPROPS().get(target) != null) { //If target is a prop
-            CONTROLLER.writeInstantly(currentPlace.getPROPS().get(target).lookReaction(HUNTER));
+            CONTROLLER.writeLetterByLetter(currentPlace.getPROPS().get(target).lookReaction(HUNTER));
         } else if (item != null) { //If target is an item from the current zone
             if (item.isTaken()){
                 if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped
                     item = HUNTER.getItemByName(target);
-                    CONTROLLER.writeInstantly(item.getDESCRIPTION());
+                    CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
                 } else { //If item was in zone but is now taken and already used, so doesn't exist anymore
                     CONTROLLER.writeInstantly("You try to look at something that doesn't exist.");
                 }
             } else {
-                CONTROLLER.writeInstantly(item.getDESCRIPTION());
+                CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
             }
         } else if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped and not in the current zone
             item = HUNTER.getItemByName(target);
-            CONTROLLER.writeInstantly(item.getDESCRIPTION());
+            CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
         }  else if (eTarget != null) { //If target is an enemy
-            CONTROLLER.writeInstantly(eTarget.getDESCRIPTION());
+            CONTROLLER.writeLetterByLetter(eTarget.getDESCRIPTION());
         } else if (target.equals("")) { //If no target, describe the current zone
-            CONTROLLER.writeInstantly(currentPlace.getDESCRIPTION());
+            CONTROLLER.writeLetterByLetter(currentPlace.getDESCRIPTION());
         } else {
             CONTROLLER.writeInstantly("You try to look at something that doesn't exist.");
         }
         CONTROLLER.updateHUD(HUNTER);
-    }//TODO change to letter by letter printing
+    }
 
     public void activateFunction(String target) {
         Prop prop = ZONE.getCurrentPlace().getPropByName(target);
         if (prop != null) {
-            CONTROLLER.writeInstantly(prop.activate(HUNTER));
+            CONTROLLER.writeLetterByLetter(prop.activate(HUNTER));
             if(prop instanceof Container && !((Container) prop).isLooted()){
                 SOUND_MANAGER.playSoundEffect("open_chest.wav");
             }
@@ -193,7 +191,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You can't activate this.");
         }
-    }//TODO change to letter by letter printing
+    }
 
     public void useFunction(String object) {
         String objString = object.toLowerCase(Locale.ROOT);
@@ -201,12 +199,12 @@ public class Game {
         if (item != null) {
             if (objString.equals("amulet")){
                 if(ZONE.getCurrentPlace().getNAME().equals("shortcut-house") && !(item.isUsed())){
-                    CONTROLLER.writeInstantly(item.use(HUNTER, SOUND_MANAGER));
+                    CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
                 } else {
                     CONTROLLER.writeInstantly("You hold the amulet up high but nothing happens.");
                 }
             } else {
-                CONTROLLER.writeInstantly(item.use(HUNTER, SOUND_MANAGER));
+                CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
             }
         } else if (objString.equals("blood vial")){
             healFunction();
@@ -214,7 +212,7 @@ public class Game {
             CONTROLLER.writeInstantly("You try to use something that you don't have or doesn't exist.");
         }
         CONTROLLER.updateHUD(HUNTER);
-    }//TODO change to letter by letter printing
+    }
 
     public void takeFunction(String itemName) {
         Item item = ZONE.getCurrentPlace().getItemByName(itemName);
@@ -228,7 +226,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You try to take something that doesn't exist.");
         }
-    }//TODO change to letter by letter printing
+    }
 
 
     public void equipFunction(String object) {
@@ -259,7 +257,7 @@ public class Game {
             CONTROLLER.writeInstantly("You try to equip a weapon that you don't have or doesn't exist.");
         }
         CONTROLLER.updateHUD(HUNTER);
-    }//TODO change to letter by letter printing
+    }
 
     public void runeDecisionFunction(int position){
         CONTROLLER.writeInstantly(HUNTER.equipRune(memorizedRune, position));
@@ -274,24 +272,24 @@ public class Game {
             if (eTarget.isDead()){
                 CONTROLLER.writeInstantly("This enemy is already dead.");
             } else {
-                CONTROLLER.writeInstantly("You engage the enemy. Now you must fight or flee.");
+                CONTROLLER.writeLetterByLetter("You engage the enemy. Now you must fight or flee.");
                 setAnalyzer(TextAnalyzer.FIGHT);
                 currentlyFoughtEntity = ZONE.getCurrentPlace().getNPCS().get(target);
             }
         } else {
             CONTROLLER.writeInstantly("You try to engage a fight with something that doesn't exist.");
         }
-    }//TODO change to letter by letter printing
+    }
 
     public void talkFunction(String npc) {
         Place currentPlace = ZONE.getCurrentPlace();
         Friendly friendly = (Friendly) currentPlace.getPROPS().get(npc);
         if (friendly != null) {
-            CONTROLLER.writeInstantly(friendly.talk());
+            CONTROLLER.writeLetterByLetter(friendly.talk());
         } else {
             CONTROLLER.writeInstantly("You try to speak to someone that doesn't exist.");
         }
-    }//TODO change to letter by letter printing
+    }
 
     public void inventoryFunction() {
         String s = "Inventory content :\n" +
@@ -303,7 +301,7 @@ public class Game {
     }
 
     public void quitFunction() {
-        writeInstantly("Do you really want to quit ? All progress will be lost [y/n] ");
+        CONTROLLER.writeInstantly("Do you really want to quit ? All progress will be lost [y/n] ");
         setAnalyzer(TextAnalyzer.QUIT);
     }
 
@@ -388,7 +386,7 @@ public class Game {
 
     public void checkEntityKilledIsBoss(Entity enemy, boolean fromVisceral){
         if (!(enemy instanceof Boss)) {
-            CONTROLLER.writeInstantly("You defeated your enemy and survived this fight.");
+            CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
             if (!fromVisceral) {
                 SOUND_MANAGER.playSoundEffect("enemy_killed.wav");
             }
@@ -399,11 +397,11 @@ public class Game {
             CONTROLLER.transitionImage("prey_slaughtered.png");
             SOUND_MANAGER.playSoundEffect("prey_slaughtered.wav");
             SOUND_MANAGER.setLoopingSound("ambient_theme.wav");
-            CONTROLLER.writeInstantly("Congratulations ! You managed to kill the Cleric Beast once and for all ! The source of the blood plague is no more and the hunters that came here before you did not die for nothing. But Yharnam will take a long time to recover from this disaster. It is unlikely the survivors will stop consuming blood to heals their diseases but your work gave them some spare time... until next time they need hunters' help...");
+            CONTROLLER.writeLetterByLetter("Congratulations ! You managed to kill the Cleric Beast once and for all ! The source of the blood plague is no more and the hunters that came here before you did not die for nothing. But Yharnam will take a long time to recover from this disaster. It is unlikely the survivors will stop consuming blood to heals their diseases but your work gave them some spare time... until next time they need hunters' help...");
             CONTROLLER.writeInstantly("----------------\n\nYour job here is done. Enter Y to quit the game.");
             setAnalyzer(TextAnalyzer.WIN);
         }
-    }//TODO change to letter by letter printing
+    }
 
     public void switchFunction() {
         CONTROLLER.writeInstantly(HUNTER.switchTrickWeaponState());
@@ -416,7 +414,7 @@ public class Game {
         Item item = HUNTER.getItemByName(object);
         if (item != null) {
             if (item instanceof Paper){
-                CONTROLLER.writeInstantly(item.use(HUNTER, SOUND_MANAGER));
+                CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
             } else {
                 CONTROLLER.writeInstantly("You can't use this item in the middle of a fight");
             }
@@ -426,24 +424,24 @@ public class Game {
             CONTROLLER.writeInstantly("You try to use something that you don't have or doesn't exist.");
         }
         CONTROLLER.updateHUD(HUNTER);
-    }//TODO change to letter by letter printing
+    }
 
     public void fleeFunction() {
         if (HUNTER.takeDamage(5)) {
             CONTROLLER.updateHUD(HUNTER);
-            CONTROLLER.writeInstantly("You were too weak too flee and your enemy caught up with you. He executes you.\n" + DEATH_TEXT);
+            CONTROLLER.writeLetterByLetter("You were too weak too flee and your enemy caught up with you. He executes you.\n" + DEATH_TEXT);
             death();
         } else {
             CONTROLLER.updateHUD(HUNTER);
-            CONTROLLER.writeInstantly("You run away from the fight but your enemy won't let you do it easily, you take some damage as you flee pitifully.");
+            CONTROLLER.writeLetterByLetter("You run away from the fight but your enemy won't let you do it easily, you take some damage as you flee pitifully.");
         }
         setAnalyzer(TextAnalyzer.EXPLORATION);
-    }//TODO change to letter by letter printing
+    }
 
     public void healFunction() {
-        CONTROLLER.writeInstantly(HUNTER.heal(SOUND_MANAGER));
+        CONTROLLER.writeLetterByLetter(HUNTER.heal(SOUND_MANAGER));
         CONTROLLER.updateHUD(HUNTER);
-    }//TODO change to letter by letter printing
+    }
 
 
     

@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Zone {
 
-    public static final String STARTING_LOCATION = "clinic"; //TODO make player chose the zone at the beginning
+    public static final String STARTING_LOCATION = "clinic";
 
     private final Map<String, Item> ITEMS;
     private final Map<String, Prop> PROPS;

@@ -27,6 +27,8 @@ public class Place {
     private final HashMap<String, Exit> EXITS;
     private final HashMap<String, Entity> NPCS;
 
+    private boolean showAltDescription;
+
     public Place(String name, String description, String imagePath, String songPath, Map<String, String> items, Map<String, String> props, Map<String, Object> exits, Map<String, String> npcs) {
         NAME = name;
         DESCRIPTION = description;
@@ -42,6 +44,8 @@ public class Place {
         PROPS = new HashMap<>();
         EXITS = new HashMap<>();
         NPCS = new HashMap<>();
+
+        showAltDescription = false;
     }
 
     public String getNAME() {
@@ -95,6 +99,10 @@ public class Place {
 
     public Entity getNpcByName(String target) {
         return NPCS.get(target);
+    }
+
+    public void switchToAltDescription(){
+        showAltDescription = true;
     }
 
     public void initialize(Zone zone) throws MalFormedJsonException, UnknownPlaceException, UnknownExitTypeException, ItemNotFoundException, NPCNotFoundException {

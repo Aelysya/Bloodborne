@@ -36,7 +36,7 @@ public class CommandHandler {
                 thread.start();
             }
             default -> GAME.writeInstantly(".............\nWake up ? [yes/no]\n");
-        } //TODO change to letter by letter printing
+        }
     }
 
     public void quitTextAnalyzer(String textLine) {
@@ -154,7 +154,7 @@ public class CommandHandler {
             case "q", "quit" -> GAME.quitFunction();
             default -> GAME.writeInstantly("Unknown command !");
         }
-    } //TODO change to letter by letter printing
+    }
 
     public void runeTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
@@ -212,7 +212,7 @@ public class CommandHandler {
             case "hl", "heal" -> GAME.healFunction();
             case "mute" -> GAME.muteGame();
             case "unmute" -> GAME.unMuteGame();
-            default -> GAME.writeInstantly("Unknown command !"); //TODO Add a function to allow use of papers and only these items
+            default -> GAME.writeInstantly("Unknown command !");
         }
     }
 
@@ -228,7 +228,7 @@ public class CommandHandler {
         switch (command) {
             case "y", "yes" -> System.exit(0);
             default -> GAME.writeInstantly("It may be hard to accept but... you're dead. You have to deal with it.\nEnter Y to quit");
-        }//TODO change to letter by letter printing
+        }
     }
 
     public void winTextAnalyzer(String textLine) {
