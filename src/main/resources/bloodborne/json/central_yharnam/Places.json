@@ -374,8 +374,8 @@
   {
     "id": "pyre",
     "name": "Pyre",
-    "description": "You arrive in an open street where some blood-drunk HUNTSMEN (F) built a PYRE (L) to burn a wolf beast. A huge DOOR (L) to the north shakes regularly as if something was hitting it. Some wooden CRATES (L) are piled up on the right.",
-    "altDescription": "You arrive in an open street where some blood-drunk huntsmen built a PYRE (L) to burn a wolf beast. A huge DOOR (L) to the north shakes regularly as if something was hitting it. Some wooden CRATES (L) are piled up on the right.",
+    "description": "You arrive in an open street where some blood-drunk huntsmen built a PYRE (L) to burn a wolf beast. A huge DOOR (L) to the north shakes regularly as if something was hitting it. Some wooden CRATES (L) are piled up on the right.",
+    "altDescription": "You arrive in an open street where some blood-drunk huntsmen built a PYRE (L) to burn a wolf beast. The huge DOOR (L) to the north doesn't shake anymore. Some wooden CRATES (L) are piled up on the right.",
     "imagePath": "zones/central_yharnam/pyre.png",
     "themeName": "central_yharnam_ambient_theme.wav",
     "items": {
@@ -394,9 +394,13 @@
       },
       "north": {
         "destination": "fountain-square",
-        "type": "Exit",
+        "type": "ConditionalExit",
         "attributes": {
-          "description": "NORTH -> Fountain square"
+          "description": "NORTH -> Fountain square, the path is blocked by blood-drunk HUNTSMEN (F)",
+          "altDescription": "NORTH -> Fountain square",
+          "conditionType": "KilledNPC",
+          "objectName": "pyre-huntsmen",
+          "conditionFalseText": "The monsters are still alive you can't go this way yet"
         }
       },
       "east": {
@@ -517,8 +521,8 @@
   {
     "id": "dry-dock",
     "name": "Dry dock",
-    "description": "",
-    "altDescription": "",
+    "description": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) on the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers, it is infested with giant RATS (F). Numerous storage BOXES (L) and various CABINETS (L) are lined up along the walls.",
+    "altDescription": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) on the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers. Numerous storage BOXES (L) and various CABINETS (L) are lined up along the walls.",
     "imagePath": "zones/central_yharnam/dry_dock.png",
     "themeName": "central_yharnam_ambient_theme.wav",
     "items": {
@@ -550,8 +554,8 @@
   {
     "id": "sewers-structure",
     "name": "Sewers' structure",
-    "description": "",
-    "altDescription": "",
+    "description": "You have dropped from the pyre and now realize that you can't get back up. You find yourself in the sewers' structure of Yharnam that you see below you. A large HUNTSMAN (F) wanders around and blocks your way, the beast scourge has transformed this one much more than the others, there is not much human left in him. You discern a BODY (L) behind him.",
+    "altDescription": "You have dropped from the pyre and now realize that you can't get back up. You find yourself in the sewers' structure of Yharnam that you see below you. You discern a BODY (L) behind the corpse of the large huntsman you eliminated.",
     "imagePath": "zones/central_yharnam/sewers-structure.png",
     "themeName": "central_yharnam_ambient_theme.wav",
     "items": {
@@ -563,9 +567,13 @@
     "exits": {
       "north": {
         "destination": "lower-sewers",
-        "type": "Exit",
+        "type": "ConditionalExit",
         "attributes": {
-          "description": "NORTH -> Lower sewers (One way)"
+          "description": "NORTH -> Lower sewers (One way), the path is blocked by the large HUNTSMAN (F)",
+          "altDescription": "NORTH -> Lower sewers",
+          "conditionType": "KilledNPC",
+          "objectName": "sewers-structure-large-huntsman",
+          "conditionFalseText": "The monster is still alive you can't go this way yet"
         }
       }
     },
@@ -649,8 +657,8 @@
   {
     "id": "great-bridge",
     "name": "Great bridge",
-    "description": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of bones behind a STAGECOACH (L) on the left side. A WOLF (L) beast is roaming nearby.",
-    "altDescription": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of bones behind a STAGECOACH (L) on the left side.",
+    "description": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a STAGECOACH (L) on the left side. A WOLF (L) beast is roaming nearby.",
+    "altDescription": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a STAGECOACH (L) on the left side.",
     "imagePath": "zones/central_yharnam/great_bridge.png",
     "themeName": "central_yharnam_ambient_theme.wav",
     "items": {
@@ -664,7 +672,7 @@
         "destination": "bridge-end",
         "type": "ConditionalExit",
         "attributes": {
-          "description": "WEST -> Bridge end, the path is blocked by a second WOLF (F) beast",
+          "description": "WEST -> Bridge end, the path is blocked by another WOLF (F) beast",
           "altDescription": "WEST -> Bridge end",
           "conditionType": "KilledNPC",
           "objectName": "great-bridge-mandatory-wolf",
@@ -693,8 +701,8 @@
   {
     "id": "bridge-end",
     "name": "Bridge end",
-    "description": "",
-    "altDescription": "",
+    "description": "You arrive at the end of the great bridge, overhanging, you see the cathedral ward. As you examine your immediate environment, a huge beast jumps out from behind the barrier separating you from it. This massive monster is at least 4 meters high, one of its arms is disproportionate to the other and the horns on its head give it an even more impressive appearance. It is hard to believe that this thing was once a human, now transformed by the beast scourge. You now have no other choice but to fight the CLERIC BEAST (F).",
+    "altDescription": "You are at the end of the great bridge, overhanging, you see the cathedral ward. The gigantic body of the cleric beast is still present, lying in the middle of the bridge. Now that the monster is dead, you notice the BODY (L) of a man near you.",
     "imagePath": "zones/central_yharnam/bridge_end.png",
     "themeName": "cleric_beast_theme.wav",
     "items": {
@@ -723,8 +731,8 @@
   {
     "id": "aqueduct",
     "name": "Aqueduct",
-    "description": "",
-    "altDescription": "",
+    "description": "You are on one of the many aqueducts of Yharnam. At one end is a LIFT (A), the other end can only be reached when you have eliminated the HUNTSMEN (F) blocking your way.",
+    "altDescription": "You are on one of the many aqueducts of Yharnam. At one end is a LIFT (A). Now that the huntsmen are dead, you notice a few CRATES (L) sitting in a small alcove near the path leading to Oedon tomb.",
     "imagePath": "zones/central_yharnam/aqueduct.png",
     "themeName": "central_yharnam_ambient_theme.wav",
     "items": {
@@ -736,9 +744,13 @@
     "exits": {
       "north": {
         "destination": "oedon-tomb",
-        "type": "Exit",
+        "type": "ConditionalExit",
         "attributes": {
-          "description": "NORTH -> Oedon tomb"
+          "description": "NORTH -> Oedon tomb, the path is blocked by the HUNTSMEN (F)",
+          "altDescription": "NORTH -> Oedon tomb",
+          "conditionType": "KilledNPC",
+          "objectName": "aqueduct-huntsmen",
+          "conditionFalseText": "The monsters are still alive you can't go this way yet"
         }
       },
       "east": {
@@ -767,8 +779,8 @@
   {
     "id": "oedon-tomb",
     "name": "Oedon tomb",
-    "description": "",
-    "altDescription": "",
+    "description": "You have arrived at the tomb of Oedon, the atmosphere is very strange, heavy. At the back of the small cemetery, you can see a hunter, he is wearing the black church outfit and is apparently cutting up dead monsters. He notices your presence. As he turns around, you hear what he says: \"Beasts all over the shop... You'll be one of them, sooner or later...\". You now have no other choice but to fight FATHER GASCOIGNE (F).",
+    "altDescription": "You are in the tomb of Oedon, the atmosphere is very strange, heavy. Now that the father Gascoigne is dead, you can inspect the surroundings peacefully. On a roof at the bottom of the cemetery, you find the body of a WOMAN (L), probably killed by Gascoigne.",
     "imagePath": "zones/central_yharnam/oedon_tomb.png",
     "themeName": "father_gascoigne_theme.wav",
     "items": {

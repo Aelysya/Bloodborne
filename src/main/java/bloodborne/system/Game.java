@@ -427,15 +427,19 @@ public class Game {
     }
 
     public void fleeFunction() {
-        if (HUNTER.takeDamage(5)) {
-            CONTROLLER.updateHUD(HUNTER);
-            CONTROLLER.writeLetterByLetter("You were too weak too flee and your enemy caught up with you. He executes you.\n" + DEATH_TEXT);
-            death();
+        if (!(currentlyFoughtEntity instanceof Boss)){
+            if (HUNTER.takeDamage(5)) {
+                CONTROLLER.updateHUD(HUNTER);
+                CONTROLLER.writeLetterByLetter("You were too weak too flee and your enemy caught up with you. He executes you.\n" + DEATH_TEXT);
+                death();
+            } else {
+                CONTROLLER.updateHUD(HUNTER);
+                CONTROLLER.writeLetterByLetter("You run away from the fight but your enemy won't let you do it easily, you take some damage as you flee pitifully.");
+            }
+            setAnalyzer(TextAnalyzer.EXPLORATION);
         } else {
-            CONTROLLER.updateHUD(HUNTER);
-            CONTROLLER.writeLetterByLetter("You run away from the fight but your enemy won't let you do it easily, you take some damage as you flee pitifully.");
+            CONTROLLER.writeInstantly("You can't flee from a boss fight. Kill or be killed.");
         }
-        setAnalyzer(TextAnalyzer.EXPLORATION);
     }
 
     public void healFunction() {
