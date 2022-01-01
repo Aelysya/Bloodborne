@@ -1,5 +1,7 @@
 package bloodborne.entities;
 
+import bloodborne.sounds.SoundManager;
+
 import java.util.Map;
 
 public class Enemy extends Entity{
@@ -18,8 +20,20 @@ public class Enemy extends Entity{
     } //TODO Make damage random or multiple possible attack types
 
     @Override
-    public boolean attack(Entity target) {
-        return target.takeDamage(getDamage());
+    public String attack(Entity target, SoundManager soundManager) {
+        Hunter hunter = (Hunter) target;
+        StringBuilder s = new StringBuilder();
+        if (Math.random() < target.getDodgeRate()){
+            s.append("You avoided your enemy's attack.");
+        } else {
+            if (hunter.hasRune("Lake rune")){
+                s.append("You took ").append(getDamage() - 1).append(" damage !");
+            } else {
+                s.append("You took ").append(getDamage()).append(" damage !");
+            }
+            target.takeDamage(getDamage());
+        }
+        return s.toString();
     }
 
     public void takeEchoes(Hunter hunter){
@@ -46,7 +60,7 @@ public class Enemy extends Entity{
             }
         }
         hunter.gainBloodEchoes(Integer.parseInt(ATTRIBUTES.get("bloodEchoes")));
-        return "You looted the corpse of your enemy and retrieved some useful consumables.";
+        return "You loot the corpse and retrieve some useful consumables.";
     }
 
 }

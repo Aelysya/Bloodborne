@@ -7,7 +7,6 @@ import bloodborne.items.Item;
 import bloodborne.json.ZoneDataLoader;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.lang.reflect.Constructor;
@@ -79,13 +78,13 @@ public final class ZoneLoader {
             Map items = (Map) map.get("items");
             Map props = (Map) map.get("props");
             Map exits = (Map) map.get("exits");
-            Map npcs = (Map) map.get("NPCs");
+            Map enemies = (Map) map.get("NPCs");
 
             if (name == null || description == null || imagePath == null || songPath == null) {
                 throw new MalFormedJsonException("Place : " + name + description + imagePath + songPath);
             }
 
-            Place place = new Place(name, description, imagePath, songPath, items, props, exits, npcs);
+            Place place = new Place(name, description, imagePath, songPath, items, props, exits, enemies);
             zone.addPlace(place);
         }
     }

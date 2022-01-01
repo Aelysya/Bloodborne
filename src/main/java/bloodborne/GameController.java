@@ -3,6 +3,7 @@ package bloodborne;
 import bloodborne.entities.Hunter;
 import bloodborne.items.Rune;
 import bloodborne.system.Game;
+import bloodborne.zone.Place;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -14,9 +15,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -29,61 +30,28 @@ public class GameController {
     AnchorPane HUDAnchorPane;
 
     @FXML
+    Polygon northArrow, southArrow, eastArrow, westArrow;
+
+    @FXML
     TextArea displayScreen;
 
     @FXML
-    TextArea trickWeaponText;
-
-    @FXML
-    TextArea gunText;
+    TextArea trickWeaponText, gunText;
 
     @FXML
     TextField writeLine;
 
     @FXML
-    TextField currentHP;
+    TextField currentHP, bloodEchoesText, vialAmountText, bulletAmountText;
 
     @FXML
-    TextField bloodEchoesText;
-
-    @FXML
-    TextField vialAmountText;
-
-    @FXML
-    TextField bulletAmountText;
-
-    @FXML
-    TextField dmgBoostText;
-
-    @FXML
-    TextField boostLeftText;
-
-    @FXML
-    TextField dodgeRateText;
-
-    @FXML
-    TextField hitRateText;
-
-    @FXML
-    TextField visceralRateText;
+    TextField dmgBoostText, boostLeftText, dodgeRateText, hitRateText, visceralRateText;
 
     @FXML
     ImageView imageID;
 
     @FXML
-    ImageView trickWeaponImage;
-
-    @FXML
-    ImageView gunImage;
-
-    @FXML
-    ImageView rune1;
-
-    @FXML
-    ImageView rune2;
-
-    @FXML
-    ImageView rune3;
+    ImageView trickWeaponImage, gunImage, rune1, rune2, rune3;
 
     @FXML
     BorderPane borderpane;
@@ -99,6 +67,13 @@ public class GameController {
         String path = "images/" + url;
         Image myImage = new Image(String.valueOf(getClass().getResource(path)));
         imageID.setImage(myImage);
+    }
+
+    public void updateDirectionalArrows(Place place){
+        northArrow.setVisible(place.getEXITS().containsKey("north"));
+        eastArrow.setVisible(place.getEXITS().containsKey("east"));
+        westArrow.setVisible(place.getEXITS().containsKey("west"));
+        southArrow.setVisible(place.getEXITS().containsKey("south"));
     }
 
     public void updateHUD(Hunter hunter){
@@ -160,7 +135,7 @@ public class GameController {
     }
 
     public void writeInstantly(String txt) {
-        displayScreen.appendText((txt));
+        displayScreen.appendText(txt + "\n");
     }
 
     public void writeLetterByLetter(String txt){ //TODO Verify it doesn't crashes the game anymore
@@ -212,5 +187,20 @@ public class GameController {
     public void initialize(){
         displayScreen.setFocusTraversable(false);
         displayScreen.setText("Wake up ? [yes/no]\n");
+        northArrow.setOnMouseEntered(event -> northArrow.setStyle("-fx-opacity: 1;"));
+        northArrow.setOnMouseExited(event -> northArrow.setStyle("-fx-opacity: 0.6;"));
+        northArrow.setOnMouseReleased(event -> game.goFunction("north"));
+
+        southArrow.setOnMouseEntered(event -> southArrow.setStyle("-fx-opacity: 1;"));
+        southArrow.setOnMouseExited(event -> southArrow.setStyle("-fx-opacity: 0.6;"));
+        southArrow.setOnMouseReleased(event -> game.goFunction("south"));
+
+        eastArrow.setOnMouseEntered(event -> eastArrow.setStyle("-fx-opacity: 1;"));
+        eastArrow.setOnMouseExited(event -> eastArrow.setStyle("-fx-opacity: 0.6;"));
+        eastArrow.setOnMouseReleased(event -> game.goFunction("east"));
+
+        westArrow.setOnMouseEntered(event -> westArrow.setStyle("-fx-opacity: 1;"));
+        westArrow.setOnMouseExited(event -> westArrow.setStyle("-fx-opacity: 0.6;"));
+        westArrow.setOnMouseReleased(event -> game.goFunction("west"));
     }
 }

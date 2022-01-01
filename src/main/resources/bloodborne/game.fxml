@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -9,6 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane fx:id="entireWindow" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bloodborne.GameController">
@@ -69,4 +71,24 @@
       <Line endX="142.0" endY="56.0" layoutX="121.0" layoutY="181.0" startX="-114.0" startY="56.0" stroke="#fff7f7" strokeWidth="1.5" />
       <TextField fx:id="bloodEchoesText" editable="false" focusTraversable="false" layoutX="181.0" layoutY="49.0" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 30px;" stylesheets="@stylesheet.css" text="0" />
    </AnchorPane>
+   <Polygon id="arrow" fx:id="northArrow" fill="#867f7f" layoutX="534.0" layoutY="34.0" opacity="0.6" points="-20.0, 20.0, 19.0, 20.0, 0.0, -21.0" stroke="BLACK" strokeType="INSIDE" visible="false" AnchorPane.rightAnchor="514.0" AnchorPane.topAnchor="15.0">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Polygon>
+   <Polygon id="arrow" fx:id="southArrow" fill="#867f7f" layoutX="544.0" layoutY="44.0" opacity="0.6" points="-20.0, 20.0, 19.0, 20.0, 0.0, -21.0" rotate="180.0" stroke="BLACK" strokeType="INSIDE" visible="false" AnchorPane.bottomAnchor="415.0" AnchorPane.rightAnchor="514.0">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Polygon>
+   <Polygon id="arrow" fx:id="eastArrow" fill="#867f7f" layoutX="554.0" layoutY="54.0" opacity="0.6" points="-20.0, 20.0, 19.0, 20.0, 0.0, -21.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" visible="false" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="280.0">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Polygon>
+   <Polygon id="arrow" fx:id="westArrow" fill="#867f7f" layoutX="564.0" layoutY="64.0" opacity="0.6" points="-20.0, 20.0, 19.0, 20.0, 0.0, -21.0" rotate="-90.0" stroke="BLACK" strokeType="INSIDE" visible="false" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="280.0">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Polygon>
 </AnchorPane>

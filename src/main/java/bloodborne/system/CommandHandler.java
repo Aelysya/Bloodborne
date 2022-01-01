@@ -75,7 +75,6 @@ public class CommandHandler {
         String EXPLORATION_HELP_TEXT = """
                 Currently available commands (use capitalized characters for shortcuts) :
                 - Look [target] : Get a description of the target, or of surroundings if none
-                - Go north|east|south|west : Move towards the direction given
                 - Use [object] : Use an object in your inventory
                 - SWitch : Switch the state of your trick weapon
                 - Activate [object] : Activate an object in your current location
@@ -88,13 +87,6 @@ public class CommandHandler {
                 - Quit : Quit the game, all progress will be lost""";
 
         switch (command) {
-            case "g", "go" -> {
-                if (target.equals("")) {
-                    throw new TooFewArgumentsException();
-                } else {
-                    GAME.goFunction(target);
-                }
-            }
             case "tp", "teleport" -> {
                 if (target.equals("")) {
                     throw new TooFewArgumentsException();

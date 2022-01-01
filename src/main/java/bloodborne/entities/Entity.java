@@ -1,5 +1,7 @@
 package bloodborne.entities;
 
+import bloodborne.sounds.SoundManager;
+
 import java.util.Map;
 
 public abstract class Entity {
@@ -40,16 +42,15 @@ public abstract class Entity {
         healthPoints = Integer.parseInt(ATTRIBUTES.get("health"));
     }
 
-    public boolean takeDamage(int damage) {
+    public void takeDamage(int damage) {
         if((healthPoints - damage) < 0 ){
             healthPoints = 0;
         } else {
             healthPoints-=damage;
         }
-        return getHealthPoints() <= 0;
     }
 
     public abstract int getDamage();
 
-    public abstract boolean attack(Entity target);
+    public abstract String attack(Entity target, SoundManager soundManager);
 }

@@ -5,10 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Constructed the base of the Places.json file with all the Exits.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/MultiEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/json/ZoneDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/json/ZoneDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/zone/ZoneLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/zone/ZoneLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Enemies.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Enemies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Items.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Props.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy_yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy_yharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/visceral_attack.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/visceral_attack.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/ZoneDataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/json/ZoneDataLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/Place.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/Place.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +84,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/bloodborne" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projet_POO/POO_Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MPIProjet" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37356323" />

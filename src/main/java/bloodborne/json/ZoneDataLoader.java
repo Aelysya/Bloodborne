@@ -14,6 +14,10 @@ public class ZoneDataLoader {
         return getAsReader(zoneName, "NPCs");
     }
 
+    public static Reader getEnemies(String zoneName) {
+        return getAsReader(zoneName, "Enemies");
+    }
+
     public static Reader getPlaces(String zoneName) {
         return getAsReader(zoneName, "Places");
     }

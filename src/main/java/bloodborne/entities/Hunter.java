@@ -19,6 +19,7 @@ public class Hunter extends Entity{
     private DamageType damageType;
     private int bloodEchoes;
     private final List<Rune> RUNE_LIST;
+    private boolean lastAttackIsVisceral;
 
     private static final Map<String, String> CONSTRUCT_MAP = new HashMap<>();
     static{
@@ -36,6 +37,7 @@ public class Hunter extends Entity{
         damageType = DamageType.BASE;
         bloodEchoes = 0;
         RUNE_LIST = new ArrayList<>();
+        lastAttackIsVisceral = false;
     }
 
     public void addItem(Item item){
@@ -52,10 +54,6 @@ public class Hunter extends Entity{
 
     public void addBullets(int bulletAmount){
         bulletsNumber+=bulletAmount;
-    }
-
-    public void wasteBullet(){
-        bulletsNumber--;
     }
 
     public void gainBloodEchoes(int amount){
@@ -175,6 +173,10 @@ public class Hunter extends Entity{
         return RUNE_LIST;
     }
 
+    public boolean isLastAttackVisceral(){
+        return lastAttackIsVisceral;
+    }
+
     public boolean hasItem(String itemId){
         return INVENTORY.hasItem(itemId);
     }
@@ -270,20 +272,35 @@ public class Hunter extends Entity{
     }
 
     @Override
-    public boolean attack(Entity target) {
-        int finalDamage = getDamage(); //To avoid losing one instance of boosted damage from the code below
-        if(boostLeft != 0){
-            boostLeft--;
-            if(boostLeft == 0){
-                damageBoost = 0;
-                damageType = DamageType.BASE;
+    public String attack(Entity target, SoundManager soundManager) {
+        StringBuilder s = new StringBuilder();
+        s.append("You attack your enemy, ");
+        if (Math.random() < target.getDodgeRate()){
+            s.append("he avoided the attack.");
+        } else {
+            int finalDamage = getDamage(); //To avoid losing one instance of boosted damage from the code below
+            if(boostLeft != 0){
+                boostLeft--;
+                if(boostLeft == 0){
+                    damageBoost = 0;
+                    damageType = DamageType.BASE;
+                }
+            }
+            target.takeDamage(finalDamage);
+            s.append("you did ").append(getDamage()).append(" damage !");
+
+            switch (damageType){
+                case FIRE -> soundManager.playSoundEffect("enemy_hit_fire.wav");
+                case BOLT -> soundManager.playSoundEffect("enemy_hit_bolt.wav");
+                default -> soundManager.playSoundEffect("enemy_hit.wav");
             }
         }
-        return target.takeDamage(finalDamage);
+        lastAttackIsVisceral = false;
+        return s.toString();
     }
 
     @Override
-    public boolean takeDamage(int damage){
+    public void takeDamage(int damage){
         int finalDamage = damage;
         if (hasRune("Lake rune")){
             finalDamage--;
@@ -293,7 +310,6 @@ public class Hunter extends Entity{
         } else {
             healthPoints-=finalDamage;
         }
-        return getHealthPoints() <= 0;
     }
 
     public void regenAfterVisceral(int amount){
@@ -308,9 +324,34 @@ public class Hunter extends Entity{
         }
     }
 
-    public boolean shoot(Entity target) {
-        bulletsNumber-=fireArm.getBULLET_USE();
-        return target.takeDamage(getFireArmDamage());
+    public String shoot(Entity target, SoundManager soundManager) {
+        StringBuilder s = new StringBuilder();
+        if (cantShoot()){
+            s.append("You don't have enough quicksilver bullets left to shoot.");
+        } else if (fireArm == null){
+            s.append("You have no gun equipped.");
+        } else {
+            s.append("You shoot at your enemy, ");
+            soundManager.playSoundEffect("gunshot.wav");
+            if (Math.random() > fireArm.getHIT_RATE()){ //Shot is missed
+                bulletsNumber-=fireArm.getBULLET_USE();
+                s.append("you missed.");
+            } else {
+                if (Math.random() < fireArm.getVISCERAL_RATE()){ //Player performs a visceral attack, regenerating health and cancelling the enemy's attack
+                    s.append("you shot at the right timing and perform a visceral attack on him. It regenerates a bit of your life.\n");
+                    soundManager.playSoundEffect("visceral_attack.wav");
+                    regenAfterVisceral(target.getDamage());
+                    target.takeDamage(fireArm.getCurrentDamage()+10);
+                    lastAttackIsVisceral = true;
+                    s.append("You did ").append(fireArm.getCurrentDamage() + 10).append(" damage !");
+                } else { //Classic ranged attack
+                    target.takeDamage(fireArm.getCurrentDamage());
+                    lastAttackIsVisceral = false;
+                    s.append("You did ").append(fireArm.getCurrentDamage() + 10).append(" damage !");
+                }
+            }
+        }
+        return s.toString();
     }
 
     public boolean cantShoot(){

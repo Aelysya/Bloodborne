@@ -86,7 +86,8 @@ public class Game {
                 You don't have time to wonder why you are still alive or how you ended up there. A big monster is still roaming the streets of Yharnam and you have to deal with it.
                 You quickly grab the two blood vials left on the beside table next to you and get up.
                 """;
-        CONTROLLER.writeLetterByLetter(START_TEXT + "\n\n" + ZONE.getCurrentPlace().getDESCRIPTION());
+        CONTROLLER.writeLetterByLetter(/*START_TEXT +*/ "\n\n" + ZONE.getCurrentPlace().getDESCRIPTION());
+        CONTROLLER.updateDirectionalArrows(ZONE.getCurrentPlace());
     }
 
     public void death() {
@@ -126,6 +127,7 @@ public class Game {
                 CONTROLLER.writeInstantly(currentPlace.getExitByName(direction).getConditionFalseText());
             }
         }
+        CONTROLLER.updateDirectionalArrows(currentPlace);
     }
 
     public void teleportFunction(String destination) { //To use the teleport command, use the id of the place you want to go to
@@ -145,6 +147,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("Place id invalid");
         }
+        CONTROLLER.updateDirectionalArrows(ZONE.getCurrentPlace());
     }
 
     public void lookFunction(String target) {
@@ -306,106 +309,45 @@ public class Game {
     }
 
     public void resolveFight(String decision){
-        //Player's turn
-        if (decision.equals("melee")) {
-            CONTROLLER.writeInstantly("You attack your enemy.");
-            if (Math.random() < currentlyFoughtEntity.getDodgeRate()) { //The enemy dodges the attack
-                CONTROLLER.writeInstantly("Your enemy avoided the attack.");
-            } else { //The enemy takes the attack
-                switch(HUNTER.getDamageType()){ //Sound effect depending on the current damage type of the player
-                    case "FIRE" -> SOUND_MANAGER.playSoundEffect("enemy_hit_fire.wav");
-                    case "BOLT" -> SOUND_MANAGER.playSoundEffect("enemy_hit_bolt.wav");
-                    default -> SOUND_MANAGER.playSoundEffect("enemy_hit.wav");
-                }
-                CONTROLLER.writeInstantly("You did " + HUNTER.getDamage() + " damage to the monster !");
-                if(HUNTER.attack(currentlyFoughtEntity)){ //The enemy is dead
-                    checkEntityKilledIsBoss(currentlyFoughtEntity, false);
-                    CONTROLLER.updateHUD(HUNTER);
-                    return;
-                }
-                CONTROLLER.updateHUD(HUNTER);
-            }
+        if (decision.equals("melee")) { //Player's turn
+            CONTROLLER.writeInstantly(HUNTER.attack(currentlyFoughtEntity, SOUND_MANAGER));
         } else { //Ranged attack
-            if(HUNTER.cantShoot()){
-                CONTROLLER.writeInstantly("You don't have enough quicksilver bullets left to shoot.");
-                return;
-            } else if (HUNTER.getFireArm() == null){
-                CONTROLLER.writeInstantly("You have no gun equipped.");
-                return;
-            } else {
-                CONTROLLER.writeInstantly("You shoot at your enemy.");
-                SOUND_MANAGER.playSoundEffect("gunshot.wav");
-                if (Math.random() > HUNTER.getFireArm().getHIT_RATE()){ //Player misses the shot
-                    CONTROLLER.writeInstantly("You failed to hit your enemy.");
-                    HUNTER.wasteBullet();
-                } else {
-                    if (Math.random() < HUNTER.getFireArm().getVISCERAL_RATE()){ //Player performs a visceral attack, regenerating health and cancelling the enemy's attack
-                        CONTROLLER.writeInstantly("You shot your enemy at the right timing and perform a visceral attack on him. It regenerates a bit of your life.");
-                        SOUND_MANAGER.playSoundEffect("visceral_attack.wav");
-                        HUNTER.regenAfterVisceral(currentlyFoughtEntity.getDamage());
-                        int dmgDone = HUNTER.getFireArmDamage()+10;
-                        currentlyFoughtEntity.takeDamage(10);
-                        HUNTER.shoot(currentlyFoughtEntity);
-                        CONTROLLER.writeInstantly("You did " + dmgDone + " damage to the monster !");
-                        if (currentlyFoughtEntity.isDead()) { //The enemy is dead
-                            checkEntityKilledIsBoss(currentlyFoughtEntity, true);
-                            CONTROLLER.updateHUD(HUNTER);
-                            return;
-                        }
-                        CONTROLLER.updateHUD(HUNTER);
-                        return; //To prevent the enemy from attacking (if not dead)
-                    } else { //Player performs a classic ranged attack
-                        CONTROLLER.writeInstantly("You did " + HUNTER.getFireArmDamage() + " damage to the monster !");
-                        if(HUNTER.shoot(currentlyFoughtEntity)){ //Enemy is dead
-                            checkEntityKilledIsBoss(currentlyFoughtEntity, false);
-                            CONTROLLER.updateHUD(HUNTER);
-                            return;
-                        }
-                        CONTROLLER.updateHUD(HUNTER);
-                    }
-                }
-            }
+            CONTROLLER.writeInstantly(HUNTER.shoot(currentlyFoughtEntity, SOUND_MANAGER));
         }
-        //Enemy's turn if not dead
-        if (Math.random() < HUNTER.getDodgeRate()){ //Player dodges the attack
-            CONTROLLER.writeInstantly("You avoided your enemy's attack.");
-        } else {
-            if (HUNTER.hasRune("Lake rune")){
-                CONTROLLER.writeInstantly("You took " + (currentlyFoughtEntity.getDamage()-1) + " damage !");
-            } else {
-                CONTROLLER.writeInstantly("You took " + currentlyFoughtEntity.getDamage() + " damage !");
-            }
-            if (currentlyFoughtEntity.attack(HUNTER)){ //Player is dead
-                death();
-                CONTROLLER.updateHUD(HUNTER);
-                return;
-            }
+        if(currentlyFoughtEntity.isDead()){
+            checkEntityKilledIsBoss(currentlyFoughtEntity);
             CONTROLLER.updateHUD(HUNTER);
+            return;
+        } else { //Enemy's turn if not dead
+            CONTROLLER.writeInstantly(currentlyFoughtEntity.attack(HUNTER, SOUND_MANAGER));
+            if (HUNTER.isDead()){
+                death();
+            }
         }
+        CONTROLLER.updateHUD(HUNTER);
     }
 
-    public void checkEntityKilledIsBoss(Entity enemy, boolean fromVisceral){
-        if (!(enemy instanceof Boss)) {
-            CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
-            if (!fromVisceral) {
-                SOUND_MANAGER.playSoundEffect("enemy_killed.wav");
-            }
-            Enemy e = (Enemy) enemy;
-            CONTROLLER.writeInstantly(e.loot(HUNTER));
-            setAnalyzer(TextAnalyzer.EXPLORATION);
-        } else {
+    public void checkEntityKilledIsBoss(Entity enemy){
+        if (enemy instanceof Boss) {
             CONTROLLER.transitionImage("prey_slaughtered.png");
             SOUND_MANAGER.playSoundEffect("prey_slaughtered.wav");
             SOUND_MANAGER.setLoopingSound("ambient_theme.wav");
             CONTROLLER.writeLetterByLetter("Congratulations ! You managed to kill the Cleric Beast once and for all ! The source of the blood plague is no more and the hunters that came here before you did not die for nothing. But Yharnam will take a long time to recover from this disaster. It is unlikely the survivors will stop consuming blood to heals their diseases but your work gave them some spare time... until next time they need hunters' help...");
             CONTROLLER.writeInstantly("----------------\n\nYour job here is done. Enter Y to quit the game.");
             setAnalyzer(TextAnalyzer.WIN);
+        } else {
+            CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
+            if (!HUNTER.isLastAttackVisceral()){
+                SOUND_MANAGER.playSoundEffect("enemy_killed.wav");
+            }
+            Enemy e = (Enemy) enemy;
+            CONTROLLER.writeLetterByLetter(e.loot(HUNTER));
+            setAnalyzer(TextAnalyzer.EXPLORATION);
         }
     }
 
     public void switchFunction() {
         CONTROLLER.writeInstantly(HUNTER.switchTrickWeaponState());
-        CONTROLLER.updateHUD(HUNTER);
         CONTROLLER.updateWeapons(HUNTER);
     }
 
@@ -428,7 +370,8 @@ public class Game {
 
     public void fleeFunction() {
         if (!(currentlyFoughtEntity instanceof Boss)){
-            if (HUNTER.takeDamage(5)) {
+            HUNTER.takeDamage(5);
+            if (HUNTER.isDead()) {
                 CONTROLLER.updateHUD(HUNTER);
                 CONTROLLER.writeLetterByLetter("You were too weak too flee and your enemy caught up with you. He executes you.\n" + DEATH_TEXT);
                 death();
@@ -450,7 +393,7 @@ public class Game {
 
     
     //Deprecated methods
-
+/*
     public void attackFunction() {
         CONTROLLER.writeInstantly("You attack your enemy.");
         int dmg = HUNTER.getDamage(); //In case of last buffed attack, if not present it only shows base weapon damage while boosted damage are dealt
@@ -498,5 +441,5 @@ public class Game {
                 CONTROLLER.updateHUD(HUNTER);
             }
         }
-    }
+    }*/
 }

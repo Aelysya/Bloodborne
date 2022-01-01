@@ -1,5 +1,25 @@
 [
   {
+    "id": "hunters-dream",
+    "name": "Hunter's dream",
+    "description": "TODO desc",
+    "altDescription": "TODO alt desc",
+    "imagePath": "zones/hunters_dream.png",
+    "themeName": "hunters_dream_theme.wav",
+    "items": {
+
+    },
+    "props": {
+
+    },
+    "exits": {
+
+    },
+    "enemies": {
+
+    }
+  },
+  {
     "id": "clinic",
     "name": "Iosefka's clinic",
     "description": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Judging by the blood covered INSTRUMENTS (L) next to the beds, they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L) and a BAG (L) left on one of the beds. There is a WOLF (F) beast blocking the only way out, the confrontation is inevitable.",
@@ -780,7 +800,7 @@
     "id": "oedon-tomb",
     "name": "Oedon tomb",
     "description": "You have arrived at the tomb of Oedon, the atmosphere is very strange, heavy. At the back of the small cemetery, you can see a hunter, he is wearing the black church outfit and is apparently cutting up dead monsters. He notices your presence. As he turns around, you hear what he says: \"Beasts all over the shop... You'll be one of them, sooner or later...\". You now have no other choice but to fight FATHER GASCOIGNE (F).",
-    "altDescription": "You are in the tomb of Oedon, the atmosphere is very strange, heavy. Now that the father Gascoigne is dead, you can inspect the surroundings peacefully. On a roof at the bottom of the cemetery, you find the body of a WOMAN (L), probably killed by Gascoigne.",
+    "altDescription": "You are in the tomb of Oedon, the atmosphere is very strange, heavy. Now that Father Gascoigne is dead, you can inspect the surroundings peacefully. On a roof at the bottom of the cemetery, you find the body of a WOMAN (L), probably killed by Gascoigne.",
     "imagePath": "zones/central_yharnam/oedon_tomb.png",
     "themeName": "father_gascoigne_theme.wav",
     "items": {

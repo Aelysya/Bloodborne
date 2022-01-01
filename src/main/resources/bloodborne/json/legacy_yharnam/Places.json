@@ -5,7 +5,8 @@
 		"imagePath": "zones/central_yharnam/clinic.png",
 		"songPath": "ambient_theme.wav",
 		"items": {
-			"fire-paper": "clinic-fire-paper"
+			"fire-paper": "clinic-fire-paper",
+			"lake-rune": "lake-rune"
 		},
 		"props": {
 			"bag": "clinic-bag",
