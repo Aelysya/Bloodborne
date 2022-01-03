@@ -1,1 +1,51 @@
-[]
+[
+  {
+    "id": "clinic-wolf",
+    "type": "Enemy",
+    "description": "This monster has been completely transformed by the beast scourge, it now looks like a wolf with razor-sharp claws.",
+    "attributes": {
+      "canRespawn": "false",
+      "health": "15",
+      "damage": "5",
+      "damageType": "base",
+      "dodgeRate": "0.1",
+      "fireWeakness": "1.5",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "bloodEchoes": "350"
+    }
+  },
+  {
+    "id": "back-clinic-emissary",
+    "type": "Enemy",
+    "description": "This alien-like creature doesn't seem to come from our world. It has a blue skin and his hand don't have the same number of fingers, six on one and seven on the other.",
+    "attributes": {
+      "canRespawn": "false",
+      "health": "15",
+      "damage": "3",
+      "damageType": "base",
+      "dodgeRate": "0.05",
+      "fireWeakness": "1.5",
+      "boltWeakness": "1.5",
+      "arcaneWeakness": "1.0",
+      "bloodEchoes": "700"
+    }
+  },
+  {
+    "id": "graveyard-annex-crows",
+    "type": "MultiEnemy",
+    "description": "",
+    "attributes": {
+      "canRespawn": "true",
+      "enemyAmount": "3",
+      "health": "21",
+      "damage": "2",
+      "damageType": "base",
+      "dodgeRate": "0.05",
+      "fireWeakness": "1.0",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "bloodEchoes": "300"
+    }
+  }
+]

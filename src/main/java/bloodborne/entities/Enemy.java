@@ -6,8 +6,13 @@ import java.util.Map;
 
 public class Enemy extends Entity{
 
+    private int takenBloodEchoes;
+    private boolean hasHunterEchoes;
+
     public Enemy(String id, String description, Map<String, String> att) {
         super(id, description, att);
+        hasHunterEchoes = false;
+        takenBloodEchoes = 0;
     }
 
     public String getNAME() {
@@ -37,8 +42,8 @@ public class Enemy extends Entity{
     }
 
     public void takeEchoes(Hunter hunter){
-        int totalValue = Integer.parseInt(ATTRIBUTES.get("bloodEchoes")) + hunter.getBloodEchoes();
-        ATTRIBUTES.replace("bloodEchoes", Integer.toString(totalValue));
+        hasHunterEchoes = true;
+        takenBloodEchoes = hunter.getBloodEchoes();
     }
 
     public String loot(Hunter hunter){
@@ -59,8 +64,20 @@ public class Enemy extends Entity{
                 hunter.addVials(3);
             }
         }
-        hunter.gainBloodEchoes(Integer.parseInt(ATTRIBUTES.get("bloodEchoes")));
+        hunter.gainBloodEchoes(Integer.parseInt(ATTRIBUTES.get("bloodEchoes")) + takenBloodEchoes);
+        hasHunterEchoes = false;
         return "You loot the corpse and retrieve some useful consumables.";
+    }
+
+    public void resetEnemy(){
+        if (Boolean.parseBoolean(ATTRIBUTES.get("canRespawn"))){
+            fullRegen();
+            hasHunterEchoes = false;
+            takenBloodEchoes = 0;
+            System.out.println("Reset : " + ATTRIBUTES.get("id"));
+        } else {
+            System.out.println("Enemy not reset : " + ATTRIBUTES.get("id"));
+        }
     }
 
 }

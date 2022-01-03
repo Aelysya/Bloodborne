@@ -87,6 +87,13 @@ public class CommandHandler {
                 - Quit : Quit the game, all progress will be lost""";
 
         switch (command) {
+            case "g", "go" -> {
+                if (target.equals("")) {
+                    throw new TooFewArgumentsException();
+                } else {
+                    GAME.goFunction(target);
+                }
+            }
             case "tp", "teleport" -> {
                 if (target.equals("")) {
                     throw new TooFewArgumentsException();
