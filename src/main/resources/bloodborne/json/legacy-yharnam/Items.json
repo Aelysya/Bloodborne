@@ -5,7 +5,7 @@
 		"description": "One of the trick weapons of the workshop, commonly used in the hunting business.\nThis saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force. The saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
 		"attributes": {
 			"name": "Saw Cleaver",
-			"imagePath": "saw_cleaver.png",
+			"imagePath": "saw-cleaver.png",
 			"damage": "4",
 			"baseDodgeRate": "0.3",
 			"switchedDamage": "5",
@@ -18,7 +18,7 @@
 		"description": "One of the trick weapons of the workshop, commonly used by those who dedicate themselves to the hunt. This saw, effective at drawing the blood of beasts, transforms into a medium-range spear. The saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
 		"attributes": {
 			"name": "Saw Spear",
-			"imagePath": "saw_spear.png",
+			"imagePath": "saw-spear.png",
 			"damage": "3",
 			"baseDodgeRate": "0.4",
 			"switchedDamage": "4",
@@ -31,7 +31,7 @@
 		"description": "One of the trick weapons of the workshop, commonly used on the hunt. Retains the qualities of an axe, but offers a wider palette of attacks by transforming. No matter their pasts, beasts are no more than beasts. Some choose this axe to play the part of executioner.",
 		"attributes": {
 			"name": "Hunter Axe",
-			"imagePath": "hunter_axe.png",
+			"imagePath": "hunter-axe.png",
 			"damage": "5",
 			"baseDodgeRate": "0.2",
 			"switchedDamage": "6",
@@ -44,7 +44,7 @@
 		"description": "The blades of mercy. A special trick weapon passed down among hunters of hunters. The weapon's warped blades are forged with siderite, a rare mineral of the heavens.",
 		"attributes": {
 			"name": "Blades of Mercy",
-			"imagePath": "blades_of_mercy.png",
+			"imagePath": "blades-of-mercy.png",
 			"damage": "5",
 			"baseDodgeRate": "0.4",
 			"switchedDamage": "4",
@@ -70,7 +70,7 @@
 		"description": "Pistol made at the workshop, for hunters stalking beasts. Hunter firearms are specially crafted to employ Quicksilver Bullets fused with the wielder's own blood, boosting damage against beasts.",
 		"attributes": {
 			"name": "Hunter Pistol",
-			"imagePath": "hunter_pistol.png",
+			"imagePath": "hunter-pistol.png",
 			"damage": "3",
 			"bulletUse": "1",
 			"hitRate": "0.8",
@@ -83,7 +83,7 @@
 		"description": "A blunderbuss created at the workshop for the hunters' line of work. The impact of this highly-effective weapon counters beasts' swift movements, and its wide spread is nigh-on guaranteed to hit the mark.",
 		"attributes": {
 			"name": "Hunter Blunderbuss",
-			"imagePath": "hunter_blunderbuss.png",
+			"imagePath": "hunter-blunderbuss.png",
 			"damage": "4",
 			"bulletUse": "1",
 			"hitRate": "0.9",

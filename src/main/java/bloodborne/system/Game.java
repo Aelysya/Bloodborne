@@ -23,7 +23,6 @@ public class Game {
             See you soon, Hunter
             ----------------------------
             """;
-
     private final Hunter HUNTER;
     private final CommandHandler COMMAND_HANDLER;
     private final GameController CONTROLLER;
@@ -31,17 +30,17 @@ public class Game {
     private TextAnalyzer analyzer;
     private final Zone ZONE;
     private Entity currentlyFoughtEntity;
-    //private String currentZone = "central_yharnam"; //TODO Make others zones for the game
+    //private String currentZone = "central-yharnam";
     private Rune memorizedRune;
 
     public Game(GameController Controller) {
         CONTROLLER = Controller;
         COMMAND_HANDLER = new CommandHandler(this);
         SOUND_MANAGER = new SoundManager();
-        SOUND_MANAGER.setLoopingSound("ambient_theme.wav");
+        SOUND_MANAGER.setLoopingSound("ambient-theme.wav");
         HUNTER = new Hunter();
         ZONE = new Zone(HUNTER);
-        ZoneLoader.loadZone("legacy_yharnam", ZONE);
+        ZoneLoader.loadZone("legacy-yharnam", ZONE);
         currentlyFoughtEntity = null;
         analyzer = TextAnalyzer.START;
     }
@@ -86,13 +85,13 @@ public class Game {
                 You don't have time to wonder why you are still alive or how you ended up there. A big monster is still roaming the streets of Yharnam and you have to deal with it.
                 You quickly grab the two blood vials left on the beside table next to you and get up.
                 """;
-        CONTROLLER.writeLetterByLetter(/*START_TEXT +*/ "\n\n" + ZONE.getCurrentPlace().getDESCRIPTION());
+        CONTROLLER.writeLetterByLetter(START_TEXT + "\n\n" + ZONE.getCurrentPlace().getDESCRIPTION());
         CONTROLLER.updateDirectionalArrows(ZONE.getCurrentPlace());
     }
 
     public void death() {
-        SOUND_MANAGER.playSoundEffect("you_died.wav");
-        CONTROLLER.transitionImage("you_died.jpg");
+        SOUND_MANAGER.playSoundEffect("you-died.wav");
+        CONTROLLER.transitionImage("you-died.jpg");
         CONTROLLER.writeLetterByLetter(DEATH_TEXT + "\nEnter Y to quit");
         setAnalyzer(TextAnalyzer.DEATH);
     }
@@ -112,7 +111,7 @@ public class Game {
         } else {
             if (currentPlace.getExitByName(direction).isTraversable()) {
                 ZONE.changePlace(currentPlace.getExitByName(direction).getOUT());
-                SOUND_MANAGER.playSoundEffect("change_zone.wav");
+                SOUND_MANAGER.playSoundEffect("change-zone.wav");
                 currentPlace = ZONE.getCurrentPlace();
                 if (!currentPlace.getSONG_PATH().equals("")) {
                     SOUND_MANAGER.setLoopingSound(currentPlace.getSONG_PATH());
@@ -133,7 +132,7 @@ public class Game {
     public void teleportFunction(String destination) { //To use the teleport command, use the id of the place you want to go to
         if(ZONE.getPlaceByName(destination) != null){
             ZONE.changePlace(ZONE.getPlaceByName(destination));
-            SOUND_MANAGER.playSoundEffect("change_zone.wav");
+            SOUND_MANAGER.playSoundEffect("change-zone.wav");
             Place currentPlace = ZONE.getCurrentPlace();
             if (!currentPlace.getSONG_PATH().equals("")) {
                 SOUND_MANAGER.setLoopingSound(currentPlace.getSONG_PATH());
@@ -185,7 +184,7 @@ public class Game {
         if (prop != null) {
             CONTROLLER.writeLetterByLetter(prop.activate(HUNTER));
             if(prop instanceof Container && !((Container) prop).isLooted()){
-                SOUND_MANAGER.playSoundEffect("open_chest.wav");
+                SOUND_MANAGER.playSoundEffect("open-chest.wav");
             }
             CONTROLLER.updateHUD(HUNTER);
             if(HUNTER.isDead()){
@@ -222,7 +221,7 @@ public class Game {
         if (item != null) {
             if (!item.isTaken()) {
                 CONTROLLER.writeInstantly(item.take(HUNTER));
-                SOUND_MANAGER.playSoundEffect("take_item.wav");
+                SOUND_MANAGER.playSoundEffect("take-item.wav");
             } else {
                 CONTROLLER.writeInstantly("You already took this item.");
             }
@@ -241,7 +240,7 @@ public class Game {
                 } else {
                     CONTROLLER.writeInstantly(HUNTER.equipFireArm((FireArm) item));
                 }
-                SOUND_MANAGER.playSoundEffect("weapon_equip.wav");
+                SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
                 CONTROLLER.updateWeapons(HUNTER);
             } else if (item instanceof Rune){
                 if(HUNTER.getNumberOfRunes() >= 3){
@@ -250,7 +249,7 @@ public class Game {
                     CONTROLLER.writeInstantly("You already have 3 runes equipped, which one do you want to replace ? [1/2/3/cancel]");
                 } else {
                     CONTROLLER.writeInstantly(HUNTER.equipRune((Rune) item, -1)); //-1 to just add the rune to the list
-                    SOUND_MANAGER.playSoundEffect("weapon_equip.wav");
+                    SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
                     CONTROLLER.updateRunes(HUNTER);
                 }
             } else {
@@ -264,7 +263,7 @@ public class Game {
 
     public void runeDecisionFunction(int position){
         CONTROLLER.writeInstantly(HUNTER.equipRune(memorizedRune, position));
-        SOUND_MANAGER.playSoundEffect("weapon_equip.wav");
+        SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
         CONTROLLER.updateRunes(HUNTER);
         setAnalyzer(TextAnalyzer.EXPLORATION);
     }
@@ -300,7 +299,7 @@ public class Game {
                 HUNTER.showInventory() +
                 "-----------------------------";
         CONTROLLER.writeInstantly(s);
-        SOUND_MANAGER.playSoundEffect("inventory_list.wav");
+        SOUND_MANAGER.playSoundEffect("inventory-list.wav");
     }
 
     public void quitFunction() {
@@ -329,16 +328,16 @@ public class Game {
 
     public void checkEntityKilledIsBoss(Entity enemy){
         if (enemy instanceof Boss) {
-            CONTROLLER.transitionImage("prey_slaughtered.png");
-            SOUND_MANAGER.playSoundEffect("prey_slaughtered.wav");
-            SOUND_MANAGER.setLoopingSound("ambient_theme.wav");
+            CONTROLLER.transitionImage("prey-slaughtered.png");
+            SOUND_MANAGER.playSoundEffect("prey-slaughtered.wav");
+            SOUND_MANAGER.setLoopingSound("ambient-theme.wav");
             CONTROLLER.writeLetterByLetter("Congratulations ! You managed to kill the Cleric Beast once and for all ! The source of the blood plague is no more and the hunters that came here before you did not die for nothing. But Yharnam will take a long time to recover from this disaster. It is unlikely the survivors will stop consuming blood to heals their diseases but your work gave them some spare time... until next time they need hunters' help...");
             CONTROLLER.writeInstantly("----------------\n\nYour job here is done. Enter Y to quit the game.");
             setAnalyzer(TextAnalyzer.WIN);
         } else {
             CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
             if (!HUNTER.isLastAttackVisceral()){
-                SOUND_MANAGER.playSoundEffect("enemy_killed.wav");
+                SOUND_MANAGER.playSoundEffect("enemy-killed.wav");
             }
             Enemy e = (Enemy) enemy;
             CONTROLLER.writeLetterByLetter(e.loot(HUNTER));
@@ -398,9 +397,9 @@ public class Game {
         CONTROLLER.writeInstantly("You attack your enemy.");
         int dmg = HUNTER.getDamage(); //In case of last buffed attack, if not present it only shows base weapon damage while boosted damage are dealt
         switch(HUNTER.getDamageType()){
-            case "FIRE" -> SOUND_MANAGER.playSoundEffect("enemy_hit_fire.wav");
-            case "BOLT" -> SOUND_MANAGER.playSoundEffect("enemy_hit_bolt.wav");
-            default -> SOUND_MANAGER.playSoundEffect("enemy_hit.wav");
+            case "FIRE" -> SOUND_MANAGER.playSoundEffect("enemy-hit-fire.wav");
+            case "BOLT" -> SOUND_MANAGER.playSoundEffect("enemy-hit-bolt.wav");
+            default -> SOUND_MANAGER.playSoundEffect("enemy-hit.wav");
         }
         if (!HUNTER.attack(currentlyFoughtEntity)) {
             if (currentlyFoughtEntity.attack(HUNTER)) {

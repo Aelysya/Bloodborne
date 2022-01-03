@@ -152,9 +152,9 @@ public class Hunter extends Entity{
     public String getTrickWeaponIcon(){
         String path;
         if(trickWeapon == null){
-            path = "empty_hand.png";
+            path = "images/empty.png";
         } else {
-            path = trickWeapon.getIcon();
+            path = "images/items/" + trickWeapon.getIcon();
         }
         return path;
     }
@@ -162,9 +162,9 @@ public class Hunter extends Entity{
     public String getFireArmIcon(){
         String path;
         if(fireArm == null){
-            path = "empty_hand.png";
+            path = "images/empty.png";
         } else {
-            path = fireArm.getIcon();
+            path = "images/items/" + fireArm.getIcon();
         }
         return path;
     }
@@ -196,7 +196,7 @@ public class Hunter extends Entity{
                 }
                 s.append("You use a blood vial, your wounds heal and a dark part of you wants more of it.");
                 vialsNumber--;
-                soundManager.playSoundEffect("used_bloodvial.wav");
+                soundManager.playSoundEffect("used-bloodvial.wav");
             }
         }
 
@@ -263,7 +263,7 @@ public class Hunter extends Entity{
         boostLeft = 5;
         removeItem(p);
         if(p.getTYPE().equals("fire")){
-            soundManager.playSoundEffect("fire_applied.wav");
+            soundManager.playSoundEffect("fire-applied.wav");
             damageType = DamageType.FIRE;
         } else {
             soundManager.playSoundEffect("bolt_applied.wav");
@@ -288,11 +288,10 @@ public class Hunter extends Entity{
             }
             target.takeDamage(finalDamage);
             s.append("you did ").append(getDamage()).append(" damage !");
-
             switch (damageType){
-                case FIRE -> soundManager.playSoundEffect("enemy_hit_fire.wav");
-                case BOLT -> soundManager.playSoundEffect("enemy_hit_bolt.wav");
-                default -> soundManager.playSoundEffect("enemy_hit.wav");
+                case FIRE -> soundManager.playSoundEffect("enemy-hit-fire.wav");
+                case BOLT -> soundManager.playSoundEffect("enemy-hit-bolt.wav");
+                default -> soundManager.playSoundEffect("enemy-hit.wav");
             }
         }
         lastAttackIsVisceral = false;
@@ -339,7 +338,7 @@ public class Hunter extends Entity{
             } else {
                 if (Math.random() < fireArm.getVISCERAL_RATE()){ //Player performs a visceral attack, regenerating health and cancelling the enemy's attack
                     s.append("you shot at the right timing and perform a visceral attack on him. It regenerates a bit of your life.\n");
-                    soundManager.playSoundEffect("visceral_attack.wav");
+                    soundManager.playSoundEffect("visceral-attack.wav");
                     regenAfterVisceral(target.getDamage());
                     target.takeDamage(fireArm.getCurrentDamage()+10);
                     lastAttackIsVisceral = true;

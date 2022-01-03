@@ -9,7 +9,7 @@
    <top>
       <ImageView fx:id="loadingScreenImage" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@images/loading_screen.jpg" />
+            <Image url="@images/loading-screen.jpg" />
          </image>
       </ImageView>
    </top>

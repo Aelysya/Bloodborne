@@ -4,33 +4,160 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Constructed the base of the Places.json file with all the Exits.">
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Reworked the fight system by swapping boolean returns for strings in attack and shoot methods">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/blood-echoes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/beckoning-bell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/blades-of-mercy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/bolt-paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/bone-marrow-ash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldblood-dew.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/fire-paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/great-ones-wisdom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter-mark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/kin-coldblood.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/madmans-knowledge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/thick-coldblood.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/tonsil-stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/yharnam-stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/prey-slaughtered.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/beast-embrace.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/blood-rapture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/clockwise-metamorphosis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/deep-sea.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/formless-oedon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/oedon-writhe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/you-died.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/hunter's_dream/gherman-arena.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/hunter's_dream/main-area.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/amulet-used.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/bolt-applied.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/change-zone.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/json/ZoneDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/json/ZoneDataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Rune.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Rune.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/zone/ZoneLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/zone/ZoneLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Enemies.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Enemies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Places.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Props.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy_yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy_yharnam/Places.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/visceral_attack.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/visceral_attack.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/blood_echoes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/beckoning_bell.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/black_key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/blades_of_mercy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/bolt_paper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/bone_marrow_ash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldblood_dew.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/empty_hand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/fire_paper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/frenzied_coldblood.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/frenzied-coldblood.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/great_one_coldblood.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/great-one-coldblood.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/great_ones_wisdom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter_axe.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter-axe.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter_blunderbuss.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter-blunderbuss.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter_mark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter_pistol.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter-pistol.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/kin_coldblood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/madmans_knowledge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/round_key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/saw_cleaver.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/saw-cleaver.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/saw_spear.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/saw-spear.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/small_key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/thick_coldblood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/tonsil_stone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/yharnam_stone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/loading_screen.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/loading-screen.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/prey_slaughtered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/anticlockwise_metamorphosis.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/anticlockwise-metamorphosis.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/beast_embrace.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/blood_rapture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/clockwise_metamorphosis.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/deep_sea.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/empty_rune.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/formless_oedon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/oedon_writhe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/you_died.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/back-bridge.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/back-bridge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/back-clinic.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/back-clinic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/boss-room.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/boss-room.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/campfire.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/campfire.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/clinic.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/clinic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/front-bridge.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/front-bridge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/graveyard-annex.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/graveyard-annex.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/graveyard.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/graveyard.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/house.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/house.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/loading-screen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/lower-sewers.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/lower-sewers.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/small-square.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/small-square.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/square.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/square.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/straight-path.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/straight-path.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/upper-sewers.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/upper-sewers.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central_yharnam/useless-path.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/useless-path.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Enemies.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central_yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy_yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy_yharnam/NPCs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/NPCs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy_yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy_yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Props.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/loadingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/loadingScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/amulet_used.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/bolt_applied.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/change_zone.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/enemy_hit.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/enemy-hit.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/enemy_hit_bolt.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/enemy-hit-bolt.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/enemy_hit_fire.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/enemy-hit-fire.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/enemy_killed.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/enemy-killed.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/fire_applied.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/fire-applied.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/gain_echoes.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/gain-echoes.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/inventory_list.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/inventory-list.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/open_chest.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/open-chest.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/prey_slaughtered.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/prey-slaughtered.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/take_item.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/take-item.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/ambient_theme.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/ambient-theme.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/central_yharnam_ambient_theme.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/central-yharnam.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/cleric_beast_theme.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/cleric-beast-theme.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/hunters_dream_theme.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/hunter's-dream-theme.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/used_bloodvial.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/used-bloodvial.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/visceral_attack.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/visceral-attack.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapon_equip.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapon-equip.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/you_died.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/you-died.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/ZoneDataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/json/ZoneDataLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/black_key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/blades_of_mercy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/empty_hand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/hunter_axe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/hunter_blunderbuss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/hunter_pistol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/round_key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/saw_cleaver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/saw_spear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/small_key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/prey_slaughtered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/you_died.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/amulet_used.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/bolt_applied.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/change_zone.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/enemy_hit.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/enemy_hit_bolt.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/enemy_hit_fire.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/enemy_killed.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/fire_applied.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/inventory_list.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/open_chest.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/prey_slaughtered.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/take_item.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/used_bloodvial.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/visceral_attack.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/weapon_equip.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/you_died.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/Place.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/Place.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640731622511</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Reworked the fight system by swapping boolean returns for strings in attack and shoot methods">
+      <created>1641072064311</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1641072064312</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,7 +385,9 @@
     <MESSAGE value="Added methods to Place and Exit classes for future use of alternative descriptions" />
     <MESSAGE value="Added class LookedProp for future use in secret paths. Changed the path to images in json files to sort better the resources between dedicated directories" />
     <MESSAGE value="Constructed the base of the Places.json file with all the Exits." />
-    <option name="LAST_COMMIT_MESSAGE" value="Constructed the base of the Places.json file with all the Exits." />
+    <MESSAGE value="Reworked the fight system by swapping boolean returns for strings" />
+    <MESSAGE value="Reworked the fight system by swapping boolean returns for strings in attack and shoot methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reworked the fight system by swapping boolean returns for strings in attack and shoot methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

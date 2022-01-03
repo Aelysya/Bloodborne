@@ -18,6 +18,10 @@ public class Rune extends Item{
         return ATTRIBUTES.get("equipText");
     }
 
+    public int getTier(){
+        return Integer.parseInt(ATTRIBUTES.get("tier"));
+    }
+
     @Override
     public String use(Hunter hunter, SoundManager soundManager) {
         return "You can't use this.";

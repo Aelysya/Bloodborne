@@ -92,8 +92,8 @@ public class GameController {
     }
 
     public void updateWeapons(Hunter hunter){
-        trickWeaponImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/" + hunter.getTrickWeaponIcon()))));
-        gunImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/" + hunter.getFireArmIcon()))));
+        trickWeaponImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getTrickWeaponIcon()))));
+        gunImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getFireArmIcon()))));
         if(hunter.getTrickWeapon() == null){
             trickWeaponText.setText("No weapon equipped\n1 damage");
         } else {
@@ -116,13 +116,13 @@ public class GameController {
                 if (runes.size() >= 3){
                     rune3.setImage(new Image(String.valueOf(getClass().getResource("images/runes/" + runes.get(2).getIcon()))));
                 } else {
-                    rune3.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty_rune.png"))));
+                    rune3.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
                 }
             } else {
-                rune2.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty_rune.png"))));
+                rune2.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
             }
         } else {
-            rune1.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty_rune.png"))));
+            rune1.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
         }
     }
 

@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane fx:id="entireWindow" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bloodborne.GameController">
-   <BorderPane id="imagebackground" fx:id="borderpane" prefHeight="600.0" prefWidth="1067.0" style="-fx-background-color: black;">
+   <BorderPane id="imageBackground" fx:id="borderpane" prefHeight="600.0" prefWidth="1067.0" style="-fx-background-color: black;">
       <center>
          <ImageView fx:id="imageID" fitHeight="600.0" fitWidth="1067.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
             <viewport>
@@ -26,16 +26,16 @@
    </BorderPane>
    <VBox alignment="BOTTOM_CENTER" layoutX="267.0" layoutY="600.0" prefHeight="400.0" prefWidth="800.0">
       <TextArea id="textarea" fx:id="displayScreen" editable="false" prefHeight="360.0" prefWidth="800.0" stylesheets="@stylesheet.css" wrapText="true" VBox.vgrow="ALWAYS" />
-      <TextField id="textfield" fx:id="writeLine" onKeyPressed="#onKeyPressedWriteLine" prefHeight="40.0" prefWidth="800.0" style="-fx-border-color: white; -fx-border-width: 0px 1px 1px;" stylesheets="@stylesheet.css" />
+      <TextField id="textField" fx:id="writeLine" onKeyPressed="#onKeyPressedWriteLine" prefHeight="40.0" prefWidth="800.0" style="-fx-border-color: white; -fx-border-width: 0px 1px 1px;" stylesheets="@stylesheet.css" />
    </VBox>
    <AnchorPane id="HUD" fx:id="HUDAnchorPane" layoutY="599.0" prefHeight="401.0" prefWidth="269.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 1px;" stylesheets="@stylesheet.css">
       <TextField id="hunterTitle" alignment="TOP_CENTER" editable="false" focusTraversable="false" layoutX="89.0" layoutY="8.0" prefHeight="23.0" prefWidth="90.0" style="-fx-padding: 0px;" stylesheets="@stylesheet.css" text="Hunter" />
       <TextField id="currentHP" fx:id="currentHP" editable="false" focusTraversable="false" layoutX="13.0" layoutY="49.0" prefHeight="31.0" prefWidth="112.0" stylesheets="@stylesheet.css" text="HP: 30/30" />
       <ImageView fx:id="trickWeaponImage" fitHeight="60.0" fitWidth="60.0" layoutX="105.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@images/items/empty_hand.png" />
+         <Image url="@images/empty.png" />
       </ImageView>
       <ImageView fx:id="gunImage" fitHeight="60.0" fitWidth="60.0" layoutX="105.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@images/items/empty_hand.png" />
+         <Image url="@images/empty.png" />
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="21.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@images/items/vial.png" />
@@ -56,17 +56,17 @@
       <TextField fx:id="hitRateText" editable="false" focusTraversable="false" layoutX="157.0" layoutY="345.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Hit rate: 0.0" />
       <TextField fx:id="visceralRateText" editable="false" focusTraversable="false" layoutX="7.0" layoutY="369.0" prefHeight="25.0" prefWidth="147.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Visceral rate: 0.0" />
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="156.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@images/blood_echoes.png" />
+         <Image url="@images/blood-echoes.png" />
       </ImageView>
       <Line endX="142.0" endY="56.0" layoutX="121.0" layoutY="259.0" startX="-114.0" startY="56.0" stroke="#fff7f7" strokeWidth="1.5" />
       <ImageView fx:id="rune1" fitHeight="60.0" fitWidth="60.0" layoutX="21.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@images/items/empty_hand.png" />
+         <Image url="@images/empty.png" />
       </ImageView>
       <ImageView fx:id="rune2" fitHeight="60.0" fitWidth="60.0" layoutX="105.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@images/items/empty_hand.png" />
+         <Image url="@images/empty.png" />
       </ImageView>
       <ImageView fx:id="rune3" fitHeight="60.0" fitWidth="60.0" layoutX="189.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@images/items/empty_hand.png" />
+         <Image url="@images/empty.png" />
       </ImageView>
       <Line endX="142.0" endY="56.0" layoutX="121.0" layoutY="181.0" startX="-114.0" startY="56.0" stroke="#fff7f7" strokeWidth="1.5" />
       <TextField fx:id="bloodEchoesText" editable="false" focusTraversable="false" layoutX="181.0" layoutY="49.0" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 30px;" stylesheets="@stylesheet.css" text="0" />
