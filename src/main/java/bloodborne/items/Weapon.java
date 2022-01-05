@@ -9,7 +9,7 @@ public abstract class Weapon extends Item{
     }
 
     public String getIcon(){
-        return ATTRIBUTES.get("imagePath");
+        return "weapons/" + getID() + ".png";
     }
 
     public abstract int getCurrentDamage();

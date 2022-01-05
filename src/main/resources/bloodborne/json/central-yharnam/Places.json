@@ -471,9 +471,13 @@
       },
       "north": {
         "destination": "lower-sewers",
-        "type": "Exit",
+        "type": "ConditionalExit",
         "attributes": {
-          "description": "NORTH -> Lower sewers"
+          "description": "NORTH -> Lower sewers, the path is blocked by a metal gate",
+          "altDescription": "NORTH -> Lower sewers",
+          "conditionType": "ActivatedProp",
+          "objectName": "lower-sewers-lever",
+          "conditionFalseText": "The iron gate is closed by a mechanism, you can't open it from this side."
         }
       },
       "east": {
@@ -520,7 +524,7 @@
         "type": "ConditionalExit",
         "attributes": {
           "description": "",
-          "altDescription": "DOWN -> Sewers' structure (One way)",
+          "altDescription": "NORTH -> Sewers' structure (One way)",
           "conditionType": "LookedProp",
           "objectName": "pyre-overhang-crates",
           "conditionFalseText": "There is no such exit here."
@@ -621,9 +625,13 @@
       },
       "east": {
         "destination": "fountain-square",
-        "type": "Exit",
+        "type": "ConditionalExit",
         "attributes": {
-          "description": "EAST -> Fountain square"
+          "description": "EAST -> Fountain square, the path is blocked by a metal gate",
+          "altDescription": "EAST -> Fountain square",
+          "conditionType": "ActivatedProp",
+          "objectName": "lower-sewers-lever",
+          "conditionFalseText": "The iron gate is closed by a mechanism, you must activate the LEVER (A) to unlock the mechanism blocking it."
         }
       },
       "south": {

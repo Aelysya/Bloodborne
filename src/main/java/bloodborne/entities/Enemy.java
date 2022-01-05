@@ -7,11 +7,9 @@ import java.util.Map;
 public class Enemy extends Entity{
 
     private int takenBloodEchoes;
-    private boolean hasHunterEchoes;
 
     public Enemy(String id, String description, Map<String, String> att) {
         super(id, description, att);
-        hasHunterEchoes = false;
         takenBloodEchoes = 0;
     }
 
@@ -42,7 +40,6 @@ public class Enemy extends Entity{
     }
 
     public void takeEchoes(Hunter hunter){
-        hasHunterEchoes = true;
         takenBloodEchoes = hunter.getBloodEchoes();
     }
 
@@ -65,14 +62,12 @@ public class Enemy extends Entity{
             }
         }
         hunter.gainBloodEchoes(Integer.parseInt(ATTRIBUTES.get("bloodEchoes")) + takenBloodEchoes);
-        hasHunterEchoes = false;
         return "You loot the corpse and retrieve some useful consumables.";
     }
 
     public void resetEnemy(){
         if (Boolean.parseBoolean(ATTRIBUTES.get("canRespawn"))){
             fullRegen();
-            hasHunterEchoes = false;
             takenBloodEchoes = 0;
             System.out.println("Reset : " + ATTRIBUTES.get("id"));
         } else {

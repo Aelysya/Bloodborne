@@ -22,11 +22,12 @@ public class Game {
             Your journey ends here for now.
             See you soon, Hunter
             ----------------------------
-            """;
+            """; //TODO Modify death text when respawn mechanic is added
     private final Hunter HUNTER;
     private final CommandHandler COMMAND_HANDLER;
     private final GameController CONTROLLER;
     private final SoundManager SOUND_MANAGER;
+    private final ActionListener ACTION_LISTENER;
     private TextAnalyzer analyzer;
     private final Zone ZONE;
     private Entity currentlyFoughtEntity;
@@ -40,6 +41,7 @@ public class Game {
         SOUND_MANAGER.setLoopingSound("ambient-theme.wav");
         HUNTER = new Hunter();
         ZONE = new Zone(HUNTER);
+        ACTION_LISTENER = new ActionListener(SOUND_MANAGER, HUNTER, ZONE);
         ZoneLoader.loadZone("legacy-yharnam", ZONE);
         currentlyFoughtEntity = null;
         analyzer = TextAnalyzer.START;
@@ -84,8 +86,8 @@ public class Game {
                 You now wake up in what seems to be a medical clinic. You have lost all your equipment, including your weapons...
                 You don't have time to wonder why you are still alive or how you ended up there. A big monster is still roaming the streets of Yharnam and you have to deal with it.
                 You quickly grab the two blood vials left on the beside table next to you and get up.
-                """;
-        CONTROLLER.writeLetterByLetter(START_TEXT + "\n\n" + ZONE.getCurrentPlace().getDESCRIPTION());
+                """; //TODO Re-do starting text with description of player's first blood ministration
+        CONTROLLER.writeLetterByLetter(/*START_TEXT + */"\n\n" + ZONE.getCurrentPlace().getDESCRIPTION());
         CONTROLLER.updateDirectionalArrows(ZONE.getCurrentPlace());
     }
 
@@ -122,6 +124,7 @@ public class Game {
                     CONTROLLER.transitionImage("placeholder.png");
                 }
                 CONTROLLER.writeLetterByLetter(currentPlace.getDESCRIPTION());
+                ACTION_LISTENER.goListener();
             } else {
                 CONTROLLER.writeInstantly(currentPlace.getExitByName(direction).getConditionFalseText());
             }
@@ -143,6 +146,7 @@ public class Game {
                 CONTROLLER.transitionImage("placeholder.png");
             }
             CONTROLLER.writeInstantly(currentPlace.getDESCRIPTION());
+            ACTION_LISTENER.teleportListener();
         } else {
             CONTROLLER.writeInstantly("Place id invalid");
         }
@@ -187,6 +191,7 @@ public class Game {
                 SOUND_MANAGER.playSoundEffect("open-chest.wav");
             }
             CONTROLLER.updateHUD(HUNTER);
+            ACTION_LISTENER.activateListener();
             if(HUNTER.isDead()){
                 death();
             }
@@ -199,15 +204,8 @@ public class Game {
         String objString = object.toLowerCase(Locale.ROOT);
         Item item = HUNTER.getItemByName(object);
         if (item != null) {
-            if (objString.equals("amulet")){
-                if(ZONE.getCurrentPlace().getNAME().equals("shortcut-house") && !(item.isUsed())){
-                    CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
-                } else {
-                    CONTROLLER.writeInstantly("You hold the amulet up high but nothing happens.");
-                }
-            } else {
-                CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
-            }
+            CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
+            ACTION_LISTENER.useListener();
         } else if (objString.equals("blood vial")){
             healFunction();
         } else {
@@ -222,6 +220,7 @@ public class Game {
             if (!item.isTaken()) {
                 CONTROLLER.writeInstantly(item.take(HUNTER));
                 SOUND_MANAGER.playSoundEffect("take-item.wav");
+                ACTION_LISTENER.takeListener();
             } else {
                 CONTROLLER.writeInstantly("You already took this item.");
             }
@@ -269,7 +268,7 @@ public class Game {
     }
 
     public void initiateFightFunction(String target) {
-        Entity eTarget = ZONE.getCurrentPlace().getNpcByName(target);
+        Entity eTarget = ZONE.getCurrentPlace().getNpcByName(target); //TODO Verify after enemies.json is done if it's useful to go through Entity then Enemy
         if (eTarget instanceof Enemy) {
             if (eTarget.isDead()){
                 CONTROLLER.writeInstantly("This enemy is already dead.");
@@ -277,6 +276,7 @@ public class Game {
                 CONTROLLER.writeLetterByLetter("You engage the enemy. Now you must fight or flee.");
                 setAnalyzer(TextAnalyzer.FIGHT);
                 currentlyFoughtEntity = ZONE.getCurrentPlace().getNPCS().get(target);
+                ACTION_LISTENER.initiateFightListener();
             }
         } else {
             CONTROLLER.writeInstantly("You try to engage a fight with something that doesn't exist.");
@@ -288,6 +288,7 @@ public class Game {
         Friendly friendly = (Friendly) currentPlace.getPROPS().get(npc);
         if (friendly != null) {
             CONTROLLER.writeLetterByLetter(friendly.talk());
+            ACTION_LISTENER.talkListener();
         } else {
             CONTROLLER.writeInstantly("You try to speak to someone that doesn't exist.");
         }
@@ -324,6 +325,7 @@ public class Game {
             }
         }
         CONTROLLER.updateHUD(HUNTER);
+        ACTION_LISTENER.resolveFightListener();
     }
 
     public void checkEntityKilledIsBoss(Entity enemy){
@@ -343,6 +345,7 @@ public class Game {
             CONTROLLER.writeLetterByLetter(e.loot(HUNTER));
             setAnalyzer(TextAnalyzer.EXPLORATION);
         }
+        ACTION_LISTENER.deadEnemyListener();
     }
 
     public void switchFunction() {
@@ -388,57 +391,4 @@ public class Game {
         CONTROLLER.writeLetterByLetter(HUNTER.heal(SOUND_MANAGER));
         CONTROLLER.updateHUD(HUNTER);
     }
-
-
-    
-    //Deprecated methods
-/*
-    public void attackFunction() {
-        CONTROLLER.writeInstantly("You attack your enemy.");
-        int dmg = HUNTER.getDamage(); //In case of last buffed attack, if not present it only shows base weapon damage while boosted damage are dealt
-        switch(HUNTER.getDamageType()){
-            case "FIRE" -> SOUND_MANAGER.playSoundEffect("enemy-hit-fire.wav");
-            case "BOLT" -> SOUND_MANAGER.playSoundEffect("enemy-hit-bolt.wav");
-            default -> SOUND_MANAGER.playSoundEffect("enemy-hit.wav");
-        }
-        if (!HUNTER.attack(currentlyFoughtEntity)) {
-            if (currentlyFoughtEntity.attack(HUNTER)) {
-                CONTROLLER.updateHUD(HUNTER);
-                death();
-                return;
-            }
-            CONTROLLER.updateHUD(HUNTER);
-            String s = "You did " + dmg + " damage to the monster !\nYou took " + currentlyFoughtEntity.getDamage() +
-                    " damage !";
-            CONTROLLER.writeInstantly(s);
-        } else {
-            checkEntityKilledIsBoss(currentlyFoughtEntity, false);
-            CONTROLLER.updateHUD(HUNTER);
-        }
-    }
-
-    public void shootFunction() {
-        if(HUNTER.cantShoot()){
-            CONTROLLER.writeInstantly("You don't have enough quicksilver bullets left to shoot.");
-        } else if (HUNTER.getFireArm() == null){
-            CONTROLLER.writeInstantly("You have no gun equipped.");
-        } else {
-            CONTROLLER.writeInstantly("You shoot with your gun.");
-            SOUND_MANAGER.playSoundEffect("gunshot.wav");
-            if (!HUNTER.shoot(currentlyFoughtEntity)) {
-                if (currentlyFoughtEntity.attack(HUNTER)) {
-                    CONTROLLER.updateHUD(HUNTER);
-                    death();
-                    return;
-                }
-                CONTROLLER.updateHUD(HUNTER);
-                String s = "You did " + HUNTER.getFireArmDamage() + " damage to the monster !\nYou took " + currentlyFoughtEntity.getDamage() +
-                        " damage !";
-                CONTROLLER.writeInstantly(s);
-            } else {
-                checkEntityKilledIsBoss(currentlyFoughtEntity, false);
-                CONTROLLER.updateHUD(HUNTER);
-            }
-        }
-    }*/
 }

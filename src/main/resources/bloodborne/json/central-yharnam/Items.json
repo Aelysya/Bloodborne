@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "saw-cleaver",
+    "type": "TrickWeapon",
+    "description": "One of the trick weapons of the workshop, commonly used in the hunting business. This saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force. The saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
+    "attributes": {
+      "name": "Saw Cleaver",
+      "baseDamage": "4",
+      "baseDodgeRate": "0.3",
+      "switchedDamage": "5",
+      "switchedDodgeRate": "0.2"
+    }
+  }
+]

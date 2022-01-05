@@ -5,8 +5,6 @@ import bloodborne.sounds.SoundManager;
 
 import java.util.*;
 
-enum DamageType {FIRE, BOLT, BASE}
-
 public class Hunter extends Entity{
 
     private int damageBoost;
@@ -34,7 +32,7 @@ public class Hunter extends Entity{
         boostLeft = 0;
         vialsNumber = 2;
         bulletsNumber = 0;
-        damageType = DamageType.BASE;
+        damageType = DamageType.PHYS;
         bloodEchoes = 0;
         RUNE_LIST = new ArrayList<>();
         lastAttackIsVisceral = false;
@@ -283,7 +281,7 @@ public class Hunter extends Entity{
                 boostLeft--;
                 if(boostLeft == 0){
                     damageBoost = 0;
-                    damageType = DamageType.BASE;
+                    damageType = DamageType.PHYS;
                 }
             }
             target.takeDamage(finalDamage);

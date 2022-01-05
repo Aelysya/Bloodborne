@@ -18,6 +18,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -58,6 +60,8 @@ public class GameController {
 
     private Game game;
     private final Lock LOCK = new ReentrantLock(true);
+    private List<String> lastCommands;
+    private int previousCommandIndex;
 
     public void setGame(Game game) {
         this.game = game;
@@ -130,7 +134,21 @@ public class GameController {
         if(keyEvent.getCode().equals(KeyCode.ENTER)){
             displayScreen.appendText(">> " + writeLine.getText() + "\n");
             game.analyseText(writeLine.getText());
+            lastCommands.add(writeLine.getText());
+            previousCommandIndex = lastCommands.size()-1;
             writeLine.clear();
+        } else if (keyEvent.getCode().equals(KeyCode.UP)){
+            if (previousCommandIndex >= 0){
+                writeLine.setText(lastCommands.get(previousCommandIndex));
+                writeLine.positionCaret(writeLine.getText().length());
+                previousCommandIndex--;
+            }
+        } else if (keyEvent.getCode().equals(KeyCode.DOWN)){
+            if (lastCommands.size() !=0 && previousCommandIndex != lastCommands.size()-1){
+                writeLine.setText(lastCommands.get(previousCommandIndex+1));
+                writeLine.positionCaret(writeLine.getText().length());
+                previousCommandIndex++;
+            }
         }
     }
 
@@ -138,7 +156,7 @@ public class GameController {
         displayScreen.appendText(txt + "\n");
     }
 
-    public void writeLetterByLetter(String txt){ //TODO Verify it doesn't crashes the game anymore
+    public void writeLetterByLetter(String txt){
         writeLine.setDisable(true);
         Thread myThread = new Thread(() -> {
             LOCK.lock();
@@ -187,6 +205,8 @@ public class GameController {
     public void initialize(){
         displayScreen.setFocusTraversable(false);
         displayScreen.setText("Wake up ? [yes/no]\n");
+        lastCommands = new ArrayList<>();
+        previousCommandIndex = 0;
         northArrow.setOnMouseEntered(event -> northArrow.setStyle("-fx-opacity: 1;"));
         northArrow.setOnMouseExited(event -> northArrow.setStyle("-fx-opacity: 0.6;"));
         northArrow.setOnMouseReleased(event -> game.goFunction("north"));
