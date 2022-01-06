@@ -4,77 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Added new images">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/DamageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ArcaneItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Badge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ThrownItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Tool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/ActionListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/amygdalan-arm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/beast-claw.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/beast-cutter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/beasthunter-saif.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/blades-of-mercy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/bloodletter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/boom-hammer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/burial-blade.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/cannon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/chikage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/church-cannon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/church-pick.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/evelyn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/fist-of-gratia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/flamesprayer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/gatling-gun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/holy-moonlight-sword.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/hunter-axe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/hunter-blunderbuss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/hunter-pistol.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/kirkhammer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/kos-parasite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/logarius-wheel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/ludwig's-holy-blade.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/ludwig's-rifle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/piercing-rifle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/rakuyo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/reiterpallasch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/repeating-pistol.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/rifle-spear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/rosmarinus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/saw-cleaver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/saw-spear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/simon's-bowblade.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/stake-driver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/threaded-cane.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/tonitrus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/weapons/whirligig-saw.png" afterDir="false" />
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Added new Item classes and ActionListener class to react to specific events in-game and perform precise actions without polluting the class Game">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/TextAnalyzer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/ActivatedProp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/ActivatedProp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/HasKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/HasKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/KilledNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/KilledNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/LookedProp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/LookedProp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/UsedItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/UsedItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/ConditionalProp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/ConditionalProp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Container.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/json/ZoneDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/json/ZoneDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/ActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/ActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/blades-of-mercy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/cannon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/evelyn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter-axe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter-blunderbuss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter-pistol.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/kirkhammer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/saw-cleaver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/saw-spear.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/zone/ConditionalExit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/ConditionalExit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/zone/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/zone/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/Place.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/zone/Zone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/Zone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/zone/ZoneLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/ZoneLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/hunter's-dream/main-area-alt.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/hunter's-dream/dream-garden-alt.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/hunter's-dream/main-area.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/hunter's-dream/dream-garden.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Places.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/DamageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/DamageType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/cannon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/evelyn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/images/items/kirkhammer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/Place.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/zone/Place.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641248137782</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added new Item classes and ActionListener class to react to specific events in-game and perform precise actions without polluting the class Game">
+      <created>1641418064070</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1641418064071</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -320,7 +286,8 @@
     <MESSAGE value="Reworked the fight system by swapping boolean returns for strings in attack and shoot methods" />
     <MESSAGE value="Changed all files names for - instead of _" />
     <MESSAGE value="Added new images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new images" />
+    <MESSAGE value="Added new Item classes and ActionListener class to react to specific events in-game and perform precise actions without polluting the class Game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new Item classes and ActionListener class to react to specific events in-game and perform precise actions without polluting the class Game" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

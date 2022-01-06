@@ -1,4 +1,4 @@
-package bloodborne.zone;
+package bloodborne.world;
 
 import bloodborne.exceptions.ReflectionException;
 
@@ -14,7 +14,7 @@ public class Exit {
         ATTRIBUTES = att;
     }
 
-    public void initialize(Zone zone) throws ReflectionException{}
+    public void initialize(World world) throws ReflectionException{}
 
     public String getDescription(){
         return ATTRIBUTES.get("description");

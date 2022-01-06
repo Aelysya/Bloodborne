@@ -1,4 +1,4 @@
-package bloodborne.zone;
+package bloodborne.world;
 
 import bloodborne.entities.Enemy;
 import bloodborne.entities.Hunter;
@@ -8,7 +8,7 @@ import bloodborne.items.Item;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Zone {
+public class World {
 
     public static final String STARTING_LOCATION = "clinic";
 
@@ -21,7 +21,7 @@ public class Zone {
     private final Hunter HUNTER;
 
 
-    public Zone(Hunter hunter) {
+    public World(Hunter hunter) {
         ITEMS = new HashMap<>();
         PROPS = new HashMap<>();
         ENEMIES = new HashMap<>();
@@ -55,7 +55,7 @@ public class Zone {
     }
 
     public void addPlace(Place place) {
-        this.PLACES.put(place.getNAME(), place);
+        this.PLACES.put(place.getID(), place);
     }
 
     public Map<String, Item> getItems() {
@@ -82,8 +82,8 @@ public class Zone {
         return ITEMS.get(itemId);
     }
 
-    public Place getPlaceByName(String placeName) {
-        return this.PLACES.get(placeName);
+    public Place getPlaceById(String placeId) {
+        return this.PLACES.get(placeId);
     }
 
     public Prop getPropById(String propId) {

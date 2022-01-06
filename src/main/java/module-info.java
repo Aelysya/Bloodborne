@@ -6,4 +6,13 @@ module bloodborne {
 
     opens bloodborne to javafx.fxml;
     exports bloodborne;
+    exports bloodborne.conditions;
+    exports bloodborne.entities;
+    exports bloodborne.environment;
+    exports bloodborne.exceptions;
+    exports bloodborne.items;
+    exports bloodborne.json;
+    exports bloodborne.sounds;
+    exports bloodborne.system;
+    exports bloodborne.world;
 }

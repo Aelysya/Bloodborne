@@ -1,18 +1,18 @@
 package bloodborne.conditions;
 
-import bloodborne.zone.Zone;
+import bloodborne.world.World;
 
 public class HasKey extends Condition{
 
     private final String ITEM_ID;
 
-    public HasKey(Zone zone, String itemId) {
-        super(zone);
+    public HasKey(World world, String itemId) {
+        super(world);
         ITEM_ID = itemId;
     }
 
     @Override
     public boolean checkCondition() {
-        return ZONE.getHUNTER().hasItem(ITEM_ID);
+        return WORLD.getHUNTER().hasItem(ITEM_ID);
     }
 }

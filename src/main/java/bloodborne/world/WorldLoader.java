@@ -1,13 +1,12 @@
-package bloodborne.zone;
+package bloodborne.world;
 
 import bloodborne.entities.Enemy;
 import bloodborne.environment.Prop;
 import bloodborne.exceptions.*;
 import bloodborne.items.Item;
-import bloodborne.json.ZoneDataLoader;
+import bloodborne.json.WorldDataLoader;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import java.io.IOException;
 import java.io.Reader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Type;
@@ -15,81 +14,82 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class ZoneLoader {
+public final class WorldLoader {
 
-    public static void loadZone(String zoneName, Zone zone) {
+    public static void loadZone(String zoneName, World world) {
         try {
-            loadItems(zoneName, zone);
-            loadEnemies(zoneName, zone);
-            loadProps(zoneName, zone);
-            loadPlaces(zoneName, zone);
-            zone.changePlace(zone.getPlaceByName(Zone.STARTING_LOCATION));
+            loadItems(zoneName, world);
+            loadEnemies(zoneName, world);
+            loadProps(zoneName, world);
+            loadPlaces(zoneName, world);
+            world.changePlace(world.getPlaceById(World.STARTING_LOCATION));
 
-            initializeProps(zone);
-            initializePlaces(zone);
+            initializeProps(world);
+            initializePlaces(world);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static void loadItems(String zoneName, Zone zone) throws MalFormedJsonException, ReflectionException, IOException {
-        Reader reader = ZoneDataLoader.getItems(zoneName);
+    private static void loadItems(String zoneName, World world) throws MalFormedJsonException, ReflectionException{
+        Reader reader = WorldDataLoader.getItems(zoneName);
         Type itemMapType = new TypeToken<List<Map<String, Object>>>() {}.getType();
         List<Map<String, Object>> parsedJson = new Gson().fromJson(reader, itemMapType);
-        HashMap<String, Object> loadedItems = loadElement(parsedJson, "items", zone);
+        HashMap<String, Object> loadedItems = loadElement(parsedJson, "items");
 
         for (Object item : loadedItems.values()) {
-            zone.addItem((Item) item);
+            world.addItem((Item) item);
         }
     }
 
-    private static void loadEnemies(String zoneName, Zone zone) throws MalFormedJsonException, ReflectionException, IOException{
-        Reader reader = ZoneDataLoader.getNPCs(zoneName);
+    private static void loadEnemies(String zoneName, World world) throws MalFormedJsonException, ReflectionException{
+        Reader reader = WorldDataLoader.getEnemies(zoneName);
         Type enemiesMapType = new TypeToken<List<Map<String, Object>>>() {}.getType();
         List<Map<String, Object>> parsedJson = new Gson().fromJson(reader, enemiesMapType);
-        HashMap<String, Object> loadedEnemies = loadElement(parsedJson, "entities", zone);
+        HashMap<String, Object> loadedEnemies = loadElement(parsedJson, "entities");
 
         for (Object enemy : loadedEnemies.values()) {
-            zone.addEnemy((Enemy) enemy);
+            world.addEnemy((Enemy) enemy);
         }
     }
 
-    private static void loadProps(String zoneName, Zone zone) throws IOException, ReflectionException, MalFormedJsonException {
-        Reader reader = ZoneDataLoader.getProps(zoneName);
+    private static void loadProps(String zoneName, World world) throws ReflectionException, MalFormedJsonException {
+        Reader reader = WorldDataLoader.getProps(zoneName);
         Type propMapType = new TypeToken<List<Map<String, Object>>>() {}.getType();
         List<Map<String, Object>> parsedJson = new Gson().fromJson(reader, propMapType);
-        HashMap<String, Object> loadedProps = loadElement(parsedJson, "environment", zone);
+        HashMap<String, Object> loadedProps = loadElement(parsedJson, "environment");
 
         for (Object prop : loadedProps.values()) {
-            zone.addProp((Prop) prop);
+            world.addProp((Prop) prop);
         }
     }
 
-    private static void loadPlaces(String zoneName, Zone zone) throws MalFormedJsonException, ReflectionException, IOException {
-        Reader reader = ZoneDataLoader.getPlaces(zoneName);
+    private static void loadPlaces(String zoneName, World world) throws MalFormedJsonException {
+        Reader reader = WorldDataLoader.getPlaces(zoneName);
         Type placeMapType = new TypeToken<List<Map<String, Object>>>(){}.getType();
         List<Map<String, Object>> parsedJson = new Gson().fromJson(reader, placeMapType);
 
         for (Map<String, Object> map : parsedJson) {
+            String id = (String) map.get("id");
             String name = (String) map.get("name");
+            String area = (String) map.get("area");
             String description = (String) map.get("description");
-            String imagePath = (String) map.get("imagePath");
-            String songPath = (String) map.get("songPath");
+            String altDescription = (String) map.get("altDescription");
             Map items = (Map) map.get("items");
             Map props = (Map) map.get("props");
             Map exits = (Map) map.get("exits");
-            Map enemies = (Map) map.get("NPCs");
+            Map enemies = (Map) map.get("enemies");
 
-            if (name == null || description == null || imagePath == null || songPath == null) {
-                throw new MalFormedJsonException("Place : " + name + description + imagePath + songPath);
+            if (id == null || name == null || area == null || description == null || altDescription == null) {
+                throw new MalFormedJsonException("Place : " + id + name + area + description + altDescription);
             }
 
-            Place place = new Place(name, description, imagePath, songPath, items, props, exits, enemies);
-            zone.addPlace(place);
+            Place place = new Place(id, name, area, description, altDescription, items, props, exits, enemies);
+            world.addPlace(place);
         }
     }
 
-    private static HashMap<String, Object> loadElement(List<Map<String, Object>> parsedJson, String elementType, Zone zone) throws MalFormedJsonException, ReflectionException {
+    private static HashMap<String, Object> loadElement(List<Map<String, Object>> parsedJson, String elementType) throws MalFormedJsonException, ReflectionException {
         HashMap<String, Object> loadedElements = new HashMap<>();
 
         for (Map<String, Object> map : parsedJson) {
@@ -118,27 +118,27 @@ public final class ZoneLoader {
         return loadedElements;
     }
 
-    private static void initializeProps(Zone zone) throws ReflectionException, MalFormedJsonException {
-        for (Prop prop : zone.getProps().values()) {
-            prop.initialize(zone);
+    private static void initializeProps(World world) throws ReflectionException, MalFormedJsonException {
+        for (Prop prop : world.getProps().values()) {
+            prop.initialize(world);
         }
     }
 
-    private static void initializePlaces(Zone zone) throws MalFormedJsonException, UnknownPlaceException, UnknownExitTypeException, ItemNotFoundException, NPCNotFoundException, ReflectionException {
-        for (Place place : zone.getPlaces().values()) {
-            place.initialize(zone);
+    private static void initializePlaces(World world) throws MalFormedJsonException, UnknownPlaceException, UnknownExitTypeException, ItemNotFoundException, NPCNotFoundException, ReflectionException {
+        for (Place place : world.getPlaces().values()) {
+            place.initialize(world);
         }
-        for (Place place : zone.getPlaces().values()) {
+        for (Place place : world.getPlaces().values()) {
             for (Exit exit : place.getEXITS().values()) {
-                exit.initialize(zone);
+                exit.initialize(world);
             }
         }
     }
 
-    public static Exit createExit(Map<String, Object> exitData, Zone zone, String destinationId) throws  UnknownPlaceException, UnknownExitTypeException {
+    public static Exit createExit(Map<String, Object> exitData, World world, String destinationId) throws  UnknownPlaceException, UnknownExitTypeException {
         String type = (String) exitData.get("type");
         Map<String, String> exitAttributes = (Map) exitData.get("attributes");
-        Place destination = zone.getPlaceByName(destinationId);
+        Place destination = world.getPlaceById(destinationId);
         if (destination == null) {
             throw new UnknownPlaceException(" for place : " + destinationId);
         }

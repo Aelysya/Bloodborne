@@ -3,7 +3,7 @@ package bloodborne.environment;
 import bloodborne.conditions.Condition;
 import bloodborne.entities.Hunter;
 import bloodborne.exceptions.ReflectionException;
-import bloodborne.zone.Zone;
+import bloodborne.world.World;
 
 import java.lang.reflect.Constructor;
 import java.util.Map;
@@ -36,15 +36,15 @@ public class ConditionalProp extends Prop{
     }
 
     @Override
-    public void initialize(Zone zone) throws ReflectionException {
+    public void initialize(World world) throws ReflectionException {
         try {
             Class<?> conditionClass = Class.forName("bloodborne.conditions." + ATTRIBUTES.get("conditionType"));
-            Constructor<?> conditionConstructor = conditionClass.getConstructor(Zone.class, String.class);
-            condition = (Condition) conditionConstructor.newInstance(zone, ATTRIBUTES.get("objectName"));
+            Constructor<?> conditionConstructor = conditionClass.getConstructor(World.class, String.class);
+            condition = (Condition) conditionConstructor.newInstance(world, ATTRIBUTES.get("objectName"));
         } catch (ClassNotFoundException e) {
             throw new ReflectionException("Class not found for : " + ATTRIBUTES.get("conditionType"));
         } catch (NoSuchMethodException e) {
-            throw new ReflectionException("Constructor (Zone zone, String objectName) not found in : " + ATTRIBUTES.get("type"));
+            throw new ReflectionException("Constructor (World world, String objectName) not found in : " + ATTRIBUTES.get("type"));
         } catch (Exception e) {
             e.printStackTrace();
         }

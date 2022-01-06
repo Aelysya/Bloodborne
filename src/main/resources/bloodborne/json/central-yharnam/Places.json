@@ -2,7 +2,7 @@
   {
     "id": "clinic",
     "name": "Iosefka's clinic",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Many operating TABLES (L) are found in the next room, Judging by the blood covering the INSTRUMENTS (L) they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L). There is a WOLF (F) beast blocking the only way out, the confrontation is inevitable.",
     "altDescription": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Many operating TABLES (L) are found in the next room, Judging by the blood covering the INSTRUMENTS (L) they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L).",
     "items": {
@@ -42,7 +42,7 @@
   {
     "id": "back-clinic",
     "name": "Back clinic",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are in the back of the clinic, the atmosphere here is different from the rest of the facility, everything is quiet as after a storm, it is unsettling. A celestial EMISSARY (F) is in the middle of an operating ROOM (L), there is an old CABINET (L) behind him. He clearly detected you but doesn't seem to be aggressive yet. In a second operating room, there is a wooden CHEST (L).",
     "altDescription": "You are in the back of the clinic, the atmosphere here is different from the rest of the facility, everything is quiet as after a storm, it is unsettling. The celestial emissary's corpse is in the middle of an operating ROOM (L), there is an old CABINET (L) behind it. In a second operating room, there is a wooden CHEST (L).",
     "items": {
@@ -78,7 +78,7 @@
   {
     "id": "graveyard",
     "name": "Graveyard",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You find yourself in a graveyard filled with tombstones of Yharnamites. One particular TOMBSTONE (L) seems to belong to an ancient hunter. The area is encircled by a high wall blocking view of the city behind.",
     "altDescription": "No alt description for this area, if you see this it's a bug !",
     "items": {
@@ -121,7 +121,7 @@
   {
     "id": "graveyard-annex",
     "name": "Graveyard annex",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "As you look around, you realise you are back in Yharnam, in a smaller part of the graveyard. You notice the presence of multiple carrion CROWS (F) gathered around a CORPSE (L), they did not see you yet. A small courtyard adjoins this part of the graveyard, with a large TREE (L) in its center.",
     "altDescription": "As you look around, you realise you are back in Yharnam, in a smaller part of the graveyard. The dead carrion crows are scattered around a CORPSE (L). A small courtyard adjoins this part of the graveyard, with a large TREE (L) in its center.",
     "items": {
@@ -157,7 +157,7 @@
   {
     "id": "street",
     "name": "Street",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are in one of the many twisting streets of Yharnam. On the left, COFFINS (L) are piled up and padlocked. To go and search them you have to deal with the HUNTSMEN (F) who are blocking your way.",
     "altDescription": "You are in one of the many twisting streets of Yharnam. On the left, COFFINS (L) are piled up and padlocked. The bodies of the huntsmen you killed are scattered around.",
     "items": {
@@ -211,7 +211,7 @@
   {
     "id": "dead-end",
     "name": "Dead end",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You arrive in a straight path, an EXECUTIONER (F) blocks you from going to it's end where you see some COFFINS (L) scattered around.",
     "altDescription": "You arrive in a straight path, you see some COFFINS (L) scattered around the back of the area. Now that the executioner is dead you can safely go search through their content.",
     "items": {
@@ -236,7 +236,7 @@
   {
     "id": "small-square",
     "name": "Small square",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are in a small square, a LANTERN (L) lights up the surroundings, creating eldritch shadows on the walls. You see an open WINDOW (L) on a house close to you.",
     "altDescription": "No alt description for this area, if you see this it's a bug !",
     "items": {
@@ -279,7 +279,7 @@
   {
     "id": "small-path",
     "name": "Small path",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. Some huntsmen MINIONS (F) are wandering not far from you.",
     "altDescription": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. The corpses of the huntsmen minions are lying in the middle of the paved road.",
     "items": {
@@ -326,7 +326,7 @@
   {
     "id": "central-house",
     "name": "House",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You enter a house in a deplorable state, the floor is covered with dust, the windows are broken and the walls are decrepit. You notice the presence of a few corpses scattered around, in more or less good condition. One of them, a grandpa in a wheelchair, seems almost still alive, in front of him there is a very old FURNITURE (L).",
     "altDescription": "No alt description for this area, if you see this it's a bug !",
     "items": {
@@ -365,7 +365,7 @@
   {
     "id": "pyre",
     "name": "Pyre",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You arrive in an open street where some blood-drunk huntsmen built a PYRE (L) to burn a wolf beast. A huge DOOR (L) to the north shakes regularly as if something was hitting it. Some wooden CRATES (L) are piled up on the right.",
     "altDescription": "You arrive in an open street where some blood-drunk huntsmen built a PYRE (L) to burn a wolf beast. The huge DOOR (L) to the north doesn't shake anymore. Some wooden CRATES (L) are piled up on the right.",
     "items": {
@@ -423,7 +423,7 @@
   {
     "id": "mimic-house",
     "name": "House",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are in the living room of a house. There is a MAN (TK) sitting on a chair on your left. He seems lost in his thoughts and concerned. Only a fine light trail pierces through the window on the back wall but you can see a CHEST (L) with a cut off human arm next to it.",
     "altDescription": "No alt description for this area, if you see this it's a bug !",
     "items": {
@@ -448,7 +448,7 @@
   {
     "id": "fountain-square",
     "name": "Fountain square",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You arrive at a square. A stone and metal fountain is enthroned in the centre, it is rusted and the water in it doesn't seem clean, nobody has maintained it for a long time. There is an old WELL (L) behind the fountain with some benches around it. A huntsman MINION (F) is knocking on a huge door and is probably the reason you saw it shake from the other side. A metal FENCE (L) is in a very bad state on your right. There is an open WINDOW (L) near the way down the sewers.",
     "altDescription": "You arrive at a square. A stone and metal fountain is enthroned in the centre, it is rusted and the water in it doesn't seem clean, nobody has maintained it for a long time. There is an old WELL (L) behind the fountain with some benches around it. A metal FENCE (L) is in a very bad state on your right. There is an open WINDOW (L) near the way down the sewers.",
     "items": {
@@ -502,7 +502,7 @@
   {
     "id": "pyre-overhang",
     "name": "Pyre overhang",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are in a small area above the pyre, from here you see it very clearly. On your left there are some pilled up CRATES (L) in front of a path.",
     "altDescription": "No alt description for this area, if you see this it's a bug !",
     "items": {
@@ -545,7 +545,7 @@
   {
     "id": "dry-dock",
     "name": "Dry dock",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) on the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers, it is infested with giant RATS (F). Numerous storage BOXES (L) and various CABINETS (L) are lined up along the walls.",
     "altDescription": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) on the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers. Numerous storage BOXES (L) and various CABINETS (L) are lined up along the walls.",
     "items": {
@@ -577,7 +577,7 @@
   {
     "id": "sewers-structure",
     "name": "Sewers' structure",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You have dropped from the pyre and now realize that you can't get back up. You find yourself in the sewers' structure of Yharnam that you see below you. A large HUNTSMAN (F) wanders around and blocks your way, the beast scourge has transformed this one much more than the others, there is not much human left in him. You discern a BODY (L) behind him.",
     "altDescription": "You have dropped from the pyre and now realize that you can't get back up. You find yourself in the sewers' structure of Yharnam that you see below you. You discern a BODY (L) behind the corpse of the large huntsman you eliminated.",
     "items": {
@@ -606,7 +606,7 @@
   {
     "id": "lower-sewers",
     "name": "Lower sewers",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are in the lower part of the sewers of Yharnam. A few lanterns on the walls dimly illuminate the area but you can discern some ROTTED CORPSES (F) not far away. A heap of RUBBISH (L) is on your right.",
     "altDescription": "You are in the lower part of the sewers of Yharnam. A few lanterns on the walls dimly illuminate the area but you can discern the rotted corpses you killed not far away. A heap of RUBBISH (L) is on your right.",
     "items": {
@@ -649,7 +649,7 @@
   {
     "id": "upper-sewers",
     "name": "Upper sewers",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are in the upper part of the sewers, the surroundings are not very attractive, the canal is filled with tainted water. You can see a man-eater BOAR (F) at the end of it, it guards some CORPSES (L), probably it's last meals.",
     "altDescription": "You are in the upper part of the sewers, the surroundings are not very attractive, the canal is filled with tainted water. The CORPSES (L) that were previously guarded by the man-eater boar are now free to search.",
     "items": {
@@ -681,7 +681,7 @@
   {
     "id": "great-bridge",
     "name": "Great bridge",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a STAGECOACH (L) on the left side. A WOLF (L) beast is roaming nearby.",
     "altDescription": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a STAGECOACH (L) on the left side.",
     "items": {
@@ -731,7 +731,7 @@
   {
     "id": "bridge-end",
     "name": "Bridge end",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You arrive at the end of the great bridge, overhanging, you see the cathedral ward. As you examine your immediate environment, a huge beast jumps out from behind the barrier separating you from it. This massive monster is at least 4 meters high, one of its arms is disproportionate to the other and the horns on its head give it an even more impressive appearance. It is hard to believe that this thing was once a human, now transformed by the beast scourge. You now have no other choice but to fight the CLERIC BEAST (F).",
     "altDescription": "You are at the end of the great bridge, overhanging, you see the cathedral ward. The gigantic body of the cleric beast is still present, lying in the middle of the bridge. Now that the monster is dead, you notice the BODY (L) of a man near you.",
     "theme": "cleric-beast-theme.wav",
@@ -761,7 +761,7 @@
   {
     "id": "aqueduct",
     "name": "Aqueduct",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You are on one of the many aqueducts of Yharnam. At one end is a LIFT (A), the other end can only be reached when you have eliminated the HUNTSMEN (F) blocking your way.",
     "altDescription": "You are on one of the many aqueducts of Yharnam. At one end is a LIFT (A). Now that the huntsmen are dead, you notice a few CRATES (L) sitting in a small alcove near the path leading to Oedon tomb.",
     "items": {
@@ -808,7 +808,7 @@
   {
     "id": "oedon-tomb",
     "name": "Oedon tomb",
-    "zone": "central-yharnam",
+    "area": "central-yharnam",
     "description": "You have arrived at the tomb of Oedon, the atmosphere is very strange, heavy. At the back of the small cemetery, you can see a hunter, he is wearing the black church outfit and is apparently cutting up dead monsters. He notices your presence. As he turns around, you hear what he says: \"Beasts all over the shop... You'll be one of them, sooner or later...\". You now have no other choice but to fight FATHER GASCOIGNE (F).",
     "altDescription": "You are in the tomb of Oedon, the atmosphere is very strange, heavy. Now that Father Gascoigne is dead, you can inspect the surroundings peacefully. On a roof at the bottom of the cemetery, you find the body of a WOMAN (L), probably killed by Gascoigne.",
     "theme": "father-gascoigne-theme.wav",

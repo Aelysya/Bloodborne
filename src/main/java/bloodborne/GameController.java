@@ -3,7 +3,7 @@ package bloodborne;
 import bloodborne.entities.Hunter;
 import bloodborne.items.Rune;
 import bloodborne.system.Game;
-import bloodborne.zone.Place;
+import bloodborne.world.Place;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -18,7 +18,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;

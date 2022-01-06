@@ -497,7 +497,7 @@
 	{
 		"name": "boss-room",
 		"description": "You are inside a cathedral, but the interior is nothing like it used to be. The only light comes from a little lantern, like the one in the small place you passed through a short while ago. The corpses are piled up by hundreds or maybe by thousands on the sides of the room and you are wading in several centimeters of blood, that is the reason of this infinite flow coming out of here and which replaced the water of the canal. A huge beast is in the back of this cave and seems to be waiting for you. It is at least 4 meters high, one of its arms is disproportionate to the second and the horns on its head give it an even more impressive aspect. It is hard to believe that this thing was once a human, now transformed by the blood plague. The confrontation is now inevitable and seems to be lost in advance, you notice nevertheless the presence of numerous wounds not entirely healed, probably the proof of the passage of the group of three hunters preceding you. Maybe you have a chance of eliminating it ? You have no other choice but to attack this CLERIC BEAST (F).",
-		"imagePath": "zones/central-yharnam/boss-room.jpg",
+		"imagePath": "zones/central-yharnam/bridge-end.jpg",
 		"songPath": "cleric-beast-theme.wav",
 		"items": {},
 		"props": {},

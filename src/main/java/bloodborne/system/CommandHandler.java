@@ -58,6 +58,25 @@ public class CommandHandler {
         }
     }
 
+    public void dreamBackTextAnalyzer(String textLine) {
+        String[] args = textLine.split("\\s+", 2);
+
+        if(args.length == 0){
+            return;
+        }
+
+        String command = args[0];
+        //String target = args[1];
+
+        switch (command) {
+            case "y", "yes" -> GAME.goFunction("dream");
+            case "n", "no" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
+            case "mute" -> GAME.muteGame();
+            case "unmute" -> GAME.unMuteGame();
+            default -> GAME.writeInstantly("Unknown command !");
+        }
+    }
+
     public void explorationTextAnalyzer(String textLine) throws TooFewArgumentsException{
         String[] args = textLine.split("\\s+", 2);
 

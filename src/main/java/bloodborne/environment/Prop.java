@@ -3,7 +3,8 @@ package bloodborne.environment;
 import bloodborne.entities.Hunter;
 import bloodborne.exceptions.MalFormedJsonException;
 import bloodborne.exceptions.ReflectionException;
-import bloodborne.zone.Zone;
+import bloodborne.world.World;
+
 import java.util.Map;
 
 public class Prop {
@@ -22,7 +23,7 @@ public class Prop {
         ATTRIBUTES = att;
     }
 
-    public void initialize(Zone zone)  throws ReflectionException, MalFormedJsonException {}
+    public void initialize(World world)  throws ReflectionException, MalFormedJsonException {}
 
     public String getID() {
         return ID;

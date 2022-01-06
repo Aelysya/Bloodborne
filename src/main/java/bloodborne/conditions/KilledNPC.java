@@ -1,20 +1,19 @@
 package bloodborne.conditions;
 
-import bloodborne.entities.Enemy;
 import bloodborne.exceptions.MalFormedJsonException;
-import bloodborne.zone.Zone;
+import bloodborne.world.World;
 
 public class KilledNPC extends Condition{
 
     private final String ENEMY_ID;
 
-    public KilledNPC(Zone zone, String enemyId) throws MalFormedJsonException {
-        super(zone);
+    public KilledNPC(World world, String enemyId){
+        super(world);
         ENEMY_ID = enemyId;
     }
 
     @Override
     public boolean checkCondition() {
-        return ZONE.getEnemyById(ENEMY_ID).isDead();
+        return WORLD.getEnemyById(ENEMY_ID).isDead();
     }
 }

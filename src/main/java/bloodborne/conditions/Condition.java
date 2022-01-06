@@ -1,13 +1,13 @@
 package bloodborne.conditions;
 
-import bloodborne.zone.Zone;
+import bloodborne.world.World;
 
 public abstract class Condition {
 
-    protected final Zone ZONE;
+    protected final World WORLD;
 
-    public Condition(Zone ZONE){
-        this.ZONE = ZONE;
+    public Condition(World WORLD){
+        this.WORLD = WORLD;
     }
 
     public abstract boolean checkCondition();

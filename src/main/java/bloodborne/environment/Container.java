@@ -4,7 +4,7 @@ import bloodborne.entities.Hunter;
 import bloodborne.exceptions.MalFormedJsonException;
 import bloodborne.exceptions.ReflectionException;
 import bloodborne.items.Item;
-import bloodborne.zone.Zone;
+import bloodborne.world.World;
 
 import java.util.Map;
 
@@ -38,7 +38,7 @@ public class Container extends Prop{
     }
 
     @Override
-    public void initialize(Zone zone) throws ReflectionException, MalFormedJsonException {
-        containedItem = zone.getItemById(ATTRIBUTES.get("content"));
+    public void initialize(World world) throws ReflectionException, MalFormedJsonException {
+        containedItem = world.getItemById(ATTRIBUTES.get("content"));
     }
 }

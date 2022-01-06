@@ -1,4 +1,4 @@
-package bloodborne.zone;
+package bloodborne.world;
 
 import bloodborne.conditions.Condition;
 import bloodborne.exceptions.ReflectionException;
@@ -16,15 +16,15 @@ public class ConditionalExit extends Exit{
     }
 
     @Override
-    public void initialize(Zone zone) throws ReflectionException {
+    public void initialize(World world) throws ReflectionException {
         try {
             Class<?> conditionClass = Class.forName("bloodborne.conditions." + ATTRIBUTES.get("conditionType"));
-            Constructor<?> conditionConstructor = conditionClass.getConstructor(Zone.class, String.class);
-            condition = (Condition) conditionConstructor.newInstance(zone, ATTRIBUTES.get("objectName"));
+            Constructor<?> conditionConstructor = conditionClass.getConstructor(World.class, String.class);
+            condition = (Condition) conditionConstructor.newInstance(world, ATTRIBUTES.get("objectName"));
         } catch (ClassNotFoundException e) {
             throw new ReflectionException("Class not found for : " + ATTRIBUTES.get("conditionType"));
         } catch (NoSuchMethodException e) {
-            throw new ReflectionException("Constructor (Zone zone, String objectName) not found in : " + ATTRIBUTES.get("type"));
+            throw new ReflectionException("Constructor (World world, String objectName) not found in : " + ATTRIBUTES.get("type"));
         } catch (Exception e) {
             e.printStackTrace();
         }

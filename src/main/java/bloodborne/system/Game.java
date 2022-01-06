@@ -6,13 +6,11 @@ import bloodborne.environment.*;
 import bloodborne.exceptions.TooFewArgumentsException;
 import bloodborne.items.*;
 import bloodborne.sounds.SoundManager;
-import bloodborne.zone.Place;
-import bloodborne.zone.Zone;
-import bloodborne.zone.ZoneLoader;
+import bloodborne.world.Place;
+import bloodborne.world.World;
+import bloodborne.world.WorldLoader;
 import java.util.Locale;
 
-
-enum TextAnalyzer {EXPLORATION, FIGHT, RUNE, DEATH, QUIT, START, WIN}
 
 public class Game {
 
@@ -29,7 +27,7 @@ public class Game {
     private final SoundManager SOUND_MANAGER;
     private final ActionListener ACTION_LISTENER;
     private TextAnalyzer analyzer;
-    private final Zone ZONE;
+    private final World WORLD;
     private Entity currentlyFoughtEntity;
     //private String currentZone = "central-yharnam";
     private Rune memorizedRune;
@@ -40,9 +38,9 @@ public class Game {
         SOUND_MANAGER = new SoundManager();
         SOUND_MANAGER.setLoopingSound("ambient-theme.wav");
         HUNTER = new Hunter();
-        ZONE = new Zone(HUNTER);
-        ACTION_LISTENER = new ActionListener(SOUND_MANAGER, HUNTER, ZONE);
-        ZoneLoader.loadZone("legacy-yharnam", ZONE);
+        WORLD = new World(HUNTER);
+        ACTION_LISTENER = new ActionListener(SOUND_MANAGER, HUNTER, WORLD, COMMAND_HANDLER, this);
+        WorldLoader.loadZone("central-yharnam", WORLD);
         currentlyFoughtEntity = null;
         analyzer = TextAnalyzer.START;
     }
@@ -78,7 +76,7 @@ public class Game {
 
     public void startGame() {
         setAnalyzer(TextAnalyzer.EXPLORATION);
-        CONTROLLER.transitionImage(ZONE.getCurrentPlace().getIMAGE_PATH());
+        CONTROLLER.transitionImage(WORLD.getCurrentPlace().getIMAGE());
         String START_TEXT = """
                 As you open your eyes, memories flood into you head and you remember everything...
                 Two days ago, three hunters were sent to cleanse the city of Yharnam of people corrupted by the blood plague and eliminate it's source.
@@ -87,8 +85,8 @@ public class Game {
                 You don't have time to wonder why you are still alive or how you ended up there. A big monster is still roaming the streets of Yharnam and you have to deal with it.
                 You quickly grab the two blood vials left on the beside table next to you and get up.
                 """; //TODO Re-do starting text with description of player's first blood ministration
-        CONTROLLER.writeLetterByLetter(/*START_TEXT + */"\n\n" + ZONE.getCurrentPlace().getDESCRIPTION());
-        CONTROLLER.updateDirectionalArrows(ZONE.getCurrentPlace());
+        CONTROLLER.writeLetterByLetter(/*START_TEXT + */"\n\n" + WORLD.getCurrentPlace().getDESCRIPTION());
+        CONTROLLER.updateDirectionalArrows(WORLD.getCurrentPlace());
     }
 
     public void death() {
@@ -107,19 +105,21 @@ public class Game {
     }
 
     public void goFunction(String direction) {
-        Place currentPlace = ZONE.getCurrentPlace();
-        if (!currentPlace.getEXITS().containsKey(direction)) {
+        Place currentPlace = WORLD.getCurrentPlace();
+        if (currentPlace.hasLantern() && direction.equals("dream")){
+            return;
+        } else if (!currentPlace.getEXITS().containsKey(direction)) {
             CONTROLLER.writeInstantly("There is no such exit here.");
         } else {
             if (currentPlace.getExitByName(direction).isTraversable()) {
-                ZONE.changePlace(currentPlace.getExitByName(direction).getOUT());
-                SOUND_MANAGER.playSoundEffect("change-zone.wav");
-                currentPlace = ZONE.getCurrentPlace();
-                if (!currentPlace.getSONG_PATH().equals("")) {
-                    SOUND_MANAGER.setLoopingSound(currentPlace.getSONG_PATH());
+                WORLD.changePlace(currentPlace.getExitByName(direction).getOUT());
+                SOUND_MANAGER.playSoundEffect("change-world.wav");
+                currentPlace = WORLD.getCurrentPlace();
+                if (!currentPlace.getSONG().equals("")) {
+                    SOUND_MANAGER.setLoopingSound(currentPlace.getSONG());
                 }
-                if (!currentPlace.getIMAGE_PATH().equals("")) {
-                    CONTROLLER.transitionImage(currentPlace.getIMAGE_PATH());
+                if (!currentPlace.getIMAGE().equals("")) {
+                    CONTROLLER.transitionImage(currentPlace.getIMAGE());
                 } else {
                     CONTROLLER.transitionImage("placeholder.png");
                 }
@@ -133,15 +133,15 @@ public class Game {
     }
 
     public void teleportFunction(String destination) { //To use the teleport command, use the id of the place you want to go to
-        if(ZONE.getPlaceByName(destination) != null){
-            ZONE.changePlace(ZONE.getPlaceByName(destination));
-            SOUND_MANAGER.playSoundEffect("change-zone.wav");
-            Place currentPlace = ZONE.getCurrentPlace();
-            if (!currentPlace.getSONG_PATH().equals("")) {
-                SOUND_MANAGER.setLoopingSound(currentPlace.getSONG_PATH());
+        if(WORLD.getPlaceById(destination) != null){
+            WORLD.changePlace(WORLD.getPlaceById(destination));
+            SOUND_MANAGER.playSoundEffect("change-world.wav");
+            Place currentPlace = WORLD.getCurrentPlace();
+            if (!currentPlace.getSONG().equals("")) {
+                SOUND_MANAGER.setLoopingSound(currentPlace.getSONG());
             }
-            if (!currentPlace.getIMAGE_PATH().equals("")) {
-                CONTROLLER.transitionImage(currentPlace.getIMAGE_PATH());
+            if (!currentPlace.getIMAGE().equals("")) {
+                CONTROLLER.transitionImage(currentPlace.getIMAGE());
             } else {
                 CONTROLLER.transitionImage("placeholder.png");
             }
@@ -150,32 +150,32 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("Place id invalid");
         }
-        CONTROLLER.updateDirectionalArrows(ZONE.getCurrentPlace());
+        CONTROLLER.updateDirectionalArrows(WORLD.getCurrentPlace());
     }
 
     public void lookFunction(String target) {
-        Place currentPlace = ZONE.getCurrentPlace();
-        Item item = ZONE.getCurrentPlace().getItemByName(target);
-        Entity eTarget = ZONE.getCurrentPlace().getNpcByName(target);
+        Place currentPlace = WORLD.getCurrentPlace();
+        Item item = WORLD.getCurrentPlace().getItemByName(target);
+        Entity eTarget = WORLD.getCurrentPlace().getEnemyByName(target);
         if (currentPlace.getPROPS().get(target) != null) { //If target is a prop
             CONTROLLER.writeLetterByLetter(currentPlace.getPROPS().get(target).lookReaction(HUNTER));
-        } else if (item != null) { //If target is an item from the current zone
+        } else if (item != null) { //If target is an item from the current world
             if (item.isTaken()){
                 if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped
                     item = HUNTER.getItemByName(target);
                     CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
-                } else { //If item was in zone but is now taken and already used, so doesn't exist anymore
+                } else { //If item was in world but is now taken and already used, so doesn't exist anymore
                     CONTROLLER.writeInstantly("You try to look at something that doesn't exist.");
                 }
             } else {
                 CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
             }
-        } else if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped and not in the current zone
+        } else if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped and not in the current world
             item = HUNTER.getItemByName(target);
             CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
         }  else if (eTarget != null) { //If target is an enemy
             CONTROLLER.writeLetterByLetter(eTarget.getDESCRIPTION());
-        } else if (target.equals("")) { //If no target, describe the current zone
+        } else if (target.equals("")) { //If no target, describe the current world
             CONTROLLER.writeLetterByLetter(currentPlace.getDESCRIPTION());
         } else {
             CONTROLLER.writeInstantly("You try to look at something that doesn't exist.");
@@ -184,7 +184,7 @@ public class Game {
     }
 
     public void activateFunction(String target) {
-        Prop prop = ZONE.getCurrentPlace().getPropByName(target);
+        Prop prop = WORLD.getCurrentPlace().getPropByName(target);
         if (prop != null) {
             CONTROLLER.writeLetterByLetter(prop.activate(HUNTER));
             if(prop instanceof Container && !((Container) prop).isLooted()){
@@ -215,7 +215,7 @@ public class Game {
     }
 
     public void takeFunction(String itemName) {
-        Item item = ZONE.getCurrentPlace().getItemByName(itemName);
+        Item item = WORLD.getCurrentPlace().getItemByName(itemName);
         if (item != null) {
             if (!item.isTaken()) {
                 CONTROLLER.writeInstantly(item.take(HUNTER));
@@ -268,14 +268,14 @@ public class Game {
     }
 
     public void initiateFightFunction(String target) {
-        Entity eTarget = ZONE.getCurrentPlace().getNpcByName(target); //TODO Verify after enemies.json is done if it's useful to go through Entity then Enemy
+        Entity eTarget = WORLD.getCurrentPlace().getEnemyByName(target.toLowerCase(Locale.ROOT)); //TODO Verify after enemies.json is done if it's useful to go through Entity then Enemy
         if (eTarget instanceof Enemy) {
             if (eTarget.isDead()){
                 CONTROLLER.writeInstantly("This enemy is already dead.");
             } else {
                 CONTROLLER.writeLetterByLetter("You engage the enemy. Now you must fight or flee.");
                 setAnalyzer(TextAnalyzer.FIGHT);
-                currentlyFoughtEntity = ZONE.getCurrentPlace().getNPCS().get(target);
+                currentlyFoughtEntity = eTarget;
                 ACTION_LISTENER.initiateFightListener();
             }
         } else {
@@ -284,7 +284,7 @@ public class Game {
     }
 
     public void talkFunction(String npc) {
-        Place currentPlace = ZONE.getCurrentPlace();
+        Place currentPlace = WORLD.getCurrentPlace();
         Friendly friendly = (Friendly) currentPlace.getPROPS().get(npc);
         if (friendly != null) {
             CONTROLLER.writeLetterByLetter(friendly.talk());
