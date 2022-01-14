@@ -1,1 +1,239 @@
-[]
+[
+  {
+    "id": "yharnam-headstone",
+    "type": "Prop",
+    "description": "This tombstone is special, if you focus hard enough on one of the inscribed destinations, you will get there instantly. This one is linked to the destinations close to Yharnam.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "clinic-door",
+    "type": "Prop",
+    "description": "It is a wooden door with a small glass window on the upper part.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "clinic-lantern",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "clinic-tables",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "clinic-instruments",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "clinic-shelves",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "back-clinic-room",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "back-clinic-cabinet",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "back-clinic-chest",
+    "type": "Container",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "back-clinic-door",
+    "type": "Prop",
+    "description": "It is a wooden door with a small glass window on the upper part.",
+    "attributes": {
+      "isActionable": "true",
+      "isTrapped": "false",
+      "containsConsumables": "false",
+      "activationText": "You unlock and gently open the door. You may now freely go to the Clinic and back."
+    }
+  },
+  {
+    "id": "graveyard-tombstone",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "graveyard-annex-lever",
+    "type": "Prop",
+    "description": "This is a mechanical lever, you can Activate (A) it to unlock the metal gate.",
+    "attributes": {
+      "isActionable": "true",
+      "isTrapped": "false",
+      "containsConsumables": "false",
+      "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Graveyard and back."
+    }
+  },
+  {
+    "id": "graveyard-annex-corpse",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "graveyard-annex-tree",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "street-lever",
+    "type": "Prop",
+    "description": "This is a mechanical lever, you can Activate (A) it to make the ladder drop down.",
+    "attributes": {
+      "isActionable": "true",
+      "isTrapped": "false",
+      "containsConsumables": "false",
+      "activationText": "You pull the lever, the ladder drops down. You may now freely go to the Small square and back."
+    }
+  },
+  {
+    "id": "street-coffins",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "dead-end-coffins",
+    "type": "Prop",
+    "description": "TODO desc",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "small-path-lever",
+    "type": "Prop",
+    "description": "This is a mechanical lever, you can Activate (A) it to unlock the metal gate.",
+    "attributes": {
+      "isActionable": "true",
+      "isTrapped": "false",
+      "containsConsumables": "false",
+      "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Small square and back."
+    }
+  },
+  {
+    "id": "pyre-lever",
+    "type": "Prop",
+    "description": "This is a mechanical lever, you can Activate (A) it to unlock the metal gate.",
+    "attributes": {
+      "isActionable": "true",
+      "isTrapped": "false",
+      "containsConsumables": "false",
+      "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Street and back."
+    }
+  },
+  {
+    "id": "lower-sewers-lever",
+    "type": "Prop",
+    "description": "This is a mechanical lever, you can Activate (A) it to unlock the metal gate.",
+    "attributes": {
+      "isActionable": "true",
+      "isTrapped": "false",
+      "containsConsumables": "false",
+      "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Fountain square and back."
+    }
+  },
+  {
+    "id": "aqueduct-elevator",
+    "type": "Prop",
+    "description": "This is an old elevator, you can re-Activate (A) it to be able to go to the Small path.",
+    "attributes": {
+      "isActionable": "true",
+      "isTrapped": "false",
+      "containsConsumables": "false",
+      "activationText": "You re-activate the elevator. You may now use it go to the Small path and back."
+    }
+  },
+  {
+    "id": "pyre-overhang-crates",
+    "type": "Prop",
+    "description": "TODO Description",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  },
+  {
+    "id": "fountain-square-fence",
+    "type": "Prop",
+    "description": "TODO Description",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "containsConsumables": "false"
+    }
+  }
+]

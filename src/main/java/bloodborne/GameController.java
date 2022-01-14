@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import static java.lang.Thread.sleep;
+
 public class GameController {
     @FXML
     AnchorPane entireWindow;
@@ -64,12 +66,6 @@ public class GameController {
 
     public void setGame(Game game) {
         this.game = game;
-    }
-
-    public void changeImage(String url){
-        String path = "images/" + url;
-        Image myImage = new Image(String.valueOf(getClass().getResource(path)));
-        imageID.setImage(myImage);
     }
 
     public void updateDirectionalArrows(Place place){
@@ -160,19 +156,33 @@ public class GameController {
         Thread myThread = new Thread(() -> {
             LOCK.lock();
             char[] characters = txt.toCharArray();
-            for( char leChar : characters){
-                try {
-                    Thread.sleep(15);
+            for(int j=0; j<txt.length(); j++){
+                try{
+                    sleep(15);
+                    displayScreen.appendText("" + characters[j]);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                displayScreen.appendText(""+leChar);
             }
+            /*for( char leChar : characters){
+                try {
+                    sleep(15);
+                    displayScreen.appendText(leChar);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }*/
             displayScreen.appendText("\n");
             LOCK.unlock();
             writeLine.setDisable(false);
         });
         myThread.start();
+    }
+
+    public void changeImage(String url){
+        String path = "images/" + url;
+        Image myImage = new Image(String.valueOf(getClass().getResource(path)));
+        imageID.setImage(myImage);
     }
 
     public void transitionImage(String imageURL)  {
@@ -201,9 +211,63 @@ public class GameController {
         ft.play();
     }
 
+    public void deathTransition() {
+        Rectangle rect1 = new Rectangle(0, 0, borderpane.getWidth(),  borderpane.getHeight());
+        rect1.setFill(Color.BLACK);
+        Rectangle rect2 = new Rectangle(0, 0, borderpane.getWidth(),  borderpane.getHeight());
+        rect2.setFill(Color.BLACK);
+        Rectangle rect3 = new Rectangle(0, 0, borderpane.getWidth(),  borderpane.getHeight());
+        rect3.setFill(Color.BLACK);
+        Rectangle rect4 = new Rectangle(0, 0, borderpane.getWidth(),  borderpane.getHeight());
+        rect4.setFill(Color.BLACK);
+        borderpane.getChildren().add(rect1);
+
+        FadeTransition ft = new FadeTransition(Duration.millis(2000), rect1);
+        ft.setFromValue(0.1);
+        ft.setToValue(1.0);
+        ft.setCycleCount(1);
+
+        FadeTransition ft2 = new FadeTransition(Duration.millis(2000), rect2);
+        ft2.setFromValue(1.0);
+        ft2.setToValue(0.1);
+        ft2.setCycleCount(1);
+        ft2.setAutoReverse(true);
+
+        FadeTransition ft3 = new FadeTransition(Duration.millis(2000), rect3);
+        ft3.setFromValue(0.1);
+        ft3.setToValue(1.0);
+        ft3.setCycleCount(1);
+
+        FadeTransition ft4 = new FadeTransition(Duration.millis(2000), rect4);
+        ft4.setFromValue(1.0);
+        ft4.setToValue(0.1);
+        ft4.setCycleCount(1);
+        ft4.setAutoReverse(true);
+
+        ft4.setOnFinished(e -> borderpane.getChildren().remove(rect4));
+        ft3.setOnFinished(e -> {
+            changeImage("zones/hunter's-dream/hunter's-dream.jpg");
+            borderpane.getChildren().remove(rect3);
+            borderpane.getChildren().add(rect4);
+            ft4.play();
+        });
+        ft2.setOnFinished(e -> {
+            borderpane.getChildren().remove(rect2);
+            borderpane.getChildren().add(rect3);
+            ft3.play();
+        });
+        ft.setOnFinished(e -> {
+            changeImage("you-died.jpg");
+            borderpane.getChildren().remove(rect1);
+            borderpane.getChildren().add(rect2);
+            ft2.play();
+        });
+        ft.play();
+    }
+
     public void initialize(){
         displayScreen.setFocusTraversable(false);
-        displayScreen.setText("Wake up ? [yes/no]\n");
+        displayScreen.setText("Wake up ? [Y/N]\n");
         lastCommands = new ArrayList<>();
         previousCommandIndex = 0;
         northArrow.setOnMouseEntered(event -> northArrow.setStyle("-fx-opacity: 1;"));

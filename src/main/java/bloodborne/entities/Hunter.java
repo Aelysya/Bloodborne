@@ -18,6 +18,7 @@ public class Hunter extends Entity{
     private int bloodEchoes;
     private final List<Rune> RUNE_LIST;
     private boolean lastAttackIsVisceral;
+    private boolean firstDeathHappened;
 
     private static final Map<String, String> CONSTRUCT_MAP = new HashMap<>();
     static{
@@ -30,12 +31,13 @@ public class Hunter extends Entity{
         INVENTORY = new Inventory();
         damageBoost = 0;
         boostLeft = 0;
-        vialsNumber = 2;
+        vialsNumber = 0;
         bulletsNumber = 0;
         damageType = DamageType.PHYS;
         bloodEchoes = 0;
         RUNE_LIST = new ArrayList<>();
         lastAttackIsVisceral = false;
+        firstDeathHappened = false;
     }
 
     public void addItem(Item item){
@@ -126,14 +128,6 @@ public class Hunter extends Entity{
         return (trickWeapon == null) ? 1 : trickWeapon.getCurrentDamage() + this.damageBoost;
     }
 
-    public String getDamageType(){
-        return damageType.toString();
-    }
-
-    public int getFireArmDamage() {
-        return (fireArm == null) ? 0 : fireArm.getCurrentDamage();
-    }
-
     @Override
     public double getDodgeRate(){
         return trickWeapon == null ? Double.parseDouble(ATTRIBUTES.get("dodgeRate")) : trickWeapon.getCurrentDodgeRate();
@@ -173,6 +167,15 @@ public class Hunter extends Entity{
 
     public boolean isLastAttackVisceral(){
         return lastAttackIsVisceral;
+    }
+
+    public boolean hasFirstDeathHappened(){
+        return firstDeathHappened;
+    }
+
+    public void firstDeath(){
+        firstDeathHappened = true;
+        fullRegen();
     }
 
     public boolean hasItem(String itemId){
@@ -388,5 +391,13 @@ public class Hunter extends Entity{
             rates += ", hit rate : " + fireArm.getHIT_RATE() + ", visceral rate : " + fireArm.getVISCERAL_RATE();
         }
         return rates + "\n";
+    }
+
+    public String getDamageType(){
+        return damageType.toString();
+    }
+
+    public int getFireArmDamage() {
+        return (fireArm == null) ? 0 : fireArm.getCurrentDamage();
     }
 }

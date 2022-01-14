@@ -45,7 +45,7 @@ public class Enemy extends Entity{
 
     public String loot(Hunter hunter){
         double randomValue = Math.random(); //TODO Make a better looting system (add other sort of items before)
-        switch (ATTRIBUTES.get("lootValue")){
+        /*switch (ATTRIBUTES.get("lootValue")){
             case "basic" -> hunter.addBullets(1);
             case "common" -> hunter.addBullets(2);
             case "uncommon" -> {
@@ -60,7 +60,7 @@ public class Enemy extends Entity{
                 hunter.addBullets(5);
                 hunter.addVials(3);
             }
-        }
+        }*/
         hunter.gainBloodEchoes(Integer.parseInt(ATTRIBUTES.get("bloodEchoes")) + takenBloodEchoes);
         return "You loot the corpse and retrieve some useful consumables.";
     }

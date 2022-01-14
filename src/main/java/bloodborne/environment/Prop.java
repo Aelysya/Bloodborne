@@ -4,7 +4,6 @@ import bloodborne.entities.Hunter;
 import bloodborne.exceptions.MalFormedJsonException;
 import bloodborne.exceptions.ReflectionException;
 import bloodborne.world.World;
-
 import java.util.Map;
 
 public class Prop {
@@ -29,16 +28,8 @@ public class Prop {
         return ID;
     }
 
-    public String getNAME() {
-        return ATTRIBUTES.get("name");
-    }
-
     public String getDESCRIPTION() {
         return DESCRIPTION;
-    }
-
-    public String getACTIVATION_TEXT(){
-        return ATTRIBUTES.get("activationText");
     }
 
     public boolean isActivated() {
@@ -50,7 +41,7 @@ public class Prop {
     }
 
     public String lookReaction(Hunter hunter){
-        if(ATTRIBUTES.get("isContainer") == null && !hasBeenLooked){
+        if(Boolean.parseBoolean(ATTRIBUTES.get("containsConsumables")) && !hasBeenLooked){
             addConsumables(hunter);
             hasBeenLooked = true;
         }
@@ -59,8 +50,8 @@ public class Prop {
 
     public String activate(Hunter hunter){
         String txt;
-        if(ATTRIBUTES.get("isActionable").equals("true")) {
-            if(!(ATTRIBUTES.get("isTrapped") == null)){
+        if(Boolean.parseBoolean(ATTRIBUTES.get("isActionable"))) {
+            if(Boolean.parseBoolean(ATTRIBUTES.get("isTrapped"))){
                 if (!isActivated) {
                     isActivated = true;
                     hunter.takeDamage(Integer.parseInt(ATTRIBUTES.get("damageDone")));

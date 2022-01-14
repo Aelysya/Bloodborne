@@ -14,13 +14,6 @@ import java.util.Locale;
 
 public class Game {
 
-    private final String DEATH_TEXT = """
-            ----------------------------
-            It seems this world has finally crushed you.
-            Your journey ends here for now.
-            See you soon, Hunter
-            ----------------------------
-            """; //TODO Modify death text when respawn mechanic is added
     private final Hunter HUNTER;
     private final CommandHandler COMMAND_HANDLER;
     private final GameController CONTROLLER;
@@ -28,21 +21,22 @@ public class Game {
     private final ActionListener ACTION_LISTENER;
     private TextAnalyzer analyzer;
     private final World WORLD;
+    private Place lastLanternPlace;
     private Entity currentlyFoughtEntity;
-    //private String currentZone = "central-yharnam";
     private Rune memorizedRune;
 
     public Game(GameController Controller) {
-        CONTROLLER = Controller;
-        COMMAND_HANDLER = new CommandHandler(this);
-        SOUND_MANAGER = new SoundManager();
-        SOUND_MANAGER.setLoopingSound("ambient-theme.wav");
         HUNTER = new Hunter();
+        COMMAND_HANDLER = new CommandHandler(this);
+        CONTROLLER = Controller;
+        SOUND_MANAGER = new SoundManager();
+        SOUND_MANAGER.setLoopingSound("central-yharnam.wav");
+        analyzer = TextAnalyzer.START;
         WORLD = new World(HUNTER);
+        lastLanternPlace = WORLD.getPlaceById("clinic");
+        currentlyFoughtEntity = null;
         ACTION_LISTENER = new ActionListener(SOUND_MANAGER, HUNTER, WORLD, COMMAND_HANDLER, this);
         WorldLoader.loadZone("central-yharnam", WORLD);
-        currentlyFoughtEntity = null;
-        analyzer = TextAnalyzer.START;
     }
 
     public void writeInstantly(String txt){
@@ -53,18 +47,23 @@ public class Game {
     public void analyseText(String textLine) {
         System.out.println(textLine);
         String line = textLine.toLowerCase(Locale.ROOT);
-
         try {
             switch (analyzer) {
-                case QUIT -> COMMAND_HANDLER.quitTextAnalyzer(line);
-                case FIGHT -> COMMAND_HANDLER.fightTextAnalyzer(line);
-                case RUNE -> COMMAND_HANDLER.runeTextAnalyzer(line);
                 case START -> COMMAND_HANDLER.startTextAnalyzer(line);
-                case DEATH -> COMMAND_HANDLER.deathTextAnalyzer(line);
-                case WIN -> COMMAND_HANDLER.winTextAnalyzer(line);
                 case EXPLORATION -> COMMAND_HANDLER.explorationTextAnalyzer(line);
+                case FIGHT -> COMMAND_HANDLER.fightTextAnalyzer(line);
+                case DREAM_BACK -> COMMAND_HANDLER.dreamBackTextAnalyzer(line);
+                case YHARNAM_HEADSTONE -> COMMAND_HANDLER.yharnamHeadstoneTextAnalyzer(line);
+                //case FRONTIER_HEADSTONE -> COMMAND_HANDLER.frontierHeadstoneTextAnalyzer(line);
+                //case UNSEEN_HEADSTONE -> COMMAND_HANDLER.unseenHeadstoneTextAnalyzer(line);
+                case RUNE -> COMMAND_HANDLER.runeTextAnalyzer(line);
+                case DEATH -> COMMAND_HANDLER.deathTextAnalyzer(line);
+                //case LEVEL_UP -> COMMAND_HANDLER.levelUpTextAnalyzer(line);
+                //case MERCHANT -> COMMAND_HANDLER.merchantTextAnalyzer(line);
+                //case UPGRADE -> COMMAND_HANDLER.upgradeTextAnalyzer(line);
+                case QUIT_FROM_DEATH -> COMMAND_HANDLER.quitFromDeathTextAnalyzer(line);
+                case QUIT -> COMMAND_HANDLER.quitTextAnalyzer(line);
             }
-
         } catch (TooFewArgumentsException | InterruptedException e) {
             CONTROLLER.writeInstantly("No target for the command.");
         }
@@ -78,22 +77,57 @@ public class Game {
         setAnalyzer(TextAnalyzer.EXPLORATION);
         CONTROLLER.transitionImage(WORLD.getCurrentPlace().getIMAGE());
         String START_TEXT = """
-                As you open your eyes, memories flood into you head and you remember everything...
-                Two days ago, three hunters were sent to cleanse the city of Yharnam of people corrupted by the blood plague and eliminate it's source.
-                They still haven't returned and are therefore considered dead. It is now your duty to finish their work. When you arrived you were seriously injured in the accident with your transport.
-                You now wake up in what seems to be a medical clinic. You have lost all your equipment, including your weapons...
-                You don't have time to wonder why you are still alive or how you ended up there. A big monster is still roaming the streets of Yharnam and you have to deal with it.
-                You quickly grab the two blood vials left on the beside table next to you and get up.
-                """; //TODO Re-do starting text with description of player's first blood ministration
-        CONTROLLER.writeLetterByLetter(/*START_TEXT + */"\n\n" + WORLD.getCurrentPlace().getDESCRIPTION());
+                """;
+        CONTROLLER.writeLetterByLetter(WORLD.getCurrentPlace().getDESCRIPTION());
         CONTROLLER.updateDirectionalArrows(WORLD.getCurrentPlace());
     }
 
     public void death() {
+        String DEATH_TEXT = """
+                ----------------------------
+                You died, do you want to reappear at the last lantern ? [Y/N]
+                ----------------------------
+                """;
         SOUND_MANAGER.playSoundEffect("you-died.wav");
-        CONTROLLER.transitionImage("you-died.jpg");
-        CONTROLLER.writeLetterByLetter(DEATH_TEXT + "\nEnter Y to quit");
-        setAnalyzer(TextAnalyzer.DEATH);
+        if (!HUNTER.hasFirstDeathHappened()){
+            firstDeath();
+        } else {
+            CONTROLLER.transitionImage("you-died.jpg");
+            CONTROLLER.writeLetterByLetter(DEATH_TEXT);
+            setAnalyzer(TextAnalyzer.DEATH);
+        }
+    }
+
+    public void firstDeath(){
+        HUNTER.firstDeath();
+        setAnalyzer(TextAnalyzer.EXPLORATION);
+        currentlyFoughtEntity = null;
+        CONTROLLER.updateHUD(HUNTER);
+        CONTROLLER.deathTransition();
+        WORLD.changePlace(WORLD.getPlaceById("hunter's-dream"));
+        SOUND_MANAGER.setLoopingSound(WORLD.getCurrentPlace().getSONG());
+        CONTROLLER.updateDirectionalArrows(WORLD.getCurrentPlace());
+    }
+
+    public void warpBackToLastLantern(){
+        currentlyFoughtEntity = null;
+        setAnalyzer(TextAnalyzer.EXPLORATION);
+        HUNTER.fullRegen();
+        CONTROLLER.updateHUD(HUNTER);
+        teleportFunction(lastLanternPlace.getID());
+    }
+
+    public void writeHeadstoneText(String headstoneName){
+        CONTROLLER.writeLetterByLetter(WORLD.generateHeadstoneText(headstoneName));
+    }
+
+    public void checkIfWarpFromDreamPossible(String destinationID){
+        if (WORLD.getPlaceById(destinationID).hasBeenVisited()){
+            teleportFunction(destinationID);
+            setAnalyzer(TextAnalyzer.EXPLORATION);
+        } else {
+            writeInstantly("This destination either doesn't exist or has not yet been discovered. Choose another destination.");
+        }
     }
 
     public void muteGame() {
@@ -106,14 +140,14 @@ public class Game {
 
     public void goFunction(String direction) {
         Place currentPlace = WORLD.getCurrentPlace();
-        if (currentPlace.hasLantern() && direction.equals("dream")){
-            return;
+        if (currentPlace.hasLantern() && direction.equals("hunter's-dream")){
+            teleportFunction("hunter's-dream");
         } else if (!currentPlace.getEXITS().containsKey(direction)) {
             CONTROLLER.writeInstantly("There is no such exit here.");
         } else {
             if (currentPlace.getExitByName(direction).isTraversable()) {
                 WORLD.changePlace(currentPlace.getExitByName(direction).getOUT());
-                SOUND_MANAGER.playSoundEffect("change-world.wav");
+                SOUND_MANAGER.playSoundEffect("change-place.wav");
                 currentPlace = WORLD.getCurrentPlace();
                 if (!currentPlace.getSONG().equals("")) {
                     SOUND_MANAGER.setLoopingSound(currentPlace.getSONG());
@@ -124,6 +158,9 @@ public class Game {
                     CONTROLLER.transitionImage("placeholder.png");
                 }
                 CONTROLLER.writeLetterByLetter(currentPlace.getDESCRIPTION());
+                if (currentPlace.hasLantern()){
+                    lastLanternPlace = currentPlace;
+                }
                 ACTION_LISTENER.goListener();
             } else {
                 CONTROLLER.writeInstantly(currentPlace.getExitByName(direction).getConditionFalseText());
@@ -134,8 +171,12 @@ public class Game {
 
     public void teleportFunction(String destination) { //To use the teleport command, use the id of the place you want to go to
         if(WORLD.getPlaceById(destination) != null){
-            WORLD.changePlace(WORLD.getPlaceById(destination));
-            SOUND_MANAGER.playSoundEffect("change-world.wav");
+            if (destination.equals("hunter's-dream")) {
+                WORLD.changePlace(WORLD.getPlaceById("hunter's-dream"));
+            } else {
+                WORLD.changePlace(WORLD.getPlaceById(destination));
+                SOUND_MANAGER.playSoundEffect("change-place.wav");
+            }
             Place currentPlace = WORLD.getCurrentPlace();
             if (!currentPlace.getSONG().equals("")) {
                 SOUND_MANAGER.setLoopingSound(currentPlace.getSONG());
@@ -146,6 +187,9 @@ public class Game {
                 CONTROLLER.transitionImage("placeholder.png");
             }
             CONTROLLER.writeInstantly(currentPlace.getDESCRIPTION());
+            if (currentPlace.hasLantern()){
+                lastLanternPlace = currentPlace;
+            }
             ACTION_LISTENER.teleportListener();
         } else {
             CONTROLLER.writeInstantly("Place id invalid");
@@ -159,6 +203,7 @@ public class Game {
         Entity eTarget = WORLD.getCurrentPlace().getEnemyByName(target);
         if (currentPlace.getPROPS().get(target) != null) { //If target is a prop
             CONTROLLER.writeLetterByLetter(currentPlace.getPROPS().get(target).lookReaction(HUNTER));
+            ACTION_LISTENER.lookListener(currentPlace.getPROPS().get(target));
         } else if (item != null) { //If target is an item from the current world
             if (item.isTaken()){
                 if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped
@@ -245,7 +290,7 @@ public class Game {
                 if(HUNTER.getNumberOfRunes() >= 3){
                     setAnalyzer(TextAnalyzer.RUNE);
                     memorizedRune = (Rune) item;
-                    CONTROLLER.writeInstantly("You already have 3 runes equipped, which one do you want to replace ? [1/2/3/cancel]");
+                    CONTROLLER.writeInstantly("You already have 3 runes equipped, which one do you want to replace ? [1/2/3/Cancel]");
                 } else {
                     CONTROLLER.writeInstantly(HUNTER.equipRune((Rune) item, -1)); //-1 to just add the rune to the list
                     SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
@@ -268,7 +313,7 @@ public class Game {
     }
 
     public void initiateFightFunction(String target) {
-        Entity eTarget = WORLD.getCurrentPlace().getEnemyByName(target.toLowerCase(Locale.ROOT)); //TODO Verify after enemies.json is done if it's useful to go through Entity then Enemy
+        Entity eTarget = WORLD.getCurrentPlace().getEnemyByName(target.toLowerCase(Locale.ROOT));
         if (eTarget instanceof Enemy) {
             if (eTarget.isDead()){
                 CONTROLLER.writeInstantly("This enemy is already dead.");
@@ -304,7 +349,7 @@ public class Game {
     }
 
     public void quitFunction() {
-        CONTROLLER.writeInstantly("Do you really want to quit ? All progress will be lost [y/n] ");
+        CONTROLLER.writeInstantly("Do you really want to quit ? All progress will be lost [Y/N] ");
         setAnalyzer(TextAnalyzer.QUIT);
     }
 
@@ -329,23 +374,21 @@ public class Game {
     }
 
     public void checkEntityKilledIsBoss(Entity enemy){
-        if (enemy instanceof Boss) {
+        Enemy e = (Enemy) enemy;
+        if (e instanceof Boss) {
             CONTROLLER.transitionImage("prey-slaughtered.png");
             SOUND_MANAGER.playSoundEffect("prey-slaughtered.wav");
-            SOUND_MANAGER.setLoopingSound("ambient-theme.wav");
-            CONTROLLER.writeLetterByLetter("Congratulations ! You managed to kill the Cleric Beast once and for all ! The source of the blood plague is no more and the hunters that came here before you did not die for nothing. But Yharnam will take a long time to recover from this disaster. It is unlikely the survivors will stop consuming blood to heals their diseases but your work gave them some spare time... until next time they need hunters' help...");
-            CONTROLLER.writeInstantly("----------------\n\nYour job here is done. Enter Y to quit the game.");
-            setAnalyzer(TextAnalyzer.WIN);
+            SOUND_MANAGER.setLoopingSound("central-yharnam.wav");
         } else {
-            CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
             if (!HUNTER.isLastAttackVisceral()){
                 SOUND_MANAGER.playSoundEffect("enemy-killed.wav");
             }
-            Enemy e = (Enemy) enemy;
-            CONTROLLER.writeLetterByLetter(e.loot(HUNTER));
-            setAnalyzer(TextAnalyzer.EXPLORATION);
+            CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
         }
-        ACTION_LISTENER.deadEnemyListener();
+        CONTROLLER.writeLetterByLetter(e.loot(HUNTER));
+        setAnalyzer(TextAnalyzer.EXPLORATION);
+        ACTION_LISTENER.deadEnemyListener(currentlyFoughtEntity);
+        currentlyFoughtEntity = null;
     }
 
     public void switchFunction() {
@@ -375,7 +418,7 @@ public class Game {
             HUNTER.takeDamage(5);
             if (HUNTER.isDead()) {
                 CONTROLLER.updateHUD(HUNTER);
-                CONTROLLER.writeLetterByLetter("You were too weak too flee and your enemy caught up with you. He executes you.\n" + DEATH_TEXT);
+                CONTROLLER.writeLetterByLetter("You were too weak too flee and your enemy caught up with you. He executes you.");
                 death();
             } else {
                 CONTROLLER.updateHUD(HUNTER);
@@ -389,6 +432,11 @@ public class Game {
 
     public void healFunction() {
         CONTROLLER.writeLetterByLetter(HUNTER.heal(SOUND_MANAGER));
+        CONTROLLER.updateHUD(HUNTER);
+    }
+
+    public void killFunction(){
+        HUNTER.takeDamage(29);
         CONTROLLER.updateHUD(HUNTER);
     }
 }

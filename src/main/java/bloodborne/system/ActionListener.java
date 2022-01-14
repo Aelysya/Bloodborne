@@ -1,7 +1,9 @@
 package bloodborne.system;
 
 import bloodborne.entities.Boss;
+import bloodborne.entities.Entity;
 import bloodborne.entities.Hunter;
+import bloodborne.environment.Prop;
 import bloodborne.sounds.SoundManager;
 import bloodborne.world.World;
 
@@ -39,8 +41,18 @@ public class ActionListener {
         }
     }
 
-    public void lookListener(){
-
+    public void lookListener(Prop p){
+        switch (p.getID()){
+            case "yharnam-headstone" -> {
+                GAME.writeHeadstoneText("yharnam");
+                GAME.setAnalyzer(TextAnalyzer.YHARNAM_HEADSTONE);
+            }
+            case "frontier-headstone" -> {
+                GAME.writeHeadstoneText("frontier");
+                GAME.setAnalyzer(TextAnalyzer.FRONTIER_HEADSTONE);
+            }
+            default -> System.err.println("Invalid headstone name, please check the code.");
+        }
     }
 
     public void activateListener(){
@@ -67,7 +79,11 @@ public class ActionListener {
 
     }
 
-    public void deadEnemyListener(){
-
+    public void deadEnemyListener(Entity enemy){
+        String enemyID = enemy.getID();
+        switch (enemyID) {
+            case "clinic-scourge-beast" -> WORLD.getPlaceById("clinic").switchToAltDescription();
+            case "back-clinic-emissary" -> WORLD.getPlaceById("back-clinic").switchToAltDescription();
+        }
     }
 }

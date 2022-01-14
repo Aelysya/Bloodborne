@@ -16,6 +16,7 @@ public class World {
     private final Map<String, Prop> PROPS;
     private final Map<String, Enemy> ENEMIES;
     private final Map<String, Place> PLACES;
+    private final Map<String, Place> LANTERN_PLACES;
 
     private Place currentPlace;
     private final Hunter HUNTER;
@@ -26,6 +27,7 @@ public class World {
         PROPS = new HashMap<>();
         ENEMIES = new HashMap<>();
         PLACES = new HashMap<>();
+        LANTERN_PLACES = new HashMap<>();
 
         HUNTER = hunter;
     }
@@ -40,6 +42,7 @@ public class World {
 
     public void changePlace(Place newPlace){
         currentPlace = newPlace;
+        currentPlace.visit();
     }
 
     public void addItem(Item item) {
@@ -58,6 +61,10 @@ public class World {
         this.PLACES.put(place.getID(), place);
     }
 
+    public void addLanternPlace(Place place) {
+        this.LANTERN_PLACES.put(place.getID(), place);
+    }
+
     public Map<String, Item> getItems() {
         return ITEMS;
     }
@@ -74,6 +81,10 @@ public class World {
         return PLACES;
     }
 
+    public Map<String, Place> getLanternPlaces() {
+        return LANTERN_PLACES;
+    }
+
     public Enemy getEnemyById(String enemyId) {
         return ENEMIES.get(enemyId);
     }
@@ -88,5 +99,16 @@ public class World {
 
     public Prop getPropById(String propId) {
         return PROPS.get(propId);
+    }
+
+    public String generateHeadstoneText(String headstoneName) {
+        StringBuilder s = new StringBuilder();
+        for (Place p : LANTERN_PLACES.values()){
+            if (headstoneName.equals(p.getHEADSTONE()) && p.hasBeenVisited()){
+                s.append(p.getHEADSTONE_INDEX()).append(" -> ").append(p.getNAME()).append("\n");
+            }
+        }
+        s.append("\nEnter the number corresponding to the destination you want to reawaken at or Cancel to stay in the dream");
+        return s.toString();
     }
 }

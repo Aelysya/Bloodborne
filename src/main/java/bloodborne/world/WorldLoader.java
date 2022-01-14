@@ -73,19 +73,31 @@ public final class WorldLoader {
             String id = (String) map.get("id");
             String name = (String) map.get("name");
             String area = (String) map.get("area");
+            String headstone = (String) map.get("headstone");
+            String headstoneIndexString = (String) map.get("headstoneIndex");
             String description = (String) map.get("description");
             String altDescription = (String) map.get("altDescription");
+            boolean hasLantern = Boolean.parseBoolean((String) map.get("hasLantern"));
             Map items = (Map) map.get("items");
             Map props = (Map) map.get("props");
             Map exits = (Map) map.get("exits");
             Map enemies = (Map) map.get("enemies");
 
-            if (id == null || name == null || area == null || description == null || altDescription == null) {
+            if (id == null || name == null || area == null || headstone == null || description == null || altDescription == null) {
                 throw new MalFormedJsonException("Place : " + id + name + area + description + altDescription);
             }
+            int headstoneIndex;
+            if(headstoneIndexString == null){
+                headstoneIndex = -1;
+            } else {
+                headstoneIndex = Integer.parseInt(headstoneIndexString);
+            }
 
-            Place place = new Place(id, name, area, description, altDescription, items, props, exits, enemies);
+            Place place = new Place(id, name, area, headstone, headstoneIndex, description, altDescription, hasLantern, items, props, exits, enemies);
             world.addPlace(place);
+            if (hasLantern){
+                world.addLanternPlace(place);
+            }
         }
     }
 
@@ -96,7 +108,7 @@ public final class WorldLoader {
             String id = (String) map.get("id");
             String type = (String) map.get("type");
             String description = (String) map.get("description");
-            Object attributes = map.get("attributes");
+            Map<String, String> attributes = (Map<String, String>) map.get("attributes");
 
             if (id == null || type == null || description == null)
                 throw new MalFormedJsonException(elementType + id + type + description);

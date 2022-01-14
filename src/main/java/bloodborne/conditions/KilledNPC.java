@@ -1,6 +1,5 @@
 package bloodborne.conditions;
 
-import bloodborne.exceptions.MalFormedJsonException;
 import bloodborne.world.World;
 
 public class KilledNPC extends Condition{

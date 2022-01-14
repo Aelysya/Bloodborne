@@ -35,62 +35,20 @@ public class CommandHandler {
                 });
                 thread.start();
             }
-            default -> GAME.writeInstantly(".............\nWake up ? [yes/no]\n");
-        }
-    }
-
-    public void quitTextAnalyzer(String textLine) {
-        String[] args = textLine.split("\\s+", 2);
-
-        if(args.length == 0){
-            return;
-        }
-
-        String command = args[0];
-        //String target = args[1];
-
-        switch (command) {
-            case "y", "yes" -> System.exit(0);
-            case "n", "no" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
-            case "mute" -> GAME.muteGame();
-            case "unmute" -> GAME.unMuteGame();
-            default -> GAME.writeInstantly("Unknown command !");
-        }
-    }
-
-    public void dreamBackTextAnalyzer(String textLine) {
-        String[] args = textLine.split("\\s+", 2);
-
-        if(args.length == 0){
-            return;
-        }
-
-        String command = args[0];
-        //String target = args[1];
-
-        switch (command) {
-            case "y", "yes" -> GAME.goFunction("dream");
-            case "n", "no" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
-            case "mute" -> GAME.muteGame();
-            case "unmute" -> GAME.unMuteGame();
-            default -> GAME.writeInstantly("Unknown command !");
+            default -> GAME.writeInstantly(".............\nWake up ? [Y/N]\n");
         }
     }
 
     public void explorationTextAnalyzer(String textLine) throws TooFewArgumentsException{
         String[] args = textLine.split("\\s+", 2);
-
         if(args.length == 0){
             return;
         }
-
         String command = args[0];
         String target = "";
-
         if(args.length == 2){
             target = args[1];
         }
-
         String EXPLORATION_HELP_TEXT = """
                 Currently available commands (use capitalized characters for shortcuts) :
                 - Look [target] : Get a description of the target, or of surroundings if none
@@ -104,7 +62,6 @@ public class CommandHandler {
                 - Inventory : Display your inventory's content
                 - mute/unmute : Mutes or unmutes the music
                 - Quit : Quit the game, all progress will be lost""";
-
         switch (command) {
             case "g", "go" -> {
                 if (target.equals("")) {
@@ -170,19 +127,17 @@ public class CommandHandler {
             case "mute" -> GAME.muteGame();
             case "unmute" -> GAME.unMuteGame();
             case "q", "quit" -> GAME.quitFunction();
+            case "/kill" -> GAME.killFunction();
             default -> GAME.writeInstantly("Unknown command !");
         }
     }
 
     public void runeTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
-
         if(args.length == 0){
             return;
         }
-
         String position = args[0];
-
         switch(position){
             case "1", "2", "3" -> GAME.runeDecisionFunction(Integer.parseInt(position)-1);
             case "c", "cancel" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
@@ -192,18 +147,14 @@ public class CommandHandler {
 
     public void fightTextAnalyzer(String textLine) throws TooFewArgumentsException {
         String[] args = textLine.split("\\s+", 2);
-
         if(args.length == 0){
             return;
         }
-
         String command = args[0];
         String target = "";
-
         if(args.length == 2){
             target = args[1];
         }
-
         String FIGHT_HELP_TEXT = """
                 Currently available commands (capitalized characters for shortcut) :
                 - Attack : Attack the enemy with your Trick weapon, you'll have a chance to dodge it's attack
@@ -213,7 +164,6 @@ public class CommandHandler {
                 - Flee : Try to flee the fight, you will take some damage if you do this
                 - HeaL : Use a blood vial to heal you
                 - mute/unmute : Mutes or unmutes the music""";
-
         switch (command) {
             case "u", "use" -> {
                 if (target.equals("")) {
@@ -236,20 +186,21 @@ public class CommandHandler {
 
     public void deathTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
-
         if(args.length == 0){
             return;
         }
-
         String command = args[0];
-
         switch (command) {
-            case "y", "yes" -> System.exit(0);
-            default -> GAME.writeInstantly("It may be hard to accept but... you're dead. You have to deal with it.\nEnter Y to quit");
+            case "y", "yes" -> GAME.warpBackToLastLantern();
+            case "n", "no" -> {
+                GAME.writeInstantly("Do you want to quit the game ? [Y/N]");
+                GAME.setAnalyzer(TextAnalyzer.QUIT);
+            }
+            default -> GAME.writeInstantly("Unknown command !\n\nYou died, do you want to reappear at the last lantern ? [Y/N]");
         }
     }
 
-    public void winTextAnalyzer(String textLine) {
+    public void dreamBackTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
 
         if(args.length == 0){
@@ -257,10 +208,67 @@ public class CommandHandler {
         }
 
         String command = args[0];
+        //String target = args[1];
+
+        switch (command) {
+            case "y", "yes" -> GAME.goFunction("hunter's-dream");
+            case "n", "no" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
+            case "mute" -> GAME.muteGame();
+            case "unmute" -> GAME.unMuteGame();
+            default -> GAME.writeInstantly("Unknown command !");
+        }
+    }
+
+    public void yharnamHeadstoneTextAnalyzer(String textLine) {
+        String[] args = textLine.split("\\s+", 2);
+        if(args.length == 0){
+            return;
+        }
+        String command = args[0];
+        switch (command) {
+            case "1" -> GAME.checkIfWarpFromDreamPossible("clinic");
+            case "2" -> GAME.checkIfWarpFromDreamPossible("small-square");
+            case "3" -> GAME.checkIfWarpFromDreamPossible("bridge-end");
+            case "4" -> GAME.checkIfWarpFromDreamPossible("tomb-of-oedon");
+            case "c", "cancel" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
+            default -> GAME.writeHeadstoneText("yharnam");
+        }
+    }
+
+    public void quitFromDeathTextAnalyzer(String textLine) {
+        String[] args = textLine.split("\\s+", 2);
+
+        if(args.length == 0){
+            return;
+        }
+
+        String command = args[0];
+        //String target = args[1];
 
         switch (command) {
             case "y", "yes" -> System.exit(0);
-            default -> GAME.writeInstantly("You don't need to stay here any longer.\nPress Y to quit");
+            case "n", "no" -> {
+                GAME.writeInstantly("You died, do you want to reappear at the last lantern ? [Y/N]");
+                GAME.setAnalyzer(TextAnalyzer.DEATH);
+            }
+            default -> GAME.writeInstantly("Unknown command !\n\nDo you want to quit the game ? [Y/N]");
+        }
+    }
+
+    public void quitTextAnalyzer(String textLine) {
+        String[] args = textLine.split("\\s+", 2);
+
+        if(args.length == 0){
+            return;
+        }
+
+        String command = args[0];
+        //String target = args[1];
+
+        switch (command) {
+            case "y", "yes" -> System.exit(0);
+            case "n", "no" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
+            default -> GAME.writeInstantly("Unknown command !");
         }
     }
 }

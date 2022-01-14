@@ -16,9 +16,13 @@ public class Place {
     private final String ID;
     private final String NAME;
     private final String ZONE;
+    private final String HEADSTONE;
+    private final int HEADSTONE_INDEX;
     private final String DESCRIPTION;
     private final String ALT_DESCRIPTION;
+    private final boolean HAS_LANTERN;
     private boolean showAltDescription;
+    private boolean hasBeenVisited;
 
     private final Map<String, String> ITEMS_STRING;
     private final Map<String, String> PROPS_STRING;
@@ -30,13 +34,17 @@ public class Place {
     private final HashMap<String, Exit> EXITS;
     private final HashMap<String, Entity> ENEMIES;
 
-    public Place(String id, String name, String zone, String description, String altDescription, Map<String, String> items, Map<String, String> props, Map<String, Object> exits, Map<String, String> enemies) {
+    public Place(String id, String name, String zone, String headstone, int headstoneIndex, String description, String altDescription, boolean hasLantern, Map<String, String> items, Map<String, String> props, Map<String, Object> exits, Map<String, String> enemies) {
         ID = id;
         NAME = name;
         ZONE = zone;
+        HEADSTONE = headstone;
+        HEADSTONE_INDEX =headstoneIndex;
         DESCRIPTION = description;
         ALT_DESCRIPTION = altDescription;
+        HAS_LANTERN = hasLantern;
         showAltDescription = false;
+        hasBeenVisited = false;
 
         ITEMS_STRING = items;
         PROPS_STRING = props;
@@ -61,18 +69,31 @@ public class Place {
         return ZONE;
     }
 
+    public String getHEADSTONE() {
+        return HEADSTONE;
+    }
+
+    public int getHEADSTONE_INDEX() {
+        return HEADSTONE_INDEX;
+    }
+
     public String getDESCRIPTION() {
         StringBuilder s = new StringBuilder();
-        s.append(showAltDescription ? ALT_DESCRIPTION : DESCRIPTION);
-        s.append("\n");
+        s.append(showAltDescription ? ALT_DESCRIPTION : DESCRIPTION).append("\n\n");
         for (Exit e : EXITS.values()){
-            s.append(e.getDescription());
+            s.append(e.getDescription()).append("\n");
         }
         return s.toString();
     }
 
     public String getIMAGE() {
-        return "zones/" + ZONE + "/" + ID + ".jpg";
+        StringBuilder s = new StringBuilder();
+        s.append("zones/").append(ZONE).append("/").append(ID);
+        if (showAltDescription){
+            s.append("-alt");
+        }
+        s.append(".jpg");
+        return s.toString();
     }
 
     public String getSONG() {
@@ -139,11 +160,19 @@ public class Place {
     }
 
     public boolean hasLantern(){
-        return false; //TODO Make lanterns respawns and ways to hunter's dream
+        return HAS_LANTERN;
     }
 
     public void switchToAltDescription(){
         showAltDescription = true;
+    }
+
+    public void visit(){
+        hasBeenVisited = true;
+    }
+
+    public boolean hasBeenVisited(){
+        return hasBeenVisited;
     }
 
     public void initialize(World world) throws MalFormedJsonException, UnknownPlaceException, UnknownExitTypeException, ItemNotFoundException, NPCNotFoundException {
