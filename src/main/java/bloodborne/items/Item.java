@@ -23,6 +23,10 @@ public abstract class Item {
         return ID;
     }
 
+    public String getImage(){
+        return ATTRIBUTES.get("image");
+    }
+
     public String getDESCRIPTION() {
         return DESCRIPTION;
     }

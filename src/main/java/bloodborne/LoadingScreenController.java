@@ -44,11 +44,10 @@ public class LoadingScreenController {
                     GameController Controller = fxmlLoader.getController();
                     Game game = new Game(Controller);
                     Controller.setGame(game);
-                    stage.setTitle("A Hunter's Quest");
+                    stage.setTitle("Bloodborne");
                     stage.setScene(scene);
                     rootPane.getScene().getWindow().hide();
                     stage.show();
-
                 });
             } catch (InterruptedException e) {
                 e.printStackTrace();

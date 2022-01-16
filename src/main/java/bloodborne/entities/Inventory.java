@@ -25,7 +25,7 @@ public class Inventory {
     public void removeItemByName(String itemName) {
         for(Item i : ITEMS.values()){
             if(i.getNAME().equals(itemName)){
-                ITEMS.remove(i);
+                ITEMS.remove(i.getID());
                 break;
             }
         }
@@ -40,6 +40,10 @@ public class Inventory {
         }
 
         return s.toString();
+    }
+
+    public Map<String, Item> getItems(){
+        return ITEMS;
     }
 
     public Item getItemByName(String itemName){

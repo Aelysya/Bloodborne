@@ -15,7 +15,7 @@ public class TrickWeapon extends Weapon{
 
     @Override
     public int getCurrentDamage() {
-        return isSwitched ? Integer.parseInt(ATTRIBUTES.get("switchedDamage")) : Integer.parseInt(ATTRIBUTES.get("damage"));
+        return isSwitched ? Integer.parseInt(ATTRIBUTES.get("switchedDamage")) : Integer.parseInt(ATTRIBUTES.get("baseDamage"));
     }
 
     public double getCurrentDodgeRate(){

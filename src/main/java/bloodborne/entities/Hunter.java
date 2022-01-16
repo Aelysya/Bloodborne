@@ -85,6 +85,14 @@ public class Hunter extends Entity{
         return INVENTORY.showInventory();
     }
 
+    public Inventory getINVENTORY(){
+        return INVENTORY;
+    }
+
+    public int getInventoryItemAmount(){
+        return INVENTORY.getNumberOfItems();
+    }
+
     public int getVialsNumber(){
         return vialsNumber;
     }
@@ -146,7 +154,7 @@ public class Hunter extends Entity{
         if(trickWeapon == null){
             path = "images/empty.png";
         } else {
-            path = "images/items/" + trickWeapon.getIcon();
+            path = "images/items/" + trickWeapon.getImage();
         }
         return path;
     }
@@ -156,7 +164,7 @@ public class Hunter extends Entity{
         if(fireArm == null){
             path = "images/empty.png";
         } else {
-            path = "images/items/" + fireArm.getIcon();
+            path = "images/items/" + fireArm.getImage();
         }
         return path;
     }
@@ -253,7 +261,7 @@ public class Hunter extends Entity{
         if(trickWeapon == null){
             txt = "You don't have any trick weapon equipped";
         } else {
-            txt = "You switched your trick weapon's state, check your status to see the changes";
+            txt = "You switched your trick weapon's state, check your stats to see the changes";
             trickWeapon.switchMode();
         }
         return txt;
@@ -365,39 +373,5 @@ public class Hunter extends Entity{
             }
         }
         return cantShoot;
-    }
-
-
-    //Deprecated methods
-
-    public String getTrickWeaponToString(){
-        return getTrickWeapon() != null ? getTrickWeapon().getNAME() + ", deals " + getTrickWeapon().getCurrentDamage() + " (+ " + getDamageBoost() + ") damage\n" :
-                "No trick weapon equipped. You deal 1 damage with your fists.\n";
-    }
-
-    public String getFireArmToString(){
-        return getFireArm() != null ? getFireArm().getNAME() + ", deals " + getFireArm().getCurrentDamage() + " damage. Uses " + fireArm.getBULLET_USE() + " bullet(s) per shot\n":
-                "No gun equipped.\n";
-    }
-
-    public String getRates(){
-        String rates = "Dodge rate : ";
-        if(trickWeapon == null){
-            rates += Double.parseDouble(ATTRIBUTES.get("dodgeRate"));
-        } else {
-            rates += trickWeapon.getCurrentDodgeRate();
-        }
-        if(fireArm != null){
-            rates += ", hit rate : " + fireArm.getHIT_RATE() + ", visceral rate : " + fireArm.getVISCERAL_RATE();
-        }
-        return rates + "\n";
-    }
-
-    public String getDamageType(){
-        return damageType.toString();
-    }
-
-    public int getFireArmDamage() {
-        return (fireArm == null) ? 0 : fireArm.getCurrentDamage();
     }
 }

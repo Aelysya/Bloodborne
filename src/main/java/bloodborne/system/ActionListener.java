@@ -4,6 +4,7 @@ import bloodborne.entities.Boss;
 import bloodborne.entities.Entity;
 import bloodborne.entities.Hunter;
 import bloodborne.environment.Prop;
+import bloodborne.items.Item;
 import bloodborne.sounds.SoundManager;
 import bloodborne.world.World;
 
@@ -51,7 +52,6 @@ public class ActionListener {
                 GAME.writeHeadstoneText("frontier");
                 GAME.setAnalyzer(TextAnalyzer.FRONTIER_HEADSTONE);
             }
-            default -> System.err.println("Invalid headstone name, please check the code.");
         }
     }
 
@@ -63,8 +63,28 @@ public class ActionListener {
 
     }
 
-    public void takeListener(){
+    public void takeListener(Item item){
+        switch(item.getID()){
+            case "saw-cleaver" -> {//The 3 original trick weapons to choose from, 1 is taken the other two are gone
+                WORLD.getCurrentPlace().removeItemByID("threaded-cane");
+                WORLD.getCurrentPlace().removeItemByID("hunter-axe");
+            }
+            case "hunter-axe" -> {
+                WORLD.getCurrentPlace().removeItemByID("threaded-cane");
+                WORLD.getCurrentPlace().removeItemByID("saw-cleaver");
+            }
+            case "threaded-cane" -> {
+                WORLD.getCurrentPlace().removeItemByID("saw-cleaver");
+                WORLD.getCurrentPlace().removeItemByID("hunter-axe");
+            }
 
+            case "hunter-pistol" -> {//The 2 original firearms to choose from, 1 is taken the other is gone
+                WORLD.getCurrentPlace().removeItemByID("hunter-blunderbuss");
+            }
+            case "hunter-blunderbuss" -> {
+                WORLD.getCurrentPlace().removeItemByID("hunter-pistol");
+            }
+        }
     }
 
     public void initiateFightListener(){
@@ -80,8 +100,7 @@ public class ActionListener {
     }
 
     public void deadEnemyListener(Entity enemy){
-        String enemyID = enemy.getID();
-        switch (enemyID) {
+        switch (enemy.getID()) {
             case "clinic-scourge-beast" -> WORLD.getPlaceById("clinic").switchToAltDescription();
             case "back-clinic-emissary" -> WORLD.getPlaceById("back-clinic").switchToAltDescription();
         }

@@ -4,55 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Renamed System classes and switched to central-yharnam zone from legacy-yharnam for manual testing purposes, Props are urgent to add to Props.json file">
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Added system of Hunter's dream, first death teleportation to the dream, teleportation to places with lanterns from the dream (only the visited ones) and an Action Listener class to react to specific actions from the user that would normally require writing too much 'if' conditions to test everything">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/InventoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/inventory.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/KilledNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/KilledNPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/LoadingScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/LoadingScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Rune.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Rune.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/ActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/ActionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/TextAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/TextAnalyzer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/Place.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/WorldLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/WorldLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/hunter's-dream/dream-garden-alt.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/hunter's-dream/hunter's-dream-alt.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/hunter's-dream/dream-garden.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/hunter's-dream/hunter's-dream.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/change-zone.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/change-place.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/ambient-theme.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/cleric-beast-theme.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/cleric-beast.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/hunter's-dream-theme.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/themes/hunter's-dream.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/conditions/ActivatedProp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/conditions/ActivatedProp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/conditions/Condition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/conditions/Condition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/conditions/HasKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/conditions/HasKey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/conditions/KilledNPC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/conditions/KilledNPC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/conditions/UsedItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/conditions/UsedItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/LoadingScreenController$Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/LoadingScreenController$Loader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/ConditionalProp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/ConditionalProp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Container.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/Container.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/json/ZoneDataLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/TrickWeapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/TrickWeapon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/TextAnalyzer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/TextAnalyzer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ConditionalExit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/Exit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/Place.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/Zone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/zone/ZoneLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641488858520</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added system of Hunter's dream, first death teleportation to the dream, teleportation to places with lanterns from the dream (only the visited ones) and an Action Listener class to react to specific actions from the user that would normally require writing too much 'if' conditions to test everything">
+      <created>1642175521358</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1642175521358</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -314,7 +300,8 @@
     <MESSAGE value="Added new images" />
     <MESSAGE value="Added new Item classes and ActionListener class to react to specific events in-game and perform precise actions without polluting the class Game" />
     <MESSAGE value="Renamed System classes and switched to central-yharnam zone from legacy-yharnam for manual testing purposes, Props are urgent to add to Props.json file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed System classes and switched to central-yharnam zone from legacy-yharnam for manual testing purposes, Props are urgent to add to Props.json file" />
+    <MESSAGE value="Added system of Hunter's dream, first death teleportation to the dream, teleportation to places with lanterns from the dream (only the visited ones) and an Action Listener class to react to specific actions from the user that would normally require writing too much 'if' conditions to test everything" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added system of Hunter's dream, first death teleportation to the dream, teleportation to places with lanterns from the dream (only the visited ones) and an Action Listener class to react to specific actions from the user that would normally require writing too much 'if' conditions to test everything" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

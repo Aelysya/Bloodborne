@@ -8,9 +8,5 @@ public abstract class Weapon extends Item{
         super(id, description, att);
     }
 
-    public String getIcon(){
-        return "weapons/" + getID() + ".png";
-    }
-
     public abstract int getCurrentDamage();
 }

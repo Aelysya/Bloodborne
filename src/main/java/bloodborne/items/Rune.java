@@ -10,10 +10,6 @@ public class Rune extends Item{
         super(id, description, att);
     }
 
-    public String getIcon(){
-        return ATTRIBUTES.get("imagePath");
-    }
-
     public String getEquipText(){
         return ATTRIBUTES.get("equipText");
     }

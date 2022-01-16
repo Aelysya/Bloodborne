@@ -133,6 +133,16 @@ public class Place {
         return item;
     }
 
+    public void removeItemByID(String itemID){
+        for (Item i : ITEMS.values()){
+            if (i.getID().equals(itemID)){
+                ITEMS.remove(i.getNAME().toLowerCase(Locale.ROOT));
+                System.out.println("Removed item " + i.getID() + " from place " + getID());
+                break;
+            }
+        }
+    }
+
     public Entity getEnemyByName(String target) {
         return ENEMIES.get(target);
     }

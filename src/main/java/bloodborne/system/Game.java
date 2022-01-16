@@ -1,6 +1,7 @@
 package bloodborne.system;
 
 import bloodborne.GameController;
+import bloodborne.InventoryController;
 import bloodborne.entities.*;
 import bloodborne.environment.*;
 import bloodborne.exceptions.TooFewArgumentsException;
@@ -17,6 +18,7 @@ public class Game {
     private final Hunter HUNTER;
     private final CommandHandler COMMAND_HANDLER;
     private final GameController CONTROLLER;
+    private InventoryController INVENTORY_CONTROLLER;
     private final SoundManager SOUND_MANAGER;
     private final ActionListener ACTION_LISTENER;
     private TextAnalyzer analyzer;
@@ -37,6 +39,10 @@ public class Game {
         currentlyFoughtEntity = null;
         ACTION_LISTENER = new ActionListener(SOUND_MANAGER, HUNTER, WORLD, COMMAND_HANDLER, this);
         WorldLoader.loadZone("central-yharnam", WORLD);
+    }
+
+    public void setINVENTORY_CONTROLLER(InventoryController controller){
+        INVENTORY_CONTROLLER = controller;
     }
 
     public void writeInstantly(String txt){
@@ -78,12 +84,12 @@ public class Game {
         CONTROLLER.transitionImage(WORLD.getCurrentPlace().getIMAGE());
         String START_TEXT = """
                 """;
-        CONTROLLER.writeLetterByLetter(WORLD.getCurrentPlace().getDESCRIPTION());
+        //CONTROLLER.writeLetterByLetter(WORLD.getCurrentPlace().getDESCRIPTION());
         CONTROLLER.updateDirectionalArrows(WORLD.getCurrentPlace());
     }
 
     public void death() {
-        String DEATH_TEXT = """
+        String deathText = """
                 ----------------------------
                 You died, do you want to reappear at the last lantern ? [Y/N]
                 ----------------------------
@@ -93,18 +99,26 @@ public class Game {
             firstDeath();
         } else {
             CONTROLLER.transitionImage("you-died.jpg");
-            CONTROLLER.writeLetterByLetter(DEATH_TEXT);
+            CONTROLLER.writeLetterByLetter(deathText);
             setAnalyzer(TextAnalyzer.DEATH);
         }
     }
 
     public void firstDeath(){
+        String explanationText = """
+                You have just died, but you wake up a few seconds later in a strange place lit by the moonlight.
+                Everything is calm, you feel no danger here, you are perfectly safe.
+                At the bottom of the stone staircase is a woman, on closer inspection you realize that she is in fact a human-sized doll.
+                The stairs lead to a workshop. As you climb the stairs for the first time, messengers appear and hand you gifts.
+                You have to choose a trick weapon between the SAW CLEAVER (T), the HUNTER AXE (T) and the THREADED CANE (T), and a firearm between the HUNTER PISTOL (T) and the HUNTER BLUNDERBUSS (T).
+                """;
         HUNTER.firstDeath();
         setAnalyzer(TextAnalyzer.EXPLORATION);
         currentlyFoughtEntity = null;
         CONTROLLER.updateHUD(HUNTER);
         CONTROLLER.deathTransition();
         WORLD.changePlace(WORLD.getPlaceById("hunter's-dream"));
+        CONTROLLER.writeLetterByLetter(explanationText);
         SOUND_MANAGER.setLoopingSound(WORLD.getCurrentPlace().getSONG());
         CONTROLLER.updateDirectionalArrows(WORLD.getCurrentPlace());
     }
@@ -204,23 +218,23 @@ public class Game {
         if (currentPlace.getPROPS().get(target) != null) { //If target is a prop
             CONTROLLER.writeLetterByLetter(currentPlace.getPROPS().get(target).lookReaction(HUNTER));
             ACTION_LISTENER.lookListener(currentPlace.getPROPS().get(target));
-        } else if (item != null) { //If target is an item from the current world
+        } else if (item != null) { //If target is an item from the current place
             if (item.isTaken()){
                 if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped
                     item = HUNTER.getItemByName(target);
                     CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
-                } else { //If item was in world but is now taken and already used, so doesn't exist anymore
+                } else { //If item was in place but is now taken and already used, so doesn't exist anymore
                     CONTROLLER.writeInstantly("You try to look at something that doesn't exist.");
                 }
             } else {
                 CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
             }
-        } else if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped and not in the current world
+        } else if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped and not in the current place
             item = HUNTER.getItemByName(target);
             CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
         }  else if (eTarget != null) { //If target is an enemy
             CONTROLLER.writeLetterByLetter(eTarget.getDESCRIPTION());
-        } else if (target.equals("")) { //If no target, describe the current world
+        } else if (target.equals("") || target.equals("around")) { //If no target, describe the current place
             CONTROLLER.writeLetterByLetter(currentPlace.getDESCRIPTION());
         } else {
             CONTROLLER.writeInstantly("You try to look at something that doesn't exist.");
@@ -243,6 +257,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You can't activate this.");
         }
+        INVENTORY_CONTROLLER.updateInventory();
     }
 
     public void useFunction(String object) {
@@ -257,6 +272,7 @@ public class Game {
             CONTROLLER.writeInstantly("You try to use something that you don't have or doesn't exist.");
         }
         CONTROLLER.updateHUD(HUNTER);
+        INVENTORY_CONTROLLER.updateInventory();
     }
 
     public void takeFunction(String itemName) {
@@ -265,13 +281,14 @@ public class Game {
             if (!item.isTaken()) {
                 CONTROLLER.writeInstantly(item.take(HUNTER));
                 SOUND_MANAGER.playSoundEffect("take-item.wav");
-                ACTION_LISTENER.takeListener();
+                ACTION_LISTENER.takeListener(item);
             } else {
                 CONTROLLER.writeInstantly("You already took this item.");
             }
         } else {
             CONTROLLER.writeInstantly("You try to take something that doesn't exist.");
         }
+        INVENTORY_CONTROLLER.updateInventory();
     }
 
 
@@ -303,6 +320,7 @@ public class Game {
             CONTROLLER.writeInstantly("You try to equip a weapon that you don't have or doesn't exist.");
         }
         CONTROLLER.updateHUD(HUNTER);
+        INVENTORY_CONTROLLER.updateInventory();
     }
 
     public void runeDecisionFunction(int position){
@@ -337,6 +355,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You try to speak to someone that doesn't exist.");
         }
+        INVENTORY_CONTROLLER.updateInventory();
     }
 
     public void inventoryFunction() {
@@ -345,6 +364,7 @@ public class Game {
                 HUNTER.showInventory() +
                 "-----------------------------";
         CONTROLLER.writeInstantly(s);
+        CONTROLLER.openInventory(HUNTER);
         SOUND_MANAGER.playSoundEffect("inventory-list.wav");
     }
 
@@ -386,6 +406,7 @@ public class Game {
             CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
         }
         CONTROLLER.writeLetterByLetter(e.loot(HUNTER));
+        INVENTORY_CONTROLLER.updateInventory();
         setAnalyzer(TextAnalyzer.EXPLORATION);
         ACTION_LISTENER.deadEnemyListener(currentlyFoughtEntity);
         currentlyFoughtEntity = null;
@@ -411,6 +432,7 @@ public class Game {
             CONTROLLER.writeInstantly("You try to use something that you don't have or doesn't exist.");
         }
         CONTROLLER.updateHUD(HUNTER);
+        INVENTORY_CONTROLLER.updateInventory();
     }
 
     public void fleeFunction() {
@@ -433,6 +455,7 @@ public class Game {
     public void healFunction() {
         CONTROLLER.writeLetterByLetter(HUNTER.heal(SOUND_MANAGER));
         CONTROLLER.updateHUD(HUNTER);
+        INVENTORY_CONTROLLER.updateInventory();
     }
 
     public void killFunction(){

@@ -43,7 +43,7 @@
       <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="21.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@images/items/bullet.png" />
       </ImageView>
-      <TextField fx:id="vialAmountText" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" layoutX="45.0" layoutY="127.0" prefHeight="42.0" prefWidth="51.0" style="-fx-font-size: 25; -fx-background-color: none;" text="2" />
+      <TextField fx:id="vialAmountText" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" layoutX="45.0" layoutY="127.0" prefHeight="42.0" prefWidth="51.0" style="-fx-font-size: 25; -fx-background-color: none;" text="0" />
       <TextField fx:id="bulletAmountText" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" layoutX="45.0" layoutY="190.0" prefHeight="51.0" prefWidth="51.0" style="-fx-font-size: 25; -fx-background-color: none;" text="0" />
       <TextArea fx:id="trickWeaponText" editable="false" focusTraversable="false" layoutX="165.0" layoutY="99.0" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: none; -fx-font-size: 15px;" text="No weapon equipped&#10;1 damage" wrapText="true" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="11.0" layoutX="164.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />

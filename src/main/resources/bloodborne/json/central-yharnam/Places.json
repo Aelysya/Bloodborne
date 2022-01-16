@@ -4,11 +4,15 @@
     "name": "Hunter's dream",
     "area": "hunter's-dream",
     "headstone" : "none",
-    "description": "TODO desc",
+    "description": "You are in the hunter's dream, an out of the world place lit by the moonlight. Everything is calm, you feel no danger here, you are perfectly safe. At the end of a cobblestone path is a small square with a fountain where there are messengers, they seem to want to help you by getting you useful items, against blood echoes. A stone staircase is lined with several headstones, you can use them to return to the real world. The DOLL (TK) is at the bottom of the stairs.\n\nHeadstones :\n - YHARNAM HEADSTONE (L)\n - FRONTIER HEADSTONE (L)\n - UNSEEN HEADSTONE (L)\n - NIGHTMARE HEADSTONE (L)",
     "altDescription": "TODO altDesc",
     "hasLantern": "false",
     "items": {
-
+      "saw cleaver": "saw-cleaver",
+      "hunter axe": "hunter-axe",
+      "threaded cane": "threaded-cane",
+      "hunter pistol": "hunter-pistol",
+      "hunter blunderbuss": "hunter-blunderbuss"
     },
     "props": {
       "yharnam headstone": "yharnam-headstone"
@@ -30,7 +34,8 @@
     "altDescription": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Many operating TABLES (L) are found in the next room. Judging by the blood covering the INSTRUMENTS (L) they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L).",
     "hasLantern": "true",
     "items": {
-
+      "fire paper 1": "test-fire-paper-1",
+      "fire paper 2": "test-fire-paper-2"
     },
     "props": {
 

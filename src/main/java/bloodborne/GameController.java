@@ -5,7 +5,10 @@ import bloodborne.items.Rune;
 import bloodborne.system.Game;
 import bloodborne.world.Place;
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -17,12 +20,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
 import static java.lang.Thread.sleep;
 
 public class GameController {
@@ -109,11 +113,11 @@ public class GameController {
     public void updateRunes(Hunter hunter) {
         List<Rune> runes = hunter.getRUNE_LIST();
         if (runes.size() >= 1){
-            rune1.setImage(new Image(String.valueOf(getClass().getResource("images/runes/" + runes.get(0).getIcon()))));
+            rune1.setImage(new Image(String.valueOf(getClass().getResource("images/" + runes.get(0).getImage()))));
             if (runes.size() >= 2){
-                rune2.setImage(new Image(String.valueOf(getClass().getResource("images/runes/" + runes.get(1).getIcon()))));
+                rune2.setImage(new Image(String.valueOf(getClass().getResource("images/" + runes.get(1).getImage()))));
                 if (runes.size() >= 3){
-                    rune3.setImage(new Image(String.valueOf(getClass().getResource("images/runes/" + runes.get(2).getIcon()))));
+                    rune3.setImage(new Image(String.valueOf(getClass().getResource("images/" + runes.get(2).getImage()))));
                 } else {
                     rune3.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
                 }
@@ -263,6 +267,27 @@ public class GameController {
             ft2.play();
         });
         ft.play();
+    }
+
+    public void openInventory(Hunter hunter){
+        Platform.runLater(() -> {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("inventory.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 800, 539);//TODO Check measurements
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Stage inventory = new Stage();
+
+            InventoryController controller = fxmlLoader.getController();
+            game.setINVENTORY_CONTROLLER(controller);
+            controller.init(game, hunter);
+            inventory.setTitle("Inventory");
+            inventory.setScene(scene);
+            inventory.show();
+            controller.updateInventory();
+        });
     }
 
     public void initialize(){
