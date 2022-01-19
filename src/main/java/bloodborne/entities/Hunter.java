@@ -2,7 +2,6 @@ package bloodborne.entities;
 
 import bloodborne.items.*;
 import bloodborne.sounds.SoundManager;
-
 import java.util.*;
 
 public class Hunter extends Entity{
@@ -19,11 +18,12 @@ public class Hunter extends Entity{
     private final List<Rune> RUNE_LIST;
     private boolean lastAttackIsVisceral;
     private boolean firstDeathHappened;
+    private int maxHP;
 
     private static final Map<String, String> CONSTRUCT_MAP = new HashMap<>();
     static{
-        CONSTRUCT_MAP.put("health", "30");
-        CONSTRUCT_MAP.put("dodgeRate", "0.3");
+        CONSTRUCT_MAP.put("health", "100");
+        CONSTRUCT_MAP.put("dodgeRate", "0.4");
     }
 
     public Hunter() {
@@ -38,6 +38,7 @@ public class Hunter extends Entity{
         RUNE_LIST = new ArrayList<>();
         lastAttackIsVisceral = false;
         firstDeathHappened = false;
+        maxHP = 100;
     }
 
     public void addItem(Item item){
@@ -89,10 +90,6 @@ public class Hunter extends Entity{
         return INVENTORY;
     }
 
-    public int getInventoryItemAmount(){
-        return INVENTORY.getNumberOfItems();
-    }
-
     public int getVialsNumber(){
         return vialsNumber;
     }
@@ -114,17 +111,11 @@ public class Hunter extends Entity{
     }
 
     public TrickWeapon getTrickWeapon() {
-        if(trickWeapon == null){
-            return null;
-        }
-        return trickWeapon;
+        return trickWeapon == null ? null : trickWeapon;
     }
 
     public FireArm getFireArm() {
-        if(fireArm == null){
-            return null;
-        }
-        return fireArm;
+        return fireArm == null ? null : fireArm;
     }
 
     public int getNumberOfRunes(){
@@ -196,19 +187,33 @@ public class Hunter extends Entity{
         if(vialsNumber == 0){
             s.append("You have no blood vials left.");
         } else {
-            if(healthPoints == 30){
-                s.append("You don't need to use a blood vial right now, control your thirst or you'll get addicted.");
+            if(healthPoints == maxHP){
+                s.append("You don't need to use a blood vial right now.");
             } else {
-                healthPoints+=10;
-                if(healthPoints>30){
-                    healthPoints=30;
+                healthPoints+=(maxHP * 0.4);
+                if(healthPoints>maxHP){
+                    healthPoints=maxHP;
                 }
                 s.append("You use a blood vial, your wounds heal and a dark part of you wants more of it.");
                 vialsNumber--;
                 soundManager.playSoundEffect("used-bloodvial.wav");
             }
         }
+        return s.toString();
+    }
 
+    public String healFromItem(double amount, HealingItem item){
+        StringBuilder s = new StringBuilder();
+        if(healthPoints == maxHP){
+            s.append("You don't need to use a this right now.");
+        } else {
+            healthPoints+=(maxHP * amount);
+            if(healthPoints>maxHP){
+                healthPoints=maxHP;
+            }
+            s.append("You use the").append(item.getNAME()).append(", your wounds heal and a dark part of you wants more of it.");
+        }
+        INVENTORY.removeItem(item);
         return s.toString();
     }
 

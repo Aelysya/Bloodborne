@@ -1,7 +1,7 @@
 package bloodborne.entities;
 
 import bloodborne.sounds.SoundManager;
-
+import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Entity {
@@ -10,6 +10,13 @@ public abstract class Entity {
     private final String DESCRIPTION;
     protected final Map<String, String> ATTRIBUTES;
     protected int healthPoints;
+
+    public Entity(){
+        ID = "id";
+        DESCRIPTION = "description";
+        ATTRIBUTES = new HashMap<>();
+        healthPoints = 0;
+    }
 
     public Entity(String id, String description, Map<String, String> att) {
         ID = id;

@@ -2,7 +2,6 @@ package bloodborne.items;
 
 import bloodborne.entities.Hunter;
 import bloodborne.sounds.SoundManager;
-
 import java.util.Map;
 
 public abstract class Item {

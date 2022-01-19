@@ -6,23 +6,25 @@
     "attributes": {
       "name": "Saw cleaver",
       "image": "weapons/saw-cleaver.png",
+      "category": "weapons",
       "baseDamage": "4",
-      "baseDodgeRate": "0.3",
+      "baseDodgeRate": "0.4",
       "switchedDamage": "5",
-      "switchedDodgeRate": "0.2"
+      "switchedDodgeRate": "0.3"
     }
   },
   {
     "id": "hunter-axe",
     "type": "TrickWeapon",
-    "description": "One of the trick weapons of the workshop, commonly used on the hunt. Retains the qualities of an axe, but offers a wider palette of attacks by transforming. No matter their pasts, beasts are no more than beasts. Some choose this axe to play the part of executioner.",
+    "description": "One of the trick weapons of the workshop, commonly used on the hunt. Retains the qualities of an axe, but offers a wider palette of attacks by transforming. Boasts a heavy blunt attack, leading to high rally potential. No matter their pasts, beasts are no more than beasts. Some choose this axe to play the part of executioner.",
     "attributes": {
       "name": "Hunter axe",
       "image": "weapons/hunter-axe.png",
+      "category": "weapons",
       "baseDamage": "5",
-      "baseDodgeRate": "0.2",
+      "baseDodgeRate": "0.3",
       "switchedDamage": "6",
-      "switchedDodgeRate": "0.1"
+      "switchedDodgeRate": "0.2"
     }
   },
   {
@@ -32,10 +34,11 @@
     "attributes": {
       "name": "Threaded cane",
       "image": "weapons/threaded-cane.png",
+      "category": "weapons",
       "baseDamage": "3",
-      "baseDodgeRate": "0.4",
+      "baseDodgeRate": "0.5",
       "switchedDamage": "4",
-      "switchedDodgeRate": "0.3"
+      "switchedDodgeRate": "0.4"
     }
   },
   {
@@ -45,6 +48,7 @@
     "attributes": {
       "name": "Hunter pistol",
       "image": "weapons/hunter-pistol.png",
+      "category": "weapons",
       "damage": "3",
       "bulletUse": "1",
       "hitRate": "0.8",
@@ -58,32 +62,11 @@
     "attributes": {
       "name": "Hunter blunderbuss",
       "image": "weapons/hunter-blunderbuss.png",
+      "category": "weapons",
       "damage": "4",
       "bulletUse": "1",
       "hitRate": "0.9",
       "visceralRate": "0.2"
-    }
-  },
-  {
-    "id": "test-fire-paper-1",
-    "type": "Paper",
-    "description": "A special kind of paper imbued with fire power. If you use it on your weapon it will do more damage for some attacks.",
-    "attributes": {
-      "name": "Fire paper 1",
-      "image": "fire-paper.png",
-      "damageBoost": "2",
-      "type": "fire"
-    }
-  },
-  {
-    "id": "test-fire-paper-2",
-    "type": "Paper",
-    "description": "A special kind of paper imbued with fire power. If you use it on your weapon it will do more damage for some attacks.",
-    "attributes": {
-      "name": "Fire paper 2",
-      "image": "tonsil-stone.png",
-      "damageBoost": "2",
-      "type": "fire"
     }
   }
 ]

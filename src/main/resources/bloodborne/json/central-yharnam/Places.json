@@ -30,15 +30,17 @@
     "area": "central-yharnam",
     "headstone" : "yharnam",
     "headstoneIndex" : "1",
-    "description": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Many operating TABLES (L) are found in the next room. Judging by the blood covering the INSTRUMENTS (L) they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L). There is a SCOURGE BEAST (F) blocking the only way out, the confrontation is inevitable.",
-    "altDescription": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Many operating TABLES (L) are found in the next room. Judging by the blood covering the INSTRUMENTS (L) they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L).",
+    "description": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Many operating tables are found in the next room. Judging by the blood covering the instruments they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L). There is a SCOURGE BEAST (F) blocking the only way out, the confrontation is inevitable.",
+    "altDescription": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Many operating tables are found in the next room. Judging by the blood covering the instruments they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L).",
     "hasLantern": "true",
     "items": {
-      "fire paper 1": "test-fire-paper-1",
-      "fire paper 2": "test-fire-paper-2"
+
     },
     "props": {
-
+      "door": "clinic-door",
+      "lantern": "clinic-lantern",
+      "shelves": "clinic-shelves",
+      "iosefka": "iosefka"
     },
     "exits": {
       "north": {

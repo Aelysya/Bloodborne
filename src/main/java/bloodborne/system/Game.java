@@ -80,6 +80,7 @@ public class Game {
     }
 
     public void startGame() {
+        CONTROLLER.openInventory(HUNTER);
         setAnalyzer(TextAnalyzer.EXPLORATION);
         CONTROLLER.transitionImage(WORLD.getCurrentPlace().getIMAGE());
         String START_TEXT = """
@@ -265,7 +266,15 @@ public class Game {
         Item item = HUNTER.getItemByName(object);
         if (item != null) {
             CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
-            ACTION_LISTENER.useListener();
+            if (currentlyFoughtEntity != null){
+                CONTROLLER.writeInstantly(currentlyFoughtEntity.attack(HUNTER, SOUND_MANAGER));
+                if (HUNTER.isDead()){
+                    death();
+                }
+                ACTION_LISTENER.resolveFightListener();
+            }
+            CONTROLLER.updateHUD(HUNTER);
+            ACTION_LISTENER.useListener(item);
         } else if (objString.equals("blood vial")){
             healFunction();
         } else {
@@ -348,9 +357,9 @@ public class Game {
 
     public void talkFunction(String npc) {
         Place currentPlace = WORLD.getCurrentPlace();
-        Friendly friendly = (Friendly) currentPlace.getPROPS().get(npc);
-        if (friendly != null) {
-            CONTROLLER.writeLetterByLetter(friendly.talk());
+        NPC NPC = (NPC) currentPlace.getPROPS().get(npc);
+        if (NPC != null) {
+            CONTROLLER.writeLetterByLetter(NPC.talk(HUNTER));
             ACTION_LISTENER.talkListener();
         } else {
             CONTROLLER.writeInstantly("You try to speak to someone that doesn't exist.");
@@ -382,6 +391,7 @@ public class Game {
         if(currentlyFoughtEntity.isDead()){
             checkEntityKilledIsBoss(currentlyFoughtEntity);
             CONTROLLER.updateHUD(HUNTER);
+            ACTION_LISTENER.resolveFightListener();
             return;
         } else { //Enemy's turn if not dead
             CONTROLLER.writeInstantly(currentlyFoughtEntity.attack(HUNTER, SOUND_MANAGER));
@@ -417,24 +427,6 @@ public class Game {
         CONTROLLER.updateWeapons(HUNTER);
     }
 
-    public void usePaperInFightFunction(String object) {
-        String objString = object.toLowerCase(Locale.ROOT);
-        Item item = HUNTER.getItemByName(object);
-        if (item != null) {
-            if (item instanceof Paper){
-                CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
-            } else {
-                CONTROLLER.writeInstantly("You can't use this item in the middle of a fight");
-            }
-        } else if (objString.equals("blood vial")){
-            healFunction();
-        } else {
-            CONTROLLER.writeInstantly("You try to use something that you don't have or doesn't exist.");
-        }
-        CONTROLLER.updateHUD(HUNTER);
-        INVENTORY_CONTROLLER.updateInventory();
-    }
-
     public void fleeFunction() {
         if (!(currentlyFoughtEntity instanceof Boss)){
             HUNTER.takeDamage(5);
@@ -454,6 +446,13 @@ public class Game {
 
     public void healFunction() {
         CONTROLLER.writeLetterByLetter(HUNTER.heal(SOUND_MANAGER));
+        if (currentlyFoughtEntity != null){
+            CONTROLLER.writeInstantly(currentlyFoughtEntity.attack(HUNTER, SOUND_MANAGER));
+            if (HUNTER.isDead()){
+                death();
+            }
+            ACTION_LISTENER.resolveFightListener();
+        }
         CONTROLLER.updateHUD(HUNTER);
         INVENTORY_CONTROLLER.updateInventory();
     }

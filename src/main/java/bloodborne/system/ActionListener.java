@@ -4,9 +4,14 @@ import bloodborne.entities.Boss;
 import bloodborne.entities.Entity;
 import bloodborne.entities.Hunter;
 import bloodborne.environment.Prop;
+import bloodborne.environment.Iosefka;
+import bloodborne.items.HealingItem;
 import bloodborne.items.Item;
 import bloodborne.sounds.SoundManager;
 import bloodborne.world.World;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ActionListener {
 
@@ -59,12 +64,32 @@ public class ActionListener {
 
     }
 
-    public void useListener(){
-
+    public void useListener(Item item){
+        switch(item.getNAME()){
+            case "Iosefka's blood vial" -> {
+                Iosefka i = (Iosefka) WORLD.getPropById("iosefka");
+                i.setHunterHasIosefkasBloodVial(false);
+            }
+        }
     }
 
     public void takeListener(Item item){
         switch(item.getID()){
+            case "iosefkas-blood-vial" -> {
+                if (HUNTER.getINVENTORY().hasItem("iosefkas-blood-vial")){
+                    GAME.writeInstantly("You can't have more than one copy of this item.");
+                } else {
+                    Iosefka i = (Iosefka) WORLD.getPropById("iosefka");
+                    i.setHunterHasIosefkasBloodVial(true);
+                    Map<String, String> m = new HashMap<>();
+                    m.put("name", "Iosefka's blood vial");
+                    m.put("image", "consumables/iosefkas-blood-vial.png");
+                    m.put("healValue", "0.7");
+                    m.put("category", "consumables");
+                    HealingItem vial = new HealingItem("iosefkas-blood-vial", "Blood vial acquired from Iosefka's clinic. This refined blood, highly invigorating, restores a larger amount of HP. The product of a slow and careful refinement process, this rare blood vial appears to be a clinic original.", m);
+                    HUNTER.addItem(vial);
+                }
+            }
             case "saw-cleaver" -> {//The 3 original trick weapons to choose from, 1 is taken the other two are gone
                 WORLD.getCurrentPlace().removeItemByID("threaded-cane");
                 WORLD.getCurrentPlace().removeItemByID("hunter-axe");
@@ -78,12 +103,8 @@ public class ActionListener {
                 WORLD.getCurrentPlace().removeItemByID("hunter-axe");
             }
 
-            case "hunter-pistol" -> {//The 2 original firearms to choose from, 1 is taken the other is gone
-                WORLD.getCurrentPlace().removeItemByID("hunter-blunderbuss");
-            }
-            case "hunter-blunderbuss" -> {
-                WORLD.getCurrentPlace().removeItemByID("hunter-pistol");
-            }
+            case "hunter-pistol" -> WORLD.getCurrentPlace().removeItemByID("hunter-blunderbuss"); //The 2 original firearms to choose from, 1 is taken the other is gone
+            case "hunter-blunderbuss" -> WORLD.getCurrentPlace().removeItemByID("hunter-pistol");
         }
     }
 

@@ -80,7 +80,7 @@ public class GameController {
     }
 
     public void updateHUD(Hunter hunter){
-        currentHP.setText("HP: " + hunter.getHealthPoints() + "/30");
+        currentHP.setText("HP:" + hunter.getHealthPoints() + "/100");
         if(hunter.getHealthPoints() == 0){
             currentHP.setStyle("-fx-text-fill: red;");
         }
@@ -156,31 +156,24 @@ public class GameController {
     }
 
     public void writeLetterByLetter(String txt){
-        writeLine.setDisable(true);
+        writeInstantly(txt);
+        /*writeLine.setDisable(true);
         Thread myThread = new Thread(() -> {
             LOCK.lock();
             char[] characters = txt.toCharArray();
-            for(int j=0; j<txt.length(); j++){
-                try{
+            for( char c : characters){
+                try {
                     sleep(15);
-                    displayScreen.appendText("" + characters[j]);
+                    displayScreen.appendText(c);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            /*for( char leChar : characters){
-                try {
-                    sleep(15);
-                    displayScreen.appendText(leChar);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }*/
             displayScreen.appendText("\n");
             LOCK.unlock();
             writeLine.setDisable(false);
         });
-        myThread.start();
+        myThread.start();*/
     }
 
     public void changeImage(String url){

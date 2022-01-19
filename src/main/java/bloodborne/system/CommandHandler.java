@@ -160,7 +160,7 @@ public class CommandHandler {
                 - Attack : Attack the enemy with your Trick weapon, you'll have a chance to dodge it's attack
                 - SHoot : Attack the enemy with your gun, you'll have a chance to stagger it, canceling it's attack and performing a visceral attack
                 - SWitch : Switch the state of your trick weapon
-                - Use [object] : Use an object in your inventory, only some objects can be used while fighting
+                - Use [object] : Use an object in your inventory
                 - Flee : Try to flee the fight, you will take some damage if you do this
                 - HeaL : Use a blood vial to heal you
                 - mute/unmute : Mutes or unmutes the music""";
@@ -169,7 +169,7 @@ public class CommandHandler {
                 if (target.equals("")) {
                     throw new TooFewArgumentsException();
                 } else {
-                    GAME.usePaperInFightFunction(target);
+                    GAME.useFunction(target);
                 }
             }
             case "h", "help" -> GAME.writeInstantly(FIGHT_HELP_TEXT);
@@ -194,7 +194,7 @@ public class CommandHandler {
             case "y", "yes" -> GAME.warpBackToLastLantern();
             case "n", "no" -> {
                 GAME.writeInstantly("Do you want to quit the game ? [Y/N]");
-                GAME.setAnalyzer(TextAnalyzer.QUIT);
+                GAME.setAnalyzer(TextAnalyzer.QUIT_FROM_DEATH);
             }
             default -> GAME.writeInstantly("Unknown command !\n\nYou died, do you want to reappear at the last lantern ? [Y/N]");
         }

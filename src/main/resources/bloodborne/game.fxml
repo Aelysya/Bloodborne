@@ -30,7 +30,7 @@
    </VBox>
    <AnchorPane id="HUD" fx:id="HUDAnchorPane" layoutY="599.0" prefHeight="401.0" prefWidth="269.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 1px;" stylesheets="@stylesheet.css">
       <TextField id="hunterTitle" alignment="TOP_CENTER" editable="false" focusTraversable="false" layoutX="89.0" layoutY="8.0" prefHeight="23.0" prefWidth="90.0" style="-fx-padding: 0px;" stylesheets="@stylesheet.css" text="Hunter" />
-      <TextField id="currentHP" fx:id="currentHP" editable="false" focusTraversable="false" layoutX="13.0" layoutY="49.0" prefHeight="31.0" prefWidth="112.0" stylesheets="@stylesheet.css" text="HP: 30/30" />
+      <TextField id="currentHP" fx:id="currentHP" editable="false" focusTraversable="false" layoutX="13.0" layoutY="49.0" prefHeight="31.0" prefWidth="112.0" stylesheets="@stylesheet.css" text="HP:100/100" />
       <ImageView fx:id="trickWeaponImage" fitHeight="60.0" fitWidth="60.0" layoutX="105.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@images/empty.png" />
       </ImageView>
@@ -51,7 +51,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="164.0" layoutY="154.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="164.0" layoutY="217.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
       <TextField fx:id="dmgBoostText" editable="false" focusTraversable="false" layoutX="7.0" layoutY="321.0" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Damage boost: 0" />
-      <TextField fx:id="dodgeRateText" editable="false" focusTraversable="false" layoutX="7.0" layoutY="345.0" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Dodge rate: 0.3" />
+      <TextField fx:id="dodgeRateText" editable="false" focusTraversable="false" layoutX="7.0" layoutY="345.0" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Dodge rate: 0.4" />
       <TextField fx:id="boostLeftText" editable="false" focusTraversable="false" layoutX="157.0" layoutY="321.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Boost left: 0" />
       <TextField fx:id="hitRateText" editable="false" focusTraversable="false" layoutX="157.0" layoutY="345.0" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Hit rate: 0.0" />
       <TextField fx:id="visceralRateText" editable="false" focusTraversable="false" layoutX="7.0" layoutY="369.0" prefHeight="25.0" prefWidth="147.0" style="-fx-background-color: none; -fx-padding: 0px; -fx-font-size: 20px;" stylesheets="@stylesheet.css" text="Visceral rate: 0.0" />
