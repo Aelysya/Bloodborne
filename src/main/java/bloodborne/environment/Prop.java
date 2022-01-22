@@ -4,6 +4,7 @@ import bloodborne.entities.Hunter;
 import bloodborne.exceptions.MalFormedJsonException;
 import bloodborne.exceptions.ReflectionException;
 import bloodborne.world.World;
+
 import java.util.Map;
 
 public class Prop {

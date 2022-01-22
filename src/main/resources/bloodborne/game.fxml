@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Polygon?>
-<?import javafx.scene.shape.Rectangle?>
-
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <AnchorPane fx:id="entireWindow" prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bloodborne.GameController">
    <BorderPane id="imageBackground" fx:id="borderpane" prefHeight="600.0" prefWidth="1067.0" style="-fx-background-color: black;">
       <center>
@@ -45,7 +38,7 @@
       </ImageView>
       <TextField fx:id="vialAmountText" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" layoutX="45.0" layoutY="127.0" prefHeight="42.0" prefWidth="51.0" style="-fx-font-size: 25; -fx-background-color: none;" text="0" />
       <TextField fx:id="bulletAmountText" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" layoutX="45.0" layoutY="190.0" prefHeight="51.0" prefWidth="51.0" style="-fx-font-size: 25; -fx-background-color: none;" text="0" />
-      <TextArea fx:id="trickWeaponText" editable="false" focusTraversable="false" layoutX="165.0" layoutY="99.0" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: none; -fx-font-size: 15px;" text="No weapon equipped&#10;1 damage" wrapText="true" />
+      <TextArea fx:id="trickWeaponText" editable="false" focusTraversable="false" layoutX="165.0" layoutY="99.0" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: none; -fx-font-size: 15px;" text="No weapon equipped&#10;3 damage" wrapText="true" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="11.0" layoutX="164.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
       <TextArea fx:id="gunText" editable="false" focusTraversable="false" layoutX="165.0" layoutY="167.0" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: none; -fx-font-size: 15px;" text="No gun equipped" wrapText="true" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="15.0" layoutX="164.0" layoutY="154.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />

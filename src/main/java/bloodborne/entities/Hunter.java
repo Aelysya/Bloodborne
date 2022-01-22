@@ -2,6 +2,7 @@ package bloodborne.entities;
 
 import bloodborne.items.*;
 import bloodborne.sounds.SoundManager;
+
 import java.util.*;
 
 public class Hunter extends Entity{
@@ -19,6 +20,7 @@ public class Hunter extends Entity{
     private boolean lastAttackIsVisceral;
     private boolean firstDeathHappened;
     private int maxHP;
+    private final Map<String, Integer> STATS;
 
     private static final Map<String, String> CONSTRUCT_MAP = new HashMap<>();
     static{
@@ -38,7 +40,28 @@ public class Hunter extends Entity{
         RUNE_LIST = new ArrayList<>();
         lastAttackIsVisceral = false;
         firstDeathHappened = false;
+        STATS = new HashMap<>();
+        STATS.put("Vitality", 0);
+        STATS.put("Endurance", 0);
+        STATS.put("Strength", 0);
+        STATS.put("Skill", 0);
+        STATS.put("Bloodtinge", 0);
+        STATS.put("Arcane", 0);
         maxHP = 100;
+    }
+
+    public void updateHP(){
+        int baseValue = 100;
+        int bonusValue;
+        int vitalityPoints = STATS.get("Vitality");
+        if (vitalityPoints <= 30){
+            bonusValue = 5 * vitalityPoints;
+        } else if (vitalityPoints <= 50){
+            bonusValue = (5 * 30) + (2 * (vitalityPoints-30));
+        } else {
+            bonusValue = (5 * 30) + (2 * 20) + vitalityPoints-50;
+        }
+        maxHP = baseValue+bonusValue;
     }
 
     public void addItem(Item item){
@@ -124,12 +147,22 @@ public class Hunter extends Entity{
 
     @Override
     public int getDamage() {
-        return (trickWeapon == null) ? 1 : trickWeapon.getCurrentDamage() + this.damageBoost;
+        return (trickWeapon == null) ? 3 : trickWeapon.getCurrentDamage() + this.damageBoost;
     }
 
     @Override
     public double getDodgeRate(){
-        return trickWeapon == null ? Double.parseDouble(ATTRIBUTES.get("dodgeRate")) : trickWeapon.getCurrentDodgeRate();
+        double baseRate = trickWeapon == null ? Double.parseDouble(ATTRIBUTES.get("dodgeRate")) : trickWeapon.getCurrentDodgeRate();
+        double bonusRate;
+        int endurancePoints = STATS.get("Endurance");
+        if (endurancePoints <= 15){
+            bonusRate = 0.01 * endurancePoints;
+        } else if (endurancePoints <= 40){
+            bonusRate = (0.01 * 15) + (0.005 * (endurancePoints-15));
+        } else {
+            bonusRate = (0.01 * 15) + (0.005 * 25) + (0.002 * (endurancePoints-40));
+        }
+        return baseRate+bonusRate;
     }
 
     public double getHitRate(){
@@ -272,7 +305,7 @@ public class Hunter extends Entity{
         return txt;
     }
 
-    public void boostDamage(int boost, Paper p, SoundManager soundManager) {
+    public void boostDamage(int boost, BoostItem p, SoundManager soundManager) {
         damageBoost = boost;
         boostLeft = 5;
         removeItem(p);

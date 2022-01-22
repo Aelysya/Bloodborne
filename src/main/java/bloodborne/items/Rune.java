@@ -1,7 +1,5 @@
 package bloodborne.items;
 
-import bloodborne.entities.Hunter;
-import bloodborne.sounds.SoundManager;
 import java.util.Map;
 
 public class Rune extends Item{
@@ -18,8 +16,4 @@ public class Rune extends Item{
         return Integer.parseInt(ATTRIBUTES.get("tier"));
     }
 
-    @Override
-    public String use(Hunter hunter, SoundManager soundManager) {
-        return "You can't use this.";
-    }
 }

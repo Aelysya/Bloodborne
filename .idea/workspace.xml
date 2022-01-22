@@ -4,73 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Basic dynamic inventory implementation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Iosefka.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/HealingItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/coldblood-dew-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/coldblood-dew-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/coldblood-dew-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/frenzied-coldblood-7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/frenzied-coldblood-8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/frenzied-coldblood-9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/great-one-coldblood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/kin-coldblood-10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/kin-coldblood-11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/kin-coldblood-12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/old-great-one-coldblood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/revered-great-one-coldblood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/thick-coldblood-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/thick-coldblood-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/thick-coldblood-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/bolt-paper.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/bone-marrow-ash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/fire-paper.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/great-ones-wisdom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/iosefkas-blood-vial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/madmans-knowledge.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_controlsfx_controlsfx_11_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_controlsfx_controlsfx_11_1_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml" afterDir="false" />
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Completed all 1st zone props and added Iosefka as a NPC">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/BloodComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/StatScaling.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/l3-2021-2022-projet-mi.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloodborne.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bloodborne.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Friendly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/NPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Amulet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/ArcaneItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ArcaneItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Badge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Badge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/FireArm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/FireArm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/ActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/ActionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Key.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Paper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/BoostItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Rune.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Rune.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/bolt-paper.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/bone-marrow-ash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldblood-dew.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/fire-paper.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/frenzied-coldblood.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/great-one-coldblood.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/great-ones-wisdom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/kin-coldblood.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/madmans-knowledge.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/thick-coldblood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Inventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Friendly.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Amulet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642359955232</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Completed all 1st zone props and added Iosefka as a NPC">
+      <created>1642635239132</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1642635239132</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -349,7 +310,8 @@
     <MESSAGE value="Renamed System classes and switched to central-yharnam zone from legacy-yharnam for manual testing purposes, Props are urgent to add to Props.json file" />
     <MESSAGE value="Added system of Hunter's dream, first death teleportation to the dream, teleportation to places with lanterns from the dream (only the visited ones) and an Action Listener class to react to specific actions from the user that would normally require writing too much 'if' conditions to test everything" />
     <MESSAGE value="Basic dynamic inventory implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic dynamic inventory implementation" />
+    <MESSAGE value="Completed all 1st zone props and added Iosefka as a NPC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed all 1st zone props and added Iosefka as a NPC" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

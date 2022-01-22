@@ -1,6 +1,7 @@
 package bloodborne.entities;
 
 import bloodborne.sounds.SoundManager;
+
 import java.util.HashMap;
 import java.util.Map;
 

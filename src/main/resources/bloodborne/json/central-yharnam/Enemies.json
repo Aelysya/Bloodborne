@@ -5,8 +5,8 @@
     "description": "This monster has been completely transformed by the beast scourge, it now looks like a wolf with razor-sharp claws.",
     "attributes": {
       "canRespawn": "false",
-      "health": "15",
-      "damage": "5",
+      "health": "40",
+      "damage": "25",
       "damageType": "base",
       "dodgeRate": "0.1",
       "fireWeakness": "1.5",

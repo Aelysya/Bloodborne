@@ -2,9 +2,10 @@ package bloodborne.items;
 
 import bloodborne.entities.Hunter;
 import bloodborne.sounds.SoundManager;
+
 import java.util.Map;
 
-public abstract class Item {
+public class Item {
 
     private final String ID;
     private final String DESCRIPTION;
@@ -44,9 +45,7 @@ public abstract class Item {
         return "You took the " + ATTRIBUTES.get("name");
     }
 
-    public abstract String use(Hunter hunter, SoundManager soundManager);
-
-    public boolean isUsed() {
-        return true;
+    public String use(Hunter hunter, SoundManager soundManager){
+        return "You can't use that.";
     }
 }

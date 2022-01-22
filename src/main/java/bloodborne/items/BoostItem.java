@@ -5,9 +5,9 @@ import bloodborne.sounds.SoundManager;
 
 import java.util.Map;
 
-public class Paper extends Item{
+public class BoostItem extends Item{
 
-    public Paper(String id, String description, Map<String, String> att) {
+    public BoostItem(String id, String description, Map<String, String> att) {
         super(id, description, att);
     }
 
@@ -19,13 +19,13 @@ public class Paper extends Item{
     public String use(Hunter hunter, SoundManager soundManager) {
         String txt;
         if(hunter.getTrickWeapon() == null){
-            txt = "You can't use this paper right now, you don't have any trick weapon equipped.";
+            txt = "You can't use this right now, you don't have any trick weapon equipped.";
         } else {
             if(hunter.getDamageBoost() != 0){
-                txt = "You recently used a paper onto your weapon and it's effect has not ran out yet.";
+                txt = "You recently used a boost item onto your weapon and it's effect has not ran out yet.";
             } else {
                 hunter.boostDamage(Integer.parseInt(ATTRIBUTES.get("damageBoost")), this, soundManager);
-                txt = "You apply the paper onto your trick weapon. It will now do more damage for some attacks.";
+                txt = "You empower your trick weapon. It will now do more damage for some attacks.";
             }
         }
         return txt;

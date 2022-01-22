@@ -2,14 +2,20 @@ package bloodborne.system;
 
 import bloodborne.GameController;
 import bloodborne.InventoryController;
-import bloodborne.entities.*;
-import bloodborne.environment.*;
+import bloodborne.entities.Boss;
+import bloodborne.entities.Enemy;
+import bloodborne.entities.Entity;
+import bloodborne.entities.Hunter;
+import bloodborne.environment.Container;
+import bloodborne.environment.NPC;
+import bloodborne.environment.Prop;
 import bloodborne.exceptions.TooFewArgumentsException;
 import bloodborne.items.*;
 import bloodborne.sounds.SoundManager;
 import bloodborne.world.Place;
 import bloodborne.world.World;
 import bloodborne.world.WorldLoader;
+
 import java.util.Locale;
 
 
@@ -458,7 +464,7 @@ public class Game {
     }
 
     public void killFunction(){
-        HUNTER.takeDamage(29);
+        HUNTER.takeDamage(99);
         CONTROLLER.updateHUD(HUNTER);
     }
 }

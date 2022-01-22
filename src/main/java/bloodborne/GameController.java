@@ -22,12 +22,12 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import static java.lang.Thread.sleep;
 
 public class GameController {
     @FXML
@@ -98,7 +98,7 @@ public class GameController {
         trickWeaponImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getTrickWeaponIcon()))));
         gunImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getFireArmIcon()))));
         if(hunter.getTrickWeapon() == null){
-            trickWeaponText.setText("No weapon equipped\n1 damage");
+            trickWeaponText.setText("No weapon equipped\n3 damage");
         } else {
             trickWeaponText.setText(hunter.getTrickWeapon().getNAME() + "\n" + hunter.getTrickWeapon().getCurrentDamage() + " damage");
         }

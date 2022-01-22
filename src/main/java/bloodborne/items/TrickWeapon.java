@@ -1,8 +1,5 @@
 package bloodborne.items;
 
-import bloodborne.entities.Hunter;
-import bloodborne.sounds.SoundManager;
-
 import java.util.Map;
 
 public class TrickWeapon extends Weapon{
@@ -24,10 +21,5 @@ public class TrickWeapon extends Weapon{
 
     public void switchMode(){
         isSwitched = !isSwitched;
-    }
-
-    @Override
-    public String use(Hunter hunter, SoundManager soundManager) {
-        return "You can't use that.";
     }
 }

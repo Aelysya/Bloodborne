@@ -1,8 +1,5 @@
 package bloodborne.items;
 
-import bloodborne.entities.Hunter;
-import bloodborne.sounds.SoundManager;
-
 import java.util.Map;
 
 public class FireArm extends Weapon{
@@ -22,11 +19,6 @@ public class FireArm extends Weapon{
 
     public double getVISCERAL_RATE() {
         return Double.parseDouble(ATTRIBUTES.get("visceralRate"));
-    }
-
-    @Override
-    public String use(Hunter hunter, SoundManager soundManager) {
-        return "You can't use that.";
     }
 
     public int getBULLET_USE() {
