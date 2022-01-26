@@ -2,7 +2,7 @@ package bloodborne.items;
 
 import java.util.Map;
 
-public class FireArm extends Weapon{
+public class FireArm extends Weapon {
 
     public FireArm(String id, String description, Map<String, String> att) {
         super(id, description, att);
@@ -13,7 +13,7 @@ public class FireArm extends Weapon{
         return Integer.parseInt(ATTRIBUTES.get("damage"));
     }
 
-    public double getHIT_RATE(){
+    public double getHIT_RATE() {
         return Double.parseDouble(ATTRIBUTES.get("hitRate"));
     }
 

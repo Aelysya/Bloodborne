@@ -6,7 +6,7 @@ public abstract class Condition {
 
     protected final World WORLD;
 
-    public Condition(World WORLD){
+    public Condition(World WORLD) {
         this.WORLD = WORLD;
     }
 

@@ -6,7 +6,7 @@ import bloodborne.exceptions.ReflectionException;
 import java.lang.reflect.Constructor;
 import java.util.Map;
 
-public class ConditionalExit extends Exit{
+public class ConditionalExit extends Exit {
 
     private Condition condition;
 
@@ -31,12 +31,12 @@ public class ConditionalExit extends Exit{
     }
 
     @Override
-    public boolean isTraversable(){
+    public boolean isTraversable() {
         return condition.checkCondition();
     }
 
     @Override
-    public String getDescription(){
+    public String getDescription() {
         return condition.checkCondition() ? ATTRIBUTES.get("altDescription") : ATTRIBUTES.get("description");
     }
 }

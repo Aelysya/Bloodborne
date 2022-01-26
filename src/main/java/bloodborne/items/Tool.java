@@ -5,7 +5,7 @@ import bloodborne.sounds.SoundManager;
 
 import java.util.Map;
 
-public class Tool extends Item{
+public class Tool extends Item {
 
     public Tool(String id, String description, Map<String, String> att) {
         super(id, description, att);

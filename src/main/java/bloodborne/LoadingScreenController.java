@@ -19,16 +19,16 @@ public class LoadingScreenController {
     @FXML
     ImageView loadingScreenImage;
 
-    public void initialize(){
+    public void initialize() {
         loadingScreenImage.fitWidthProperty().bind(rootPane.widthProperty());
         loadingScreenImage.fitHeightProperty().bind(rootPane.heightProperty());
 
         new Loader().start();
     }
 
-    class Loader extends Thread{
+    class Loader extends Thread {
         @Override
-        public void run(){
+        public void run() {
             try {
                 Thread.sleep(1500);
                 Platform.runLater(() -> {

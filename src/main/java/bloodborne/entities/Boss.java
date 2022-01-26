@@ -2,7 +2,7 @@ package bloodborne.entities;
 
 import java.util.Map;
 
-public class Boss extends Enemy{
+public class Boss extends Enemy {
 
     public Boss(String id, String description, Map<String, String> attributes) {
         super(id, description, attributes);

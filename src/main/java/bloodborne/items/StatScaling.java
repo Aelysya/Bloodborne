@@ -11,11 +11,11 @@ public enum StatScaling {
 
     private final double RATIO;
 
-    StatScaling(double ratio){
+    StatScaling(double ratio) {
         RATIO = ratio;
     }
 
-    double getRATIO(){
+    double getRATIO() {
         return RATIO;
     }
 }

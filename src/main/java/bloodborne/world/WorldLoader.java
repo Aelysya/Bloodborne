@@ -32,9 +32,10 @@ public final class WorldLoader {
         }
     }
 
-    private static void loadItems(String zoneName, World world) throws MalFormedJsonException, ReflectionException{
+    private static void loadItems(String zoneName, World world) throws MalFormedJsonException, ReflectionException {
         Reader reader = WorldDataLoader.getItems(zoneName);
-        Type itemMapType = new TypeToken<List<Map<String, Object>>>() {}.getType();
+        Type itemMapType = new TypeToken<List<Map<String, Object>>>() {
+        }.getType();
         List<Map<String, Object>> parsedJson = new Gson().fromJson(reader, itemMapType);
         HashMap<String, Object> loadedItems = loadElement(parsedJson, "items");
 
@@ -43,9 +44,10 @@ public final class WorldLoader {
         }
     }
 
-    private static void loadEnemies(String zoneName, World world) throws MalFormedJsonException, ReflectionException{
+    private static void loadEnemies(String zoneName, World world) throws MalFormedJsonException, ReflectionException {
         Reader reader = WorldDataLoader.getEnemies(zoneName);
-        Type enemiesMapType = new TypeToken<List<Map<String, Object>>>() {}.getType();
+        Type enemiesMapType = new TypeToken<List<Map<String, Object>>>() {
+        }.getType();
         List<Map<String, Object>> parsedJson = new Gson().fromJson(reader, enemiesMapType);
         HashMap<String, Object> loadedEnemies = loadElement(parsedJson, "entities");
 
@@ -56,7 +58,8 @@ public final class WorldLoader {
 
     private static void loadProps(String zoneName, World world) throws ReflectionException, MalFormedJsonException {
         Reader reader = WorldDataLoader.getProps(zoneName);
-        Type propMapType = new TypeToken<List<Map<String, Object>>>() {}.getType();
+        Type propMapType = new TypeToken<List<Map<String, Object>>>() {
+        }.getType();
         List<Map<String, Object>> parsedJson = new Gson().fromJson(reader, propMapType);
         HashMap<String, Object> loadedProps = loadElement(parsedJson, "environment");
 
@@ -67,7 +70,8 @@ public final class WorldLoader {
 
     private static void loadPlaces(String zoneName, World world) throws MalFormedJsonException {
         Reader reader = WorldDataLoader.getPlaces(zoneName);
-        Type placeMapType = new TypeToken<List<Map<String, Object>>>(){}.getType();
+        Type placeMapType = new TypeToken<List<Map<String, Object>>>() {
+        }.getType();
         List<Map<String, Object>> parsedJson = new Gson().fromJson(reader, placeMapType);
 
         for (Map<String, Object> map : parsedJson) {
@@ -88,7 +92,7 @@ public final class WorldLoader {
                 throw new MalFormedJsonException("Place : " + id + name + area + description + altDescription);
             }
             int headstoneIndex;
-            if(headstoneIndexString == null){
+            if (headstoneIndexString == null) {
                 headstoneIndex = -1;
             } else {
                 headstoneIndex = Integer.parseInt(headstoneIndexString);
@@ -96,7 +100,7 @@ public final class WorldLoader {
 
             Place place = new Place(id, name, area, headstone, headstoneIndex, description, altDescription, hasLantern, items, props, exits, enemies);
             world.addPlace(place);
-            if (hasLantern){
+            if (hasLantern) {
                 world.addLanternPlace(place);
             }
         }
@@ -148,16 +152,16 @@ public final class WorldLoader {
         }
     }
 
-    public static Exit createExit(Map<String, Object> exitData, World world, String destinationId) throws  UnknownPlaceException, UnknownExitTypeException {
+    public static Exit createExit(Map<String, Object> exitData, World world, String destinationId) throws UnknownPlaceException, UnknownExitTypeException {
         String type = (String) exitData.get("type");
         Map<String, String> exitAttributes = (Map) exitData.get("attributes");
         Place destination = world.getPlaceById(destinationId);
         if (destination == null) {
             throw new UnknownPlaceException(" for place : " + destinationId);
         }
-        if(type.equals("Exit")) {
+        if (type.equals("Exit")) {
             return new Exit(destination, exitAttributes);
-        } else if(type.equals("ConditionalExit")) {
+        } else if (type.equals("ConditionalExit")) {
             return new ConditionalExit(destination, exitAttributes);
         } else {
             throw new UnknownExitTypeException("type : " + type);

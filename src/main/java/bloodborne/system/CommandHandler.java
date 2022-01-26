@@ -12,10 +12,10 @@ public class CommandHandler {
         GAME = game;
     }
 
-    public void startTextAnalyzer(String textLine) throws InterruptedException {
+    public void startTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
 
-        if(args.length == 0){
+        if (args.length == 0) {
             return;
         }
 
@@ -40,14 +40,14 @@ public class CommandHandler {
         }
     }
 
-    public void explorationTextAnalyzer(String textLine) throws TooFewArgumentsException{
+    public void explorationTextAnalyzer(String textLine) throws TooFewArgumentsException {
         String[] args = textLine.split("\\s+", 2);
-        if(args.length == 0){
+        if (args.length == 0) {
             return;
         }
         String command = args[0];
         String target = "";
-        if(args.length == 2){
+        if (args.length == 2) {
             target = args[1];
         }
         String EXPLORATION_HELP_TEXT = """
@@ -133,12 +133,12 @@ public class CommandHandler {
 
     public void runeTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
-        if(args.length == 0){
+        if (args.length == 0) {
             return;
         }
         String position = args[0];
-        switch(position){
-            case "1", "2", "3" -> GAME.runeDecisionFunction(Integer.parseInt(position)-1);
+        switch (position) {
+            case "1", "2", "3" -> GAME.runeDecisionFunction(Integer.parseInt(position) - 1);
             case "c", "cancel" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
             default -> GAME.writeInstantly("You can't memorize a rune at this position.");
         }
@@ -146,12 +146,12 @@ public class CommandHandler {
 
     public void fightTextAnalyzer(String textLine) throws TooFewArgumentsException {
         String[] args = textLine.split("\\s+", 2);
-        if(args.length == 0){
+        if (args.length == 0) {
             return;
         }
         String command = args[0];
         String target = "";
-        if(args.length == 2){
+        if (args.length == 2) {
             target = args[1];
         }
         String FIGHT_HELP_TEXT = """
@@ -175,7 +175,7 @@ public class CommandHandler {
                 - (S) Gun shot : Damage x 1, + 0.2 to Dodge rate
                 - (HL/U) Healing or using an item : Pass the turn, + 0.2 to Dodge rate
                 - (F) Flee : Flee the fight but take some damage. You can't flee from a boss fight
-                
+                                
                 Switching your trick weapon state or using help commands does not pass your turn
                 """;
         switch (command) {
@@ -203,7 +203,7 @@ public class CommandHandler {
 
     public void deathTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
-        if(args.length == 0){
+        if (args.length == 0) {
             return;
         }
         String command = args[0];
@@ -220,7 +220,7 @@ public class CommandHandler {
     public void dreamBackTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
 
-        if(args.length == 0){
+        if (args.length == 0) {
             return;
         }
 
@@ -238,7 +238,7 @@ public class CommandHandler {
 
     public void yharnamHeadstoneTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
-        if(args.length == 0){
+        if (args.length == 0) {
             return;
         }
         String command = args[0];
@@ -255,7 +255,7 @@ public class CommandHandler {
     public void quitFromDeathTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
 
-        if(args.length == 0){
+        if (args.length == 0) {
             return;
         }
 
@@ -275,7 +275,7 @@ public class CommandHandler {
     public void quitTextAnalyzer(String textLine) {
         String[] args = textLine.split("\\s+", 2);
 
-        if(args.length == 0){
+        if (args.length == 0) {
             return;
         }
 

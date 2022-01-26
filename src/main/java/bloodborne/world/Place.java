@@ -39,7 +39,7 @@ public class Place {
         NAME = name;
         ZONE = zone;
         HEADSTONE = headstone;
-        HEADSTONE_INDEX =headstoneIndex;
+        HEADSTONE_INDEX = headstoneIndex;
         DESCRIPTION = description;
         ALT_DESCRIPTION = altDescription;
         HAS_LANTERN = hasLantern;
@@ -80,7 +80,7 @@ public class Place {
     public String getDESCRIPTION() {
         StringBuilder s = new StringBuilder();
         s.append(showAltDescription ? ALT_DESCRIPTION : DESCRIPTION).append("\n\n");
-        for (Exit e : EXITS.values()){
+        for (Exit e : EXITS.values()) {
             s.append(e.getDescription()).append("\n");
         }
         return s.toString();
@@ -89,7 +89,7 @@ public class Place {
     public String getIMAGE() {
         StringBuilder s = new StringBuilder();
         s.append("zones/").append(ZONE).append("/").append(ID);
-        if (showAltDescription){
+        if (showAltDescription) {
             s.append("-alt");
         }
         s.append(".jpg");
@@ -123,9 +123,9 @@ public class Place {
     public Item getItemByName(String itemName) {
         Item item = null;
         String iName;
-        for(Item i : ITEMS.values()){
+        for (Item i : ITEMS.values()) {
             iName = i.getNAME().toLowerCase(Locale.ROOT);
-            if(iName.equals(itemName)){
+            if (iName.equals(itemName)) {
                 item = i;
                 break;
             }
@@ -133,9 +133,9 @@ public class Place {
         return item;
     }
 
-    public void removeItemByID(String itemID){
-        for (Item i : ITEMS.values()){
-            if (i.getID().equals(itemID)){
+    public void removeItemByID(String itemID) {
+        for (Item i : ITEMS.values()) {
+            if (i.getID().equals(itemID)) {
                 ITEMS.remove(i.getNAME().toLowerCase(Locale.ROOT));
                 System.out.println("Removed item " + i.getID() + " from place " + getID());
                 break;
@@ -147,10 +147,10 @@ public class Place {
         return ENEMIES.get(target);
     }
 
-    public Boss getBoss(){
+    public Boss getBoss() {
         Boss boss = null;
-        for (Entity e : ENEMIES.values()){
-            if (e instanceof Boss){
+        for (Entity e : ENEMIES.values()) {
+            if (e instanceof Boss) {
                 boss = (Boss) e;
                 break;
             }
@@ -158,10 +158,10 @@ public class Place {
         return boss;
     }
 
-    public boolean isBossArena(){
+    public boolean isBossArena() {
         boolean hasBoss = false;
-        for (Entity e : ENEMIES.values()){
-            if (e instanceof Boss){
+        for (Entity e : ENEMIES.values()) {
+            if (e instanceof Boss) {
                 hasBoss = true;
                 break;
             }
@@ -169,19 +169,19 @@ public class Place {
         return hasBoss;
     }
 
-    public boolean hasLantern(){
+    public boolean hasLantern() {
         return HAS_LANTERN;
     }
 
-    public void switchToAltDescription(){
+    public void switchToAltDescription() {
         showAltDescription = true;
     }
 
-    public void visit(){
+    public void visit() {
         hasBeenVisited = true;
     }
 
-    public boolean hasBeenVisited(){
+    public boolean hasBeenVisited() {
         return hasBeenVisited;
     }
 
@@ -190,7 +190,7 @@ public class Place {
             String itemName = entry.getKey();
             String itemIdName = entry.getValue();
             Item item = world.getItemById(itemIdName);
-            if (item == null){
+            if (item == null) {
                 throw new ItemNotFoundException(itemName + " is not present in the world for place : " + NAME);
             } else {
                 ITEMS.put(itemName, item);

@@ -1,7 +1,6 @@
 package bloodborne.system;
 
 import bloodborne.GameController;
-import bloodborne.InventoryController;
 import bloodborne.entities.Boss;
 import bloodborne.entities.Enemy;
 import bloodborne.entities.Entity;
@@ -47,7 +46,7 @@ public class Game {
         WorldLoader.loadZone("central-yharnam", WORLD);
     }
 
-    public void writeInstantly(String txt){
+    public void writeInstantly(String txt) {
         System.out.println(txt);
         CONTROLLER.writeInstantly(txt);
     }
@@ -98,7 +97,7 @@ public class Game {
                 ----------------------------
                 """;
         SOUND_MANAGER.playSoundEffect("you-died.wav");
-        if (!HUNTER.hasFirstDeathHappened()){
+        if (!HUNTER.hasFirstDeathHappened()) {
             firstDeath();
         } else {
             CONTROLLER.transitionImage("you-died.jpg");
@@ -107,7 +106,7 @@ public class Game {
         }
     }
 
-    public void firstDeath(){
+    public void firstDeath() {
         String explanationText = """
                 You have just died, but you wake up a few seconds later in a strange place lit by the moonlight.
                 Everything is calm, you feel no danger here, you are perfectly safe.
@@ -126,7 +125,7 @@ public class Game {
         CONTROLLER.updateDirectionalArrows(WORLD.getCurrentPlace());
     }
 
-    public void warpBackToLastLantern(){
+    public void warpBackToLastLantern() {
         currentlyFoughtEntity = null;
         setAnalyzer(TextAnalyzer.EXPLORATION);
         HUNTER.fullRegen();
@@ -134,12 +133,12 @@ public class Game {
         teleportFunction(lastLanternPlace.getID());
     }
 
-    public void writeHeadstoneText(String headstoneName){
+    public void writeHeadstoneText(String headstoneName) {
         CONTROLLER.writeLetterByLetter(WORLD.generateHeadstoneText(headstoneName));
     }
 
-    public void checkIfWarpFromDreamPossible(String destinationID){
-        if (WORLD.getPlaceById(destinationID).hasBeenVisited()){
+    public void checkIfWarpFromDreamPossible(String destinationID) {
+        if (WORLD.getPlaceById(destinationID).hasBeenVisited()) {
             teleportFunction(destinationID);
             setAnalyzer(TextAnalyzer.EXPLORATION);
         } else {
@@ -157,7 +156,7 @@ public class Game {
 
     public void goFunction(String direction) {
         Place currentPlace = WORLD.getCurrentPlace();
-        if (currentPlace.hasLantern() && direction.equals("hunter's-dream")){
+        if (currentPlace.hasLantern() && direction.equals("hunter's-dream")) {
             teleportFunction("hunter's-dream");
         } else if (!currentPlace.getEXITS().containsKey(direction)) {
             CONTROLLER.writeInstantly("There is no such exit here.");
@@ -175,7 +174,7 @@ public class Game {
                     CONTROLLER.transitionImage("placeholder.png");
                 }
                 CONTROLLER.writeLetterByLetter(currentPlace.getDESCRIPTION());
-                if (currentPlace.hasLantern()){
+                if (currentPlace.hasLantern()) {
                     lastLanternPlace = currentPlace;
                 }
                 ACTION_LISTENER.goListener();
@@ -187,7 +186,7 @@ public class Game {
     }
 
     public void teleportFunction(String destination) { //To use the teleport command, use the id of the place you want to go to
-        if(WORLD.getPlaceById(destination) != null){
+        if (WORLD.getPlaceById(destination) != null) {
             if (destination.equals("hunter's-dream")) {
                 WORLD.changePlace(WORLD.getPlaceById("hunter's-dream"));
             } else {
@@ -204,7 +203,7 @@ public class Game {
                 CONTROLLER.transitionImage("placeholder.png");
             }
             CONTROLLER.writeInstantly(currentPlace.getDESCRIPTION());
-            if (currentPlace.hasLantern()){
+            if (currentPlace.hasLantern()) {
                 lastLanternPlace = currentPlace;
             }
             ACTION_LISTENER.teleportListener();
@@ -219,10 +218,10 @@ public class Game {
         Item item = WORLD.getCurrentPlace().getItemByName(target);
         Entity eTarget = WORLD.getCurrentPlace().getEnemyByName(target);
         if (currentPlace.getPROPS().get(target) != null) { //If target is a prop
-            CONTROLLER.writeLetterByLetter(currentPlace.getPROPS().get(target).lookReaction(HUNTER));
+            CONTROLLER.writeLetterByLetter(currentPlace.getPROPS().get(target).look(HUNTER));
             ACTION_LISTENER.lookListener(currentPlace.getPROPS().get(target));
         } else if (item != null) { //If target is an item from the current place
-            if (item.isTaken()){
+            if (item.isTaken()) {
                 if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped
                     item = HUNTER.getItemByName(target);
                     CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
@@ -235,7 +234,7 @@ public class Game {
         } else if (HUNTER.getItemByName(target) != null) { //If target is an item in the inventory or is one of the weapon equipped and not in the current place
             item = HUNTER.getItemByName(target);
             CONTROLLER.writeLetterByLetter(item.getDESCRIPTION());
-        }  else if (eTarget != null) { //If target is an enemy
+        } else if (eTarget != null) { //If target is an enemy
             CONTROLLER.writeLetterByLetter(eTarget.getDESCRIPTION());
         } else if (target.equals("") || target.equals("around")) { //If no target, describe the current place
             CONTROLLER.writeLetterByLetter(currentPlace.getDESCRIPTION());
@@ -249,12 +248,12 @@ public class Game {
         Prop prop = WORLD.getCurrentPlace().getPropByName(target);
         if (prop != null) {
             CONTROLLER.writeLetterByLetter(prop.activate(HUNTER));
-            if(prop instanceof Container && !((Container) prop).isLooted()){
+            if (prop instanceof Container && !((Container) prop).isLooted()) {
                 SOUND_MANAGER.playSoundEffect("open-chest.wav");
             }
             CONTROLLER.updateHUD();
             ACTION_LISTENER.activateListener();
-            if(HUNTER.isDead()){
+            if (HUNTER.isDead()) {
                 death();
             }
         } else {
@@ -268,16 +267,16 @@ public class Game {
         Item item = HUNTER.getItemByName(object);
         if (item != null) {
             CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
-            if (currentlyFoughtEntity != null){
+            if (currentlyFoughtEntity != null) {
                 CONTROLLER.writeInstantly(currentlyFoughtEntity.attack(HUNTER, SOUND_MANAGER));
-                if (HUNTER.isDead()){
+                if (HUNTER.isDead()) {
                     death();
                 }
                 ACTION_LISTENER.resolveFightListener();
             }
             CONTROLLER.updateHUD();
             ACTION_LISTENER.useListener(item);
-        } else if (objString.equals("blood vial")){
+        } else if (objString.equals("blood vial")) {
             healFunction();
         } else {
             CONTROLLER.writeInstantly("You try to use something that you don't have or doesn't exist.");
@@ -306,16 +305,16 @@ public class Game {
     public void equipFunction(String object) {
         Item item = HUNTER.getItemByName(object);
         if (item != null) {
-            if (item instanceof Weapon){
-                if(item instanceof TrickWeapon){
+            if (item instanceof Weapon) {
+                if (item instanceof TrickWeapon) {
                     CONTROLLER.writeInstantly(HUNTER.equipTrickWeapon((TrickWeapon) item));
                 } else {
                     CONTROLLER.writeInstantly(HUNTER.equipFireArm((FireArm) item));
                 }
                 SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
                 CONTROLLER.updateWeapons();
-            } else if (item instanceof Rune){
-                if(HUNTER.getNumberOfRunes() >= 3){
+            } else if (item instanceof Rune) {
+                if (HUNTER.getNumberOfRunes() >= 3) {
                     setAnalyzer(TextAnalyzer.RUNE);
                     memorizedRune = (Rune) item;
                     CONTROLLER.writeInstantly("You already have 3 runes equipped, which one do you want to replace ? [1/2/3/Cancel]");
@@ -334,7 +333,7 @@ public class Game {
         CONTROLLER.updateInventory("default");
     }
 
-    public void runeDecisionFunction(int position){
+    public void runeDecisionFunction(int position) {
         CONTROLLER.writeInstantly(HUNTER.equipRune(memorizedRune, position));
         SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
         CONTROLLER.updateRunes();
@@ -344,7 +343,7 @@ public class Game {
     public void initiateFightFunction(String target) {
         Entity eTarget = WORLD.getCurrentPlace().getEnemyByName(target.toLowerCase(Locale.ROOT));
         if (eTarget instanceof Enemy) {
-            if (eTarget.isDead()){
+            if (eTarget.isDead()) {
                 CONTROLLER.writeInstantly("This enemy is already dead.");
             } else {
                 CONTROLLER.writeLetterByLetter("You engage the enemy. Now you must fight or flee.");
@@ -374,20 +373,20 @@ public class Game {
         setAnalyzer(TextAnalyzer.QUIT);
     }
 
-    public void resolveFight(String decision){
+    public void resolveFight(String decision) {
         if (decision.equals("melee")) { //Player's turn
             CONTROLLER.writeInstantly(HUNTER.attack(currentlyFoughtEntity, SOUND_MANAGER));
         } else { //Ranged attack
             CONTROLLER.writeInstantly(HUNTER.shoot(currentlyFoughtEntity, SOUND_MANAGER));
         }
-        if(currentlyFoughtEntity.isDead()){
+        if (currentlyFoughtEntity.isDead()) {
             checkEntityKilledIsBoss(currentlyFoughtEntity);
             CONTROLLER.updateHUD();
             ACTION_LISTENER.resolveFightListener();
             return;
         } else { //Enemy's turn if not dead
             CONTROLLER.writeInstantly(currentlyFoughtEntity.attack(HUNTER, SOUND_MANAGER));
-            if (HUNTER.isDead()){
+            if (HUNTER.isDead()) {
                 death();
             }
         }
@@ -395,14 +394,14 @@ public class Game {
         ACTION_LISTENER.resolveFightListener();
     }
 
-    public void checkEntityKilledIsBoss(Entity enemy){
+    public void checkEntityKilledIsBoss(Entity enemy) {
         Enemy e = (Enemy) enemy;
         if (e instanceof Boss) {
             CONTROLLER.transitionImage("prey-slaughtered.png");
             SOUND_MANAGER.playSoundEffect("prey-slaughtered.wav");
             SOUND_MANAGER.setLoopingSound("central-yharnam.wav");
         } else {
-            if (!HUNTER.isLastAttackVisceral()){
+            if (!HUNTER.isLastAttackVisceral()) {
                 SOUND_MANAGER.playSoundEffect("enemy-killed.wav");
             }
             CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
@@ -420,7 +419,7 @@ public class Game {
     }
 
     public void fleeFunction() {
-        if (!(currentlyFoughtEntity instanceof Boss)){
+        if (!(currentlyFoughtEntity instanceof Boss)) {
             HUNTER.takeDamage(5);
             if (HUNTER.isDead()) {
                 CONTROLLER.updateHUD();
@@ -438,9 +437,9 @@ public class Game {
 
     public void healFunction() {
         CONTROLLER.writeLetterByLetter(HUNTER.heal(SOUND_MANAGER));
-        if (currentlyFoughtEntity != null){
+        if (currentlyFoughtEntity != null) {
             CONTROLLER.writeInstantly(currentlyFoughtEntity.attack(HUNTER, SOUND_MANAGER));
-            if (HUNTER.isDead()){
+            if (HUNTER.isDead()) {
                 death();
             }
             ACTION_LISTENER.resolveFightListener();
@@ -449,7 +448,7 @@ public class Game {
         CONTROLLER.updateInventory("default");
     }
 
-    public void killFunction(){
+    public void killFunction() {
         HUNTER.takeDamage(99);
         CONTROLLER.updateHUD();
     }

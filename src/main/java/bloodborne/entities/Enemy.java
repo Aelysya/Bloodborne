@@ -4,7 +4,7 @@ import bloodborne.sounds.SoundManager;
 
 import java.util.Map;
 
-public class Enemy extends Entity{
+public class Enemy extends Entity {
 
     private int takenBloodEchoes;
 
@@ -20,7 +20,7 @@ public class Enemy extends Entity{
     @Override
     public int getDamage() {
         int finalDamage = Integer.parseInt(ATTRIBUTES.get("damage"));
-        if (Math.random() < 0.25){ // 1/4 chance to deal 50% more damage (Critical hit)
+        if (Math.random() < 0.25) { // 1/4 chance to deal 50% more damage (Critical hit)
             finalDamage += finalDamage * 1.5;
         }
         return finalDamage;
@@ -30,10 +30,10 @@ public class Enemy extends Entity{
     public String attack(Entity target, SoundManager soundManager) {
         Hunter hunter = (Hunter) target;
         StringBuilder s = new StringBuilder();
-        if (Math.random() < target.getDodgeRate()){
+        if (Math.random() < target.getDodgeRate()) {
             s.append("You avoided your enemy's attack.");
         } else {
-            if (hunter.hasRune("Lake rune")){
+            if (hunter.hasRune("Lake rune")) {
                 s.append("You took ").append(getDamage() - 1).append(" damage !");
             } else {
                 s.append("You took ").append(getDamage()).append(" damage !");
@@ -43,11 +43,11 @@ public class Enemy extends Entity{
         return s.toString();
     }
 
-    public void takeEchoes(Hunter hunter){
+    public void takeEchoes(Hunter hunter) {
         takenBloodEchoes = hunter.getBloodEchoes();
     }
 
-    public String loot(Hunter hunter){
+    public String loot(Hunter hunter) {
         double randomValue = Math.random(); //TODO Make a better looting system (add other sort of items before)
         /*switch (ATTRIBUTES.get("lootValue")){
             case "basic" -> hunter.addBullets(1);
@@ -69,8 +69,8 @@ public class Enemy extends Entity{
         return "You loot the corpse and retrieve some useful consumables.";
     }
 
-    public void resetEnemy(){
-        if (Boolean.parseBoolean(ATTRIBUTES.get("canRespawn"))){
+    public void resetEnemy() {
+        if (Boolean.parseBoolean(ATTRIBUTES.get("canRespawn"))) {
             fullRegen();
             takenBloodEchoes = 0;
             System.out.println("Reset : " + ATTRIBUTES.get("id"));

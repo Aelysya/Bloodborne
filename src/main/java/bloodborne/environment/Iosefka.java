@@ -1,7 +1,10 @@
 package bloodborne.environment;
 
 import bloodborne.entities.Hunter;
+import bloodborne.exceptions.MalFormedJsonException;
+import bloodborne.exceptions.ReflectionException;
 import bloodborne.items.HealingItem;
+import bloodborne.world.World;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,15 +27,20 @@ public class Iosefka extends NPC {
         VIAL = new HealingItem("iosefkas-blood-vial", "Blood vial acquired from Iosefka's clinic. This refined blood, highly invigorating, restores a larger amount of HP. The product of a slow and careful refinement process, this rare blood vial appears to be a clinic original.", m);
     }
 
+    @Override
+    public void initialize(World world) {
+
+    }
+
     public String talk(Hunter hunter) {
         String speech;
-        if (!talkedOnce){
+        if (!talkedOnce) {
             talkedOnce = true;
             hunterHasIosefkasBloodVial = true;
             hunter.addItem(VIAL);
             speech = ATTRIBUTES.get("firstSpeech");
         } else {
-            if (!hunterHasIosefkasBloodVial){
+            if (!hunterHasIosefkasBloodVial) {
                 hunterHasIosefkasBloodVial = true;
                 hunter.addItem(VIAL);
                 speech = ATTRIBUTES.get("noVialSpeech");
@@ -43,7 +51,7 @@ public class Iosefka extends NPC {
         return speech;
     }
 
-    public void setHunterHasIosefkasBloodVial(boolean hasVial){
+    public void setHunterHasIosefkasBloodVial(boolean hasVial) {
         hunterHasIosefkasBloodVial = hasVial;
     }
 

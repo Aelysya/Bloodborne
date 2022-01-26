@@ -1,8 +1,8 @@
 package bloodborne.exceptions;
 
-public class TooFewArgumentsException extends Exception{
+public class TooFewArgumentsException extends Exception {
 
-    public TooFewArgumentsException(){
+    public TooFewArgumentsException() {
         super();
     }
 }

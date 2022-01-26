@@ -5,23 +5,23 @@ import bloodborne.sounds.SoundManager;
 
 import java.util.Map;
 
-public class BoostItem extends Item{
+public class BoostItem extends Item {
 
     public BoostItem(String id, String description, Map<String, String> att) {
         super(id, description, att);
     }
 
-    public String getTYPE(){
+    public String getTYPE() {
         return ATTRIBUTES.get("type");
     }
 
     @Override
     public String use(Hunter hunter, SoundManager soundManager) {
         String txt;
-        if(hunter.getTrickWeapon() == null){
+        if (hunter.getTrickWeapon() == null) {
             txt = "You can't use this right now, you don't have any trick weapon equipped.";
         } else {
-            if(hunter.getDamageBoost() != 0){
+            if (hunter.getDamageBoost() != 0) {
                 txt = "You recently used a boost item onto your weapon and it's effect has not ran out yet.";
             } else {
                 hunter.boostDamage(Integer.parseInt(ATTRIBUTES.get("damageBoost")), this, soundManager);

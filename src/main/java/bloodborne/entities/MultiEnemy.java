@@ -2,7 +2,7 @@ package bloodborne.entities;
 
 import java.util.Map;
 
-public class MultiEnemy extends Enemy{
+public class MultiEnemy extends Enemy {
 
     //private int enemyAmount;
     //private int oneEnemyHealth;

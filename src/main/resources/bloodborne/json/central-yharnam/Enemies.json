@@ -5,7 +5,7 @@
     "description": "This monster has been completely transformed by the beast scourge, it now looks like a wolf with razor-sharp claws.",
     "attributes": {
       "canRespawn": "false",
-      "health": "40",
+      "maxHealth": "40",
       "damage": "25",
       "damageType": "base",
       "dodgeRate": "0.1",
@@ -21,7 +21,7 @@
     "description": "This alien-like creature doesn't seem to come from our world. It has a blue skin and his hand don't have the same number of fingers, six on one and seven on the other.",
     "attributes": {
       "canRespawn": "false",
-      "health": "15",
+      "maxHealth": "15",
       "damage": "3",
       "damageType": "base",
       "dodgeRate": "0.05",
@@ -38,7 +38,7 @@
     "attributes": {
       "canRespawn": "true",
       "enemyAmount": "3",
-      "health": "21",
+      "maxHealth": "21",
       "damage": "2",
       "damageType": "base",
       "dodgeRate": "0.05",

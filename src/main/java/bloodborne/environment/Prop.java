@@ -7,23 +7,23 @@ import bloodborne.world.World;
 
 import java.util.Map;
 
-public class Prop {
+public abstract class Prop {
 
     private final String ID;
     private final String DESCRIPTION;
-    private boolean isActivated;
-    private boolean hasBeenLooked;
     protected final Map<String, String> ATTRIBUTES;
+    private boolean hasBeenActivated;
+    private boolean hasBeenLookedOnce;
 
-    public Prop(String id, String description, Map<String, String> att){
+    public Prop(String id, String description, Map<String, String> att) {
         ID = id;
         DESCRIPTION = description;
-        isActivated = false;
-        hasBeenLooked = false;
         ATTRIBUTES = att;
+        hasBeenActivated = false;
+        hasBeenLookedOnce = false;
     }
 
-    public void initialize(World world)  throws ReflectionException, MalFormedJsonException {}
+    public abstract void initialize(World world);
 
     public String getID() {
         return ID;
@@ -33,41 +33,50 @@ public class Prop {
         return DESCRIPTION;
     }
 
-    public boolean isActivated() {
-        return isActivated;
+    public boolean HasBeenActivated() {
+        return hasBeenActivated;
     }
 
-    public boolean hasBeenLooked(){
-        return hasBeenLooked;
+    public boolean hasBeenLooked() {
+        return hasBeenLookedOnce;
     }
 
-    public String lookReaction(Hunter hunter){
-        if(Boolean.parseBoolean(ATTRIBUTES.get("containsConsumables")) && !hasBeenLooked){
-            addConsumables(hunter);
-            hasBeenLooked = true;
+    public String look(Hunter hunter) {
+        if (Boolean.parseBoolean(ATTRIBUTES.get("containsConsumables")) && !hasBeenLookedOnce) {
+            addConsumablesToHunterInventory(hunter);
         }
-        return getDESCRIPTION();
+        hasBeenLookedOnce = true;
+        return DESCRIPTION;
     }
 
-    public String activate(Hunter hunter){
+    public void addConsumablesToHunterInventory(Hunter hunter) {
+        if (ATTRIBUTES.get("vialsContained") != null) {
+            hunter.addVials(Integer.parseInt(ATTRIBUTES.get("vialsContained")));
+        }
+        if (ATTRIBUTES.get("bulletsContained") != null) {
+            hunter.addBullets(Integer.parseInt(ATTRIBUTES.get("bulletsContained")));
+        }
+    }
+
+    public String activate(Hunter hunter) {
         String txt;
-        if(Boolean.parseBoolean(ATTRIBUTES.get("isActionable"))) {
-            if(Boolean.parseBoolean(ATTRIBUTES.get("isTrapped"))){
-                if (!isActivated) {
-                    isActivated = true;
+        if (Boolean.parseBoolean(ATTRIBUTES.get("isActionable"))) {
+            if (Boolean.parseBoolean(ATTRIBUTES.get("isTrapped"))) {
+                if (!hasBeenActivated) {
+                    hasBeenActivated = true;
                     hunter.takeDamage(Integer.parseInt(ATTRIBUTES.get("damageDone")));
-                    if(hunter.isDead()){
+                    if (hunter.isDead()) {
                         txt = ATTRIBUTES.get("deathDescription");
                     } else {
-                        addConsumables(hunter);
+                        addConsumablesToHunterInventory(hunter);
                         txt = ATTRIBUTES.get("activationText");
                     }
                 } else {
                     txt = "You already activated this";
                 }
             } else {
-                if (!isActivated) {
-                    isActivated = true;
+                if (!hasBeenActivated) {
+                    hasBeenActivated = true;
                     txt = ATTRIBUTES.get("activationText");
                 } else {
                     txt = "You already activated this";
@@ -77,14 +86,5 @@ public class Prop {
             txt = "You can't activate this.";
         }
         return txt;
-    }
-
-    public void addConsumables(Hunter hunter){
-        if(ATTRIBUTES.get("vialsContained") != null){
-            hunter.addVials(Integer.parseInt(ATTRIBUTES.get("vialsContained")));
-        }
-        if(ATTRIBUTES.get("bulletsContained") != null){
-            hunter.addBullets(Integer.parseInt(ATTRIBUTES.get("bulletsContained")));
-        }
     }
 }

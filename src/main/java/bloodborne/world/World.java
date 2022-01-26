@@ -21,7 +21,6 @@ public class World {
     private Place currentPlace;
     private final Hunter HUNTER;
 
-
     public World(Hunter hunter) {
         ITEMS = new HashMap<>();
         PROPS = new HashMap<>();
@@ -32,15 +31,15 @@ public class World {
         HUNTER = hunter;
     }
 
-    public Hunter getHUNTER(){
+    public Hunter getHUNTER() {
         return HUNTER;
     }
 
-    public Place getCurrentPlace(){
+    public Place getCurrentPlace() {
         return currentPlace;
     }
 
-    public void changePlace(Place newPlace){
+    public void changePlace(Place newPlace) {
         currentPlace = newPlace;
         currentPlace.visit();
     }
@@ -103,8 +102,8 @@ public class World {
 
     public String generateHeadstoneText(String headstoneName) {
         StringBuilder s = new StringBuilder();
-        for (Place p : LANTERN_PLACES.values()){
-            if (headstoneName.equals(p.getHEADSTONE()) && p.hasBeenVisited()){
+        for (Place p : LANTERN_PLACES.values()) {
+            if (headstoneName.equals(p.getHEADSTONE()) && p.hasBeenVisited()) {
                 s.append(p.getHEADSTONE_INDEX()).append(" -> ").append(p.getNAME()).append("\n");
             }
         }

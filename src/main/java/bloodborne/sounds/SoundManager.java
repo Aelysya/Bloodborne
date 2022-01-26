@@ -14,12 +14,12 @@ public class SoundManager {
     private float usualVolume = 0f;
     private boolean isSoundMuted;
 
-    public SoundManager(){
+    public SoundManager() {
         currentTheme = "nothing";
-        try{
+        try {
             sound = AudioSystem.getClip();
             sound.loop(Clip.LOOP_CONTINUOUSLY);
-        } catch (LineUnavailableException e ) {
+        } catch (LineUnavailableException e) {
             e.printStackTrace();
         }
     }
@@ -37,19 +37,19 @@ public class SoundManager {
         return (float) Math.pow(10f, gainControl.getValue() / 20f);
     }
 
-    public void mute(){
+    public void mute() {
         usualVolume = getVolume(sound);
         isSoundMuted = true;
         setVolume(0f, sound);
     }
 
-    public void unMute(){
+    public void unMute() {
         isSoundMuted = false;
         setVolume(usualVolume, sound);
     }
 
-    public void playSoundEffect(String fileName){
-        if(!isSoundMuted){
+    public void playSoundEffect(String fileName) {
+        if (!isSoundMuted) {
             try {
                 File audioFile;
                 AudioInputStream audioIn;
@@ -59,7 +59,7 @@ public class SoundManager {
                 audioIn = AudioSystem.getAudioInputStream(audioFile);
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioIn);
-                setVolume(0.5f,clip);
+                setVolume(0.5f, clip);
                 clip.start();
             } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | URISyntaxException e) {
                 e.printStackTrace();
@@ -68,7 +68,7 @@ public class SoundManager {
     }
 
     public void setLoopingSound(String fileName) {
-        if (!currentTheme.equals(fileName)){
+        if (!currentTheme.equals(fileName)) {
             try {
                 currentTheme = fileName;
                 File audioFile;
@@ -78,43 +78,41 @@ public class SoundManager {
                 audioFile = Paths.get(resource.toURI()).toFile();
                 audioIn = AudioSystem.getAudioInputStream(audioFile);
 
-                if(!sound.isRunning()){
+                if (!sound.isRunning()) {
                     sound.stop();
                     sound.close();
                     sound.open(audioIn);
                     float clipVolume;
-                    if(isSoundMuted){
+                    if (isSoundMuted) {
                         clipVolume = 0f;
                         usualVolume = 0.3f;
-                    }
-                    else {
+                    } else {
                         clipVolume = 0.3f;
                     }
-                    setVolume(clipVolume,sound);
+                    setVolume(clipVolume, sound);
                     sound.loop(Clip.LOOP_CONTINUOUSLY);
                 } else {
                     Thread myThread = new Thread(() -> {
                         try {
-                            while (0.001f < getVolume(sound)){
-                                float newVolume = getVolume(sound)/(1.5f);
+                            while (0.001f < getVolume(sound)) {
+                                float newVolume = getVolume(sound) / (1.5f);
                                 //System.out.println("vol : " +getVolume(loopingSound));
-                                setVolume(newVolume,sound);
+                                setVolume(newVolume, sound);
                                 Thread.sleep(500);
                             }
                             sound.stop();
                             sound.close();
                             sound.open(audioIn);
                             float clipVolume;
-                            if(isSoundMuted){
+                            if (isSoundMuted) {
                                 clipVolume = 0f;
                                 usualVolume = 0.3f;
-                            }
-                            else {
+                            } else {
                                 clipVolume = 0.3f;
                             }
                             setVolume(clipVolume, sound);
                             sound.loop(Clip.LOOP_CONTINUOUSLY);
-                        } catch (LineUnavailableException | IOException|InterruptedException e) {
+                        } catch (LineUnavailableException | IOException | InterruptedException e) {
                             sound.stop();
                             sound.close();
                         }

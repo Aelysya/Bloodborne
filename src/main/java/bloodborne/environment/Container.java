@@ -8,7 +8,7 @@ import bloodborne.world.World;
 
 import java.util.Map;
 
-public class Container extends Prop{
+public class Container extends Prop {
 
     private Item containedItem;
     private boolean isLooted;
@@ -19,17 +19,17 @@ public class Container extends Prop{
         isLooted = false;
     }
 
-    public boolean isLooted(){
+    public boolean isLooted() {
         return isLooted;
     }
 
     @Override
-    public String activate(Hunter hunter){
+    public String activate(Hunter hunter) {
         String txt;
-        if(isLooted){
+        if (isLooted) {
             txt = "There is nothing left here.";
         } else {
-            addConsumables(hunter);
+            addConsumablesToHunterInventory(hunter);
             hunter.addItem(containedItem);
             isLooted = true;
             txt = ATTRIBUTES.get("activationText");
@@ -38,7 +38,7 @@ public class Container extends Prop{
     }
 
     @Override
-    public void initialize(World world) throws ReflectionException, MalFormedJsonException {
+    public void initialize(World world) {
         containedItem = world.getItemById(ATTRIBUTES.get("content"));
     }
 }

@@ -9,8 +9,8 @@ public class Item {
 
     private final String ID;
     private final String DESCRIPTION;
-    private boolean isTaken;
     protected final Map<String, String> ATTRIBUTES;
+    private boolean isTaken;
 
     public Item(String id, String description, Map<String, String> att) {
         ID = id;
@@ -23,7 +23,7 @@ public class Item {
         return ID;
     }
 
-    public String getImage(){
+    public String getImage() {
         return ATTRIBUTES.get("image");
     }
 
@@ -49,7 +49,7 @@ public class Item {
         return "You took the " + ATTRIBUTES.get("name");
     }
 
-    public String use(Hunter hunter, SoundManager soundManager){
+    public String use(Hunter hunter, SoundManager soundManager) {
         return "You can't use that.";
     }
 }

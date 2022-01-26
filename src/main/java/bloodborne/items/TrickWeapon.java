@@ -2,7 +2,7 @@ package bloodborne.items;
 
 import java.util.Map;
 
-public class TrickWeapon extends Weapon{
+public class TrickWeapon extends Weapon {
 
     private boolean isSwitched;
 
@@ -15,11 +15,11 @@ public class TrickWeapon extends Weapon{
         return isSwitched ? Integer.parseInt(ATTRIBUTES.get("switchedDamage")) : Integer.parseInt(ATTRIBUTES.get("baseDamage"));
     }
 
-    public double getCurrentDodgeRate(){
+    public double getCurrentDodgeRate() {
         return isSwitched ? Double.parseDouble(ATTRIBUTES.get("switchedDodgeRate")) : Double.parseDouble(ATTRIBUTES.get("baseDodgeRate"));
     }
 
-    public void switchMode(){
+    public void switchMode() {
         isSwitched = !isSwitched;
     }
 }

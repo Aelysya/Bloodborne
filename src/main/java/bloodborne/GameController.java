@@ -6,10 +6,7 @@ import bloodborne.items.Rune;
 import bloodborne.system.Game;
 import bloodborne.world.Place;
 import javafx.animation.FadeTransition;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -23,10 +20,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -72,16 +67,16 @@ public class GameController {
         this.hunter = hunter;
     }
 
-    public void updateDirectionalArrows(Place place){
+    public void updateDirectionalArrows(Place place) {
         northArrow.setVisible(place.getEXITS().containsKey("north"));
         eastArrow.setVisible(place.getEXITS().containsKey("east"));
         westArrow.setVisible(place.getEXITS().containsKey("west"));
         southArrow.setVisible(place.getEXITS().containsKey("south"));
     }
 
-    public void updateHUD(){
-        currentHP.setText(hunter.getHealthPoints() + "/" + hunter.getMaxHP() + " HP");
-        if(hunter.getHealthPoints() == 0){
+    public void updateHUD() {
+        currentHP.setText(hunter.getCurrentHealthPoints() + "/" + hunter.getMaxHP() + " HP");
+        if (hunter.getCurrentHealthPoints() == 0) {
             currentHP.setStyle("-fx-text-fill: red;");
         }
         echoesText.setText(Integer.toString(hunter.getBloodEchoes()));
@@ -94,17 +89,17 @@ public class GameController {
         visceralRateText.setText("Visceral rate: " + hunter.getVisceralRate());
     }
 
-    public void updateWeapons(){
+    public void updateWeapons() {
         trickWeaponImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getTrickWeaponIcon()))));
         gunImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getFireArmIcon()))));
-        if(hunter.getTrickWeapon() == null){
+        if (hunter.getTrickWeapon() == null) {
             trickWeaponNameText.setText("No weapon equipped");
             trickWeaponDmgText.setText("3 damage");
         } else {
             trickWeaponNameText.setText(hunter.getTrickWeapon().getNAME());
             trickWeaponDmgText.setText(hunter.getTrickWeapon().getCurrentDamage() + " damage");
         }
-        if(hunter.getFireArm() == null){
+        if (hunter.getFireArm() == null) {
             gunNameText.setText("No weapon equipped");
             gunDmgText.setText("0 damage");
         } else {
@@ -116,11 +111,11 @@ public class GameController {
 
     public void updateRunes() {
         List<Rune> runes = hunter.getRUNE_LIST();
-        if (runes.size() >= 1){
+        if (runes.size() >= 1) {
             rune1.setImage(new Image(String.valueOf(getClass().getResource("images/" + runes.get(0).getImage()))));
-            if (runes.size() >= 2){
+            if (runes.size() >= 2) {
                 rune2.setImage(new Image(String.valueOf(getClass().getResource("images/" + runes.get(1).getImage()))));
-                if (runes.size() >= 3){
+                if (runes.size() >= 3) {
                     rune3.setImage(new Image(String.valueOf(getClass().getResource("images/" + runes.get(2).getImage()))));
                 } else {
                     rune3.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty-rune.png"))));
@@ -133,9 +128,9 @@ public class GameController {
         }
     }
 
-    public void updateInventory(String category){
+    public void updateInventory(String category) {
         inventoryItems.getChildren().clear();
-        if (hunter.getINVENTORY().getNumberOfItems() == 0){
+        if (hunter.getINVENTORY().getNumberOfItems() == 0) {
             ImageView emptyImage = new ImageView();
             emptyImage.setFitHeight(75);
             emptyImage.setFitWidth(75);
@@ -150,7 +145,7 @@ public class GameController {
             inventoryItems.add(emptyText, 1, 0);
         } else {
             int cpt = 0;
-            for (Item i : hunter.getINVENTORY().getItems().values()){
+            for (Item i : hunter.getINVENTORY().getItems().values()) {
                 ImageView itemImage = new ImageView();
                 itemImage.setFitHeight(75);
                 itemImage.setFitWidth(75);
@@ -169,21 +164,21 @@ public class GameController {
     }
 
     public void onKeyPressedWriteLine(KeyEvent keyEvent) {
-        if(keyEvent.getCode().equals(KeyCode.ENTER)){
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
             console.appendText(">> " + writeLine.getText() + "\n");
             game.analyseText(writeLine.getText());
             lastCommands.add(writeLine.getText());
-            previousCommandIndex = lastCommands.size()-1;
+            previousCommandIndex = lastCommands.size() - 1;
             writeLine.clear();
-        } else if (keyEvent.getCode().equals(KeyCode.UP)){
-            if (previousCommandIndex >= 0){
+        } else if (keyEvent.getCode().equals(KeyCode.UP)) {
+            if (previousCommandIndex >= 0) {
                 writeLine.setText(lastCommands.get(previousCommandIndex));
                 writeLine.positionCaret(writeLine.getText().length());
                 previousCommandIndex--;
             }
-        } else if (keyEvent.getCode().equals(KeyCode.DOWN)){
-            if (lastCommands.size() !=0 && previousCommandIndex != lastCommands.size()-1){
-                writeLine.setText(lastCommands.get(previousCommandIndex+1));
+        } else if (keyEvent.getCode().equals(KeyCode.DOWN)) {
+            if (lastCommands.size() != 0 && previousCommandIndex != lastCommands.size() - 1) {
+                writeLine.setText(lastCommands.get(previousCommandIndex + 1));
                 writeLine.positionCaret(writeLine.getText().length());
                 previousCommandIndex++;
             }
@@ -194,7 +189,7 @@ public class GameController {
         console.appendText(txt + "\n");
     }
 
-    public void writeLetterByLetter(String txt){
+    public void writeLetterByLetter(String txt) {
         writeInstantly(txt);
         /*writeLine.setDisable(true);
         Thread myThread = new Thread(() -> {
@@ -215,15 +210,15 @@ public class GameController {
         myThread.start();*/
     }
 
-    public void changeImage(String url){
+    public void changeImage(String url) {
         String path = "images/" + url;
         Image myImage = new Image(String.valueOf(getClass().getResource(path)));
         placeImage.setImage(myImage);
     }
 
-    public void transitionImage(String imageURL)  {
-        final Rectangle rect1 = new Rectangle(0, 0, imageAnchor.getWidth(),  imageAnchor.getHeight());
-        final Rectangle rect2 = new Rectangle(0, 0, imageAnchor.getWidth(),  imageAnchor.getHeight());
+    public void transitionImage(String imageURL) {
+        final Rectangle rect1 = new Rectangle(0, 0, imageAnchor.getWidth(), imageAnchor.getHeight());
+        final Rectangle rect2 = new Rectangle(0, 0, imageAnchor.getWidth(), imageAnchor.getHeight());
         rect1.setFill(Color.BLACK);
         rect2.setFill(Color.BLACK);
         imageAnchor.getChildren().add(rect1);
@@ -248,13 +243,13 @@ public class GameController {
     }
 
     public void deathTransition() {
-        Rectangle rect1 = new Rectangle(0, 0, imageAnchor.getWidth(),  imageAnchor.getHeight());
+        Rectangle rect1 = new Rectangle(0, 0, imageAnchor.getWidth(), imageAnchor.getHeight());
         rect1.setFill(Color.BLACK);
-        Rectangle rect2 = new Rectangle(0, 0, imageAnchor.getWidth(),  imageAnchor.getHeight());
+        Rectangle rect2 = new Rectangle(0, 0, imageAnchor.getWidth(), imageAnchor.getHeight());
         rect2.setFill(Color.BLACK);
-        Rectangle rect3 = new Rectangle(0, 0, imageAnchor.getWidth(),  imageAnchor.getHeight());
+        Rectangle rect3 = new Rectangle(0, 0, imageAnchor.getWidth(), imageAnchor.getHeight());
         rect3.setFill(Color.BLACK);
-        Rectangle rect4 = new Rectangle(0, 0, imageAnchor.getWidth(),  imageAnchor.getHeight());
+        Rectangle rect4 = new Rectangle(0, 0, imageAnchor.getWidth(), imageAnchor.getHeight());
         rect4.setFill(Color.BLACK);
         imageAnchor.getChildren().add(rect1);
 
@@ -301,7 +296,7 @@ public class GameController {
         ft.play();
     }
 
-    public void initialize(){
+    public void initialize() {
         console.setFocusTraversable(false);
         console.setText("Wake up ? [Y/N]\n");
         lastCommands = new ArrayList<>();

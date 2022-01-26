@@ -8,7 +8,7 @@ import bloodborne.world.World;
 import java.lang.reflect.Constructor;
 import java.util.Map;
 
-public class ConditionalProp extends Prop{
+public class ConditionalProp extends Prop {
 
     private Condition condition;
 
@@ -22,11 +22,11 @@ public class ConditionalProp extends Prop{
     }
 
     @Override
-    public String lookReaction(Hunter hunter){
+    public String look(Hunter hunter) {
         String txt;
-        if(condition.checkCondition()){
-            if(ATTRIBUTES.get("isContainer") == null){
-                addConsumables(hunter);
+        if (condition.checkCondition()) {
+            if (ATTRIBUTES.get("isContainer") == null) {
+                addConsumablesToHunterInventory(hunter);
             }
             txt = getDESCRIPTION();
         } else {
