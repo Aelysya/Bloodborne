@@ -11,8 +11,8 @@ public class ActivatedProp extends Condition{
     public ActivatedProp(World world, String propId) throws MalFormedJsonException {
         super(world);
         PROP = world.getPropById(propId);
-        if(PROP == null){
-            throw new MalFormedJsonException("Prop not present on the map : " + propId);
+        if (PROP == null){
+            throw new MalFormedJsonException("Prop not present in json files : " + propId);
         }
     }
 

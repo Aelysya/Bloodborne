@@ -1,18 +1,23 @@
 package bloodborne.conditions;
 
+import bloodborne.exceptions.MalFormedJsonException;
+import bloodborne.items.Item;
 import bloodborne.world.World;
 
 public class HasKey extends Condition{
 
-    private final String ITEM_ID;
+    private final Item ITEM;
 
-    public HasKey(World world, String itemId) {
+    public HasKey(World world, String itemId) throws MalFormedJsonException {
         super(world);
-        ITEM_ID = itemId;
+        ITEM = world.getItemById(itemId);
+        if (ITEM == null){
+            throw new MalFormedJsonException("Prop not present in json files : " + itemId);
+        }
     }
 
     @Override
     public boolean checkCondition() {
-        return WORLD.getHUNTER().hasItem(ITEM_ID);
+        return WORLD.getHUNTER().hasItem(ITEM);
     }
 }

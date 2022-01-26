@@ -105,10 +105,6 @@ public class Hunter extends Entity{
         return returnedItem;
     }
 
-    public String showInventory(){
-        return INVENTORY.showInventory();
-    }
-
     public Inventory getINVENTORY(){
         return INVENTORY;
     }
@@ -214,8 +210,8 @@ public class Hunter extends Entity{
         fullRegen();
     }
 
-    public boolean hasItem(String itemId){
-        return INVENTORY.hasItem(itemId);
+    public boolean hasItem(Item item){
+        return INVENTORY.hasItem(item);
     }
 
     public String heal(SoundManager soundManager){

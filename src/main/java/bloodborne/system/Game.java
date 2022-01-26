@@ -24,7 +24,6 @@ public class Game {
     private final Hunter HUNTER;
     private final CommandHandler COMMAND_HANDLER;
     private final GameController CONTROLLER;
-    private InventoryController INVENTORY_CONTROLLER;
     private final SoundManager SOUND_MANAGER;
     private final ActionListener ACTION_LISTENER;
     private TextAnalyzer analyzer;
@@ -46,10 +45,6 @@ public class Game {
         currentlyFoughtEntity = null;
         ACTION_LISTENER = new ActionListener(SOUND_MANAGER, HUNTER, WORLD, COMMAND_HANDLER, this);
         WorldLoader.loadZone("central-yharnam", WORLD);
-    }
-
-    public void setINVENTORY_CONTROLLER(InventoryController controller){
-        INVENTORY_CONTROLLER = controller;
     }
 
     public void writeInstantly(String txt){

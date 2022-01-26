@@ -73,7 +73,7 @@ public class ActionListener {
         }
     }
 
-    public void takeListener(Item item){
+    /*public void takeListener(Item item){
         switch(item.getID()){
             case "iosefkas-blood-vial" -> {
                 if (HUNTER.getINVENTORY().hasItem("iosefkas-blood-vial")){
@@ -106,7 +106,7 @@ public class ActionListener {
             case "hunter-pistol" -> WORLD.getCurrentPlace().removeItemByID("hunter-blunderbuss"); //The 2 original firearms to choose from, 1 is taken the other is gone
             case "hunter-blunderbuss" -> WORLD.getCurrentPlace().removeItemByID("hunter-pistol");
         }
-    }
+    }*/
 
     public void initiateFightListener(){
 

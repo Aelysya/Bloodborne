@@ -1,7 +1,7 @@
 [
   {
     "id": "yharnam-headstone",
-    "type": "Prop",
+    "type": "Headstone",
     "description": "This tombstone is special, if you focus hard enough on one of the inscribed destinations, you will get there instantly. This one is linked to the destinations close to Yharnam.",
     "attributes": {
       "isActionable": "false",

@@ -31,17 +31,6 @@ public class Inventory {
         }
     }
 
-    public String showInventory(){
-        StringBuilder s = new StringBuilder();
-
-        for(Item item: ITEMS.values()) {
-            s.append(item.getNAME())
-                    .append("\n");
-        }
-
-        return s.toString();
-    }
-
     public Map<String, Item> getItems(){
         return ITEMS;
     }
@@ -67,7 +56,7 @@ public class Inventory {
         return ITEMS.size();
     }
 
-    public boolean hasItem(String itemId){
-        return ITEMS.containsKey(itemId);
+    public boolean hasItem(Item item){
+        return ITEMS.containsKey(item.getID());
     }
 }
