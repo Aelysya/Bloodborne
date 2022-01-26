@@ -3,6 +3,87 @@
     src: url('VT323-Regular.ttf');
 }
 
+AnchorPane{
+    -fx-background-color: black;
+}
+
+ScrollPane{
+    -fx-background: black;
+}
+
+HBox{
+    -fx-border-color: white;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+
+#writeLine{
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+}
+
+#rightSide{
+    -fx-border-color: white;
+    -fx-border-width: 1px 1px 0px 1px;
+}
+
+#leftSide{
+    -fx-border-color: white;
+    -fx-border-width: 1px 0px 1px 1px;
+}
+
+#bottomLeft{
+    -fx-border-color: white;
+    -fx-border-width: 0px 1px 1px 0px;
+}
+
+#stat {
+   -fx-font-size: 22px;
+   -fx-font-family: 'VT323', monospace;
+   -fx-font-weight: bold;
+   -fx-border-width: 0px 0px 1px 0px;
+   -fx-background-color: none;
+}
+
+#otherStat {
+   -fx-font-size: 22px;
+   -fx-font-family: 'VT323', monospace;
+   -fx-font-weight: bold;
+   -fx-border-width: 0px 0px 1px 0px;
+   -fx-background-color: none;
+   -fx-padding: 0px;
+}
+
+#statNumber {
+   -fx-font-size: 22px;
+   -fx-font-family: 'VT323', monospace;
+   -fx-font-weight: bold;
+}
+
+#hunterName {
+    -fx-font-size: 30px;
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-weight: bold;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+#buttons {
+     -fx-font-size: 20px;
+     -fx-font-family: 'VT323', monospace;
+     -fx-font-weight: bold;
+}
+
+#currentHP{
+    -fx-font-size: 35px;
+    -fx-padding: 0px;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+
+#consumableAmount{
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-background-color: none;
+}
+
 .text-area {
     -fx-font-size: 23px;
     -fx-font-family: 'VT323', monospace;
@@ -12,21 +93,6 @@
 
 .text-area .content {
     -fx-background-color: black;
-}
-
-.gridStyle Line {
-    -fx-stroke : white;
-}
-
-#currentHP{
-    -fx-font-size: 28px;
-    -fx-background-color: none;
-    -fx-padding: 0px;
-}
-
-#hunterTitle {
-    -fx-font-size: 25px;
-    -fx-border-color: white;
 }
 
 .text-field {

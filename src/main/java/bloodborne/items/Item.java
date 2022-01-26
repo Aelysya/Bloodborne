@@ -35,6 +35,10 @@ public class Item {
         return ATTRIBUTES.get("name");
     }
 
+    public String getCategory() {
+        return ATTRIBUTES.get("category");
+    }
+
     public boolean isTaken() {
         return isTaken;
     }

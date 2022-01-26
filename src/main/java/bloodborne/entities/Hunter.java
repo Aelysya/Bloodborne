@@ -113,6 +113,10 @@ public class Hunter extends Entity{
         return INVENTORY;
     }
 
+    public int getMaxHP(){
+        return maxHP;
+    }
+
     public int getVialsNumber(){
         return vialsNumber;
     }

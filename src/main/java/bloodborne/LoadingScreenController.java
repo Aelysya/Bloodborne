@@ -35,7 +35,7 @@ public class LoadingScreenController {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game.fxml"));
                     Scene scene = null;
                     try {
-                        scene = new Scene(fxmlLoader.load(), 1067, 1000);
+                        scene = new Scene(fxmlLoader.load(), 1280, 720);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -46,6 +46,7 @@ public class LoadingScreenController {
                     stage.setTitle("Bloodborne");
                     stage.setScene(scene);
                     rootPane.getScene().getWindow().hide();
+                    stage.setFullScreen(true);
                     stage.show();
                 });
             } catch (InterruptedException e) {

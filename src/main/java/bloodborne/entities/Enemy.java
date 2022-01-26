@@ -19,8 +19,12 @@ public class Enemy extends Entity{
 
     @Override
     public int getDamage() {
-        return Integer.parseInt(ATTRIBUTES.get("damage"));
-    } //TODO Make damage random or multiple possible attack types
+        int finalDamage = Integer.parseInt(ATTRIBUTES.get("damage"));
+        if (Math.random() < 0.25){ // 1/4 chance to deal 50% more damage (Critical hit)
+            finalDamage += finalDamage * 1.5;
+        }
+        return finalDamage;
+    }
 
     @Override
     public String attack(Entity target, SoundManager soundManager) {

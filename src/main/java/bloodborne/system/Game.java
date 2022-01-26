@@ -37,6 +37,7 @@ public class Game {
         HUNTER = new Hunter();
         COMMAND_HANDLER = new CommandHandler(this);
         CONTROLLER = Controller;
+        CONTROLLER.setHunter(HUNTER);
         SOUND_MANAGER = new SoundManager();
         SOUND_MANAGER.setLoopingSound("central-yharnam.wav");
         analyzer = TextAnalyzer.START;
@@ -86,13 +87,13 @@ public class Game {
     }
 
     public void startGame() {
-        CONTROLLER.openInventory(HUNTER);
         setAnalyzer(TextAnalyzer.EXPLORATION);
         CONTROLLER.transitionImage(WORLD.getCurrentPlace().getIMAGE());
         String START_TEXT = """
                 """;
         //CONTROLLER.writeLetterByLetter(WORLD.getCurrentPlace().getDESCRIPTION());
         CONTROLLER.updateDirectionalArrows(WORLD.getCurrentPlace());
+        CONTROLLER.updateRunes();
     }
 
     public void death() {
@@ -122,7 +123,7 @@ public class Game {
         HUNTER.firstDeath();
         setAnalyzer(TextAnalyzer.EXPLORATION);
         currentlyFoughtEntity = null;
-        CONTROLLER.updateHUD(HUNTER);
+        CONTROLLER.updateHUD();
         CONTROLLER.deathTransition();
         WORLD.changePlace(WORLD.getPlaceById("hunter's-dream"));
         CONTROLLER.writeLetterByLetter(explanationText);
@@ -134,7 +135,7 @@ public class Game {
         currentlyFoughtEntity = null;
         setAnalyzer(TextAnalyzer.EXPLORATION);
         HUNTER.fullRegen();
-        CONTROLLER.updateHUD(HUNTER);
+        CONTROLLER.updateHUD();
         teleportFunction(lastLanternPlace.getID());
     }
 
@@ -246,7 +247,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You try to look at something that doesn't exist.");
         }
-        CONTROLLER.updateHUD(HUNTER);
+        CONTROLLER.updateHUD();
     }
 
     public void activateFunction(String target) {
@@ -256,7 +257,7 @@ public class Game {
             if(prop instanceof Container && !((Container) prop).isLooted()){
                 SOUND_MANAGER.playSoundEffect("open-chest.wav");
             }
-            CONTROLLER.updateHUD(HUNTER);
+            CONTROLLER.updateHUD();
             ACTION_LISTENER.activateListener();
             if(HUNTER.isDead()){
                 death();
@@ -264,7 +265,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You can't activate this.");
         }
-        INVENTORY_CONTROLLER.updateInventory();
+        CONTROLLER.updateInventory("default");
     }
 
     public void useFunction(String object) {
@@ -279,15 +280,15 @@ public class Game {
                 }
                 ACTION_LISTENER.resolveFightListener();
             }
-            CONTROLLER.updateHUD(HUNTER);
+            CONTROLLER.updateHUD();
             ACTION_LISTENER.useListener(item);
         } else if (objString.equals("blood vial")){
             healFunction();
         } else {
             CONTROLLER.writeInstantly("You try to use something that you don't have or doesn't exist.");
         }
-        CONTROLLER.updateHUD(HUNTER);
-        INVENTORY_CONTROLLER.updateInventory();
+        CONTROLLER.updateHUD();
+        CONTROLLER.updateInventory("default");
     }
 
     public void takeFunction(String itemName) {
@@ -303,7 +304,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You try to take something that doesn't exist.");
         }
-        INVENTORY_CONTROLLER.updateInventory();
+        CONTROLLER.updateInventory("default");
     }
 
 
@@ -317,7 +318,7 @@ public class Game {
                     CONTROLLER.writeInstantly(HUNTER.equipFireArm((FireArm) item));
                 }
                 SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
-                CONTROLLER.updateWeapons(HUNTER);
+                CONTROLLER.updateWeapons();
             } else if (item instanceof Rune){
                 if(HUNTER.getNumberOfRunes() >= 3){
                     setAnalyzer(TextAnalyzer.RUNE);
@@ -326,7 +327,7 @@ public class Game {
                 } else {
                     CONTROLLER.writeInstantly(HUNTER.equipRune((Rune) item, -1)); //-1 to just add the rune to the list
                     SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
-                    CONTROLLER.updateRunes(HUNTER);
+                    CONTROLLER.updateRunes();
                 }
             } else {
                 CONTROLLER.writeInstantly("This item is not a weapon nor a rune.");
@@ -334,14 +335,14 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You try to equip a weapon that you don't have or doesn't exist.");
         }
-        CONTROLLER.updateHUD(HUNTER);
-        INVENTORY_CONTROLLER.updateInventory();
+        CONTROLLER.updateHUD();
+        CONTROLLER.updateInventory("default");
     }
 
     public void runeDecisionFunction(int position){
         CONTROLLER.writeInstantly(HUNTER.equipRune(memorizedRune, position));
         SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
-        CONTROLLER.updateRunes(HUNTER);
+        CONTROLLER.updateRunes();
         setAnalyzer(TextAnalyzer.EXPLORATION);
     }
 
@@ -370,17 +371,7 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You try to speak to someone that doesn't exist.");
         }
-        INVENTORY_CONTROLLER.updateInventory();
-    }
-
-    public void inventoryFunction() {
-        String s = "Inventory content :\n" +
-                "-----------------------------\n" +
-                HUNTER.showInventory() +
-                "-----------------------------";
-        CONTROLLER.writeInstantly(s);
-        CONTROLLER.openInventory(HUNTER);
-        SOUND_MANAGER.playSoundEffect("inventory-list.wav");
+        CONTROLLER.updateInventory("default");
     }
 
     public void quitFunction() {
@@ -396,7 +387,7 @@ public class Game {
         }
         if(currentlyFoughtEntity.isDead()){
             checkEntityKilledIsBoss(currentlyFoughtEntity);
-            CONTROLLER.updateHUD(HUNTER);
+            CONTROLLER.updateHUD();
             ACTION_LISTENER.resolveFightListener();
             return;
         } else { //Enemy's turn if not dead
@@ -405,7 +396,7 @@ public class Game {
                 death();
             }
         }
-        CONTROLLER.updateHUD(HUNTER);
+        CONTROLLER.updateHUD();
         ACTION_LISTENER.resolveFightListener();
     }
 
@@ -422,7 +413,7 @@ public class Game {
             CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
         }
         CONTROLLER.writeLetterByLetter(e.loot(HUNTER));
-        INVENTORY_CONTROLLER.updateInventory();
+        CONTROLLER.updateInventory("default");
         setAnalyzer(TextAnalyzer.EXPLORATION);
         ACTION_LISTENER.deadEnemyListener(currentlyFoughtEntity);
         currentlyFoughtEntity = null;
@@ -430,18 +421,18 @@ public class Game {
 
     public void switchFunction() {
         CONTROLLER.writeInstantly(HUNTER.switchTrickWeaponState());
-        CONTROLLER.updateWeapons(HUNTER);
+        CONTROLLER.updateWeapons();
     }
 
     public void fleeFunction() {
         if (!(currentlyFoughtEntity instanceof Boss)){
             HUNTER.takeDamage(5);
             if (HUNTER.isDead()) {
-                CONTROLLER.updateHUD(HUNTER);
+                CONTROLLER.updateHUD();
                 CONTROLLER.writeLetterByLetter("You were too weak too flee and your enemy caught up with you. He executes you.");
                 death();
             } else {
-                CONTROLLER.updateHUD(HUNTER);
+                CONTROLLER.updateHUD();
                 CONTROLLER.writeLetterByLetter("You run away from the fight but your enemy won't let you do it easily, you take some damage as you flee pitifully.");
             }
             setAnalyzer(TextAnalyzer.EXPLORATION);
@@ -459,12 +450,12 @@ public class Game {
             }
             ACTION_LISTENER.resolveFightListener();
         }
-        CONTROLLER.updateHUD(HUNTER);
-        INVENTORY_CONTROLLER.updateInventory();
+        CONTROLLER.updateHUD();
+        CONTROLLER.updateInventory("default");
     }
 
     public void killFunction(){
         HUNTER.takeDamage(99);
-        CONTROLLER.updateHUD(HUNTER);
+        CONTROLLER.updateHUD();
     }
 }

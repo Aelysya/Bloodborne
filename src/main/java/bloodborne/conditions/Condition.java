@@ -11,5 +11,4 @@ public abstract class Condition {
     }
 
     public abstract boolean checkCondition();
-
 }

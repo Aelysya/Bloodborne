@@ -51,18 +51,17 @@ public class CommandHandler {
             target = args[1];
         }
         String EXPLORATION_HELP_TEXT = """
-                Currently available commands (use capitalized characters for shortcuts) :
-                - Look [target] : Get a description of the target, or of surroundings if none
-                - Use [object] : Use an object in your inventory
-                - SWitch : Switch the state of your trick weapon
-                - Activate [object] : Activate an object in your current location
-                - Take [object] : Pick up an object in your current location
-                - Equip [object] : Equip a weapon or a rune from your inventory
-                - Fight [target] : Initiate a fight with the target
-                - TalK [NPC] : Engage conversation with target NPC
-                - Inventory : Display your inventory's content
+                Currently available commands (use characters in brackets for shortcuts) :
+                - (L) Look [target] : Get a description of the target, or of surroundings if none
+                - (U) Use [object] : Use an object in your inventory
+                - (SW) Switch : Switch the state of your trick weapon
+                - (A) Activate [object] : Activate an object in your current location
+                - (T) Take [object] : Pick up an object in your current location
+                - (E) Equip [object] : Equip a weapon or a rune from your inventory
+                - (F) Fight [target] : Initiate a fight with the target
+                - (TK) Talk [NPC] : Engage conversation with target NPC
                 - mute/unmute : Mutes or unmutes the music
-                - Quit : Quit the game, all progress will be lost""";
+                - (Q) Quit : Quit the game, all progress will be lost""";
         switch (command) {
             case "g", "go" -> {
                 if (target.equals("")) {
@@ -122,7 +121,6 @@ public class CommandHandler {
             }
             case "h", "help" -> GAME.writeInstantly(EXPLORATION_HELP_TEXT);
             case "l", "look" -> GAME.lookFunction(target);
-            case "i", "inventory" -> GAME.inventoryFunction();
             case "hl", "heal" -> GAME.healFunction();
             case "sw", "switch" -> GAME.switchFunction();
             case "mute" -> GAME.muteGame();
@@ -157,14 +155,29 @@ public class CommandHandler {
             target = args[1];
         }
         String FIGHT_HELP_TEXT = """
-                Currently available commands (capitalized characters for shortcut) :
-                - Attack : Attack the enemy with your Trick weapon, you'll have a chance to dodge it's attack
-                - SHoot : Attack the enemy with your gun, you'll have a chance to stagger it, canceling it's attack and performing a visceral attack
-                - SWitch : Switch the state of your trick weapon
-                - Use [object] : Use an object in your inventory
-                - Flee : Try to flee the fight, you will take some damage if you do this
-                - HeaL : Use a blood vial to heal you
-                - mute/unmute : Mutes or unmutes the music""";
+                Currently available commands (use characters in brackets for shortcuts) :
+                - (CH) Combat-help : Show the exact stat changes for each combat actions
+                - (A) Attack : Attack the enemy with your Trick weapon
+                - (HA) Heavy-attack : Attacks the enemy with a heavy attack
+                - (CHA) Charged-heavy-attack : Attacks the enemy with a charged heavy attack
+                - (S) Shoot : Attack the enemy with your gun
+                - (SW) Switch : Switch the state of your trick weapon
+                - (U) Use [object] : Use an object in your inventory
+                - (F) Flee : Try to flee the fight
+                - (HL) HeaL : Use a blood vial to heal you
+                - mute/unmute : Mutes or unmutes the music
+                """;
+        String FIGHT_DETAILS_HELP_TEXT = """
+                You are in a turn-based fight, here are the stat modifications for each action:
+                - (A) Basic attack : Damage x 1, Dodge rate x 1
+                - (HA) Heavy attack : Damage x 1.5, Dodge rate x 0.75
+                - (CHA) Charged heavy attack : Damage x 1.9, Dodge rate x 0.6
+                - (S) Gun shot : Damage x 1, + 0.2 to Dodge rate
+                - (HL/U) Healing or using an item : Pass the turn, + 0.2 to Dodge rate
+                - (F) Flee : Flee the fight but take some damage. You can't flee from a boss fight
+                
+                Switching your trick weapon state or using help commands does not pass your turn
+                """;
         switch (command) {
             case "u", "use" -> {
                 if (target.equals("")) {
@@ -174,8 +187,11 @@ public class CommandHandler {
                 }
             }
             case "h", "help" -> GAME.writeInstantly(FIGHT_HELP_TEXT);
+            case "ch", "combat-help" -> GAME.writeInstantly(FIGHT_DETAILS_HELP_TEXT);
             case "a", "attack" -> GAME.resolveFight("melee");
-            case "sh", "shoot" -> GAME.resolveFight("range");
+            case "ha", "heavy-attack" -> GAME.resolveFight("heavy-melee");
+            case "cha", "charged-heavy-attack" -> GAME.resolveFight("charged-melee");
+            case "s", "shoot" -> GAME.resolveFight("range");
             case "sw", "switch" -> GAME.switchFunction();
             case "f", "flee" -> GAME.fleeFunction();
             case "hl", "heal" -> GAME.healFunction();
