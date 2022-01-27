@@ -28,7 +28,6 @@ public class WorldDataLoader {
 
     private static Reader getAsReader(String zoneName, String resource) {
         String path = String.format("%s/%s.json", zoneName, resource);
-
         return new InputStreamReader(Objects.requireNonNull(WorldDataLoader.class.getResourceAsStream(path)));
     }
 }

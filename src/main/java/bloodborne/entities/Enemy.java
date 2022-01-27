@@ -14,12 +14,12 @@ public class Enemy extends Entity {
     }
 
     public String getNAME() {
-        return ATTRIBUTES.get("name");
+        return getATTRIBUTES().get("name");
     }
 
     @Override
     public int getDamage() {
-        int finalDamage = Integer.parseInt(ATTRIBUTES.get("damage"));
+        int finalDamage = Integer.parseInt(getATTRIBUTES().get("damage"));
         if (Math.random() < 0.25) { // 1/4 chance to deal 50% more damage (Critical hit)
             finalDamage += finalDamage * 1.5;
         }
@@ -65,17 +65,17 @@ public class Enemy extends Entity {
                 hunter.addVials(3);
             }
         }*/
-        hunter.gainBloodEchoes(Integer.parseInt(ATTRIBUTES.get("bloodEchoes")) + takenBloodEchoes);
+        hunter.gainBloodEchoes(Integer.parseInt(getATTRIBUTES().get("bloodEchoes")) + takenBloodEchoes);
         return "You loot the corpse and retrieve some useful consumables.";
     }
 
     public void resetEnemy() {
-        if (Boolean.parseBoolean(ATTRIBUTES.get("canRespawn"))) {
+        if (Boolean.parseBoolean(getATTRIBUTES().get("canRespawn"))) {
             fullRegen();
             takenBloodEchoes = 0;
-            System.out.println("Reset : " + ATTRIBUTES.get("id"));
+            System.out.println("Reset : " + getATTRIBUTES().get("id"));
         } else {
-            System.out.println("Enemy not reset : " + ATTRIBUTES.get("id"));
+            System.out.println("Enemy not reset : " + getATTRIBUTES().get("id"));
         }
     }
 

@@ -22,7 +22,6 @@ public class LoadingScreenController {
     public void initialize() {
         loadingScreenImage.fitWidthProperty().bind(rootPane.widthProperty());
         loadingScreenImage.fitHeightProperty().bind(rootPane.heightProperty());
-
         new Loader().start();
     }
 
@@ -30,7 +29,7 @@ public class LoadingScreenController {
         @Override
         public void run() {
             try {
-                Thread.sleep(1500);
+                Thread.sleep(1000);
                 Platform.runLater(() -> {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game.fxml"));
                     Scene scene = null;

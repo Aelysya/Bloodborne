@@ -1,27 +1,14 @@
 package bloodborne.npcs;
 
 import bloodborne.entities.Hunter;
+import bloodborne.json.ElementTemplate;
 
 import java.util.Map;
 
-public class NPC {
+public class NPC extends ElementTemplate {
 
-    private final String ID;
-    private final String DESCRIPTION;
-    protected final Map<String, String> ATTRIBUTES;
-
-    public NPC(String id, String description, Map<String, String> att) {
-        ID = id;
-        DESCRIPTION = description;
-        ATTRIBUTES = att;
-    }
-
-    public String getID() {
-        return ID;
-    }
-
-    public String getDESCRIPTION() {
-        return DESCRIPTION;
+    public NPC(String id, String description, Map<String, String> attributes) {
+        super(id, description, attributes);
     }
 
     public String talk(Hunter hunter){

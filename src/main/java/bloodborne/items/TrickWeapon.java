@@ -12,11 +12,11 @@ public class TrickWeapon extends Weapon {
 
     @Override
     public int getCurrentDamage() {
-        return isSwitched ? Integer.parseInt(ATTRIBUTES.get("switchedDamage")) : Integer.parseInt(ATTRIBUTES.get("baseDamage"));
+        return isSwitched ? Integer.parseInt(getATTRIBUTES().get("switchedDamage")) : Integer.parseInt(getATTRIBUTES().get("baseDamage"));
     }
 
     public double getCurrentDodgeRate() {
-        return isSwitched ? Double.parseDouble(ATTRIBUTES.get("switchedDodgeRate")) : Double.parseDouble(ATTRIBUTES.get("baseDodgeRate"));
+        return isSwitched ? Double.parseDouble(getATTRIBUTES().get("switchedDodgeRate")) : Double.parseDouble(getATTRIBUTES().get("baseDodgeRate"));
     }
 
     public void switchMode() {

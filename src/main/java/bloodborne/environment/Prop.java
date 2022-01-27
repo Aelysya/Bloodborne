@@ -1,9 +1,7 @@
 package bloodborne.environment;
 
 import bloodborne.entities.Hunter;
-import bloodborne.exceptions.ReflectionException;
 import bloodborne.json.ElementTemplate;
-import bloodborne.world.World;
 
 import java.util.Map;
 

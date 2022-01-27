@@ -153,7 +153,7 @@ public class Hunter extends Entity {
 
     @Override
     public double getDodgeRate() {
-        double baseRate = trickWeapon == null ? Double.parseDouble(ATTRIBUTES.get("dodgeRate")) : trickWeapon.getCurrentDodgeRate();
+        double baseRate = trickWeapon == null ? Double.parseDouble(getATTRIBUTES().get("dodgeRate")) : trickWeapon.getCurrentDodgeRate();
         double bonusRate;
         int endurancePoints = STATS.get("Endurance");
         if (endurancePoints <= 15) {

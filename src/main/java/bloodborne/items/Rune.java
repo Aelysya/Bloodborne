@@ -9,11 +9,11 @@ public class Rune extends Item {
     }
 
     public String getEquipText() {
-        return ATTRIBUTES.get("equipText");
+        return getATTRIBUTES().get("equipText");
     }
 
     public int getTier() {
-        return Integer.parseInt(ATTRIBUTES.get("tier"));
+        return Integer.parseInt(getATTRIBUTES().get("tier"));
     }
 
 }

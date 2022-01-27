@@ -12,7 +12,7 @@ public class BoostItem extends Item {
     }
 
     public String getTYPE() {
-        return ATTRIBUTES.get("type");
+        return getATTRIBUTES().get("type");
     }
 
     @Override
@@ -24,7 +24,7 @@ public class BoostItem extends Item {
             if (hunter.getDamageBoost() != 0) {
                 txt = "You recently used a boost item onto your weapon and it's effect has not ran out yet.";
             } else {
-                hunter.boostDamage(Integer.parseInt(ATTRIBUTES.get("damageBoost")), this, soundManager);
+                hunter.boostDamage(Integer.parseInt(getATTRIBUTES().get("damageBoost")), this, soundManager);
                 txt = "You empower your trick weapon. It will now do more damage for some attacks.";
             }
         }

@@ -31,14 +31,14 @@ public class Iosefka extends NPC {
             talkedOnce = true;
             hunterHasIosefkasBloodVial = true;
             hunter.addItem(VIAL);
-            speech = ATTRIBUTES.get("firstSpeech");
+            speech = getATTRIBUTES().get("firstSpeech");
         } else {
             if (!hunterHasIosefkasBloodVial) {
                 hunterHasIosefkasBloodVial = true;
                 hunter.addItem(VIAL);
-                speech = ATTRIBUTES.get("noVialSpeech");
+                speech = getATTRIBUTES().get("noVialSpeech");
             } else {
-                speech = ATTRIBUTES.get("hasVialSpeech");
+        speech = getATTRIBUTES().get("hasVialSpeech");
             }
         }
         return speech;

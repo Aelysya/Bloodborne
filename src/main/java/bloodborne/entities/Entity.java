@@ -1,37 +1,17 @@
 package bloodborne.entities;
 
+import bloodborne.json.ElementTemplate;
 import bloodborne.sounds.SoundManager;
 
 import java.util.Map;
 
-public abstract class Entity {
+public abstract class Entity extends ElementTemplate {
 
-    private final String ID;
-    private final String DESCRIPTION;
-    protected final Map<String, String> ATTRIBUTES;
     protected int healthPoints;
 
-    public Entity(String id, String description, Map<String, String> att) {
-        ID = id;
-        DESCRIPTION = description;
-        ATTRIBUTES = att;
-        healthPoints = Integer.parseInt(att.get("maxHealth"));
-    }
-
-    public String getID() {
-        return ID;
-    }
-
-    public String getDESCRIPTION() {
-        return DESCRIPTION;
-    }
-
-    public int getCurrentHealthPoints() {
-        return healthPoints;
-    }
-
-    public double getDodgeRate() {
-        return Double.parseDouble(ATTRIBUTES.get("dodgeRate"));
+    public Entity(String id, String description, Map<String, String> attributes) {
+        super(id, description, attributes);
+        healthPoints = Integer.parseInt(attributes.get("maxHealth"));
     }
 
     public boolean isDead() {
@@ -39,7 +19,7 @@ public abstract class Entity {
     }
 
     public void fullRegen() {
-        healthPoints = Integer.parseInt(ATTRIBUTES.get("maxHealth"));
+        healthPoints = Integer.parseInt(getATTRIBUTES().get("maxHealth"));
     }
 
     public void takeDamage(int damage) {
@@ -48,6 +28,14 @@ public abstract class Entity {
         } else {
             healthPoints -= damage;
         }
+    }
+
+    public int getCurrentHealthPoints() {
+        return healthPoints;
+    }
+
+    public double getDodgeRate() {
+        return Double.parseDouble(getATTRIBUTES().get("dodgeRate"));
     }
 
     public abstract int getDamage();
