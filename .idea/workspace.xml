@@ -4,24 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Refactored environment package's classes and added general template class and interface ti reduce code duplication">
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Refactored all classes to implement ElementTemplate class inheritance and Initializable interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/LoadingScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/LoadingScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/BoostItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/BoostItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/FireArm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/FireArm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/HealingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/HealingItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Rune.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Rune.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/json/WorldDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/json/WorldDataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/Iosefka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/Iosefka.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/NPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/NPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643294479350</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Refactored all classes to implement ElementTemplate class inheritance and Initializable interface">
+      <created>1643323296731</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1643323296731</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -324,7 +319,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added blood echoes values to NPC in json file" />
     <MESSAGE value="allowed use of paper in fights, modified sound effect for killing basic monster to add gained blood echoes effect" />
     <MESSAGE value="added loot values to NPC json file, added eileen and alfred enemy version in NPC json file" />
     <MESSAGE value="added Coldblood class and blood echoes are now counted in Hunter class" />
@@ -349,7 +343,8 @@
     <MESSAGE value="Refactored all conditions" />
     <MESSAGE value="Applied code-clean on all classes" />
     <MESSAGE value="Refactored environment package's classes and added general template class and interface ti reduce code duplication" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored environment package's classes and added general template class and interface ti reduce code duplication" />
+    <MESSAGE value="Refactored all classes to implement ElementTemplate class inheritance and Initializable interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored all classes to implement ElementTemplate class inheritance and Initializable interface" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

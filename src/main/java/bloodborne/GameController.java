@@ -48,7 +48,7 @@ public class GameController {
     Button useButton, throwOneButton, throwAllButton;
 
     @FXML
-    ImageView placeImage, firstImage, detailImage, trickWeaponImage, runeOath, rune3, rune2, rune1, gunImage, headArmorImage, chestArmorImage, legsArmorImage, feetArmorImage;
+    ImageView placeImage, firstImage, detailImage, trickWeaponImage, runeOath, rune3, rune2, rune1, gunImage, headArmorImage, chestArmorImage, legsArmorImage, feetArmorImage, consumablesTab, materialsTab, keysTab, trickWeaponsTab, fireArmsTab, gemsTab, runesTab;
 
     @FXML
     Label levelText, echoesText, vitText, endText, arcText, btText, sklText, strText, vialAmountText, bulletAmountText, dmgBoostText, boostLeftText, visceralRateText, hitRateText, dodgeRateText, bulletConsumptionText, trickWeaponNameText, trickWeaponDmgText, gunNameText, gunDmgText;
@@ -58,6 +58,7 @@ public class GameController {
     private List<String> lastCommands;
     private int previousCommandIndex;
     private Hunter hunter;
+    private Item currentlyDetailedItem;
 
     public void setGame(Game game) {
         this.game = game;
@@ -111,6 +112,7 @@ public class GameController {
 
     public void updateRunes() {
         List<Rune> runes = hunter.getRUNE_LIST();
+        Rune oathRune = hunter.getOathRune();
         if (runes.size() >= 1) {
             rune1.setImage(new Image(String.valueOf(getClass().getResource("images/" + runes.get(0).getImage()))));
             if (runes.size() >= 2) {
@@ -125,6 +127,11 @@ public class GameController {
             }
         } else {
             rune1.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty-rune.png"))));
+        }
+        if (oathRune == null) {
+            runeOath.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty-oath.png"))));
+        } else {
+            runeOath.setImage(new Image(String.valueOf(getClass().getResource("images/" + oathRune.getImage()))));
         }
     }
 
@@ -144,21 +151,37 @@ public class GameController {
             inventoryItems.add(emptyImage, 0, 0);
             inventoryItems.add(emptyText, 1, 0);
         } else {
-            int cpt = 0;
+            int numberOfItemInCategory = 0;
             for (Item i : hunter.getINVENTORY().getItems().values()) {
-                ImageView itemImage = new ImageView();
-                itemImage.setFitHeight(75);
-                itemImage.setFitWidth(75);
-                itemImage.setPreserveRatio(true);
-                itemImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/" + i.getImage()))));
+                if (i.getCategory().equals(category)) {
+                    ImageView itemImage = new ImageView();
+                    itemImage.setFitHeight(75);
+                    itemImage.setFitWidth(75);
+                    itemImage.setPreserveRatio(true);
+                    itemImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/" + i.getImage()))));
 
-                TextField itemText = new TextField(i.getNAME());
-                itemText.setEditable(false);
-                itemText.setFocusTraversable(false);
+                    TextField itemText = new TextField(i.getNAME());
+                    itemText.setEditable(false);
+                    itemText.setFocusTraversable(false);
 
-                inventoryItems.add(itemImage, 0, cpt);
-                inventoryItems.add(itemText, 1, cpt);
-                cpt++;
+                    inventoryItems.add(itemImage, 0, numberOfItemInCategory);
+                    inventoryItems.add(itemText, 1, numberOfItemInCategory);
+                    numberOfItemInCategory++;
+                }
+            }
+            if (numberOfItemInCategory == 0) {
+                ImageView emptyImage = new ImageView();
+                emptyImage.setFitHeight(75);
+                emptyImage.setFitWidth(75);
+                emptyImage.setPreserveRatio(true);
+                emptyImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+
+                TextField emptyText = new TextField("Empty category");
+                emptyText.setEditable(false);
+                emptyText.setFocusTraversable(false);
+
+                inventoryItems.add(emptyImage, 0, 0);
+                inventoryItems.add(emptyText, 1, 0);
             }
         }
     }
@@ -301,6 +324,7 @@ public class GameController {
         console.setText("Wake up ? [Y/N]\n");
         lastCommands = new ArrayList<>();
         previousCommandIndex = 0;
+
         northArrow.setOnMouseEntered(event -> northArrow.setStyle("-fx-opacity: 1;"));
         northArrow.setOnMouseExited(event -> northArrow.setStyle("-fx-opacity: 0.6;"));
         northArrow.setOnMouseReleased(event -> game.goFunction("north"));
@@ -316,5 +340,13 @@ public class GameController {
         westArrow.setOnMouseEntered(event -> westArrow.setStyle("-fx-opacity: 1;"));
         westArrow.setOnMouseExited(event -> westArrow.setStyle("-fx-opacity: 0.6;"));
         westArrow.setOnMouseReleased(event -> game.goFunction("west"));
+
+        consumablesTab.setOnMouseReleased(event -> updateInventory("consumable"));
+        materialsTab.setOnMouseReleased(event -> updateInventory("material"));
+        keysTab.setOnMouseReleased(event -> updateInventory("key"));
+        trickWeaponsTab.setOnMouseReleased(event -> updateInventory("trickWeapon"));
+        fireArmsTab.setOnMouseReleased(event -> updateInventory("fireArm"));
+        gemsTab.setOnMouseReleased(event -> updateInventory("gem"));
+        runesTab.setOnMouseReleased(event -> updateInventory("rune"));
     }
 }

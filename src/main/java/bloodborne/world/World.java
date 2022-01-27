@@ -12,14 +12,12 @@ import java.util.Map;
 public class World {
 
     public static final String STARTING_LOCATION = "clinic";
-
     private final Map<String, Item> ITEMS;
     private final Map<String, Prop> PROPS;
     private final Map<String, Enemy> ENEMIES;
     private final Map<String, NPC> NPCS;
     private final Map<String, Place> PLACES;
     private final Map<String, Place> LANTERN_PLACES;
-
     private Place currentPlace;
     private final Hunter HUNTER;
 
@@ -30,21 +28,23 @@ public class World {
         NPCS = new HashMap<>();
         PLACES = new HashMap<>();
         LANTERN_PLACES = new HashMap<>();
-
         HUNTER = hunter;
-    }
-
-    public Hunter getHUNTER() {
-        return HUNTER;
-    }
-
-    public Place getCurrentPlace() {
-        return currentPlace;
     }
 
     public void changePlace(Place newPlace) {
         currentPlace = newPlace;
         currentPlace.visit();
+    }
+
+    public String generateHeadstoneText(String headstoneName) {
+        StringBuilder s = new StringBuilder();
+        for (Place p : LANTERN_PLACES.values()) {
+            if (headstoneName.equals(p.getHEADSTONE()) && p.hasBeenVisited()) {
+                s.append(p.getHEADSTONE_INDEX()).append(" -> ").append(p.getNAME()).append("\n");
+            }
+        }
+        s.append("\nEnter the number corresponding to the destination you want to reawaken at or Cancel to stay in the dream");
+        return s.toString();
     }
 
     public void addItem(Item item) {
@@ -55,12 +55,12 @@ public class World {
         this.PROPS.put(prop.getID(), prop);
     }
 
-    public void addNpc(NPC npc) {
-        this.NPCS.put(npc.getID(), npc);
-    }
-
     public void addEnemy(Enemy enemy) {
         this.ENEMIES.put(enemy.getID(), enemy);
+    }
+
+    public void addNpc(NPC npc) {
+        this.NPCS.put(npc.getID(), npc);
     }
 
     public void addPlace(Place place) {
@@ -83,6 +83,10 @@ public class World {
         return ENEMIES;
     }
 
+    public Map<String, NPC> getNpcs() {
+        return NPCS;
+    }
+
     public Map<String, Place> getPlaces() {
         return PLACES;
     }
@@ -91,34 +95,31 @@ public class World {
         return LANTERN_PLACES;
     }
 
-    public Enemy getEnemyById(String enemyId) {
-        return ENEMIES.get(enemyId);
-    }
-
     public Item getItemById(String itemId) {
         return ITEMS.get(itemId);
-    }
-
-    public Place getPlaceById(String placeId) {
-        return this.PLACES.get(placeId);
     }
 
     public Prop getPropById(String propId) {
         return PROPS.get(propId);
     }
 
+    public Enemy getEnemyById(String enemyId) {
+        return ENEMIES.get(enemyId);
+    }
+
     public NPC getNpcById(String npcId) {
         return NPCS.get(npcId);
     }
 
-    public String generateHeadstoneText(String headstoneName) {
-        StringBuilder s = new StringBuilder();
-        for (Place p : LANTERN_PLACES.values()) {
-            if (headstoneName.equals(p.getHEADSTONE()) && p.hasBeenVisited()) {
-                s.append(p.getHEADSTONE_INDEX()).append(" -> ").append(p.getNAME()).append("\n");
-            }
-        }
-        s.append("\nEnter the number corresponding to the destination you want to reawaken at or Cancel to stay in the dream");
-        return s.toString();
+    public Place getPlaceById(String placeId) {
+        return PLACES.get(placeId);
+    }
+
+    public Hunter getHUNTER() {
+        return HUNTER;
+    }
+
+    public Place getCurrentPlace() {
+        return currentPlace;
     }
 }

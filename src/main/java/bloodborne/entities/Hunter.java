@@ -17,6 +17,7 @@ public class Hunter extends Entity {
     private DamageType damageType;
     private int bloodEchoes;
     private final List<Rune> RUNE_LIST;
+    private Rune oathRune;
     private boolean lastAttackIsVisceral;
     private boolean firstDeathHappened;
     private int maxHP;
@@ -412,5 +413,9 @@ public class Hunter extends Entity {
             }
         }
         return cantShoot;
+    }
+
+    public Rune getOathRune() {
+        return oathRune;
     }
 }
