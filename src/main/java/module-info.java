@@ -15,4 +15,5 @@ module bloodborne {
     exports bloodborne.sounds;
     exports bloodborne.system;
     exports bloodborne.world;
+    exports bloodborne.npcs;
 }

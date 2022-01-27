@@ -1,145 +1,145 @@
 [
-	{
-		"id": "useless-path-executioner",
-		"type": "Enemy",
-		"description": "This monster seems way more dangerous than the others, not only because of it's height but mostly because of the massive axe twice your size it wields.",
-		"attributes": {
-			"name": "Executioner",
-			"health": "25",
-			"damage": "4",
-			"dodgeRate": "0.1",
-			"bloodEchoes": "1500",
-			"lootValue": "rare"
-		}
-	},
-	{
-		"id": "back-clinic-brainsucker",
-		"type": "Enemy",
-		"description": "This eldritch thing is clearly not human, in fact you can't really tell what it is, you just know that you must kill it.",
-		"attributes": {
-			"name": "Brainsucker",
-			"health": "20",
-			"damage": "2",
-			"dodgeRate": "0.0",
-			"bloodEchoes": "1000",
-			"lootValue": "uncommon"
-		}
-	},
-	{
-		"id": "lower-sewers-brainsucker",
-		"type": "Enemy",
-		"description": "This eldritch thing is clearly not human, in fact you can't really tell what it is, you just know that you must kill it.",
-		"attributes": {
-			"name": "Brainsucker",
-			"health": "20",
-			"damage": "2",
-			"dodgeRate": "0.0",
-			"bloodEchoes": "1000",
-			"lootValue": "uncommon"
-		}
-	},
-	{
-		"id": "campfire-yharnam-beast",
-		"type": "Enemy",
-		"description": "This Yharnam inhabitant has been completely transformed by the blood plague. He is no more human so don't feel bad for killing him, you'll do him more good.",
-		"attributes": {
-			"name": "Yharnam Beast",
-			"health": "10",
-			"damage": "2",
-			"dodgeRate": "0.1",
-			"bloodEchoes": "100",
-			"lootValue": "basic"
-		}
-	},
-	{
-		"id": "square-yharnam-beast",
-		"type": "Enemy",
-		"description": "This Yharnam inhabitant has been completely transformed by the blood plague. He is no more human so don't feel bad for killing him, you'll do him more good.",
-		"attributes": {
-			"name": "Yharnam Beast",
-			"health": "10",
-			"damage": "2",
-			"dodgeRate": "0.1",
-			"bloodEchoes": "100",
-			"lootValue": "basic"
-		}
-	},
-	{
-		"id": "graveyard-annex-wolf-beast",
-		"type": "Enemy",
-		"description": "This wolf has been transformed by the blood plague after consuming too much tainted blood from the corpses, it is now bigger and scarier, and also quite deadlier.",
-		"attributes": {
-			"name": "Wolf Beast",
-			"health": "18",
-			"damage": "3",
-			"dodgeRate": "0.2",
-			"bloodEchoes": "300",
-			"lootValue": "common"
-		}
-	},
-	{
-		"id": "back-bridge-wolf-beast",
-		"type": "Enemy",
-		"description": "This wolf has been transformed by the blood plague after consuming too much tainted blood from the corpses, it is now bigger and scarier, and also quite deadlier.",
-		"attributes": {
-			"name": "Wolf Beast",
-			"health": "18",
-			"damage": "3",
-			"dodgeRate": "0.2",
-			"bloodEchoes": "300",
-			"lootValue": "common"
-		}
-	},
-	{
-		"id": "front-bridge-wolf-beast",
-		"type": "Enemy",
-		"description": "This wolf has been transformed by the blood plague after consuming too much tainted blood from the corpses, it is now bigger and scarier, and also quite deadlier.",
-		"attributes": {
-			"name": "Wolf Beast",
-			"health": "18",
-			"damage": "3",
-			"dodgeRate": "0.2",
-			"bloodEchoes": "300",
-			"lootValue": "common"
-		}
-	},
-	{
-		"id": "cleric-beast",
-		"type": "Boss",
-		"description": "This massive monster is at least 4 meters high, one of its arms is disproportionate to the second and the horns on its head give it an even more impressive aspect. It is hard to believe that this thing was once a human, now transformed by the blood plague.",
-		"attributes": {
-			"name": "Cleric Beast",
-			"health": "50",
-			"damage": "7",
-			"dodgeRate": "0.1",
-			"bloodEchoes": "4000",
-			"lootValue": "very rare"
-		}
-	},
-	{
-		"id": "eileen-enemy",
-		"type": "Enemy",
-		"description": "You shouldn't be able to see this sentence, report the bug if you do anyway.",
-		"attributes": {
-			"name": "Eileen",
-			"health": "30",
-			"damage": "5",
-			"dodgeRate": "0.3",
-			"bloodEchoes": "2000",
-			"lootValue": "rare"
-		}
-	},
-	{
-		"id": "alfred-enemy",
-		"type": "Enemy",
-		"description": "You shouldn't be able to see this sentence, report the bug if you do anyway.",
-		"attributes": {
-			"name": "Alfred",
-			"health": "25",
-			"damage": "4",
-			"dodgeRate": "0.2",
-			"bloodEchoes": "1500",
-			"lootValue": "uncommon"
-		}
-	}
+  {
+    "id": "useless-path-executioner",
+    "type": "Enemy",
+    "description": "This monster seems way more dangerous than the others, not only because of it's height but mostly because of the massive axe twice your size it wields.",
+    "attributes": {
+      "name": "Executioner",
+      "health": "25",
+      "damage": "4",
+      "dodgeRate": "0.1",
+      "bloodEchoes": "1500",
+      "lootValue": "rare"
+    }
+  },
+  {
+    "id": "back-clinic-brainsucker",
+    "type": "Enemy",
+    "description": "This eldritch thing is clearly not human, in fact you can't really tell what it is, you just know that you must kill it.",
+    "attributes": {
+      "name": "Brainsucker",
+      "health": "20",
+      "damage": "2",
+      "dodgeRate": "0.0",
+      "bloodEchoes": "1000",
+      "lootValue": "uncommon"
+    }
+  },
+  {
+    "id": "lower-sewers-brainsucker",
+    "type": "Enemy",
+    "description": "This eldritch thing is clearly not human, in fact you can't really tell what it is, you just know that you must kill it.",
+    "attributes": {
+      "name": "Brainsucker",
+      "health": "20",
+      "damage": "2",
+      "dodgeRate": "0.0",
+      "bloodEchoes": "1000",
+      "lootValue": "uncommon"
+    }
+  },
+  {
+    "id": "campfire-yharnam-beast",
+    "type": "Enemy",
+    "description": "This Yharnam inhabitant has been completely transformed by the blood plague. He is no more human so don't feel bad for killing him, you'll do him more good.",
+    "attributes": {
+      "name": "Yharnam Beast",
+      "health": "10",
+      "damage": "2",
+      "dodgeRate": "0.1",
+      "bloodEchoes": "100",
+      "lootValue": "basic"
+    }
+  },
+  {
+    "id": "square-yharnam-beast",
+    "type": "Enemy",
+    "description": "This Yharnam inhabitant has been completely transformed by the blood plague. He is no more human so don't feel bad for killing him, you'll do him more good.",
+    "attributes": {
+      "name": "Yharnam Beast",
+      "health": "10",
+      "damage": "2",
+      "dodgeRate": "0.1",
+      "bloodEchoes": "100",
+      "lootValue": "basic"
+    }
+  },
+  {
+    "id": "graveyard-annex-wolf-beast",
+    "type": "Enemy",
+    "description": "This wolf has been transformed by the blood plague after consuming too much tainted blood from the corpses, it is now bigger and scarier, and also quite deadlier.",
+    "attributes": {
+      "name": "Wolf Beast",
+      "health": "18",
+      "damage": "3",
+      "dodgeRate": "0.2",
+      "bloodEchoes": "300",
+      "lootValue": "common"
+    }
+  },
+  {
+    "id": "back-bridge-wolf-beast",
+    "type": "Enemy",
+    "description": "This wolf has been transformed by the blood plague after consuming too much tainted blood from the corpses, it is now bigger and scarier, and also quite deadlier.",
+    "attributes": {
+      "name": "Wolf Beast",
+      "health": "18",
+      "damage": "3",
+      "dodgeRate": "0.2",
+      "bloodEchoes": "300",
+      "lootValue": "common"
+    }
+  },
+  {
+    "id": "front-bridge-wolf-beast",
+    "type": "Enemy",
+    "description": "This wolf has been transformed by the blood plague after consuming too much tainted blood from the corpses, it is now bigger and scarier, and also quite deadlier.",
+    "attributes": {
+      "name": "Wolf Beast",
+      "health": "18",
+      "damage": "3",
+      "dodgeRate": "0.2",
+      "bloodEchoes": "300",
+      "lootValue": "common"
+    }
+  },
+  {
+    "id": "cleric-beast",
+    "type": "Boss",
+    "description": "This massive monster is at least 4 meters high, one of its arms is disproportionate to the second and the horns on its head give it an even more impressive aspect. It is hard to believe that this thing was once a human, now transformed by the blood plague.",
+    "attributes": {
+      "name": "Cleric Beast",
+      "health": "50",
+      "damage": "7",
+      "dodgeRate": "0.1",
+      "bloodEchoes": "4000",
+      "lootValue": "very rare"
+    }
+  },
+  {
+    "id": "eileen-enemy",
+    "type": "Enemy",
+    "description": "You shouldn't be able to see this sentence, report the bug if you do anyway.",
+    "attributes": {
+      "name": "Eileen",
+      "health": "30",
+      "damage": "5",
+      "dodgeRate": "0.3",
+      "bloodEchoes": "2000",
+      "lootValue": "rare"
+    }
+  },
+  {
+    "id": "alfred-enemy",
+    "type": "Enemy",
+    "description": "You shouldn't be able to see this sentence, report the bug if you do anyway.",
+    "attributes": {
+      "name": "Alfred",
+      "health": "25",
+      "damage": "4",
+      "dodgeRate": "0.2",
+      "bloodEchoes": "1500",
+      "lootValue": "uncommon"
+    }
+  }
 ]

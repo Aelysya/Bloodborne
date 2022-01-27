@@ -1,6 +1,9 @@
 package bloodborne.world;
 
 import bloodborne.entities.Enemy;
+import bloodborne.environment.ConditionalProp;
+import bloodborne.environment.Container;
+import bloodborne.npcs.NPC;
 import bloodborne.environment.Prop;
 import bloodborne.exceptions.*;
 import bloodborne.items.Item;
@@ -22,6 +25,7 @@ public final class WorldLoader {
             loadItems(zoneName, world);
             loadEnemies(zoneName, world);
             loadProps(zoneName, world);
+            loadNpcs(zoneName, world);
             loadPlaces(zoneName, world);
             world.changePlace(world.getPlaceById(World.STARTING_LOCATION));
 
@@ -68,6 +72,18 @@ public final class WorldLoader {
         }
     }
 
+    private static void loadNpcs(String zoneName, World world) throws ReflectionException, MalFormedJsonException {
+        Reader reader = WorldDataLoader.getNpcs(zoneName);
+        Type npcMapType = new TypeToken<List<Map<String, Object>>>() {
+        }.getType();
+        List<Map<String, Object>> parsedJson = new Gson().fromJson(reader, npcMapType);
+        HashMap<String, Object> loadedNpcs = loadElement(parsedJson, "npcs");
+
+        for (Object npc : loadedNpcs.values()) {
+            world.addNpc((NPC) npc);
+        }
+    }
+
     private static void loadPlaces(String zoneName, World world) throws MalFormedJsonException {
         Reader reader = WorldDataLoader.getPlaces(zoneName);
         Type placeMapType = new TypeToken<List<Map<String, Object>>>() {
@@ -87,6 +103,7 @@ public final class WorldLoader {
             Map props = (Map) map.get("props");
             Map exits = (Map) map.get("exits");
             Map enemies = (Map) map.get("enemies");
+            Map npcs = (Map) map.get("npcs");
 
             if (id == null || name == null || area == null || headstone == null || description == null || altDescription == null) {
                 throw new MalFormedJsonException("Place : " + id + name + area + description + altDescription);
@@ -98,7 +115,7 @@ public final class WorldLoader {
                 headstoneIndex = Integer.parseInt(headstoneIndexString);
             }
 
-            Place place = new Place(id, name, area, headstone, headstoneIndex, description, altDescription, hasLantern, items, props, exits, enemies);
+            Place place = new Place(id, name, area, headstone, headstoneIndex, description, altDescription, hasLantern, items, props, exits, enemies, npcs);
             world.addPlace(place);
             if (hasLantern) {
                 world.addLanternPlace(place);
@@ -115,9 +132,9 @@ public final class WorldLoader {
             String description = (String) map.get("description");
             Map<String, String> attributes = (Map<String, String>) map.get("attributes");
 
-            if (id == null || type == null || description == null)
+            if (id == null || type == null || description == null) {
                 throw new MalFormedJsonException(elementType + id + type + description);
-
+            }
             try {
                 Class<?> elementClass = Class.forName("bloodborne." + elementType + "." + type);
                 Constructor<?> elementConstructor = elementClass.getConstructor(String.class, String.class, Map.class);
@@ -135,9 +152,13 @@ public final class WorldLoader {
         return loadedElements;
     }
 
-    private static void initializeProps(World world) throws ReflectionException, MalFormedJsonException {
+    private static void initializeProps(World world) throws ReflectionException {
         for (Prop prop : world.getProps().values()) {
-            prop.initialize(world);
+            if (prop instanceof Container) {
+                ((Container) prop).initialize(world);
+            } else if (prop instanceof ConditionalProp) {
+                ((ConditionalProp) prop).initialize(world);
+            }
         }
     }
 

@@ -18,6 +18,6 @@ public class ActivatedProp extends Condition {
 
     @Override
     public boolean checkCondition() {
-        return PROP.HasBeenActivated();
+        return PROP.hasBeenActivated();
     }
 }

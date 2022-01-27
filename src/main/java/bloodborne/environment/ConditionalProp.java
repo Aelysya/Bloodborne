@@ -3,12 +3,13 @@ package bloodborne.environment;
 import bloodborne.conditions.Condition;
 import bloodborne.entities.Hunter;
 import bloodborne.exceptions.ReflectionException;
+import bloodborne.json.Initializable;
 import bloodborne.world.World;
 
 import java.lang.reflect.Constructor;
 import java.util.Map;
 
-public class ConditionalProp extends Prop {
+public class ConditionalProp extends Prop implements Initializable {
 
     private Condition condition;
 
@@ -17,36 +18,27 @@ public class ConditionalProp extends Prop {
     }
 
     @Override
+    public void initialize(World world) throws ReflectionException {
+        try {
+            Class<?> conditionClass = Class.forName("bloodborne.conditions." + getATTRIBUTES().get("conditionType"));
+            Constructor<?> conditionConstructor = conditionClass.getConstructor(World.class, String.class);
+            condition = (Condition) conditionConstructor.newInstance(world, getATTRIBUTES().get("objectName"));
+        } catch (ClassNotFoundException e) {
+            throw new ReflectionException("Class not found for : " + getATTRIBUTES().get("conditionType"));
+        } catch (NoSuchMethodException e) {
+            throw new ReflectionException("Constructor (World world, String objectId) not found in : " + getATTRIBUTES().get("type"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public String activate(Hunter hunter) {
-        return "You can't activate this";
+        return condition.checkCondition() ? super.activate(hunter) : getATTRIBUTES().get("conditionFalseText");
     }
 
     @Override
     public String look(Hunter hunter) {
-        String txt;
-        if (condition.checkCondition()) {
-            if (ATTRIBUTES.get("isContainer") == null) {
-                addConsumablesToHunterInventory(hunter);
-            }
-            txt = getDESCRIPTION();
-        } else {
-            txt = ATTRIBUTES.get("conditionFalseText");
-        }
-        return txt;
-    }
-
-    @Override
-    public void initialize(World world) throws ReflectionException {
-        try {
-            Class<?> conditionClass = Class.forName("bloodborne.conditions." + ATTRIBUTES.get("conditionType"));
-            Constructor<?> conditionConstructor = conditionClass.getConstructor(World.class, String.class);
-            condition = (Condition) conditionConstructor.newInstance(world, ATTRIBUTES.get("objectName"));
-        } catch (ClassNotFoundException e) {
-            throw new ReflectionException("Class not found for : " + ATTRIBUTES.get("conditionType"));
-        } catch (NoSuchMethodException e) {
-            throw new ReflectionException("Constructor (World world, String objectName) not found in : " + ATTRIBUTES.get("type"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return condition.checkCondition() ? super.look(hunter) : getATTRIBUTES().get("conditionFalseText");
     }
 }

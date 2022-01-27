@@ -2,6 +2,7 @@ package bloodborne.world;
 
 import bloodborne.entities.Enemy;
 import bloodborne.entities.Hunter;
+import bloodborne.npcs.NPC;
 import bloodborne.environment.Prop;
 import bloodborne.items.Item;
 
@@ -15,6 +16,7 @@ public class World {
     private final Map<String, Item> ITEMS;
     private final Map<String, Prop> PROPS;
     private final Map<String, Enemy> ENEMIES;
+    private final Map<String, NPC> NPCS;
     private final Map<String, Place> PLACES;
     private final Map<String, Place> LANTERN_PLACES;
 
@@ -25,6 +27,7 @@ public class World {
         ITEMS = new HashMap<>();
         PROPS = new HashMap<>();
         ENEMIES = new HashMap<>();
+        NPCS = new HashMap<>();
         PLACES = new HashMap<>();
         LANTERN_PLACES = new HashMap<>();
 
@@ -50,6 +53,10 @@ public class World {
 
     public void addProp(Prop prop) {
         this.PROPS.put(prop.getID(), prop);
+    }
+
+    public void addNpc(NPC npc) {
+        this.NPCS.put(npc.getID(), npc);
     }
 
     public void addEnemy(Enemy enemy) {
@@ -98,6 +105,10 @@ public class World {
 
     public Prop getPropById(String propId) {
         return PROPS.get(propId);
+    }
+
+    public NPC getNpcById(String npcId) {
+        return NPCS.get(npcId);
     }
 
     public String generateHeadstoneText(String headstoneName) {

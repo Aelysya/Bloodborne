@@ -6,7 +6,8 @@ import bloodborne.entities.Enemy;
 import bloodborne.entities.Entity;
 import bloodborne.entities.Hunter;
 import bloodborne.environment.Container;
-import bloodborne.environment.NPC;
+import bloodborne.environment.Headstone;
+import bloodborne.npcs.NPC;
 import bloodborne.environment.Prop;
 import bloodborne.exceptions.TooFewArgumentsException;
 import bloodborne.items.*;
@@ -71,7 +72,7 @@ public class Game {
                 case QUIT_FROM_DEATH -> COMMAND_HANDLER.quitFromDeathTextAnalyzer(line);
                 case QUIT -> COMMAND_HANDLER.quitTextAnalyzer(line);
             }
-        } catch (TooFewArgumentsException | InterruptedException e) {
+        } catch (TooFewArgumentsException e) {
             CONTROLLER.writeInstantly("No target for the command.");
         }
     }
@@ -215,10 +216,14 @@ public class Game {
 
     public void lookFunction(String target) {
         Place currentPlace = WORLD.getCurrentPlace();
-        Item item = WORLD.getCurrentPlace().getItemByName(target);
+        Item item = currentPlace.getItemByName(target);
+        Prop prop = currentPlace.getPROPS().get(target);
         Entity eTarget = WORLD.getCurrentPlace().getEnemyByName(target);
-        if (currentPlace.getPROPS().get(target) != null) { //If target is a prop
-            CONTROLLER.writeLetterByLetter(currentPlace.getPROPS().get(target).look(HUNTER));
+        if (prop != null) { //If target is a prop
+            CONTROLLER.writeLetterByLetter(prop.look(HUNTER));
+            if (prop instanceof Headstone){
+                writeHeadstoneText(((Headstone) prop).getHeadstoneSimpleName());
+            }
             ACTION_LISTENER.lookListener(currentPlace.getPROPS().get(target));
         } else if (item != null) { //If target is an item from the current place
             if (item.isTaken()) {
@@ -248,7 +253,7 @@ public class Game {
         Prop prop = WORLD.getCurrentPlace().getPropByName(target);
         if (prop != null) {
             CONTROLLER.writeLetterByLetter(prop.activate(HUNTER));
-            if (prop instanceof Container && !((Container) prop).isLooted()) {
+            if (prop instanceof Container && !prop.hasBeenActivated()) {
                 SOUND_MANAGER.playSoundEffect("open-chest.wav");
             }
             CONTROLLER.updateHUD();
@@ -258,6 +263,17 @@ public class Game {
             }
         } else {
             CONTROLLER.writeInstantly("You can't activate this.");
+        }
+        CONTROLLER.updateInventory("default");
+    }
+
+    public void talkFunction(String targetNpc) {
+        NPC npc = WORLD.getCurrentPlace().getNpcByName(targetNpc);
+        if (npc != null) {
+            CONTROLLER.writeLetterByLetter(npc.talk(HUNTER));
+            ACTION_LISTENER.talkListener();
+        } else {
+            CONTROLLER.writeInstantly("You try to speak to someone that doesn't exist.");
         }
         CONTROLLER.updateInventory("default");
     }
@@ -354,18 +370,6 @@ public class Game {
         } else {
             CONTROLLER.writeInstantly("You try to engage a fight with something that doesn't exist.");
         }
-    }
-
-    public void talkFunction(String npc) {
-        Place currentPlace = WORLD.getCurrentPlace();
-        NPC NPC = (NPC) currentPlace.getPROPS().get(npc);
-        if (NPC != null) {
-            CONTROLLER.writeLetterByLetter(NPC.talk(HUNTER));
-            ACTION_LISTENER.talkListener();
-        } else {
-            CONTROLLER.writeInstantly("You try to speak to someone that doesn't exist.");
-        }
-        CONTROLLER.updateInventory("default");
     }
 
     public void quitFunction() {

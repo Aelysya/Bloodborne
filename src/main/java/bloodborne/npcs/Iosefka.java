@@ -1,10 +1,7 @@
-package bloodborne.environment;
+package bloodborne.npcs;
 
 import bloodborne.entities.Hunter;
-import bloodborne.exceptions.MalFormedJsonException;
-import bloodborne.exceptions.ReflectionException;
 import bloodborne.items.HealingItem;
-import bloodborne.world.World;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,10 +25,6 @@ public class Iosefka extends NPC {
     }
 
     @Override
-    public void initialize(World world) {
-
-    }
-
     public String talk(Hunter hunter) {
         String speech;
         if (!talkedOnce) {
@@ -53,10 +46,5 @@ public class Iosefka extends NPC {
 
     public void setHunterHasIosefkasBloodVial(boolean hasVial) {
         hunterHasIosefkasBloodVial = hasVial;
-    }
-
-    @Override
-    public String activate(Hunter hunter) {
-        return "You can't activate this.";
     }
 }

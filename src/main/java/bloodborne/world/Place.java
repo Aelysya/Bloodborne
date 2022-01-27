@@ -3,6 +3,7 @@ package bloodborne.world;
 import bloodborne.entities.Boss;
 import bloodborne.entities.Enemy;
 import bloodborne.entities.Entity;
+import bloodborne.npcs.NPC;
 import bloodborne.environment.Prop;
 import bloodborne.exceptions.*;
 import bloodborne.items.Item;
@@ -28,13 +29,15 @@ public class Place {
     private final Map<String, String> PROPS_STRING;
     private final Map<String, Object> EXITS_OBJECT;
     private final Map<String, String> ENEMIES_STRING;
+    private final Map<String, String> NPCS_STRING;
 
     private final HashMap<String, Item> ITEMS;
     private final HashMap<String, Prop> PROPS;
     private final HashMap<String, Exit> EXITS;
     private final HashMap<String, Entity> ENEMIES;
+    private final HashMap<String, NPC> NPCS;
 
-    public Place(String id, String name, String zone, String headstone, int headstoneIndex, String description, String altDescription, boolean hasLantern, Map<String, String> items, Map<String, String> props, Map<String, Object> exits, Map<String, String> enemies) {
+    public Place(String id, String name, String zone, String headstone, int headstoneIndex, String description, String altDescription, boolean hasLantern, Map<String, String> items, Map<String, String> props, Map<String, Object> exits, Map<String, String> enemies, Map<String, String> npcs) {
         ID = id;
         NAME = name;
         ZONE = zone;
@@ -50,11 +53,13 @@ public class Place {
         PROPS_STRING = props;
         EXITS_OBJECT = exits;
         ENEMIES_STRING = enemies;
+        NPCS_STRING = npcs;
 
         ITEMS = new HashMap<>();
         PROPS = new HashMap<>();
         EXITS = new HashMap<>();
         ENEMIES = new HashMap<>();
+        NPCS = new HashMap<>();
     }
 
     public String getID() {
@@ -104,6 +109,10 @@ public class Place {
         return PROPS;
     }
 
+    public HashMap<String, NPC> getNPCS() {
+        return NPCS;
+    }
+
     public HashMap<String, Exit> getEXITS() {
         return EXITS;
     }
@@ -118,6 +127,10 @@ public class Place {
 
     public Prop getPropByName(String propName) {
         return PROPS.get(propName);
+    }
+
+    public NPC getNpcByName(String npcName) {
+        return NPCS.get(npcName);
     }
 
     public Item getItemByName(String itemName) {
@@ -202,17 +215,27 @@ public class Place {
             Enemy enemy = world.getEnemyById(npcIdName);
             if (enemy == null) {
                 throw new NPCNotFoundException(npcIdName + " is not present in the world for place : " + NAME);
+            } else {
+                ENEMIES.put(npcName, enemy);
             }
-            ENEMIES.put(npcName, enemy);
         }
         for (Map.Entry<String, String> entry : PROPS_STRING.entrySet()) {
             String propName = entry.getKey();
             Prop prop = world.getPropById(entry.getValue());
             if (prop == null) {
                 throw new MalFormedJsonException("the prop : " + entry.getValue() + " doesn't exist");
+            } else {
+                PROPS.put(propName, prop);
             }
-            PROPS.put(propName, prop);
-
+        }
+        for (Map.Entry<String, String> entry : NPCS_STRING.entrySet()) {
+            String npcName = entry.getKey();
+            NPC npc = world.getNpcById(entry.getValue());
+            if (npc == null) {
+                throw new MalFormedJsonException("the npc : " + entry.getValue() + " doesn't exist");
+            } else {
+                NPCS.put(npcName, npc);
+            }
         }
         for (Map.Entry<String, Object> entry : EXITS_OBJECT.entrySet()) {
             String exitDirection = entry.getKey();

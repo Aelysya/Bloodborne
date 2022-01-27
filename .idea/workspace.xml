@@ -4,64 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Refactored all conditions">
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Applied code-clean on all classes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/json/ElementTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/json/Initializable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/NPC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Npcs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/InventoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/LoadingScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/LoadingScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/ActivatedProp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/ActivatedProp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/HasKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/HasKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/KilledNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/KilledNPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/LookedProp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/conditions/LookedProp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Boss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/MultiEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/MultiEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/ConditionalProp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/ConditionalProp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Container.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Headstone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Headstone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Iosefka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Iosefka.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/NPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/NPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Iosefka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/Iosefka.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/NPC.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/DeprecatedClassException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/ItemNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/ItemNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/MalFormedJsonException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/MalFormedJsonException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/NPCNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/NPCNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/ReflectionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/ReflectionException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/TooFewArgumentsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/exceptions/TooFewArgumentsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/ArcaneItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ArcaneItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Badge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Badge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/BloodComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/BloodComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/BoostItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/BoostItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/FireArm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/FireArm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/HealingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/HealingItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Rune.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Rune.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/StatScaling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/StatScaling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Tool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/sounds/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/sounds/SoundManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/json/WorldDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/json/WorldDataLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/ActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/ActionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/ConditionalExit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/ConditionalExit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/Exit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/Place.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/WorldLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/WorldLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/mimic-house.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/NPCs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/NPCs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/legacy-yharnam/Props.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/loadingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/loadingScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/conditions/ActivatedProp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/conditions/ActivatedProp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/conditions/HasKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/conditions/HasKey.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/conditions/KilledNPC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/conditions/KilledNPC.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Inventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/ConditionalProp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/ConditionalProp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Container.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/Container.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/exceptions/DeprecatedClassException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/exceptions/MalFormedJsonException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/exceptions/MalFormedJsonException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/loadingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/loadingScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/sounds/SoundManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/sounds/SoundManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +61,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -114,9 +103,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/bloodborne" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MPIProjet" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37356323" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -135,11 +125,11 @@
       <recent name="C:\Users\maxim\Desktop\bloodborne\src\main\java\bloodborne" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="bloodborne.npcs" />
       <recent name="bloodborne.sounds" />
       <recent name="bloodborne.json" />
       <recent name="bloodborne" />
       <recent name="bloodborne.game" />
-      <recent name="" />
     </key>
   </component>
   <component name="RunManager">
@@ -332,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643215471999</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Applied code-clean on all classes">
+      <created>1643217268269</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1643217268269</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -372,7 +369,8 @@
     <MESSAGE value="Optimized imports and tweaked Item classes" />
     <MESSAGE value="Refactored the UI entirely" />
     <MESSAGE value="Refactored all conditions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored all conditions" />
+    <MESSAGE value="Applied code-clean on all classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Applied code-clean on all classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -381,8 +379,16 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.InstantiationException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/bloodborne$GameApplication.ic" NAME="GameApplication Coverage Results" MODIFIED="1638829769482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

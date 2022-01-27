@@ -3,7 +3,7 @@ package bloodborne.system;
 import bloodborne.entities.Boss;
 import bloodborne.entities.Entity;
 import bloodborne.entities.Hunter;
-import bloodborne.environment.Iosefka;
+import bloodborne.npcs.Iosefka;
 import bloodborne.environment.Prop;
 import bloodborne.items.HealingItem;
 import bloodborne.items.Item;
@@ -48,16 +48,7 @@ public class ActionListener {
     }
 
     public void lookListener(Prop p) {
-        switch (p.getID()) {
-            case "yharnam-headstone" -> {
-                GAME.writeHeadstoneText("yharnam");
-                GAME.setAnalyzer(TextAnalyzer.YHARNAM_HEADSTONE);
-            }
-            case "frontier-headstone" -> {
-                GAME.writeHeadstoneText("frontier");
-                GAME.setAnalyzer(TextAnalyzer.FRONTIER_HEADSTONE);
-            }
-        }
+
     }
 
     public void activateListener() {
@@ -67,7 +58,7 @@ public class ActionListener {
     public void useListener(Item item) {
         switch (item.getNAME()) {
             case "Iosefka's blood vial" -> {
-                Iosefka i = (Iosefka) WORLD.getPropById("iosefka");
+                Iosefka i = (Iosefka) WORLD.getNpcById("iosefka");
                 i.setHunterHasIosefkasBloodVial(false);
             }
         }
@@ -79,7 +70,7 @@ public class ActionListener {
                 if (HUNTER.getINVENTORY().hasItem(WORLD.getItemById("iosefkas-blood-vial"))) {
                     GAME.writeInstantly("You can't have more than one copy of this item.");
                 } else {
-                    Iosefka i = (Iosefka) WORLD.getPropById("iosefka");
+                    Iosefka i = (Iosefka) WORLD.getNpcById("iosefka");
                     i.setHunterHasIosefkasBloodVial(true);
                     Map<String, String> m = new HashMap<>();
                     m.put("name", "Iosefka's blood vial");

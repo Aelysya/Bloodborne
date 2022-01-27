@@ -1,20 +1,11 @@
 package bloodborne.environment;
 
-import bloodborne.exceptions.MalFormedJsonException;
-import bloodborne.exceptions.ReflectionException;
-import bloodborne.world.World;
-
 import java.util.Map;
 
 public class Headstone extends Prop {
 
-    public Headstone(String id, String description, Map<String, String> att) {
-        super(id, description, att);
-    }
-
-    @Override
-    public void initialize(World world) {
-
+    public Headstone(String id, String description, Map<String, String> attributes) {
+        super(id, description, attributes);
     }
 
     public String getHeadstoneSimpleName() {

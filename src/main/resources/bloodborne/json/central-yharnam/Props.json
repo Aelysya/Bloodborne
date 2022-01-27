@@ -5,8 +5,7 @@
     "description": "This tombstone is special, if you focus hard enough on one of the inscribed destinations, you will get there instantly. This one is linked to the destinations close to Yharnam.",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -15,21 +14,7 @@
     "description": "It is a wooden door with a small glass window on the upper part. Behind it you discern the presence of a woman, you can talk to IOSEFKA (TK)",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
-    }
-  },
-  {
-    "id": "iosefka",
-    "type": "Iosefka",
-    "description": "A woman is on the other side of the door, she seems to be a doctor.",
-    "attributes": {
-      "firstSpeech": "\"Are you... out on the hunt ? Then I'm very sorry, but... I cannot open this door. I am Iosefka. The patients here in my clinic must not be exposed to infection. I know that you hunt for us, for our town, but I'm sorry. Please. This is all that I can do (Iosefka gives you a special blood vial). Now, go. And good hunting.\"",
-      "hasVialSpeech": "\"Are you still in need of something? But I have nothing more to offer. Please, try to understand my position. I can only pray, for a fruitful hunt.\"",
-      "noVialSpeech": "\"You are safe, thank goodness. But I’m afraid nothing will change. I cannot open the door. I’ll do what I can, of course. Perhaps this will help you, if only in some small way (Iosefka gives you a special blood vial). Now, go. I pray for your safety.\"",
-      "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -38,8 +23,7 @@
     "description": "This is a small lantern with some bells attached to it. It projects its light on the walls, creating eldritch shadows.",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -49,7 +33,6 @@
     "attributes": {
       "isActionable": "false",
       "isTrapped": "false",
-      "containsConsumables": "true",
       "vialsContained": "2"
     }
   },
@@ -59,8 +42,7 @@
     "description": "TODO desc",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -69,8 +51,7 @@
     "description": "TODO desc",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -79,8 +60,7 @@
     "description": "TODO desc",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -90,7 +70,6 @@
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
-      "containsConsumables": "false",
       "activationText": "You unlock and gently open the door. You may now freely go to the Clinic and back."
     }
   },
@@ -100,8 +79,7 @@
     "description": "TODO desc",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -111,7 +89,6 @@
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
-      "containsConsumables": "false",
       "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Graveyard and back."
     }
   },
@@ -121,8 +98,7 @@
     "description": "TODO desc",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -131,8 +107,7 @@
     "description": "TODO desc",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -142,7 +117,6 @@
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
-      "containsConsumables": "false",
       "activationText": "You pull the lever, the ladder drops down. You may now freely go to the Small square and back."
     }
   },
@@ -152,8 +126,7 @@
     "description": "TODO desc",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -162,8 +135,7 @@
     "description": "TODO desc",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -173,7 +145,6 @@
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
-      "containsConsumables": "false",
       "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Small square and back."
     }
   },
@@ -195,7 +166,6 @@
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
-      "containsConsumables": "false",
       "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Fountain square and back."
     }
   },
@@ -206,7 +176,6 @@
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
-      "containsConsumables": "false",
       "activationText": "You re-activate the elevator. You may now use it go to the Small path and back."
     }
   },
@@ -216,8 +185,7 @@
     "description": "TODO Description",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   },
   {
@@ -226,8 +194,7 @@
     "description": "TODO Description",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false",
-      "containsConsumables": "false"
+      "isTrapped": "false"
     }
   }
 ]

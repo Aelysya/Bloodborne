@@ -22,6 +22,10 @@ public class WorldDataLoader {
         return getAsReader(zoneName, "Props");
     }
 
+    public static Reader getNpcs(String zoneName) {
+        return getAsReader(zoneName, "Npcs");
+    }
+
     private static Reader getAsReader(String zoneName, String resource) {
         String path = String.format("%s/%s.json", zoneName, resource);
 

@@ -1,509 +1,509 @@
 [
-	{
-		"name": "clinic",
-		"description": "You are in a small medical room, a lantern on the ground illuminates the surroundings. Apart from the two beds, the only interesting things here are the SHELVES (L) and a BAG (L) left on the other bed. You see a hole in the roof but you can't reach it. The only way out is to go to north.",
-		"imagePath": "zones/central-yharnam/clinic.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"fire-paper": "clinic-fire-paper",
-			"lake-rune": "lake-rune"
-		},
-		"props": {
-			"bag": "clinic-bag",
-			"shelves": "clinic-shelves"
-		},
-		"exits": {
-			"north": {
-				"destination": "graveyard",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {}
-	},
-	{
-		"name": "graveyard",
-		"description": "You find yourself in a graveyard filled with tombstones. One particular TOMBSTONE (L) seems to belong to an ancient hunter. The north path is open. The east is closed by a metal gate. A ladder is out of your reach on the west side. The south leads back to the clinic.",
-		"imagePath": "zones/central-yharnam/graveyard.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"saw-cleaver": "saw-cleaver",
-			"hunter-pistol": "hunter-pistol",
-			"bolt-paper" : "graveyard-bolt-paper"
-		},
-		"props": {
-			"lever": "graveyard-lever",
-			"tombstone": "graveyard-tombstone"
-		},
-		"exits": {
-			"north": {
-				"destination": "useless-path",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"west": {
-				"destination": "small-square",
-				"type": "ConditionalExit",
-				"attributes": {
-					"conditionType": "ActivatedProp",
-					"objectName": "graveyard-lever",
-					"conditionFalseText": "The ladder is still out of your reach, you need to find a way to make it drop down."
-				}
-			},
-			"east": {
-				"destination": "graveyard-annex",
-				"type": "ConditionalExit",
-				"attributes": {
-					"conditionType": "HasKey",
-					"objectName": "small-square-key",
-					"conditionFalseText": "The lock on this metal gate seems strong you need to find a key to open it."
-				}
-			},
-			"south": {
-				"destination": "clinic",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {}
-	},
-	{
-		"name": "useless-path",
-		"description": "You arrive in a straight path, an EXECUTIONER (F) blocks you from going to it's end where you see many CRATES (L). The only way is to the south, back to the Graveyard.",
-		"imagePath": "zones/central-yharnam/dead-end.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {},
-		"props": {
-			"crates": "useless-path-crates"
-		},
-		"exits": {
-			"south": {
-				"destination": "graveyard",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {
-			"executioner": "useless-path-executioner"
-		}
-	},
-	{
-		"name": "graveyard-annex",
-		"description": "You are in a smaller part of the graveyard. A WOLF (F) beast is busy feasting on a CORPSE (L) and did not see you yet. The south leads to another part of the Clinic. The west leads back to the Graveyard",
-		"imagePath": "zones/central-yharnam/graveyard-annex.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"heir-rune": "heir-rune"
-		},
-		"props": {
-			"corpse": "graveyard-annex-corpse"
-		},
-		"exits": {
-			"west": {
-				"destination": "graveyard",
-				"type": "ConditionalExit",
-				"attributes": {
-					"conditionType": "HasKey",
-					"objectName": "small-square-key",
-					"conditionFalseText": "The lock on this metal gate seems strong you need to find a key to open it."
-				}
-			},
-			"south": {
-				"destination": "back-clinic",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {
-			"wolf": "graveyard-annex-wolf-beast"
-		}
-	},
-	{
-		"name": "back-clinic",
-		"description": "You are in the back of the clinic, a BRAINSUCKER (F) is in the middle of the room. He clearly saw you but doesn't seem to be aggressive. There is an old CABINET (L) behind him and a CHEST (A) on your right. The north leads to the Graveyard annex. There is a hole in the floor on the west but if you go down you won't be able to climb back.",
-		"imagePath": "zones/central-yharnam/back-clinic.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"coldblood": "back-clinic-coldblood-dew"
-		},
-		"props": {
-			"chest": "back-clinic-chest",
-			"cabinet": "back-clinic-cabinet",
-			"report": "back-clinic-report"
-		},
-		"exits": {
-			"north": {
-				"destination": "graveyard-annex",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"west": {
-				"destination": "clinic",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {
-			"brainsucker": "back-clinic-brainsucker"
-		}
-	},
-	{
-		"name": "small-square",
-		"description": "You are in a small square, a LANTERN (L) lights up the surroundings, creating eldritch shadows on the walls. You see an open WINDOW (L) on a house close to you. A Gate blocks the way to the west. The east is a path to a street campfire. On the south you see the Graveyard down the ladder.",
-		"imagePath": "zones/central-yharnam/small-square.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"small-key": "small-square-key"
-		},
-		"props": {
-			"lantern": "small-square-lantern",
-			"window": "small-square-window",
-			"man": "gilbert"
-		},
-		"exits": {
-			"west": {
-				"destination": "straight-path",
-				"type": "ConditionalExit",
-				"attributes": {
-					"conditionType": "HasKey",
-					"objectName": "central-house-key",
-					"conditionFalseText": "The lock on this metal gate seems strong you need to find a key to open it."
-				}
-			},
-			"east": {
-				"destination": "campfire",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"south": {
-				"destination": "graveyard",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {}
-	},
-	{
-		"name": "campfire",
-		"description": "You arrive in an open street where some blood-drunk dwellers built a CAMPFIRE (L), as you approach they quickly flee away. There is a Yharnam BEAST (F) on the right and he has already seen you, he looks frustrated and ready to burn you down. The east path leads you to an opened house, but in order to take this path you need to get rid of the monster that is blocking the way. The north path is open and goes to a Square. The west path will take you back to the small place.",
-		"imagePath": "zones/central-yharnam/pyre.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"fire-paper": "campfire-fire-paper",
-			"blunderbuss": "hunter-blunderbuss"
-		},
-		"props": {
-			"campfire": "campfire-campfire"
-		},
-		"exits": {
-			"north": {
-				"destination": "square",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"west": {
-				"destination": "small-square",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"east": {
-				"destination": "mimic-house",
-				"type": "ConditionalExit",
-				"attributes": {
-					"conditionType": "KilledNPC",
-					"objectName": "campfire-yharnam-beast",
-					"conditionFalseText": "The monster is still alive you can't go this way yet"
-				}
-			}
-		},
-		"NPCs": {
-			"beast": "campfire-yharnam-beast"
-		}
-	},
-	{
-		"name": "mimic-house",
-		"description": "You are in the living room of the house. There is a MAN (TK) sitting on a chair on your left. He seems lost in his thoughts and concerned. Only a fine light trail pierces through the window on the back wall but you can see a CHEST (A) with a cut off human arm next to it. Going west will lead you back to the campfire",
-		"imagePath": "zones/central-yharnam/house.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {},
-		"props": {
-			"man": "alfred",
-			"chest": "mimic-house-mimic"
-		},
-		"exits": {
-			"west": {
-				"destination": "campfire",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {}
-	},
-	{
-		"name": "square",
-		"description": "You arrive at a square. A stone STRUCTURE (L) is enthroned in the center, it is crumbling and covered with moss and plants, nobody has maintained it for a long time. You discern the body of a large monster under some rubble next to the statue. There is a Yharnam BEAST (F) on the other side of the structure, it has not seen you yet. You see a bridge to the north. The paths to the east and west connect to houses. The south leads to the campfire.",
-		"imagePath": "zones/central-yharnam/square.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"blades": "blades-of-mercy",
-			"eye-rune": "eye-rune"
-		},
-		"props": {
-			"structure": "square-stone-structure"
-		},
-		"exits": {
-			"north": {
-				"destination": "back-bridge",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"west": {
-				"destination": "central-house",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"east": {
-				"destination": "shortcut-house",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"south": {
-				"destination": "campfire",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {
-			"beast": "square-yharnam-beast"
-		}
-	},
-	{
-		"name": "back-bridge",
-		"description": "You arrive on the back side of the Yharnam bridge, from here you see the majority of the CITY (L). Below are the sewers, but it is no longer water flowing in the channels... A WOLF (F) beast roams not far away from a wooden CRATE (T). Going west you will reach the front part of the bridge. The south path leads to the square.",
-		"imagePath": "zones/central-yharnam/back-bridge.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"moon-rune": "moon-rune"
-		},
-		"props": {
-			"city": "back-bridge-city",
-			"crate": "back-bridge-crate"
-		},
-		"exits": {
-			"west": {
-				"destination": "front-bridge",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"south": {
-				"destination": "square",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {
-			"wolf": "back-bridge-wolf-beast"
-		}
-	},
-	{
-		"name": "front-bridge",
-		"description": "You are on the front part of the Yharnam bridge. Two things catch your eye. First, the huge PILE (L) of bones behind the STAGECOACH (L) on your left. Then the stairs to the north, you present that they will lead you to the objective of your mission. A WOLF (F) beast roams nearby. To the east is the back part of the bridge. South leads to a street full of abandoned houses. To the west you see the upper part of the sewers. To the north is currently blocked by a massive gate, there is a cathedral in this direction with an endless stream of blood flowing from it, if you go that way you won't be able to come back.",
-		"imagePath": "zones/central-yharnam/front-bridge.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"cannon": "cannon"
-		},
-		"props": {
-			"pile": "front-bridge-bone-pile",
-			"stagecoach": "front-bridge-stagecoach"
-		},
-		"exits": {
-			"north": {
-				"destination": "boss-room",
-				"type": "ConditionalExit",
-				"attributes": {
-					"conditionType": "HasKey",
-					"objectName": "round-key",
-					"conditionFalseText": "There is a huge lock on the gate you must find the appropriate key to open it."
-				}
-			},
-			"west": {
-				"destination": "upper-sewers",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"east": {
-				"destination": "back-bridge",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"south": {
-				"destination": "straight-path",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {
-			"wolf": "front-bridge-wolf-beast"
-		}
-	},
-	{
-		"name": "upper-sewers",
-		"description": "You are in the upper part of the sewers, the surroundings are not very attractive, the canal is filled with blood instead of water and the piles of CORPSES (L) are counted by tens. You feel that you are not far from the source of the blood plague. The cathedral in the distance seems to be the source of this crimson river. You notice that a MAN (TK) is leaning against a wall, he is seriously injured. East leads to the front part of the Yharnam Bridge while south leads to the lower part of the sewers.",
-		"imagePath": "zones/central-yharnam/upper-sewers.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"kirkhammer": "kirkhammer",
-			"round-key": "round-key"
-		},
-		"props": {
-			"corpses": "upper-sewers-corpses",
-			"man": "henryk"
-		},
-		"exits": {
-			"south": {
-				"destination": "lower-sewers",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"east": {
-				"destination": "front-bridge",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {}
-	},
-	{
-		"name": "lower-sewers",
-		"description": "You are in the lower part of the sewers of Yharnam, blood has long since replaced the water in the channels. A few lanterns on the walls dimly illuminate the area but you can discern a BRAINSUCKER (F) not far away. A heap of RUBBISH (L) is on your right. The only path is north, to the upper part of the sewers.",
-		"imagePath": "zones/central-yharnam/lower-sewers.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {},
-		"props": {
-			"rubbish": "lower-sewers-rubbish"
-		},
-		"exits": {
-			"north": {
-				"destination": "upper-sewers",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {
-			"brainsucker": "lower-sewers-brainsucker"
-		}
-	},
-	{
-		"name": "straight-path",
-		"description": "You are now in a long street full of abandoned houses. On your left there is a hanging corpse in front of an opened house. A broken CART (L) has been left next that house. A very old WELL (L) is present a little farther from where you are. The north path goes to a Bridge. You can drop inside the well on the west but you won't be able to come back. On the east you can enter the house where the corpse is hanging. The south leads back to the small place.",
-		"imagePath": "zones/central-yharnam/small-path.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"amulet": "olek-amulet",
-			"evelyn": "evelyn"
-		},
-		"props": {
-			"well": "straight-path-well",
-			"cart": "straight-path-cart",
-			"notebook": "straight-path-notebook"
-		},
-		"exits": {
-			"north": {
-				"destination": "front-bridge",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"west": {
-				"destination": "lower-sewers",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"east": {
-				"destination": "central-house",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"south": {
-				"destination": "small-square",
-				"type": "ConditionalExit",
-				"attributes": {
-					"conditionType": "HasKey",
-					"objectName": "central-house-key",
-					"conditionFalseText": "The lock on this metal gate seems strong you need to find a key to open it."
-				}
-			},
-			"well": {
-				"destination": "lower-sewers",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {}
-	},
-	{
-		"name": "central-house",
-		"description": "You enter a house in a deplorable state, the floor is covered with dust, the windows are broken and the walls are decrepit. You notice the presence of a few corpses scattered around, in more or less good condition. One of them, a grandpa in a wheelchair, seems almost still alive, in front of him there is a very old FURNITURE (A). You can leave the house to the west and go to the street, or to the east and go to the square.",
-		"imagePath": "zones/central-yharnam/central-house.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {
-			"black-key": "central-house-key"
-		},
-		"props": {
-			"furniture": "central-house-furniture"
-		},
-		"exits": {
-			"west": {
-				"destination": "straight-path",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"east": {
-				"destination": "square",
-				"type": "Exit",
-				"attributes": {}
-			}
-		},
-		"NPCs": {}
-	},
-	{
-		"name": "shortcut-house",
-		"description": "You enter the house, it is in a deplorable state and seems on the verge of collapse. You go upstairs and enter what seems to be a bedroom, or what is left of it. A female HUNTER (TK) is sitting on the bed, wearing a raven mask and looking injured. She has seen you but she doesn't react. A wooden CHEST (A) with a big lock is next to the bed. You can also take the exit to the west leading you to the square",
-		"imagePath": "zones/central-yharnam/house.jpg",
-		"songPath": "ambient-theme.wav",
-		"items": {},
-		"props": {
-			"chest": "shortcut-house-chest",
-			"hunter": "eileen"
-		},
-		"exits": {
-			"west": {
-				"destination": "square",
-				"type": "Exit",
-				"attributes": {}
-			},
-			"east": {
-				"destination": "boss-room",
-				"type": "ConditionalExit",
-				"attributes": {
-					"conditionType": "UsedItem",
-					"objectName": "olek-amulet",
-					"conditionFalseText": "There is a wall in this direction, you feel it's not a normal one."
-				}
-			}
-		},
-		"NPCs": {}
-	},
-	{
-		"name": "boss-room",
-		"description": "You are inside a cathedral, but the interior is nothing like it used to be. The only light comes from a little lantern, like the one in the small place you passed through a short while ago. The corpses are piled up by hundreds or maybe by thousands on the sides of the room and you are wading in several centimeters of blood, that is the reason of this infinite flow coming out of here and which replaced the water of the canal. A huge beast is in the back of this cave and seems to be waiting for you. It is at least 4 meters high, one of its arms is disproportionate to the second and the horns on its head give it an even more impressive aspect. It is hard to believe that this thing was once a human, now transformed by the blood plague. The confrontation is now inevitable and seems to be lost in advance, you notice nevertheless the presence of numerous wounds not entirely healed, probably the proof of the passage of the group of three hunters preceding you. Maybe you have a chance of eliminating it ? You have no other choice but to attack this CLERIC BEAST (F).",
-		"imagePath": "zones/central-yharnam/bridge-end.jpg",
-		"songPath": "cleric-beast-theme.wav",
-		"items": {},
-		"props": {},
-		"exits": {},
-		"NPCs": {
-			"cleric beast": "cleric-beast"
-		}
-	}
+  {
+    "name": "clinic",
+    "description": "You are in a small medical room, a lantern on the ground illuminates the surroundings. Apart from the two beds, the only interesting things here are the SHELVES (L) and a BAG (L) left on the other bed. You see a hole in the roof but you can't reach it. The only way out is to go to north.",
+    "imagePath": "zones/central-yharnam/clinic.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "fire-paper": "clinic-fire-paper",
+      "lake-rune": "lake-rune"
+    },
+    "props": {
+      "bag": "clinic-bag",
+      "shelves": "clinic-shelves"
+    },
+    "exits": {
+      "north": {
+        "destination": "graveyard",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {}
+  },
+  {
+    "name": "graveyard",
+    "description": "You find yourself in a graveyard filled with tombstones. One particular TOMBSTONE (L) seems to belong to an ancient hunter. The north path is open. The east is closed by a metal gate. A ladder is out of your reach on the west side. The south leads back to the clinic.",
+    "imagePath": "zones/central-yharnam/graveyard.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "saw-cleaver": "saw-cleaver",
+      "hunter-pistol": "hunter-pistol",
+      "bolt-paper": "graveyard-bolt-paper"
+    },
+    "props": {
+      "lever": "graveyard-lever",
+      "tombstone": "graveyard-tombstone"
+    },
+    "exits": {
+      "north": {
+        "destination": "useless-path",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "west": {
+        "destination": "small-square",
+        "type": "ConditionalExit",
+        "attributes": {
+          "conditionType": "ActivatedProp",
+          "objectName": "graveyard-lever",
+          "conditionFalseText": "The ladder is still out of your reach, you need to find a way to make it drop down."
+        }
+      },
+      "east": {
+        "destination": "graveyard-annex",
+        "type": "ConditionalExit",
+        "attributes": {
+          "conditionType": "HasKey",
+          "objectName": "small-square-key",
+          "conditionFalseText": "The lock on this metal gate seems strong you need to find a key to open it."
+        }
+      },
+      "south": {
+        "destination": "clinic",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {}
+  },
+  {
+    "name": "useless-path",
+    "description": "You arrive in a straight path, an EXECUTIONER (F) blocks you from going to it's end where you see many CRATES (L). The only way is to the south, back to the Graveyard.",
+    "imagePath": "zones/central-yharnam/dead-end.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {},
+    "props": {
+      "crates": "useless-path-crates"
+    },
+    "exits": {
+      "south": {
+        "destination": "graveyard",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {
+      "executioner": "useless-path-executioner"
+    }
+  },
+  {
+    "name": "graveyard-annex",
+    "description": "You are in a smaller part of the graveyard. A WOLF (F) beast is busy feasting on a CORPSE (L) and did not see you yet. The south leads to another part of the Clinic. The west leads back to the Graveyard",
+    "imagePath": "zones/central-yharnam/graveyard-annex.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "heir-rune": "heir-rune"
+    },
+    "props": {
+      "corpse": "graveyard-annex-corpse"
+    },
+    "exits": {
+      "west": {
+        "destination": "graveyard",
+        "type": "ConditionalExit",
+        "attributes": {
+          "conditionType": "HasKey",
+          "objectName": "small-square-key",
+          "conditionFalseText": "The lock on this metal gate seems strong you need to find a key to open it."
+        }
+      },
+      "south": {
+        "destination": "back-clinic",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {
+      "wolf": "graveyard-annex-wolf-beast"
+    }
+  },
+  {
+    "name": "back-clinic",
+    "description": "You are in the back of the clinic, a BRAINSUCKER (F) is in the middle of the room. He clearly saw you but doesn't seem to be aggressive. There is an old CABINET (L) behind him and a CHEST (A) on your right. The north leads to the Graveyard annex. There is a hole in the floor on the west but if you go down you won't be able to climb back.",
+    "imagePath": "zones/central-yharnam/back-clinic.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "coldblood": "back-clinic-coldblood-dew"
+    },
+    "props": {
+      "chest": "back-clinic-chest",
+      "cabinet": "back-clinic-cabinet",
+      "report": "back-clinic-report"
+    },
+    "exits": {
+      "north": {
+        "destination": "graveyard-annex",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "west": {
+        "destination": "clinic",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {
+      "brainsucker": "back-clinic-brainsucker"
+    }
+  },
+  {
+    "name": "small-square",
+    "description": "You are in a small square, a LANTERN (L) lights up the surroundings, creating eldritch shadows on the walls. You see an open WINDOW (L) on a house close to you. A Gate blocks the way to the west. The east is a path to a street campfire. On the south you see the Graveyard down the ladder.",
+    "imagePath": "zones/central-yharnam/small-square.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "small-key": "small-square-key"
+    },
+    "props": {
+      "lantern": "small-square-lantern",
+      "window": "small-square-window",
+      "man": "gilbert"
+    },
+    "exits": {
+      "west": {
+        "destination": "straight-path",
+        "type": "ConditionalExit",
+        "attributes": {
+          "conditionType": "HasKey",
+          "objectName": "central-house-key",
+          "conditionFalseText": "The lock on this metal gate seems strong you need to find a key to open it."
+        }
+      },
+      "east": {
+        "destination": "campfire",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "south": {
+        "destination": "graveyard",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {}
+  },
+  {
+    "name": "campfire",
+    "description": "You arrive in an open street where some blood-drunk dwellers built a CAMPFIRE (L), as you approach they quickly flee away. There is a Yharnam BEAST (F) on the right and he has already seen you, he looks frustrated and ready to burn you down. The east path leads you to an opened house, but in order to take this path you need to get rid of the monster that is blocking the way. The north path is open and goes to a Square. The west path will take you back to the small place.",
+    "imagePath": "zones/central-yharnam/pyre.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "fire-paper": "campfire-fire-paper",
+      "blunderbuss": "hunter-blunderbuss"
+    },
+    "props": {
+      "campfire": "campfire-campfire"
+    },
+    "exits": {
+      "north": {
+        "destination": "square",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "west": {
+        "destination": "small-square",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "east": {
+        "destination": "mimic-house",
+        "type": "ConditionalExit",
+        "attributes": {
+          "conditionType": "KilledNPC",
+          "objectName": "campfire-yharnam-beast",
+          "conditionFalseText": "The monster is still alive you can't go this way yet"
+        }
+      }
+    },
+    "NPCs": {
+      "beast": "campfire-yharnam-beast"
+    }
+  },
+  {
+    "name": "mimic-house",
+    "description": "You are in the living room of the house. There is a MAN (TK) sitting on a chair on your left. He seems lost in his thoughts and concerned. Only a fine light trail pierces through the window on the back wall but you can see a CHEST (A) with a cut off human arm next to it. Going west will lead you back to the campfire",
+    "imagePath": "zones/central-yharnam/house.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {},
+    "props": {
+      "man": "alfred",
+      "chest": "mimic-house-mimic"
+    },
+    "exits": {
+      "west": {
+        "destination": "campfire",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {}
+  },
+  {
+    "name": "square",
+    "description": "You arrive at a square. A stone STRUCTURE (L) is enthroned in the center, it is crumbling and covered with moss and plants, nobody has maintained it for a long time. You discern the body of a large monster under some rubble next to the statue. There is a Yharnam BEAST (F) on the other side of the structure, it has not seen you yet. You see a bridge to the north. The paths to the east and west connect to houses. The south leads to the campfire.",
+    "imagePath": "zones/central-yharnam/square.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "blades": "blades-of-mercy",
+      "eye-rune": "eye-rune"
+    },
+    "props": {
+      "structure": "square-stone-structure"
+    },
+    "exits": {
+      "north": {
+        "destination": "back-bridge",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "west": {
+        "destination": "central-house",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "east": {
+        "destination": "shortcut-house",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "south": {
+        "destination": "campfire",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {
+      "beast": "square-yharnam-beast"
+    }
+  },
+  {
+    "name": "back-bridge",
+    "description": "You arrive on the back side of the Yharnam bridge, from here you see the majority of the CITY (L). Below are the sewers, but it is no longer water flowing in the channels... A WOLF (F) beast roams not far away from a wooden CRATE (T). Going west you will reach the front part of the bridge. The south path leads to the square.",
+    "imagePath": "zones/central-yharnam/back-bridge.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "moon-rune": "moon-rune"
+    },
+    "props": {
+      "city": "back-bridge-city",
+      "crate": "back-bridge-crate"
+    },
+    "exits": {
+      "west": {
+        "destination": "front-bridge",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "south": {
+        "destination": "square",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {
+      "wolf": "back-bridge-wolf-beast"
+    }
+  },
+  {
+    "name": "front-bridge",
+    "description": "You are on the front part of the Yharnam bridge. Two things catch your eye. First, the huge PILE (L) of bones behind the STAGECOACH (L) on your left. Then the stairs to the north, you present that they will lead you to the objective of your mission. A WOLF (F) beast roams nearby. To the east is the back part of the bridge. South leads to a street full of abandoned houses. To the west you see the upper part of the sewers. To the north is currently blocked by a massive gate, there is a cathedral in this direction with an endless stream of blood flowing from it, if you go that way you won't be able to come back.",
+    "imagePath": "zones/central-yharnam/front-bridge.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "cannon": "cannon"
+    },
+    "props": {
+      "pile": "front-bridge-bone-pile",
+      "stagecoach": "front-bridge-stagecoach"
+    },
+    "exits": {
+      "north": {
+        "destination": "boss-room",
+        "type": "ConditionalExit",
+        "attributes": {
+          "conditionType": "HasKey",
+          "objectName": "round-key",
+          "conditionFalseText": "There is a huge lock on the gate you must find the appropriate key to open it."
+        }
+      },
+      "west": {
+        "destination": "upper-sewers",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "east": {
+        "destination": "back-bridge",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "south": {
+        "destination": "straight-path",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {
+      "wolf": "front-bridge-wolf-beast"
+    }
+  },
+  {
+    "name": "upper-sewers",
+    "description": "You are in the upper part of the sewers, the surroundings are not very attractive, the canal is filled with blood instead of water and the piles of CORPSES (L) are counted by tens. You feel that you are not far from the source of the blood plague. The cathedral in the distance seems to be the source of this crimson river. You notice that a MAN (TK) is leaning against a wall, he is seriously injured. East leads to the front part of the Yharnam Bridge while south leads to the lower part of the sewers.",
+    "imagePath": "zones/central-yharnam/upper-sewers.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "kirkhammer": "kirkhammer",
+      "round-key": "round-key"
+    },
+    "props": {
+      "corpses": "upper-sewers-corpses",
+      "man": "henryk"
+    },
+    "exits": {
+      "south": {
+        "destination": "lower-sewers",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "east": {
+        "destination": "front-bridge",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {}
+  },
+  {
+    "name": "lower-sewers",
+    "description": "You are in the lower part of the sewers of Yharnam, blood has long since replaced the water in the channels. A few lanterns on the walls dimly illuminate the area but you can discern a BRAINSUCKER (F) not far away. A heap of RUBBISH (L) is on your right. The only path is north, to the upper part of the sewers.",
+    "imagePath": "zones/central-yharnam/lower-sewers.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {},
+    "props": {
+      "rubbish": "lower-sewers-rubbish"
+    },
+    "exits": {
+      "north": {
+        "destination": "upper-sewers",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {
+      "brainsucker": "lower-sewers-brainsucker"
+    }
+  },
+  {
+    "name": "straight-path",
+    "description": "You are now in a long street full of abandoned houses. On your left there is a hanging corpse in front of an opened house. A broken CART (L) has been left next that house. A very old WELL (L) is present a little farther from where you are. The north path goes to a Bridge. You can drop inside the well on the west but you won't be able to come back. On the east you can enter the house where the corpse is hanging. The south leads back to the small place.",
+    "imagePath": "zones/central-yharnam/small-path.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "amulet": "olek-amulet",
+      "evelyn": "evelyn"
+    },
+    "props": {
+      "well": "straight-path-well",
+      "cart": "straight-path-cart",
+      "notebook": "straight-path-notebook"
+    },
+    "exits": {
+      "north": {
+        "destination": "front-bridge",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "west": {
+        "destination": "lower-sewers",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "east": {
+        "destination": "central-house",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "south": {
+        "destination": "small-square",
+        "type": "ConditionalExit",
+        "attributes": {
+          "conditionType": "HasKey",
+          "objectName": "central-house-key",
+          "conditionFalseText": "The lock on this metal gate seems strong you need to find a key to open it."
+        }
+      },
+      "well": {
+        "destination": "lower-sewers",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {}
+  },
+  {
+    "name": "central-house",
+    "description": "You enter a house in a deplorable state, the floor is covered with dust, the windows are broken and the walls are decrepit. You notice the presence of a few corpses scattered around, in more or less good condition. One of them, a grandpa in a wheelchair, seems almost still alive, in front of him there is a very old FURNITURE (A). You can leave the house to the west and go to the street, or to the east and go to the square.",
+    "imagePath": "zones/central-yharnam/central-house.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {
+      "black-key": "central-house-key"
+    },
+    "props": {
+      "furniture": "central-house-furniture"
+    },
+    "exits": {
+      "west": {
+        "destination": "straight-path",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "east": {
+        "destination": "square",
+        "type": "Exit",
+        "attributes": {}
+      }
+    },
+    "NPCs": {}
+  },
+  {
+    "name": "shortcut-house",
+    "description": "You enter the house, it is in a deplorable state and seems on the verge of collapse. You go upstairs and enter what seems to be a bedroom, or what is left of it. A female HUNTER (TK) is sitting on the bed, wearing a raven mask and looking injured. She has seen you but she doesn't react. A wooden CHEST (A) with a big lock is next to the bed. You can also take the exit to the west leading you to the square",
+    "imagePath": "zones/central-yharnam/house.jpg",
+    "songPath": "ambient-theme.wav",
+    "items": {},
+    "props": {
+      "chest": "shortcut-house-chest",
+      "hunter": "eileen"
+    },
+    "exits": {
+      "west": {
+        "destination": "square",
+        "type": "Exit",
+        "attributes": {}
+      },
+      "east": {
+        "destination": "boss-room",
+        "type": "ConditionalExit",
+        "attributes": {
+          "conditionType": "UsedItem",
+          "objectName": "olek-amulet",
+          "conditionFalseText": "There is a wall in this direction, you feel it's not a normal one."
+        }
+      }
+    },
+    "NPCs": {}
+  },
+  {
+    "name": "boss-room",
+    "description": "You are inside a cathedral, but the interior is nothing like it used to be. The only light comes from a little lantern, like the one in the small place you passed through a short while ago. The corpses are piled up by hundreds or maybe by thousands on the sides of the room and you are wading in several centimeters of blood, that is the reason of this infinite flow coming out of here and which replaced the water of the canal. A huge beast is in the back of this cave and seems to be waiting for you. It is at least 4 meters high, one of its arms is disproportionate to the second and the horns on its head give it an even more impressive aspect. It is hard to believe that this thing was once a human, now transformed by the blood plague. The confrontation is now inevitable and seems to be lost in advance, you notice nevertheless the presence of numerous wounds not entirely healed, probably the proof of the passage of the group of three hunters preceding you. Maybe you have a chance of eliminating it ? You have no other choice but to attack this CLERIC BEAST (F).",
+    "imagePath": "zones/central-yharnam/bridge-end.jpg",
+    "songPath": "cleric-beast-theme.wav",
+    "items": {},
+    "props": {},
+    "exits": {},
+    "NPCs": {
+      "cleric beast": "cleric-beast"
+    }
+  }
 ]

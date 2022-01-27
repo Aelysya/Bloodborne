@@ -1,307 +1,307 @@
 [
-	{
-		"id": "clinic-bag",
-		"type": "Prop",
-		"description": "You search inside the bag and find a FIRE PAPER (T), it could come in handy later, if you can find a proper weapon.",
-		"attributes": {
-			"name": "Bag",
-			"isActionable": "false"
-		}
-	},
-	{
-		"id": "clinic-shelves",
-		"type": "Prop",
-		"description": "You find a note saying \"The blood is the only way to heal our wounds, Yharnam has always been isolated from the rest of the world, we had to find ways to heal ourselves, no matter the cost. Of course it had to be addictive... Those who fell into deep addiction started to change, to become monstrous... but we needed more blood, and we started to collect it on the monsters themselves, our greatest mistake. Their blood was obviously tainted, and it changed people into even worse beasts. Now all the city is crumbling under the mass of blood-drunk monsters. They were humans once, but now nothing is left of their humanity.\" You realise that the situation is much worse than you expected, and that if you get injured, you will be forced to drink the blood vials you find. You hope to be able to resist the addiction and get out of this town as soon as possible.",
-		"attributes": {
-			"name": "Shelves",
-			"isActionable": "false"
-		}
-	},
-	{
-		"id": "graveyard-lever",
-		"type": "Prop",
-		"description": "This is a mechanical lever, you could Activate (A) it but there is no way to know what it will do.",
-		"attributes": {
-			"name": "Lever",
-			"isActionable": "true",
-			"activationText": "You pull the lever in a shrill sound and break it. But the ladder that was out of reach drops down, you can now go to the west."
-		}
-	},
-	{
-		"id": "graveyard-tombstone",
-		"type": "Prop",
-		"description": "You read \"Mingo\" on the tombstone. You see an old SAW CLEAVER (T), a HUNTER PISTOL (T) with 5 quicksilver bullets and a BOLT PAPER (T). These items were probably part of her equipment when she was still alive. There is a LEVER (A) behind the grave.",
-		"attributes": {
-			"name": "Tombstone",
-			"isActionable": "false",
-			"bulletsContained": "5"
-		}
-	},
-	{
-		"id": "graveyard-annex-corpse",
-		"type": "ConditionalProp",
-		"description": "You search through the remnants of the corpse and found a strange thing in it's pockets, a HEIR RUNE (T).",
-		"attributes": {
-			"name": "Corpse",
-			"isActionable": "false",
-			"conditionType": "KilledNPC",
-			"objectName": "graveyard-annex-wolf-beast",
-			"conditionFalseText": "You must kill the wolf before searching the corpse"
-		}
-	},
-	{
-		"id": "back-clinic-chest",
-		"type": "Container",
-		"description": "It is a wooden chest, it's lock has been crushed. You can open it (A).",
-		"attributes": {
-			"name": "Back-clinic chest",
-			"isActionable": "true",
-			"isContainer": "true",
-			"activationText": "You open the chest and retrieve a Saw Spear, two blood vials and 3 quicksilver bullets.",
-			"content": "saw-spear",
-			"vialsContained": "2",
-			"bulletsContained": "3"
-		}
-	},
-	{
-		"id": "back-clinic-cabinet",
-		"type": "ConditionalProp",
-		"description": "You scatter through the various document on the cabinet and you find a medical REPORT (L). You open the drawers and manage to find a blood vial and a COLDBLOOD DEW (T).",
-		"attributes": {
-			"name": "Cabinet",
-			"isActionable": "false",
-			"conditionType": "KilledNPC",
-			"objectName": "back-clinic-brainsucker",
-			"conditionFalseText": "You must kill the monster to access the cabinet",
-			"vialsContained": "1"
-		}
-	},
-	{
-		"id": "back-clinic-report",
-		"type": "ConditionalProp",
-		"description": "You read the medical report : \"This blood therapy, as they call it, might be a marvel in healing various diseases and wounds but I have observed a systematic dependency development in the treated patients. This addiction drives them crazy and may even transform them into beasts after a certain time. The source of this blood must be destroyed, or all of Yharnam is doomed.\" The report dates from 2 months ago.",
-		"attributes": {
-			"name": "Clinic report",
-			"isActionable": "false",
-			"conditionType": "KilledNPC",
-			"objectName": "back-clinic-brainsucker",
-			"conditionFalseText": "You must kill the monster before searching the cabinet.",
-			"content": "back-clinic-report"
-		}
-	},
-	{
-		"id": "useless-path-crates",
-		"type": "ConditionalProp",
-		"description": "You try all can but you find nothing in the crates, only dust and piles of bones, probably victims of the executioner, thinking like you that there would be something of value here.",
-		"attributes": {
-			"name": "Crates",
-			"isActionable": "false",
-			"conditionType": "KilledNPC",
-			"objectName": "useless-path-executioner",
-			"conditionFalseText": "You need to kill the executioner to loot these"
-		}
-	},
-	{
-		"id": "small-square-lantern",
-		"type": "Prop",
-		"description": "This is an old lantern. As you examine it, you realise you can't tell how it produces its light. There is no fire inside, strange...",
-		"attributes": {
-			"name": "Lantern",
-			"isActionable": "false"
-		}
-	},
-	{
-		"id": "small-square-window",
-		"type": "Prop",
-		"description": "You approach the window and hear a MAN (TK) coughing inside the house.",
-		"attributes": {
-			"name": "Small square window",
-			"isActionable": "false"
-		}
-	},
-	{
-		"id": "campfire-campfire",
-		"type": "Prop",
-		"description": "You examine the campfire and its surroundings, you find a blood vial and 5 quicksilver bullets among the blood-drunks' stuff. Further inspection makes you find a FIRE PAPER (T) and a HUNTER BLUNDERBUSS (T).",
-		"attributes": {
-			"name": "Campfire",
-			"isActionable": "false",
-			"vialsContained": "1",
-			"bulletsContained": "5"
-		}
-	},
-	{
-		"id": "mimic-house-mimic",
-		"type": "Prop",
-		"description": "The chest looks like any classic wooden chest. It has no lock on it so you could surely open it. The cut off arm next to it is odd though.",
-		"attributes": {
-			"name": "Mimic",
-			"isActionable": "true",
-			"activationText": "If you see this text there is a problem, you shouldn't be alive.",
-			"isTrapped": "true",
-			"damageDone": "7355408",
-			"deathDescription": "You approach the strange chest, just as you place your hands on it you almost feel like it's alive, like you felt a faint heart pound. You tell yourself that it's just your mind playing tricks and you open the chest... and suddenly face an immense mouth full of razor-sharp teeth, the chest was a mimic all-along. Just as you die, eaten alive, you remember all the clues that should have tell you not to open it, the cut off arm, the feel that it was alive just before the opening, and the concerns of Alfred. "
-		}
-	},
-	{
-		"id": "square-stone-structure",
-		"type": "Prop",
-		"description": "You examine the stone structure in more detail. You are unable to tell what it represents. Looking a little harder, you find a weapon under some rubble: the BLADES OF MERCY (T). They are in very good condition and are still sharp, they were recently lost. You also find an EYE RUNE (T).",
-		"attributes": {
-			"name": "Stone structure",
-			"isActionable": "false"
-		}
-	},
-	{
-		"id": "shortcut-house-chest",
-		"type": "Container",
-		"description": "It is a wooden chest in a deplorable state. You can open it (A).",
-		"attributes": {
-			"name": "Shortcut house chest",
-			"isActionable": "true",
-			"isContainer": "true",
-			"activationText": "You open the chest and retrieve a Hunter Axe, a blood vial and 3 quicksilver bullets..",
-			"content": "hunter-axe",
-			"vialsContained": "1",
-			"bulletsContained": "3"
-		}
-	},
-	{
-		"id": "central-house-furniture",
-		"type": "Prop",
-		"description": "This is an old furniture with many papers scattered on it. You can search (A) within it's drawers.",
-		"attributes": {
-			"name": "Furniture",
-			"isActionable": "true",
-			"activationText": "You search the furniture and find a BLACK KEY (T) and a blood vial in the drawers. As you turn around, you get sprayed with bullets by the corpse in the wheelchair, you are grievously injured and can't even get the pleasure of killing the trigger-happy grandpa because it dies before your eyes.",
-			"isTrapped": "true",
-			"damageDone": "10",
-			"vialsContained": "1",
-			"deathDescription": "You search the furniture but suddenly hear a sound behind you. As you turn around, you get sprayed with bullets by the corpse in the wheelchair. You were too grievously injured and the trigger-happy grandpa manages to kill you in his last breath."
-		}
-	},
-	{
-		"id": "straight-path-cart",
-		"type": "Prop",
-		"description": "You search through the cart, with difficulties due to the rain and the fact that it is in a very bad state. You still manage to find an AMULET (T) a wet NOTEBOOK (L) and an EVELYN (T), a very rare weapon that is both precise and deadly.",
-		"attributes": {
-			"name": "Cart",
-			"isActionable": "false"
-		}
-	},
-	{
-		"id": "straight-path-well",
-		"type": "Prop",
-		"description": "You look inside the well and find a blood vial between two rocks. There is also a rope attached to one of the well poles, someone visibly tried to go to the bottom of the well.",
-		"attributes": {
-			"name": "Well",
-			"isActionable": "false",
-			"vialsContained": "1"
-		}
-	},
-	{
-		"id": "straight-path-notebook",
-		"type": "Prop",
-		"description": "The notebook is in a state as bad as the cart's, but you can still read some parts : \"We tri..... ...o kill it, we really did, but it ....s too strong. This mons...... must be k.......ed. I can't d.. ..t, I will die he...., I leave my evel..... to anyone that m.... find it. May it ....lp a good hunter, one b.....ter than me. I ju.... ..ope that Eile..n and Hen..yk are alright. -Olek\" After finishing to read the notebook, you take a quick look behind the cart and notice the corpse of a hunter, its viscera out of his belly.",
-		"attributes": {
-			"name": "Notebook",
-			"isActionable": "false"
-		}
-	},
-	{
-		"id": "back-bridge-city",
-		"type": "Prop",
-		"description": "You observe the city from a high point and can see more clearly the gravity of the situation. Most of the streets are either deserted or crawling with monsters. The source of this blood plague must be eliminated to prevent it from spreading elsewhere in the world.",
-		"attributes": {
-			"name": "City view",
-			"isActionable": "false"
-		}
-	},
-	{
-		"id": "back-bridge-crate",
-		"type": "Prop",
-		"description": "You brake open the crate to searching through it's content. You find a blood vial and a MOON RUNE (T)",
-		"attributes": {
-			"name": "Crate",
-			"isActionable": "false",
-			"vialsContained": "1"
-		}
-	},
-	{
-		"id": "front-bridge-bone-pile",
-		"type": "Prop",
-		"description": "You search through the pile of bones in the hope of recovering something useful. You manage to find a blood vial.",
-		"attributes": {
-			"name": "Bone pile",
-			"isActionable": "false",
-			"vialsContained": "1"
-		}
-	},
-	{
-		"id": "front-bridge-stagecoach",
-		"type": "Prop",
-		"description": "You inspect the coach. The outside is marked with deep scratches. The inside is stained with blood, there were two people here, but only a dead woman in a red and black dress is still there, the other person was probably dragged away by some monster. You manage to find a CANNON (T), a very heavy and unwieldy weapon that looks terribly powerful, and 3 quicksilver bullets. When you come back out, you notice the presence of bloody footprints heading west that you didn't notice before.",
-		"attributes": {
-			"name": "Stagecoach",
-			"isActionable": "false",
-			"bulletsContained": "3"
-		}
-	},
-	{
-		"id": "lower-sewers-rubbish",
-		"type": "Prop",
-		"description": "You search the pile of garbage, it's quite unpleasant but not useless since you find 4 quicksilver bullets and 2 blood vials.",
-		"attributes": {
-			"name": "Sewers rubbish",
-			"isActionable": "false",
-			"vialsContained": "2",
-			"bulletsContained": "4"
-		}
-	},
-	{
-		"id": "upper-sewers-corpses",
-		"type": "Prop",
-		"description": "You feel that you could get something useful by searching the corpses. You find a blood vial and discover an unusual weapon, a KIRKHAMMER (T), a special weapon that can either be a swift sword or a heavy monster-crushing hammer.",
-		"attributes": {
-			"name": "Sewers corpses",
-			"isActionable": "false",
-			"vialsContained": "1"
-		}
-	},
-	{
-		"id": "gilbert",
-		"type": "Friendly",
-		"description": "The man is coughing, judging by his appearance you believe he's not from Yharnam.",
-		"attributes": {
-			"name": "Gilbert",
-			"speech": "\"Oh you must be a Hunter, and not one from around here either. I'm Gilbert, a fellow outsider. You must have had a fine time of it. Yharnam has a special way of treating guests. I don't think I can stand if I wanted to, but I'm willing to help, if there's anything that can be done *coughs*. This town is cursed. Whatever your reasons might be you should plan a swift exit.\" Gilbert shows you a SMALL KEY (T) next to the window."
-		}
-	},
-	{
-		"id": "alfred",
-		"type": "Friendly",
-		"description": "Judging by his appearance, you think that the man is a hunter too, but his clothes indicate that he's a church executioner.",
-		"attributes": {
-			"name": "Alfred",
-			"speech": "\"You're a hunter, aren't you? I knew it. That's precisely how I started out! Oh, beg pardon, you may call me Alfred. See, this chest concerns me, sure there is something with it that just doesn't seem right. What you think ? I can't bring myself to open it, just feel that I shouldn't. May I ask you to do so for me ?\""
-		}
-	},
-	{
-		"id": "henryk",
-		"type": "Friendly",
-		"description": "The man wears a yellow garb and is seriously injured. You believe he's a hunter like you, maybe one of the three that came here before you ?",
-		"attributes": {
-			"name": "Henryk",
-			"speech": "\"The reinforcements have arrived huh. So, t'was you they sent to fix the mess we couldn't. You silly... We couldn't do it, even with the three of us against this... thing, what makes you think you can ? That said, maybe we've weakened it enough. *groan of pain* Hmmpf I think it hurt me a little more than I thought huh. My partners and I fled the cathedral and closed the gate behind us, so that monster couldn't get out. I guess you want to go there anyway, don't you ? If you're so eager to risk your life go ahead.\" You can take the ROUND KEY (T) \"I don't know where Eileen and Olek went after we got separated, I just hope they found a safe place.*groan of pain* Leave me here, you can't do anything for me anyway so go exterminate that horror in the cathedral.\" As you walk away from Henryk, you hear him writhe in pain one last time before lying on his side."
-		}
-	},
-	{
-		"id": "eileen",
-		"type": "Friendly",
-		"description": "The woman is a hunter judging by the amount of blood on her clothes. She wears an attire that makes her look like a crow.",
-		"attributes": {
-			"name": "Eileen",
-			"speech": "\"Oh, a hunter, are ya? And an outsider? What a mess you've been caught up in. And today, of all days. Prepare yourself for the worst. There are no humans left. They're all flesh-hungry beasts, now. My partners and I have been trying to eliminate the source of corruption in this city. We have only succeeded in collecting wounds. We fled his lair and came across a wolf beast on the bridge, forced to separate. Did you happen to see 'em ? No, it's unlikely... just hope they're okay...\nI managed to cross the bridge only to find myself in front of a monster in the square, 'must have seen it, it collapsed half the statue and got stuck underneath. He still managed to make me lose my weapon though. And here I am now, a hunter without weapon, too injured to go outside. But I think I might still be of use. Olek, one of my colleagues, he had an amulet. We used it to reveal a hidden path some time ago and I think there is one in this house. If you manage to find this amulet, come back here, go to the room downstairs and hold it up high, should work. What are you still doing here? Enough trembling in your boots. A hunter must hunt. Go finish the work.\""
-		}
-	}
+  {
+    "id": "clinic-bag",
+    "type": "Prop",
+    "description": "You search inside the bag and find a FIRE PAPER (T), it could come in handy later, if you can find a proper weapon.",
+    "attributes": {
+      "name": "Bag",
+      "isActionable": "false"
+    }
+  },
+  {
+    "id": "clinic-shelves",
+    "type": "Prop",
+    "description": "You find a note saying \"The blood is the only way to heal our wounds, Yharnam has always been isolated from the rest of the world, we had to find ways to heal ourselves, no matter the cost. Of course it had to be addictive... Those who fell into deep addiction started to change, to become monstrous... but we needed more blood, and we started to collect it on the monsters themselves, our greatest mistake. Their blood was obviously tainted, and it changed people into even worse beasts. Now all the city is crumbling under the mass of blood-drunk monsters. They were humans once, but now nothing is left of their humanity.\" You realise that the situation is much worse than you expected, and that if you get injured, you will be forced to drink the blood vials you find. You hope to be able to resist the addiction and get out of this town as soon as possible.",
+    "attributes": {
+      "name": "Shelves",
+      "isActionable": "false"
+    }
+  },
+  {
+    "id": "graveyard-lever",
+    "type": "Prop",
+    "description": "This is a mechanical lever, you could Activate (A) it but there is no way to know what it will do.",
+    "attributes": {
+      "name": "Lever",
+      "isActionable": "true",
+      "activationText": "You pull the lever in a shrill sound and break it. But the ladder that was out of reach drops down, you can now go to the west."
+    }
+  },
+  {
+    "id": "graveyard-tombstone",
+    "type": "Prop",
+    "description": "You read \"Mingo\" on the tombstone. You see an old SAW CLEAVER (T), a HUNTER PISTOL (T) with 5 quicksilver bullets and a BOLT PAPER (T). These items were probably part of her equipment when she was still alive. There is a LEVER (A) behind the grave.",
+    "attributes": {
+      "name": "Tombstone",
+      "isActionable": "false",
+      "bulletsContained": "5"
+    }
+  },
+  {
+    "id": "graveyard-annex-corpse",
+    "type": "ConditionalProp",
+    "description": "You search through the remnants of the corpse and found a strange thing in it's pockets, a HEIR RUNE (T).",
+    "attributes": {
+      "name": "Corpse",
+      "isActionable": "false",
+      "conditionType": "KilledNPC",
+      "objectName": "graveyard-annex-wolf-beast",
+      "conditionFalseText": "You must kill the wolf before searching the corpse"
+    }
+  },
+  {
+    "id": "back-clinic-chest",
+    "type": "Container",
+    "description": "It is a wooden chest, it's lock has been crushed. You can open it (A).",
+    "attributes": {
+      "name": "Back-clinic chest",
+      "isActionable": "true",
+      "isContainer": "true",
+      "activationText": "You open the chest and retrieve a Saw Spear, two blood vials and 3 quicksilver bullets.",
+      "content": "saw-spear",
+      "vialsContained": "2",
+      "bulletsContained": "3"
+    }
+  },
+  {
+    "id": "back-clinic-cabinet",
+    "type": "ConditionalProp",
+    "description": "You scatter through the various document on the cabinet and you find a medical REPORT (L). You open the drawers and manage to find a blood vial and a COLDBLOOD DEW (T).",
+    "attributes": {
+      "name": "Cabinet",
+      "isActionable": "false",
+      "conditionType": "KilledNPC",
+      "objectName": "back-clinic-brainsucker",
+      "conditionFalseText": "You must kill the monster to access the cabinet",
+      "vialsContained": "1"
+    }
+  },
+  {
+    "id": "back-clinic-report",
+    "type": "ConditionalProp",
+    "description": "You read the medical report : \"This blood therapy, as they call it, might be a marvel in healing various diseases and wounds but I have observed a systematic dependency development in the treated patients. This addiction drives them crazy and may even transform them into beasts after a certain time. The source of this blood must be destroyed, or all of Yharnam is doomed.\" The report dates from 2 months ago.",
+    "attributes": {
+      "name": "Clinic report",
+      "isActionable": "false",
+      "conditionType": "KilledNPC",
+      "objectName": "back-clinic-brainsucker",
+      "conditionFalseText": "You must kill the monster before searching the cabinet.",
+      "content": "back-clinic-report"
+    }
+  },
+  {
+    "id": "useless-path-crates",
+    "type": "ConditionalProp",
+    "description": "You try all can but you find nothing in the crates, only dust and piles of bones, probably victims of the executioner, thinking like you that there would be something of value here.",
+    "attributes": {
+      "name": "Crates",
+      "isActionable": "false",
+      "conditionType": "KilledNPC",
+      "objectName": "useless-path-executioner",
+      "conditionFalseText": "You need to kill the executioner to loot these"
+    }
+  },
+  {
+    "id": "small-square-lantern",
+    "type": "Prop",
+    "description": "This is an old lantern. As you examine it, you realise you can't tell how it produces its light. There is no fire inside, strange...",
+    "attributes": {
+      "name": "Lantern",
+      "isActionable": "false"
+    }
+  },
+  {
+    "id": "small-square-window",
+    "type": "Prop",
+    "description": "You approach the window and hear a MAN (TK) coughing inside the house.",
+    "attributes": {
+      "name": "Small square window",
+      "isActionable": "false"
+    }
+  },
+  {
+    "id": "campfire-campfire",
+    "type": "Prop",
+    "description": "You examine the campfire and its surroundings, you find a blood vial and 5 quicksilver bullets among the blood-drunks' stuff. Further inspection makes you find a FIRE PAPER (T) and a HUNTER BLUNDERBUSS (T).",
+    "attributes": {
+      "name": "Campfire",
+      "isActionable": "false",
+      "vialsContained": "1",
+      "bulletsContained": "5"
+    }
+  },
+  {
+    "id": "mimic-house-mimic",
+    "type": "Prop",
+    "description": "The chest looks like any classic wooden chest. It has no lock on it so you could surely open it. The cut off arm next to it is odd though.",
+    "attributes": {
+      "name": "Mimic",
+      "isActionable": "true",
+      "activationText": "If you see this text there is a problem, you shouldn't be alive.",
+      "isTrapped": "true",
+      "damageDone": "7355408",
+      "deathDescription": "You approach the strange chest, just as you place your hands on it you almost feel like it's alive, like you felt a faint heart pound. You tell yourself that it's just your mind playing tricks and you open the chest... and suddenly face an immense mouth full of razor-sharp teeth, the chest was a mimic all-along. Just as you die, eaten alive, you remember all the clues that should have tell you not to open it, the cut off arm, the feel that it was alive just before the opening, and the concerns of Alfred. "
+    }
+  },
+  {
+    "id": "square-stone-structure",
+    "type": "Prop",
+    "description": "You examine the stone structure in more detail. You are unable to tell what it represents. Looking a little harder, you find a weapon under some rubble: the BLADES OF MERCY (T). They are in very good condition and are still sharp, they were recently lost. You also find an EYE RUNE (T).",
+    "attributes": {
+      "name": "Stone structure",
+      "isActionable": "false"
+    }
+  },
+  {
+    "id": "shortcut-house-chest",
+    "type": "Container",
+    "description": "It is a wooden chest in a deplorable state. You can open it (A).",
+    "attributes": {
+      "name": "Shortcut house chest",
+      "isActionable": "true",
+      "isContainer": "true",
+      "activationText": "You open the chest and retrieve a Hunter Axe, a blood vial and 3 quicksilver bullets..",
+      "content": "hunter-axe",
+      "vialsContained": "1",
+      "bulletsContained": "3"
+    }
+  },
+  {
+    "id": "central-house-furniture",
+    "type": "Prop",
+    "description": "This is an old furniture with many papers scattered on it. You can search (A) within it's drawers.",
+    "attributes": {
+      "name": "Furniture",
+      "isActionable": "true",
+      "activationText": "You search the furniture and find a BLACK KEY (T) and a blood vial in the drawers. As you turn around, you get sprayed with bullets by the corpse in the wheelchair, you are grievously injured and can't even get the pleasure of killing the trigger-happy grandpa because it dies before your eyes.",
+      "isTrapped": "true",
+      "damageDone": "10",
+      "vialsContained": "1",
+      "deathDescription": "You search the furniture but suddenly hear a sound behind you. As you turn around, you get sprayed with bullets by the corpse in the wheelchair. You were too grievously injured and the trigger-happy grandpa manages to kill you in his last breath."
+    }
+  },
+  {
+    "id": "straight-path-cart",
+    "type": "Prop",
+    "description": "You search through the cart, with difficulties due to the rain and the fact that it is in a very bad state. You still manage to find an AMULET (T) a wet NOTEBOOK (L) and an EVELYN (T), a very rare weapon that is both precise and deadly.",
+    "attributes": {
+      "name": "Cart",
+      "isActionable": "false"
+    }
+  },
+  {
+    "id": "straight-path-well",
+    "type": "Prop",
+    "description": "You look inside the well and find a blood vial between two rocks. There is also a rope attached to one of the well poles, someone visibly tried to go to the bottom of the well.",
+    "attributes": {
+      "name": "Well",
+      "isActionable": "false",
+      "vialsContained": "1"
+    }
+  },
+  {
+    "id": "straight-path-notebook",
+    "type": "Prop",
+    "description": "The notebook is in a state as bad as the cart's, but you can still read some parts : \"We tri..... ...o kill it, we really did, but it ....s too strong. This mons...... must be k.......ed. I can't d.. ..t, I will die he...., I leave my evel..... to anyone that m.... find it. May it ....lp a good hunter, one b.....ter than me. I ju.... ..ope that Eile..n and Hen..yk are alright. -Olek\" After finishing to read the notebook, you take a quick look behind the cart and notice the corpse of a hunter, its viscera out of his belly.",
+    "attributes": {
+      "name": "Notebook",
+      "isActionable": "false"
+    }
+  },
+  {
+    "id": "back-bridge-city",
+    "type": "Prop",
+    "description": "You observe the city from a high point and can see more clearly the gravity of the situation. Most of the streets are either deserted or crawling with monsters. The source of this blood plague must be eliminated to prevent it from spreading elsewhere in the world.",
+    "attributes": {
+      "name": "City view",
+      "isActionable": "false"
+    }
+  },
+  {
+    "id": "back-bridge-crate",
+    "type": "Prop",
+    "description": "You brake open the crate to searching through it's content. You find a blood vial and a MOON RUNE (T)",
+    "attributes": {
+      "name": "Crate",
+      "isActionable": "false",
+      "vialsContained": "1"
+    }
+  },
+  {
+    "id": "front-bridge-bone-pile",
+    "type": "Prop",
+    "description": "You search through the pile of bones in the hope of recovering something useful. You manage to find a blood vial.",
+    "attributes": {
+      "name": "Bone pile",
+      "isActionable": "false",
+      "vialsContained": "1"
+    }
+  },
+  {
+    "id": "front-bridge-stagecoach",
+    "type": "Prop",
+    "description": "You inspect the coach. The outside is marked with deep scratches. The inside is stained with blood, there were two people here, but only a dead woman in a red and black dress is still there, the other person was probably dragged away by some monster. You manage to find a CANNON (T), a very heavy and unwieldy weapon that looks terribly powerful, and 3 quicksilver bullets. When you come back out, you notice the presence of bloody footprints heading west that you didn't notice before.",
+    "attributes": {
+      "name": "Stagecoach",
+      "isActionable": "false",
+      "bulletsContained": "3"
+    }
+  },
+  {
+    "id": "lower-sewers-rubbish",
+    "type": "Prop",
+    "description": "You search the pile of garbage, it's quite unpleasant but not useless since you find 4 quicksilver bullets and 2 blood vials.",
+    "attributes": {
+      "name": "Sewers rubbish",
+      "isActionable": "false",
+      "vialsContained": "2",
+      "bulletsContained": "4"
+    }
+  },
+  {
+    "id": "upper-sewers-corpses",
+    "type": "Prop",
+    "description": "You feel that you could get something useful by searching the corpses. You find a blood vial and discover an unusual weapon, a KIRKHAMMER (T), a special weapon that can either be a swift sword or a heavy monster-crushing hammer.",
+    "attributes": {
+      "name": "Sewers corpses",
+      "isActionable": "false",
+      "vialsContained": "1"
+    }
+  },
+  {
+    "id": "gilbert",
+    "type": "Friendly",
+    "description": "The man is coughing, judging by his appearance you believe he's not from Yharnam.",
+    "attributes": {
+      "name": "Gilbert",
+      "speech": "\"Oh you must be a Hunter, and not one from around here either. I'm Gilbert, a fellow outsider. You must have had a fine time of it. Yharnam has a special way of treating guests. I don't think I can stand if I wanted to, but I'm willing to help, if there's anything that can be done *coughs*. This town is cursed. Whatever your reasons might be you should plan a swift exit.\" Gilbert shows you a SMALL KEY (T) next to the window."
+    }
+  },
+  {
+    "id": "alfred",
+    "type": "Friendly",
+    "description": "Judging by his appearance, you think that the man is a hunter too, but his clothes indicate that he's a church executioner.",
+    "attributes": {
+      "name": "Alfred",
+      "speech": "\"You're a hunter, aren't you? I knew it. That's precisely how I started out! Oh, beg pardon, you may call me Alfred. See, this chest concerns me, sure there is something with it that just doesn't seem right. What you think ? I can't bring myself to open it, just feel that I shouldn't. May I ask you to do so for me ?\""
+    }
+  },
+  {
+    "id": "henryk",
+    "type": "Friendly",
+    "description": "The man wears a yellow garb and is seriously injured. You believe he's a hunter like you, maybe one of the three that came here before you ?",
+    "attributes": {
+      "name": "Henryk",
+      "speech": "\"The reinforcements have arrived huh. So, t'was you they sent to fix the mess we couldn't. You silly... We couldn't do it, even with the three of us against this... thing, what makes you think you can ? That said, maybe we've weakened it enough. *groan of pain* Hmmpf I think it hurt me a little more than I thought huh. My partners and I fled the cathedral and closed the gate behind us, so that monster couldn't get out. I guess you want to go there anyway, don't you ? If you're so eager to risk your life go ahead.\" You can take the ROUND KEY (T) \"I don't know where Eileen and Olek went after we got separated, I just hope they found a safe place.*groan of pain* Leave me here, you can't do anything for me anyway so go exterminate that horror in the cathedral.\" As you walk away from Henryk, you hear him writhe in pain one last time before lying on his side."
+    }
+  },
+  {
+    "id": "eileen",
+    "type": "Friendly",
+    "description": "The woman is a hunter judging by the amount of blood on her clothes. She wears an attire that makes her look like a crow.",
+    "attributes": {
+      "name": "Eileen",
+      "speech": "\"Oh, a hunter, are ya? And an outsider? What a mess you've been caught up in. And today, of all days. Prepare yourself for the worst. There are no humans left. They're all flesh-hungry beasts, now. My partners and I have been trying to eliminate the source of corruption in this city. We have only succeeded in collecting wounds. We fled his lair and came across a wolf beast on the bridge, forced to separate. Did you happen to see 'em ? No, it's unlikely... just hope they're okay...\nI managed to cross the bridge only to find myself in front of a monster in the square, 'must have seen it, it collapsed half the statue and got stuck underneath. He still managed to make me lose my weapon though. And here I am now, a hunter without weapon, too injured to go outside. But I think I might still be of use. Olek, one of my colleagues, he had an amulet. We used it to reveal a hidden path some time ago and I think there is one in this house. If you manage to find this amulet, come back here, go to the room downstairs and hold it up high, should work. What are you still doing here? Enough trembling in your boots. A hunter must hunt. Go finish the work.\""
+    }
+  }
 ]

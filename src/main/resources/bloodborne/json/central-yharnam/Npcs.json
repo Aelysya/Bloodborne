@@ -1,0 +1,12 @@
+[
+  {
+    "id": "iosefka",
+    "type": "Iosefka",
+    "description": "A woman is on the other side of the door, she seems to be a doctor.",
+    "attributes": {
+      "firstSpeech": "\"Are you... out on the hunt ? Then I'm very sorry, but... I cannot open this door. I am Iosefka. The patients here in my clinic must not be exposed to infection. I know that you hunt for us, for our town, but I'm sorry. Please. This is all that I can do (Iosefka gives you a special blood vial). Now, go. And good hunting.\"",
+      "hasVialSpeech": "\"Are you still in need of something? But I have nothing more to offer. Please, try to understand my position. I can only pray, for a fruitful hunt.\"",
+      "noVialSpeech": "\"You are safe, thank goodness. But I’m afraid nothing will change. I cannot open the door. I’ll do what I can, of course. Perhaps this will help you, if only in some small way (Iosefka gives you a special blood vial). Now, go. I pray for your safety.\""
+    }
+  }
+]
