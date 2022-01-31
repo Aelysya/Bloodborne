@@ -2,7 +2,7 @@
   {
     "id": "saw-cleaver",
     "type": "TrickWeapon",
-    "description": "One of the trick weapons of the workshop, commonly used in the hunting business. This saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force. The saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
+    "description": "One of the trick weapons of the workshop, commonly used in the hunting business.\n\nThis saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force.\n\nThe saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
     "attributes": {
       "name": "Saw cleaver",
       "image": "weapons/saw-cleaver.png",
@@ -20,7 +20,7 @@
   {
     "id": "hunter-axe",
     "type": "TrickWeapon",
-    "description": "One of the trick weapons of the workshop, commonly used on the hunt. Retains the qualities of an axe, but offers a wider palette of attacks by transforming. Boasts a heavy blunt attack, leading to high rally potential. No matter their pasts, beasts are no more than beasts. Some choose this axe to play the part of executioner.",
+    "description": "One of the trick weapons of the workshop, commonly used on the hunt.\n\nRetains the qualities of an axe, but offers wider palette of attacks by transforming. Boasts a heavy blunt attack, leading to high rally potential.\n\nNo matter their pasts, beasts are no more than beasts. Some choose this axe to play the part of executioner.",
     "attributes": {
       "name": "Hunter axe",
       "image": "weapons/hunter-axe.png",
@@ -38,7 +38,7 @@
   {
     "id": "threaded-cane",
     "type": "TrickWeapon",
-    "description": "One of the trick weapons of the workshop, commonly used by hunters on their duties. Sufficiently deadly as a rigid bladed cane, but also serves as a whip when its blade is split into many. Concealing the weapon inside the cane and flogging the beasts with the whip is partly an act of ceremony, an attempt to demonstrate to oneself that the bloodlust of the hunt will never encroach upon the soul.",
+    "description": "One of the trick weapons of the workshop, commonly used by hunters on their duties.\n\nSufficiently deadly as a rigid bladed cane, but also serves as a whip when its blade is split into many.\n\nConcealing the weapon inside the cane and flogging the beasts with the whip is partly an act of ceremony, an attempt to demonstrate to oneself that the bloodlust of the hunt will never encroach upon the soul.",
     "attributes": {
       "name": "Threaded cane",
       "image": "weapons/threaded-cane.png",
@@ -56,7 +56,7 @@
   {
     "id": "hunter-pistol",
     "type": "FireArm",
-    "description": "Pistol made at the workshop, for hunters stalking beasts. Hunter firearms are specially crafted to employ Quicksilver Bullets fused with the wielder's own blood, boosting damage against beasts. The pistol is a quicker draw than the blunderbuss, allowing for speedier responses to attacks.",
+    "description": "Pistol made at the workshop, for hunters stalking beasts.\n\nHunter firearms are specially crafted to employ Quicksilver Bullets fused with the wielder's own blood, boosting damage against beasts.\n\nThe pistol is a quicker draw than the blunderbuss, allowing for speedier responses to attacks.",
     "attributes": {
       "name": "Hunter pistol",
       "image": "weapons/hunter-pistol.png",
@@ -74,7 +74,7 @@
   {
     "id": "hunter-blunderbuss",
     "type": "FireArm",
-    "description": "A blunderbuss created at the workshop for the hunters' line of work. Hunter firearms are specially crafted to employ Quicksilver Bullets fused with the wielder's own blood, boosting damage against beasts. The impact of this highly-effective weapon counters beasts' swift movements, and its wide spread is nigh-on guaranteed to hit the mark.",
+    "description": "A blunderbuss created at the workshop for the hunters' line of work.\n\nHunter firearms are specially crafted to employ Quicksilver Bullets fused with the wielder's own blood, boosting damage against beasts.\n\nThe impact of this highly-effective weapon counters beasts' swift movements, and its wide spread is nigh-on guaranteed to hit the mark.",
     "attributes": {
       "name": "Hunter blunderbuss",
       "image": "weapons/hunter-blunderbuss.png",

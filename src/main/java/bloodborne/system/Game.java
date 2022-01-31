@@ -47,6 +47,10 @@ public class Game {
         WorldLoader.loadZone("central-yharnam", WORLD);
     }
 
+    public World getWORLD() {
+        return WORLD;
+    }
+
     public void writeInstantly(String txt) {
         System.out.println(txt);
         CONTROLLER.writeInstantly(txt);
@@ -308,13 +312,13 @@ public class Game {
                 CONTROLLER.writeInstantly(item.take(HUNTER));
                 SOUND_MANAGER.playSoundEffect("take-item.wav");
                 ACTION_LISTENER.takeListener(item);
+                CONTROLLER.updateInventory(item.getCategory());
             } else {
                 CONTROLLER.writeInstantly("You already took this item.");
             }
         } else {
             CONTROLLER.writeInstantly("You try to take something that doesn't exist.");
         }
-        CONTROLLER.updateInventory("default");
     }
 
 

@@ -62,6 +62,80 @@ public class Place {
         NPCS = new HashMap<>();
     }
 
+    public void initialize(World world) throws MalFormedJsonException, UnknownPlaceException, UnknownExitTypeException, ItemNotFoundException, NPCNotFoundException {
+        for (Map.Entry<String, String> entry : ITEMS_STRING.entrySet()) {
+            String itemName = entry.getKey();
+            Item item = world.getItemById(entry.getValue());
+            if (item == null) {
+                throw new ItemNotFoundException(itemName + " is not present in the world for place : " + NAME);
+            } else {
+                ITEMS.put(itemName, item);
+            }
+        }
+        for (Map.Entry<String, String> entry : ENEMIES_STRING.entrySet()) {
+            String enemyName = entry.getKey();
+            Enemy enemy = world.getEnemyById(entry.getValue());
+            if (enemy == null) {
+                throw new NPCNotFoundException(enemyName + " is not present in the world for place : " + NAME);
+            } else {
+                ENEMIES.put(enemyName, enemy);
+            }
+        }
+        for (Map.Entry<String, String> entry : PROPS_STRING.entrySet()) {
+            String propName = entry.getKey();
+            Prop prop = world.getPropById(entry.getValue());
+            if (prop == null) {
+                throw new MalFormedJsonException("the prop : " + entry.getValue() + " doesn't exist");
+            } else {
+                PROPS.put(propName, prop);
+            }
+        }
+        for (Map.Entry<String, String> entry : NPCS_STRING.entrySet()) {
+            String npcName = entry.getKey();
+            NPC npc = world.getNpcById(entry.getValue());
+            if (npc == null) {
+                throw new MalFormedJsonException("the npc : " + entry.getValue() + " doesn't exist");
+            } else {
+                NPCS.put(npcName, npc);
+            }
+        }
+        for (Map.Entry<String, Object> entry : EXITS_OBJECT.entrySet()) {
+            String exitDirection = entry.getKey();
+            Map<String, Object> exitAttributes = (Map) entry.getValue();
+            EXITS.put(exitDirection, WorldLoader.createExit(exitAttributes, world, (String) exitAttributes.get("destination")));
+        }
+    }
+
+    public void switchToAltDescription() {
+        showAltDescription = true;
+    }
+
+    public void visit() {
+        hasBeenVisited = true;
+    }
+
+    public boolean isBossArena() {
+        boolean hasBoss = false;
+        for (Entity e : ENEMIES.values()) {
+            if (e instanceof Boss) {
+                hasBoss = true;
+                break;
+            }
+        }
+        return hasBoss;
+    }
+
+    public Boss getBoss() {
+        Boss boss = null;
+        for (Entity e : ENEMIES.values()) {
+            if (e instanceof Boss) {
+                boss = (Boss) e;
+                break;
+            }
+        }
+        return boss;
+    }
+
     public String getID() {
         return ID;
     }
@@ -105,12 +179,20 @@ public class Place {
         return ZONE + ".wav";
     }
 
-    public HashMap<String, Prop> getPROPS() {
-        return PROPS;
+    public boolean hasBeenVisited() {
+        return hasBeenVisited;
     }
 
-    public HashMap<String, NPC> getNPCS() {
-        return NPCS;
+    public boolean hasLantern() {
+        return HAS_LANTERN;
+    }
+
+    public HashMap<String, Item> getITEMS() {
+        return ITEMS;
+    }
+
+    public HashMap<String, Prop> getPROPS() {
+        return PROPS;
     }
 
     public HashMap<String, Exit> getEXITS() {
@@ -121,16 +203,8 @@ public class Place {
         return ENEMIES;
     }
 
-    public Exit getExitByName(String direction) {
-        return EXITS.get(direction);
-    }
-
-    public Prop getPropByName(String propName) {
-        return PROPS.get(propName);
-    }
-
-    public NPC getNpcByName(String npcName) {
-        return NPCS.get(npcName);
+    public HashMap<String, NPC> getNPCS() {
+        return NPCS;
     }
 
     public Item getItemByName(String itemName) {
@@ -138,12 +212,28 @@ public class Place {
         String iName;
         for (Item i : ITEMS.values()) {
             iName = i.getNAME().toLowerCase(Locale.ROOT);
-            if (iName.equals(itemName)) {
+            if (iName.equals(itemName.toLowerCase(Locale.ROOT))) {
                 item = i;
                 break;
             }
         }
         return item;
+    }
+
+    public Prop getPropByName(String propName) {
+        return PROPS.get(propName);
+    }
+
+    public Exit getExitByName(String direction) {
+        return EXITS.get(direction);
+    }
+
+    public Entity getEnemyByName(String target) {
+        return ENEMIES.get(target);
+    }
+
+    public NPC getNpcByName(String npcName) {
+        return NPCS.get(npcName);
     }
 
     public void removeItemByID(String itemID) {
@@ -153,94 +243,6 @@ public class Place {
                 System.out.println("Removed item " + i.getID() + " from place " + getID());
                 break;
             }
-        }
-    }
-
-    public Entity getEnemyByName(String target) {
-        return ENEMIES.get(target);
-    }
-
-    public Boss getBoss() {
-        Boss boss = null;
-        for (Entity e : ENEMIES.values()) {
-            if (e instanceof Boss) {
-                boss = (Boss) e;
-                break;
-            }
-        }
-        return boss;
-    }
-
-    public boolean isBossArena() {
-        boolean hasBoss = false;
-        for (Entity e : ENEMIES.values()) {
-            if (e instanceof Boss) {
-                hasBoss = true;
-                break;
-            }
-        }
-        return hasBoss;
-    }
-
-    public boolean hasLantern() {
-        return HAS_LANTERN;
-    }
-
-    public void switchToAltDescription() {
-        showAltDescription = true;
-    }
-
-    public void visit() {
-        hasBeenVisited = true;
-    }
-
-    public boolean hasBeenVisited() {
-        return hasBeenVisited;
-    }
-
-    public void initialize(World world) throws MalFormedJsonException, UnknownPlaceException, UnknownExitTypeException, ItemNotFoundException, NPCNotFoundException {
-        for (Map.Entry<String, String> entry : ITEMS_STRING.entrySet()) {
-            String itemName = entry.getKey();
-            String itemIdName = entry.getValue();
-            Item item = world.getItemById(itemIdName);
-            if (item == null) {
-                throw new ItemNotFoundException(itemName + " is not present in the world for place : " + NAME);
-            } else {
-                ITEMS.put(itemName, item);
-            }
-        }
-        for (Map.Entry<String, String> entry : ENEMIES_STRING.entrySet()) {
-            String npcName = entry.getKey();
-            String npcIdName = entry.getValue();
-            Enemy enemy = world.getEnemyById(npcIdName);
-            if (enemy == null) {
-                throw new NPCNotFoundException(npcIdName + " is not present in the world for place : " + NAME);
-            } else {
-                ENEMIES.put(npcName, enemy);
-            }
-        }
-        for (Map.Entry<String, String> entry : PROPS_STRING.entrySet()) {
-            String propName = entry.getKey();
-            Prop prop = world.getPropById(entry.getValue());
-            if (prop == null) {
-                throw new MalFormedJsonException("the prop : " + entry.getValue() + " doesn't exist");
-            } else {
-                PROPS.put(propName, prop);
-            }
-        }
-        for (Map.Entry<String, String> entry : NPCS_STRING.entrySet()) {
-            String npcName = entry.getKey();
-            NPC npc = world.getNpcById(entry.getValue());
-            if (npc == null) {
-                throw new MalFormedJsonException("the npc : " + entry.getValue() + " doesn't exist");
-            } else {
-                NPCS.put(npcName, npc);
-            }
-        }
-        for (Map.Entry<String, Object> entry : EXITS_OBJECT.entrySet()) {
-            String exitDirection = entry.getKey();
-            Map<String, Object> exitAttributes = (Map) entry.getValue();
-            EXITS.put(exitDirection, WorldLoader.createExit(exitAttributes, world, (String) exitAttributes.get("destination")));
         }
     }
 }

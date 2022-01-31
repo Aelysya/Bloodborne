@@ -84,8 +84,15 @@ HBox{
     -fx-background-color: none;
 }
 
-.text-area {
+#console {
     -fx-font-size: 23px;
+    -fx-font-family: 'VT323', monospace;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#detailText {
+    -fx-font-size: 21px;
     -fx-font-family: 'VT323', monospace;
     -fx-text-fill: white;
     -fx-font-weight: bold;

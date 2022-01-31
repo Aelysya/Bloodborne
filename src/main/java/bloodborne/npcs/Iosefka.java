@@ -20,7 +20,7 @@ public class Iosefka extends NPC {
         m.put("name", "Iosefka's blood vial");
         m.put("image", "consumables/iosefkas-blood-vial.png");
         m.put("healValue", "0.7");
-        m.put("category", "consumables");
+        m.put("category", "consumable");
         VIAL = new HealingItem("iosefkas-blood-vial", "Blood vial acquired from Iosefka's clinic. This refined blood, highly invigorating, restores a larger amount of HP. The product of a slow and careful refinement process, this rare blood vial appears to be a clinic original.", m);
     }
 

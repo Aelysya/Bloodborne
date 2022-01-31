@@ -7,6 +7,7 @@ import bloodborne.system.Game;
 import bloodborne.world.Place;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -22,6 +23,9 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -36,7 +40,7 @@ public class GameController {
     Polygon northArrow, southArrow, eastArrow, westArrow;
 
     @FXML
-    TextArea console;
+    TextArea console, detailText;
 
     @FXML
     TextField writeLine, firstText, currentHP;
@@ -58,7 +62,8 @@ public class GameController {
     private List<String> lastCommands;
     private int previousCommandIndex;
     private Hunter hunter;
-    private Item currentlyDetailedItem;
+    private String currentCategory;
+    private String currentlyDetailedItemId;
 
     public void setGame(Game game) {
         this.game = game;
@@ -66,6 +71,93 @@ public class GameController {
 
     public void setHunter(Hunter hunter) {
         this.hunter = hunter;
+    }
+
+    public void initialize() {
+        console.setFocusTraversable(false);
+        console.setText("Wake up ? [Y/N]\n");
+        lastCommands = new ArrayList<>();
+        previousCommandIndex = 0;
+        currentCategory = "consumable";
+
+        northArrow.setOnMouseEntered(event -> northArrow.setStyle("-fx-opacity: 1;"));
+        northArrow.setOnMouseExited(event -> northArrow.setStyle("-fx-opacity: 0.6;"));
+        northArrow.setOnMouseReleased(event -> game.goFunction("north"));
+
+        southArrow.setOnMouseEntered(event -> southArrow.setStyle("-fx-opacity: 1;"));
+        southArrow.setOnMouseExited(event -> southArrow.setStyle("-fx-opacity: 0.6;"));
+        southArrow.setOnMouseReleased(event -> game.goFunction("south"));
+
+        eastArrow.setOnMouseEntered(event -> eastArrow.setStyle("-fx-opacity: 1;"));
+        eastArrow.setOnMouseExited(event -> eastArrow.setStyle("-fx-opacity: 0.6;"));
+        eastArrow.setOnMouseReleased(event -> game.goFunction("east"));
+
+        westArrow.setOnMouseEntered(event -> westArrow.setStyle("-fx-opacity: 1;"));
+        westArrow.setOnMouseExited(event -> westArrow.setStyle("-fx-opacity: 0.6;"));
+        westArrow.setOnMouseReleased(event -> game.goFunction("west"));
+
+        consumablesTab.setOnMouseReleased(event -> updateInventory("consumable"));
+        materialsTab.setOnMouseReleased(event -> updateInventory("material"));
+        keysTab.setOnMouseReleased(event -> updateInventory("key"));
+        trickWeaponsTab.setOnMouseReleased(event -> updateInventory("trickWeapon"));
+        fireArmsTab.setOnMouseReleased(event -> updateInventory("fireArm"));
+        gemsTab.setOnMouseReleased(event -> updateInventory("gem"));
+        runesTab.setOnMouseReleased(event -> updateInventory("rune"));
+
+        trickWeaponImage.setOnMouseClicked(event -> {
+            if (hunter.getTrickWeapon() == null) {
+                detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+                detailText.clear();
+            } else {
+                detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getTrickWeaponIcon()))));
+                detailText.setText(hunter.getTrickWeapon().getDESCRIPTION());
+                currentlyDetailedItemId = hunter.getTrickWeapon().getID();
+            }
+        });
+        gunImage.setOnMouseClicked(event -> {
+            if (hunter.getFireArm() == null) {
+                detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+                detailText.clear();
+            } else {
+                detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getFireArmIcon()))));
+                detailText.setText(hunter.getFireArm().getDESCRIPTION());
+                currentlyDetailedItemId = hunter.getFireArm().getID();
+            }
+        });
+
+        List<ImageView> runeImages = new ArrayList<>();
+        runeImages.add(rune1);
+        runeImages.add(rune2);
+        runeImages.add(rune3);
+        runeImages.add(runeOath);
+        int runeIndex = 0;
+        for (ImageView image : runeImages) {
+            if (runeIndex != 3) {
+                int finalRuneIndex = runeIndex;
+                image.setOnMouseClicked(event -> {
+                    if (hunter.getRUNE_LIST().size() <= finalRuneIndex) {
+                        detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+                        detailText.clear();
+                    } else {
+                        detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getRUNE_LIST().get(finalRuneIndex).getImage()))));
+                        detailText.setText(hunter.getRUNE_LIST().get(finalRuneIndex).getDESCRIPTION());
+                        currentlyDetailedItemId = hunter.getRUNE_LIST().get(finalRuneIndex).getID();
+                    }
+                });
+            } else {
+                runeOath.setOnMouseClicked(event -> {
+                    if (hunter.getOathRune() == null) {
+                        detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+                        detailText.clear();
+                    } else {
+                        detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getOathRune().getImage()))));
+                        detailText.setText(hunter.getOathRune().getDESCRIPTION());
+                        currentlyDetailedItemId = hunter.getOathRune().getID();
+                    }
+                });
+            }
+            runeIndex++;
+        }
     }
 
     public void updateDirectionalArrows(Place place) {
@@ -83,11 +175,12 @@ public class GameController {
         echoesText.setText(Integer.toString(hunter.getBloodEchoes()));
         vialAmountText.setText(Integer.toString(hunter.getVialsNumber()));
         bulletAmountText.setText(Integer.toString(hunter.getBulletsNumber()));
-        dmgBoostText.setText("Damage boost: " + hunter.getDamageBoost());
-        boostLeftText.setText("Boost left: " + hunter.getBoostLeft());
-        dodgeRateText.setText("Dodge rate: " + hunter.getDodgeRate());
-        hitRateText.setText("Hit rate: " + hunter.getHitRate());
-        visceralRateText.setText("Visceral rate: " + hunter.getVisceralRate());
+        dmgBoostText.setText("" + hunter.getDamageBoost());
+        boostLeftText.setText("" + hunter.getBoostLeft());
+        dodgeRateText.setText("" + hunter.getDodgeRate());
+        hitRateText.setText("" + hunter.getHitRate());
+        visceralRateText.setText("" + hunter.getVisceralRate());
+        bulletConsumptionText.setText("" + hunter.getBulletConsumption());
     }
 
     public void updateWeapons() {
@@ -114,28 +207,33 @@ public class GameController {
         List<Rune> runes = hunter.getRUNE_LIST();
         Rune oathRune = hunter.getOathRune();
         if (runes.size() >= 1) {
-            rune1.setImage(new Image(String.valueOf(getClass().getResource("images/" + runes.get(0).getImage()))));
+            rune1.setImage(new Image(String.valueOf(getClass().getResource(runes.get(0).getImage()))));
             if (runes.size() >= 2) {
-                rune2.setImage(new Image(String.valueOf(getClass().getResource("images/" + runes.get(1).getImage()))));
+                rune2.setImage(new Image(String.valueOf(getClass().getResource(runes.get(1).getImage()))));
                 if (runes.size() >= 3) {
-                    rune3.setImage(new Image(String.valueOf(getClass().getResource("images/" + runes.get(2).getImage()))));
+                    rune3.setImage(new Image(String.valueOf(getClass().getResource(runes.get(2).getImage()))));
                 } else {
-                    rune3.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty-rune.png"))));
+                    rune3.setImage(new Image(String.valueOf(getClass().getResource("images/items/runes/empty-rune.png"))));
                 }
             } else {
-                rune2.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty-rune.png"))));
+                rune2.setImage(new Image(String.valueOf(getClass().getResource("images/items/runes/empty-rune.png"))));
             }
         } else {
-            rune1.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty-rune.png"))));
+            rune1.setImage(new Image(String.valueOf(getClass().getResource("images/items/runes/empty-rune.png"))));
         }
         if (oathRune == null) {
-            runeOath.setImage(new Image(String.valueOf(getClass().getResource("images/runes/empty-oath.png"))));
+            runeOath.setImage(new Image(String.valueOf(getClass().getResource("images/items/runes/empty-oath.png"))));
         } else {
-            runeOath.setImage(new Image(String.valueOf(getClass().getResource("images/" + oathRune.getImage()))));
+            runeOath.setImage(new Image(String.valueOf(getClass().getResource(oathRune.getImage()))));
         }
     }
 
     public void updateInventory(String category) {
+        if (category.equals("default")) {
+            category = currentCategory;
+        } else {
+            currentCategory = category;
+        }
         inventoryItems.getChildren().clear();
         if (hunter.getINVENTORY().getNumberOfItems() == 0) {
             ImageView emptyImage = new ImageView();
@@ -158,7 +256,14 @@ public class GameController {
                     itemImage.setFitHeight(75);
                     itemImage.setFitWidth(75);
                     itemImage.setPreserveRatio(true);
-                    itemImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/" + i.getImage()))));
+                    itemImage.setImage(new Image(String.valueOf(getClass().getResource(i.getImage()))));
+                    itemImage.setOnMouseClicked(event -> {
+                        detailImage.setImage(new Image(String.valueOf(getClass().getResource(i.getImage()))));
+                        detailText.setText(i.getDESCRIPTION());
+                        currentlyDetailedItemId = i.getID();
+                    });
+                    itemImage.setOnMouseEntered(event -> itemImage.getScene().setCursor(Cursor.HAND));
+                    itemImage.setOnMouseExited(event -> itemImage.getScene().setCursor(Cursor.DEFAULT));
 
                     TextField itemText = new TextField(i.getNAME());
                     itemText.setEditable(false);
@@ -317,36 +422,5 @@ public class GameController {
             ft2.play();
         });
         ft.play();
-    }
-
-    public void initialize() {
-        console.setFocusTraversable(false);
-        console.setText("Wake up ? [Y/N]\n");
-        lastCommands = new ArrayList<>();
-        previousCommandIndex = 0;
-
-        northArrow.setOnMouseEntered(event -> northArrow.setStyle("-fx-opacity: 1;"));
-        northArrow.setOnMouseExited(event -> northArrow.setStyle("-fx-opacity: 0.6;"));
-        northArrow.setOnMouseReleased(event -> game.goFunction("north"));
-
-        southArrow.setOnMouseEntered(event -> southArrow.setStyle("-fx-opacity: 1;"));
-        southArrow.setOnMouseExited(event -> southArrow.setStyle("-fx-opacity: 0.6;"));
-        southArrow.setOnMouseReleased(event -> game.goFunction("south"));
-
-        eastArrow.setOnMouseEntered(event -> eastArrow.setStyle("-fx-opacity: 1;"));
-        eastArrow.setOnMouseExited(event -> eastArrow.setStyle("-fx-opacity: 0.6;"));
-        eastArrow.setOnMouseReleased(event -> game.goFunction("east"));
-
-        westArrow.setOnMouseEntered(event -> westArrow.setStyle("-fx-opacity: 1;"));
-        westArrow.setOnMouseExited(event -> westArrow.setStyle("-fx-opacity: 0.6;"));
-        westArrow.setOnMouseReleased(event -> game.goFunction("west"));
-
-        consumablesTab.setOnMouseReleased(event -> updateInventory("consumable"));
-        materialsTab.setOnMouseReleased(event -> updateInventory("material"));
-        keysTab.setOnMouseReleased(event -> updateInventory("key"));
-        trickWeaponsTab.setOnMouseReleased(event -> updateInventory("trickWeapon"));
-        fireArmsTab.setOnMouseReleased(event -> updateInventory("fireArm"));
-        gemsTab.setOnMouseReleased(event -> updateInventory("gem"));
-        runesTab.setOnMouseReleased(event -> updateInventory("rune"));
     }
 }

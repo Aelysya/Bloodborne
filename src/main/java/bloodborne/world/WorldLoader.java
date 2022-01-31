@@ -108,12 +108,7 @@ public final class WorldLoader {
             if (id == null || name == null || area == null || headstone == null || description == null || altDescription == null) {
                 throw new MalFormedJsonException("Place : " + id + name + area + description + altDescription);
             }
-            int headstoneIndex;
-            if (headstoneIndexString == null) {
-                headstoneIndex = -1;
-            } else {
-                headstoneIndex = Integer.parseInt(headstoneIndexString);
-            }
+            int headstoneIndex = headstoneIndexString == null ? -1 : Integer.parseInt(headstoneIndexString);
 
             Place place = new Place(id, name, area, headstone, headstoneIndex, description, altDescription, hasLantern, items, props, exits, enemies, npcs);
             world.addPlace(place);

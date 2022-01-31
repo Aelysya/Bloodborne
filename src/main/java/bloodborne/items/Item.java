@@ -25,10 +25,6 @@ public class Item extends ElementTemplate {
         return "You can't use that.";
     }
 
-    public String getImage() {
-        return getATTRIBUTES().get("image");
-    }
-
     public String getNAME() {
         return getATTRIBUTES().get("name");
     }
@@ -39,5 +35,9 @@ public class Item extends ElementTemplate {
 
     public boolean isTaken() {
         return isTaken;
+    }
+
+    public String getImage() {
+        return "images/items/" + getATTRIBUTES().get("image");
     }
 }

@@ -34,6 +34,7 @@
     "altDescription": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Many operating tables are found in the next room. Judging by the blood covering the instruments they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L).",
     "hasLantern": "true",
     "items": {
+      "threaded cane": "threaded-cane"
     },
     "props": {
       "door": "clinic-door",

@@ -175,24 +175,16 @@ public class Hunter extends Entity {
         return fireArm == null ? 0 : fireArm.getVISCERAL_RATE();
     }
 
+    public int getBulletConsumption() {
+        return fireArm == null ? 0 : fireArm.getBULLET_USE();
+    }
+
     public String getTrickWeaponIcon() {
-        String path;
-        if (trickWeapon == null) {
-            path = "images/empty.png";
-        } else {
-            path = "images/items/" + trickWeapon.getImage();
-        }
-        return path;
+        return trickWeapon == null ? "images/empty.png" : trickWeapon.getImage();
     }
 
     public String getFireArmIcon() {
-        String path;
-        if (fireArm == null) {
-            path = "images/empty.png";
-        } else {
-            path = "images/items/" + fireArm.getImage();
-        }
-        return path;
+        return fireArm == null ? "images/empty.png" : fireArm.getImage();
     }
 
     public List<Rune> getRUNE_LIST() {
