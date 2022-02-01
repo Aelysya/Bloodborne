@@ -17,6 +17,10 @@ public class Enemy extends Entity {
         return getATTRIBUTES().get("name");
     }
 
+    public Boolean isBeast() {
+        return Boolean.parseBoolean(getATTRIBUTES().get("isBeast"));
+    }
+
     @Override
     public int getDamage() {
         int finalDamage = Integer.parseInt(getATTRIBUTES().get("damage"));

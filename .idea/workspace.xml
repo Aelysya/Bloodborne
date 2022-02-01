@@ -4,80 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Added tabs functionality to inventory">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/anticlockwise-metamorphosis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/beast-embrace.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/beast.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/blood-rapture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/clawmark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/clockwise-metamorphosis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/communion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/corruption.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/deep-sea.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/empty-oath.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/empty-rune.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/eye.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/formless-oedon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/guidance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/heir.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/hunter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/impurity.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/lake.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/milkweed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/moon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/oedon-writhe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/runes/radiance.png" afterDir="false" />
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Added detailed image and text functionality when clicking on images from the inventory or equipped items">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/AttackSpeed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/ClericBeast.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/FatherGascoigne.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/ArcaneItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ArcaneItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Badge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Badge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/Iosefka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/Iosefka.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Boss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/Place.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/WorldLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/WorldLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/anticlockwise-metamorphosis.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/beast-embrace.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/beast.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/blood-rapture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/clawmark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/clockwise-metamorphosis.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/communion.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/corruption.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/deep-sea.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/empty-oath.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/empty-rune.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/eye.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/formless-oedon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/guidance.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/heir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/hunter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/impurity.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/lake.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/milkweed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/moon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/oedon-writhe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/runes/radiance.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/LoadingScreenController$Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/LoadingScreenController$Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/LoadingScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/LoadingScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/ConditionalProp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/ConditionalProp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Container.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/Container.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/FireArm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/FireArm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/TrickWeapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/TrickWeapon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Boss.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Boss.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -379,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643326501040</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added detailed image and text functionality when clicking on images from the inventory or equipped items">
+      <created>1643591134421</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1643591134421</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -395,7 +341,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added loot values to NPC json file, added eileen and alfred enemy version in NPC json file" />
     <MESSAGE value="added Coldblood class and blood echoes are now counted in Hunter class" />
     <MESSAGE value="added rune equip system and images" />
     <MESSAGE value="added many new images to resources directory and adjusted game.fxml" />
@@ -420,7 +365,8 @@
     <MESSAGE value="Refactored environment package's classes and added general template class and interface ti reduce code duplication" />
     <MESSAGE value="Refactored all classes to implement ElementTemplate class inheritance and Initializable interface" />
     <MESSAGE value="Added tabs functionality to inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added tabs functionality to inventory" />
+    <MESSAGE value="Added detailed image and text functionality when clicking on images from the inventory or equipped items" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added detailed image and text functionality when clicking on images from the inventory or equipped items" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

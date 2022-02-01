@@ -227,6 +227,8 @@ public class Game {
             CONTROLLER.writeLetterByLetter(prop.look(HUNTER));
             if (prop instanceof Headstone){
                 writeHeadstoneText(((Headstone) prop).getHeadstoneSimpleName());
+                String analyserName = "_HEADSTONE";
+                setAnalyzer(TextAnalyzer.valueOf(((Headstone) prop).getHeadstoneSimpleName().toUpperCase(Locale.ROOT) + analyserName));
             }
             ACTION_LISTENER.lookListener(currentPlace.getPROPS().get(target));
         } else if (item != null) { //If target is an item from the current place

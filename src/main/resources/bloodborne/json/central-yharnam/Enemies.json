@@ -8,10 +8,13 @@
       "maxHealth": "40",
       "damage": "25",
       "damageType": "base",
+      "attackSpeed": "MEDIUM",
       "dodgeRate": "0.1",
       "fireWeakness": "1.5",
       "boltWeakness": "1.0",
       "arcaneWeakness": "1.0",
+      "isBeast": "true",
+      "attractedByCocktail": "true",
       "bloodEchoes": "350"
     }
   },
@@ -21,31 +24,295 @@
     "description": "This alien-like creature doesn't seem to come from our world. It has a blue skin and his hand don't have the same number of fingers, six on one and seven on the other.",
     "attributes": {
       "canRespawn": "false",
-      "maxHealth": "15",
-      "damage": "3",
+      "maxHealth": "40",
+      "damage": "10",
       "damageType": "base",
+      "attackSpeed": "MEDIUM",
       "dodgeRate": "0.05",
       "fireWeakness": "1.5",
       "boltWeakness": "1.5",
       "arcaneWeakness": "1.0",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
       "bloodEchoes": "700"
     }
   },
   {
     "id": "graveyard-annex-crows",
     "type": "MultiEnemy",
-    "description": "",
+    "description": "Having feasted on the corpses that litter Yharnam, these hideous birds have become engorged with dead flesh. Though they can no longer fly, they remain highly aggressive and will attack without warning if they detect the scent of blood.",
     "attributes": {
       "canRespawn": "true",
       "enemyAmount": "3",
-      "maxHealth": "21",
-      "damage": "2",
+      "maxHealth": "30",
+      "damage": "3",
       "damageType": "base",
+      "attackSpeed": "FAST",
       "dodgeRate": "0.05",
       "fireWeakness": "1.0",
       "boltWeakness": "1.0",
       "arcaneWeakness": "1.0",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
       "bloodEchoes": "300"
+    }
+  },
+  {
+    "id": "street-huntsmen",
+    "type": "MultiEnemy",
+    "description": "These denizens of Yharnam started off hunting beasts, but eventually the plague took most of their humanity as well. The fever-like urge to hunt remains, but they themselves have already been infested with the scourge of the beast. Unaware of this fact, they continue to search for prey to hunt and kill. Perhaps through their murky eyes, humans are seen as the true beasts.",
+    "attributes": {
+      "canRespawn": "true",
+      "enemyAmount": "3",
+      "maxHealth": "60",
+      "damage": "7",
+      "damageType": "base",
+      "attackSpeed": "MEDIUM",
+      "dodgeRate": "0.1",
+      "fireWeakness": "1.0",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "300"
+    }
+  },
+  {
+    "id": "dead-end-executioner",
+    "type": "Enemy",
+    "description": "",
+    "attributes": {
+      "canRespawn": "true",
+      "maxHealth": "50",
+      "damage": "25",
+      "damageType": "base",
+      "attackSpeed": "SLOW",
+      "dodgeRate": "0.1",
+      "fireWeakness": "1.0",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "500"
+    }
+  },
+  {
+    "id": "small-path-minions",
+    "type": "MultiEnemy",
+    "description": "",
+    "attributes": {
+      "canRespawn": "true",
+      "enemyAmount": "2",
+      "maxHealth": "70",
+      "damage": "12",
+      "damageType": "base",
+      "attackSpeed": "MEDIUM",
+      "dodgeRate": "0.1",
+      "fireWeakness": "1.0",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "300"
+    }
+  },
+  {
+    "id": "pyre-huntsmen",
+    "type": "MultiEnemy",
+    "description": "These denizens of Yharnam started off hunting beasts, but eventually the plague took most of their humanity as well. The fever-like urge to hunt remains, but they themselves have already been infested with the scourge of the beast. Unaware of this fact, they continue to search for prey to hunt and kill. Perhaps through their murky eyes, humans are seen as the true beasts.",
+    "attributes": {
+      "canRespawn": "true",
+      "enemyAmount": "5",
+      "maxHealth": "100",
+      "damage": "5",
+      "damageType": "base",
+      "attackSpeed": "MEDIUM",
+      "dodgeRate": "0.1",
+      "fireWeakness": "1.0",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "500"
+    }
+  },
+  {
+    "id": "fountain-square-minion",
+    "type": "Enemy",
+    "description": "",
+    "attributes": {
+      "canRespawn": "true",
+      "maxHealth": "35",
+      "damage": "12",
+      "damageType": "base",
+      "attackSpeed": "MEDIUM",
+      "dodgeRate": "0.1",
+      "fireWeakness": "1.0",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "200"
+    }
+  },
+  {
+    "id": "dry-dock-rats",
+    "type": "MultiEnemy",
+    "description": "",
+    "attributes": {
+      "canRespawn": "true",
+      "enemyAmount": "4",
+      "maxHealth": "60",
+      "damage": "4",
+      "damageType": "base",
+      "attackSpeed": "FAST",
+      "dodgeRate": "0.05",
+      "fireWeakness": "1.0",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "true",
+      "attractedByCocktail": "true",
+      "bloodEchoes": "200"
+    }
+  },
+  {
+    "id": "sewers-structure-large-huntsman",
+    "type": "Enemy",
+    "description": "",
+    "attributes": {
+      "canRespawn": "true",
+      "maxHealth": "40",
+      "damage": "14",
+      "damageType": "base",
+      "attackSpeed": "SLOW",
+      "dodgeRate": "0.15",
+      "fireWeakness": "1.0",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "350"
+    }
+  },
+  {
+    "id": "lower-sewers-rotted-corpses",
+    "type": "MultiEnemy",
+    "description": "",
+    "attributes": {
+      "canRespawn": "true",
+      "enemyAmount": "3",
+      "maxHealth": "45",
+      "damage": "3",
+      "damageType": "base",
+      "attackSpeed": "VERY_SLOW",
+      "dodgeRate": "0.0",
+      "fireWeakness": "1.0",
+      "boltWeakness": "1.5",
+      "arcaneWeakness": "1.0",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "150"
+    }
+  },
+  {
+    "id": "upper-sewers-boar",
+    "type": "Enemy",
+    "description": "",
+    "attributes": {
+      "canRespawn": "true",
+      "maxHealth": "80",
+      "damage": "20",
+      "damageType": "base",
+      "attackSpeed": "VERY_SLOW",
+      "dodgeRate": "0.1",
+      "fireWeakness": "1.5",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "true",
+      "attractedByCocktail": "true",
+      "bloodEchoes": "800"
+    }
+  },
+  {
+    "id": "great-bridge-scourge-beast",
+    "type": "Enemy",
+    "description": "This monster has been completely transformed by the beast scourge, it now looks like a wolf with razor-sharp claws.",
+    "attributes": {
+      "canRespawn": "true",
+      "maxHealth": "70",
+      "damage": "15",
+      "damageType": "base",
+      "attackSpeed": "MEDIUM",
+      "dodgeRate": "0.1",
+      "fireWeakness": "1.5",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "true",
+      "attractedByCocktail": "true",
+      "bloodEchoes": "400"
+    }
+  },
+  {
+    "id": "great-bridge-mandatory-scourge-beast",
+    "type": "Enemy",
+    "description": "This monster has been completely transformed by the beast scourge, it now looks like a wolf with razor-sharp claws.",
+    "attributes": {
+      "canRespawn": "true",
+      "maxHealth": "70",
+      "damage": "15",
+      "damageType": "base",
+      "attackSpeed": "MEDIUM",
+      "dodgeRate": "0.1",
+      "fireWeakness": "1.5",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "true",
+      "attractedByCocktail": "true",
+      "bloodEchoes": "400"
+    }
+  },
+  {
+    "id": "aqueduct-huntsmen",
+    "type": "MultiEnemy",
+    "description": "These denizens of Yharnam started off hunting beasts, but eventually the plague took most of their humanity as well. The fever-like urge to hunt remains, but they themselves have already been infested with the scourge of the beast. Unaware of this fact, they continue to search for prey to hunt and kill. Perhaps through their murky eyes, humans are seen as the true beasts.",
+    "attributes": {
+      "canRespawn": "true",
+      "enemyAmount": "4",
+      "maxHealth": "80",
+      "damage": "5",
+      "damageType": "base",
+      "attackSpeed": "MEDIUM",
+      "dodgeRate": "0.1",
+      "fireWeakness": "1.0",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "400"
+    }
+  },
+  {
+    "id": "boss-cleric-beast",
+    "type": "ClericBeast",
+    "description": "This massive monster is at least 4 meters high, one of its arms is disproportionate to the other and the horns on its head give it an even more impressive appearance. It is hard to believe that this thing was once a human, now transformed by the beast scourge.",
+    "attributes": {
+      "canRespawn": "false",
+      "maxHealth": "300",
+      "isBeast": "true",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "4000"
+    }
+  },
+  {
+    "id": "boss-father-gascoigne",
+    "type": "FatherGascoigne",
+    "description": "",
+    "attributes": {
+      "canRespawn": "false",
+      "maxHealth": "200",
+      "isBeast": "false",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "3500"
     }
   }
 ]

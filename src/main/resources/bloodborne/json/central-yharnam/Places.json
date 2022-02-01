@@ -281,7 +281,7 @@
     "headstone": "yharnam",
     "headstoneIndex": "2",
     "description": "You are in a small square, a LANTERN (L) lights up the surroundings, creating eldritch shadows on the walls. You see an open WINDOW (L) on a house close to you.",
-    "altDescription": "No alt description for this area, if you see this it's a bug !",
+    "altDescription": "You are in a small square, a LANTERN (L) lights up the surroundings, creating eldritch shadows on the walls. You see an open WINDOW (L) on a house close to you.",
     "hasLantern": "true",
     "items": {
     },
