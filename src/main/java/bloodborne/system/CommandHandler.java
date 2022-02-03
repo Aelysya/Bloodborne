@@ -184,17 +184,18 @@ public class CommandHandler {
                     throw new TooFewArgumentsException();
                 } else {
                     GAME.useFunction(target);
+                    GAME.resolveFightTurn("use");
                 }
             }
             case "h", "help" -> GAME.writeInstantly(FIGHT_HELP_TEXT);
             case "ch", "combat-help" -> GAME.writeInstantly(FIGHT_DETAILS_HELP_TEXT);
-            case "a", "attack" -> GAME.resolveFight("melee");
-            case "ha", "heavy-attack" -> GAME.resolveFight("heavy-melee");
-            case "cha", "charged-heavy-attack" -> GAME.resolveFight("charged-melee");
-            case "s", "shoot" -> GAME.resolveFight("range");
+            case "a", "attack" -> GAME.resolveFightTurn("melee");
+            case "ha", "heavy-attack" -> GAME.resolveFightTurn("heavy-melee");
+            case "cha", "charged-heavy-attack" -> GAME.resolveFightTurn("charged-melee");
+            case "s", "shoot" -> GAME.resolveFightTurn("range");
             case "sw", "switch" -> GAME.switchFunction();
             case "f", "flee" -> GAME.fleeFunction();
-            case "hl", "heal" -> GAME.healFunction();
+            case "hl", "heal" -> GAME.resolveFightTurn("heal");
             case "mute" -> GAME.muteGame();
             case "unmute" -> GAME.unMuteGame();
             default -> GAME.writeInstantly("Unknown command !");

@@ -2,6 +2,7 @@ package bloodborne.environment;
 
 import bloodborne.entities.Hunter;
 import bloodborne.json.ElementTemplate;
+import bloodborne.sounds.SoundManager;
 
 import java.util.Map;
 
@@ -40,7 +41,7 @@ public class Prop extends ElementTemplate {
                 hasBeenActivated = true;
                 addConsumablesToHunterInventory(hunter);
                 if (Boolean.parseBoolean(getATTRIBUTES().get("isTrapped"))) {
-                    hunter.takeDamage(Integer.parseInt(getATTRIBUTES().get("damageDone")));
+                    hunter.takeDamage(Integer.parseInt(getATTRIBUTES().get("damageDone")), new SoundManager());
                 }
                 activationDescriptionText = hunter.isDead() ? getATTRIBUTES().get("deathDescription") : getATTRIBUTES().get("activationText");
             } else {

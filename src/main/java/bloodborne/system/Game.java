@@ -26,10 +26,10 @@ public class Game {
     private final GameController CONTROLLER;
     private final SoundManager SOUND_MANAGER;
     private final ActionListener ACTION_LISTENER;
-    private TextAnalyzer analyzer;
+    private static TextAnalyzer analyzer;
     private final World WORLD;
     private Place lastLanternPlace;
-    private Entity currentlyFoughtEntity;
+    private Enemy currentlyFoughtEntity;
     private Rune memorizedRune;
 
     public Game(GameController Controller) {
@@ -81,8 +81,8 @@ public class Game {
         }
     }
 
-    public void setAnalyzer(TextAnalyzer analyzer) {
-        this.analyzer = analyzer;
+    public static void setAnalyzer(TextAnalyzer newAnalyzer) {
+        analyzer = newAnalyzer;
     }
 
     public void startGame() {
@@ -143,9 +143,19 @@ public class Game {
     }
 
     public void checkIfWarpFromDreamPossible(String destinationID) {
-        if (WORLD.getPlaceById(destinationID).hasBeenVisited()) {
-            teleportFunction(destinationID);
-            setAnalyzer(TextAnalyzer.EXPLORATION);
+        Place destination = WORLD.getPlaceById(destinationID);
+        if (destination.hasBeenVisited()) {
+            if (destination.isBossArena()) {
+                if (destination.getBoss().isDead()){
+                    teleportFunction(destinationID);
+                    setAnalyzer(TextAnalyzer.EXPLORATION);
+                } else {
+                    writeInstantly("This destination is not yet reachable, you must defeat the boss guarding the lantern before you can teleport there. Choose another destination.");
+                }
+            } else {
+                teleportFunction(destinationID);
+                setAnalyzer(TextAnalyzer.EXPLORATION);
+            }
         } else {
             writeInstantly("This destination either doesn't exist or has not yet been discovered. Choose another destination.");
         }
@@ -290,11 +300,11 @@ public class Game {
         if (item != null) {
             CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
             if (currentlyFoughtEntity != null) {
-                CONTROLLER.writeInstantly(currentlyFoughtEntity.attack(HUNTER, SOUND_MANAGER));
-                if (HUNTER.isDead()) {
-                    death();
+                if (item instanceof HealingItem) {
+                    resolveFightTurn("heal");
+                } else {
+                    resolveFightTurn("use");
                 }
-                ACTION_LISTENER.resolveFightListener();
             }
             CONTROLLER.updateHUD();
             ACTION_LISTENER.useListener(item);
@@ -370,7 +380,7 @@ public class Game {
             } else {
                 CONTROLLER.writeLetterByLetter("You engage the enemy. Now you must fight or flee.");
                 setAnalyzer(TextAnalyzer.FIGHT);
-                currentlyFoughtEntity = eTarget;
+                currentlyFoughtEntity = (Enemy) eTarget;
                 ACTION_LISTENER.initiateFightListener();
             }
         } else {
@@ -383,19 +393,14 @@ public class Game {
         setAnalyzer(TextAnalyzer.QUIT);
     }
 
-    public void resolveFight(String decision) {
-        if (decision.equals("melee")) { //Player's turn
-            CONTROLLER.writeInstantly(HUNTER.attack(currentlyFoughtEntity, SOUND_MANAGER));
-        } else { //Ranged attack
-            CONTROLLER.writeInstantly(HUNTER.shoot(currentlyFoughtEntity, SOUND_MANAGER));
+    public void resolveFightTurn(String action) {
+        if (action.equals("heal")) {
+            healFunction();
         }
+        CONTROLLER.writeInstantly(HUNTER.resolveFightTurn(currentlyFoughtEntity, action, SOUND_MANAGER));
         if (currentlyFoughtEntity.isDead()) {
             checkEntityKilledIsBoss(currentlyFoughtEntity);
-            CONTROLLER.updateHUD();
-            ACTION_LISTENER.resolveFightListener();
-            return;
-        } else { //Enemy's turn if not dead
-            CONTROLLER.writeInstantly(currentlyFoughtEntity.attack(HUNTER, SOUND_MANAGER));
+        } else {
             if (HUNTER.isDead()) {
                 death();
             }
@@ -404,10 +409,9 @@ public class Game {
         ACTION_LISTENER.resolveFightListener();
     }
 
-    public void checkEntityKilledIsBoss(Entity enemy) {
-        Enemy e = (Enemy) enemy;
-        if (e instanceof Boss) {
-            CONTROLLER.transitionImage("prey-slaughtered.png");
+    public void checkEntityKilledIsBoss(Enemy enemy) {
+        if (enemy instanceof Boss) {
+            CONTROLLER.transitionImage("prey-slaughtered.png"); //TODO Make a better animation for the text appearance
             SOUND_MANAGER.playSoundEffect("prey-slaughtered.wav");
             SOUND_MANAGER.setLoopingSound("central-yharnam.wav");
         } else {
@@ -416,7 +420,7 @@ public class Game {
             }
             CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
         }
-        CONTROLLER.writeLetterByLetter(e.loot(HUNTER));
+        CONTROLLER.writeLetterByLetter(enemy.loot(HUNTER));
         CONTROLLER.updateInventory("default");
         setAnalyzer(TextAnalyzer.EXPLORATION);
         ACTION_LISTENER.deadEnemyListener(currentlyFoughtEntity);
@@ -430,7 +434,7 @@ public class Game {
 
     public void fleeFunction() {
         if (!(currentlyFoughtEntity instanceof Boss)) {
-            HUNTER.takeDamage(5);
+            HUNTER.takeDamage(5, SOUND_MANAGER);
             if (HUNTER.isDead()) {
                 CONTROLLER.updateHUD();
                 CONTROLLER.writeLetterByLetter("You were too weak too flee and your enemy caught up with you. He executes you.");
@@ -447,19 +451,12 @@ public class Game {
 
     public void healFunction() {
         CONTROLLER.writeLetterByLetter(HUNTER.heal(SOUND_MANAGER));
-        if (currentlyFoughtEntity != null) {
-            CONTROLLER.writeInstantly(currentlyFoughtEntity.attack(HUNTER, SOUND_MANAGER));
-            if (HUNTER.isDead()) {
-                death();
-            }
-            ACTION_LISTENER.resolveFightListener();
-        }
         CONTROLLER.updateHUD();
         CONTROLLER.updateInventory("default");
     }
 
     public void killFunction() {
-        HUNTER.takeDamage(99);
+        HUNTER.takeDamage(99, SOUND_MANAGER);
         CONTROLLER.updateHUD();
     }
 }

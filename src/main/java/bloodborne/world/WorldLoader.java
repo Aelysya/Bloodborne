@@ -3,6 +3,7 @@ package bloodborne.world;
 import bloodborne.entities.Enemy;
 import bloodborne.environment.ConditionalProp;
 import bloodborne.environment.Container;
+import bloodborne.items.MultiItem;
 import bloodborne.npcs.NPC;
 import bloodborne.environment.Prop;
 import bloodborne.exceptions.*;
@@ -30,6 +31,8 @@ public final class WorldLoader {
             world.changePlace(world.getPlaceById(World.STARTING_LOCATION));
 
             initializeProps(world);
+            initializeItems(world);
+            initializeNpcs(world);
             initializePlaces(world);
         } catch (Exception e) {
             e.printStackTrace();
@@ -154,6 +157,20 @@ public final class WorldLoader {
             } else if (prop instanceof ConditionalProp) {
                 ((ConditionalProp) prop).initialize(world);
             }
+        }
+    }
+
+    private static void initializeItems(World world) throws ReflectionException {
+        for (Item item : world.getItems().values()) {
+            if (item instanceof MultiItem) {
+                ((MultiItem) item).initialize(world);
+            }
+        }
+    }
+
+    private static void initializeNpcs(World world) throws ReflectionException {
+        for (NPC npc : world.getNpcs().values()) {
+            npc.initialize(world);
         }
     }
 

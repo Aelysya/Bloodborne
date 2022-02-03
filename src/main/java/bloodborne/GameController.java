@@ -55,7 +55,7 @@ public class GameController {
     ImageView placeImage, firstImage, detailImage, trickWeaponImage, runeOath, rune3, rune2, rune1, gunImage, headArmorImage, chestArmorImage, legsArmorImage, feetArmorImage, consumablesTab, materialsTab, keysTab, trickWeaponsTab, fireArmsTab, gemsTab, runesTab;
 
     @FXML
-    Label levelText, echoesText, vitText, endText, arcText, btText, sklText, strText, vialAmountText, bulletAmountText, dmgBoostText, boostLeftText, visceralRateText, hitRateText, dodgeRateText, bulletConsumptionText, trickWeaponNameText, trickWeaponDmgText, gunNameText, gunDmgText;
+    Label levelText, echoesText, insightText, vitText, endText, arcText, btText, sklText, strText, vialAmountText, bulletAmountText, dmgBoostText, boostLeftText, visceralRateText, hitRateText, dodgeRateText, bulletConsumptionText, trickWeaponNameText, trickWeaponDmgText, gunNameText, gunDmgText;
 
     private Game game;
     private final Lock LOCK = new ReentrantLock(true);
@@ -173,6 +173,7 @@ public class GameController {
             currentHP.setStyle("-fx-text-fill: red;");
         }
         echoesText.setText(Integer.toString(hunter.getBloodEchoes()));
+        insightText.setText(Integer.toString(hunter.getInsight()));
         vialAmountText.setText(Integer.toString(hunter.getVialsNumber()));
         bulletAmountText.setText(Integer.toString(hunter.getBulletsNumber()));
         dmgBoostText.setText("" + hunter.getDamageBoost());
@@ -250,7 +251,7 @@ public class GameController {
             inventoryItems.add(emptyText, 1, 0);
         } else {
             int numberOfItemInCategory = 0;
-            for (Item i : hunter.getINVENTORY().getItems().values()) {
+            for (Item i : hunter.getINVENTORY().getItems().keySet()) {
                 if (i.getCategory().equals(category)) {
                     ImageView itemImage = new ImageView();
                     itemImage.setFitHeight(75);
@@ -265,7 +266,8 @@ public class GameController {
                     itemImage.setOnMouseEntered(event -> itemImage.getScene().setCursor(Cursor.HAND));
                     itemImage.setOnMouseExited(event -> itemImage.getScene().setCursor(Cursor.DEFAULT));
 
-                    TextField itemText = new TextField(i.getNAME());
+                    int itemAmount = hunter.getINVENTORY().getItems().get(i);
+                    TextField itemText = new TextField(i.getNAME() + (itemAmount == 1 ? "" : " x" + itemAmount));
                     itemText.setEditable(false);
                     itemText.setFocusTraversable(false);
 

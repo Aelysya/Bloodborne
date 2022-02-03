@@ -22,12 +22,13 @@ public abstract class Entity extends ElementTemplate {
         healthPoints = Integer.parseInt(getATTRIBUTES().get("maxHealth"));
     }
 
-    public void takeDamage(int damage) {
+    public String takeDamage(int damage, SoundManager soundManager) {
         if ((healthPoints - damage) < 0) {
             healthPoints = 0;
         } else {
             healthPoints -= damage;
         }
+        return "" + damage;
     }
 
     public int getCurrentHealthPoints() {
@@ -39,6 +40,4 @@ public abstract class Entity extends ElementTemplate {
     }
 
     public abstract int getDamage();
-
-    public abstract String attack(Entity target, SoundManager soundManager);
 }

@@ -33,6 +33,10 @@ public class Item extends ElementTemplate {
         return getATTRIBUTES().get("category");
     }
 
+    public void setTaken(boolean isTaken) {
+        this.isTaken = isTaken;
+    }
+
     public boolean isTaken() {
         return isTaken;
     }

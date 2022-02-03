@@ -11,7 +11,7 @@
   {
     "id": "clinic-door",
     "type": "Prop",
-    "description": "It is a wooden door with a small glass window on the upper part. Behind it you discern the presence of a woman, you can talk to IOSEFKA (TK)",
+    "description": "It is a wooden door with a small glass window on the upper part. Behind it you discern the presence of a woman, you can talk to IOSEFKA (TK).",
     "attributes": {
       "isActionable": "false",
       "isTrapped": "false"
@@ -76,16 +76,18 @@
   {
     "id": "graveyard-tombstone",
     "type": "Prop",
-    "description": "TODO desc",
+    "description": "You read \"Mingo\" on the tombstone, she was probably an ancient hunter. You look around and find 10 quicksilver bullets and 4 blood vials",
     "attributes": {
       "isActionable": "false",
-      "isTrapped": "false"
+      "isTrapped": "false",
+      "vialsContained": "4",
+      "bulletsContained": "10"
     }
   },
   {
     "id": "graveyard-annex-lever",
     "type": "Prop",
-    "description": "This is a mechanical lever, you can Activate (A) it to unlock the metal gate.",
+    "description": "This is a mechanical lever, you can activate (A) it to unlock the metal gate.",
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
@@ -113,7 +115,7 @@
   {
     "id": "street-lever",
     "type": "Prop",
-    "description": "This is a mechanical lever, you can Activate (A) it to make the ladder drop down.",
+    "description": "This is a mechanical lever, you can activate (A) it to make the ladder drop down.",
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
@@ -123,16 +125,38 @@
   {
     "id": "street-coffins",
     "type": "Prop",
-    "description": "TODO desc",
+    "description": "You rummage through the coffins, breaking them to find anything valuable. You manage to find 2 blood vials and 6 MOLOTOV COCKTAILS (T)",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "vialsContained": "2"
+    }
+  },
+  {
+    "id": "dead-end-coffins",
+    "type": "ConditionalProp",
+    "description": "You try all can but you find nothing around the coffins, only dust and piles of bones, probably victims of the executioner, thinking like you that there would be something of value here.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "conditionType": "KilledNPC",
+      "objectName": "dead-end-executioner",
+      "conditionFalseText": "You must kill the executioner before searching the coffins"
+    }
+  },
+  {
+    "id": "small-square-lantern",
+    "type": "Prop",
+    "description": "This is a small lantern, identical to the one you saw in Iosefka's clinic.",
     "attributes": {
       "isActionable": "false",
       "isTrapped": "false"
     }
   },
   {
-    "id": "dead-end-coffins",
+    "id": "small-square-window",
     "type": "Prop",
-    "description": "TODO desc",
+    "description": "You approach the window and hear a man coughing inside the house. You can talk to GILBERT (TK).",
     "attributes": {
       "isActionable": "false",
       "isTrapped": "false"
@@ -141,7 +165,7 @@
   {
     "id": "small-path-lever",
     "type": "Prop",
-    "description": "This is a mechanical lever, you can Activate (A) it to unlock the metal gate.",
+    "description": "This is a mechanical lever, you can activate (A) it to unlock the metal gate.",
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
@@ -151,7 +175,7 @@
   {
     "id": "pyre-lever",
     "type": "Prop",
-    "description": "This is a mechanical lever, you can Activate (A) it to unlock the metal gate.",
+    "description": "This is a mechanical lever, you can activate (A) it to unlock the metal gate.",
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
@@ -162,7 +186,7 @@
   {
     "id": "lower-sewers-lever",
     "type": "Prop",
-    "description": "This is a mechanical lever, you can Activate (A) it to unlock the metal gate.",
+    "description": "This is a mechanical lever, you can activate (A) it to unlock the metal gate.",
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
@@ -172,7 +196,7 @@
   {
     "id": "aqueduct-elevator",
     "type": "Prop",
-    "description": "This is an old elevator, you can re-Activate (A) it to be able to go to the Small path.",
+    "description": "This is an old elevator, you can re-activate (A) it to be able to go to the Small path.",
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",

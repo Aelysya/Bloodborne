@@ -41,7 +41,13 @@ public class World {
         StringBuilder s = new StringBuilder();
         for (Place p : LANTERN_PLACES.values()) {
             if (headstoneName.equals(p.getHEADSTONE()) && p.hasBeenVisited()) {
-                s.append(p.getHEADSTONE_INDEX()).append(" -> ").append(p.getNAME()).append("\n");
+                if (p.isBossArena()) {
+                    if (p.getBoss().isDead()) {
+                        s.append(p.getHEADSTONE_INDEX()).append(" -> ").append(p.getNAME()).append("\n");
+                    }
+                } else {
+                    s.append(p.getHEADSTONE_INDEX()).append(" -> ").append(p.getNAME()).append("\n");
+                }
             }
         }
         s.append("\nEnter the number corresponding to the destination you want to reawaken at or Cancel to stay in the dream");

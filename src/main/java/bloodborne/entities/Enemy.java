@@ -7,18 +7,23 @@ import java.util.Map;
 public class Enemy extends Entity {
 
     private int takenBloodEchoes;
+    private boolean isIncapacitated;
 
     public Enemy(String id, String description, Map<String, String> att) {
         super(id, description, att);
         takenBloodEchoes = 0;
+        isIncapacitated = false;
     }
 
-    public String getNAME() {
-        return getATTRIBUTES().get("name");
-    }
-
-    public Boolean isBeast() {
-        return Boolean.parseBoolean(getATTRIBUTES().get("isBeast"));
+    public String attack(Entity target, double hunterDodgeRate, SoundManager soundManager) {
+        Hunter hunter = (Hunter) target;
+        StringBuilder explanationText = new StringBuilder();
+        if (Math.random() < hunterDodgeRate) {
+            explanationText.append("You avoided your enemy's attack.");
+        } else {
+            explanationText.append("Your enemy strikes back, you took ").append(hunter.takeDamage(getDamage(), soundManager)).append(" damage");
+        }
+        return explanationText.toString();
     }
 
     @Override
@@ -28,23 +33,6 @@ public class Enemy extends Entity {
             finalDamage += finalDamage * 1.5;
         }
         return finalDamage;
-    }
-
-    @Override
-    public String attack(Entity target, SoundManager soundManager) {
-        Hunter hunter = (Hunter) target;
-        StringBuilder s = new StringBuilder();
-        if (Math.random() < target.getDodgeRate()) {
-            s.append("You avoided your enemy's attack.");
-        } else {
-            if (hunter.hasRune("Lake rune")) {
-                s.append("You took ").append(getDamage() - 1).append(" damage !");
-            } else {
-                s.append("You took ").append(getDamage()).append(" damage !");
-            }
-            target.takeDamage(getDamage());
-        }
-        return s.toString();
     }
 
     public void takeEchoes(Hunter hunter) {
@@ -83,4 +71,23 @@ public class Enemy extends Entity {
         }
     }
 
+    public String getNAME() {
+        return getATTRIBUTES().get("name");
+    }
+
+    public Boolean isBeast() {
+        return Boolean.parseBoolean(getATTRIBUTES().get("isBeast"));
+    }
+
+    public double getAttackSpeed() {
+        return AttackSpeed.valueOf(getATTRIBUTES().get("attackSpeed")).getDODGE_MODIFICATION();
+    }
+
+    public void setIncapacitated(boolean isIncapacitated) {
+        this.isIncapacitated = isIncapacitated;
+    }
+
+    public boolean isIncapacitated() {
+        return isIncapacitated;
+    }
 }

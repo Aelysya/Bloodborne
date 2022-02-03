@@ -34,7 +34,6 @@
     "altDescription": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Many operating tables are found in the next room. Judging by the blood covering the instruments they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L).",
     "hasLantern": "true",
     "items": {
-      "threaded cane": "threaded-cane"
     },
     "props": {
       "door": "clinic-door",
@@ -121,6 +120,7 @@
     "items": {
     },
     "props": {
+      "tombstone": "graveyard-tombstone"
     },
     "exits": {
       "north": {
@@ -201,8 +201,10 @@
     "altDescription": "You are in one of the many twisting streets of Yharnam. On the left, COFFINS (L) are piled up and padlocked. The bodies of the huntsmen you killed are scattered around.",
     "hasLantern": "false",
     "items": {
+      "molotov cocktail": "street-molotov-cocktails"
     },
     "props": {
+      "coffins": "street-coffins",
       "lever": "street-lever"
     },
     "exits": {
@@ -259,6 +261,7 @@
     "items": {
     },
     "props": {
+      "coffins": "dead-end-coffins"
     },
     "exits": {
       "west": {
@@ -286,6 +289,8 @@
     "items": {
     },
     "props": {
+      "lantern": "small-square-lantern",
+      "window": "small-square-window"
     },
     "exits": {
       "west": {
@@ -317,6 +322,7 @@
     "enemies": {
     },
     "npcs": {
+      "gilbert": "gilbert"
     }
   },
   {

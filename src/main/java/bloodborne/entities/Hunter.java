@@ -16,12 +16,14 @@ public class Hunter extends Entity {
     private int bulletsNumber;
     private DamageType damageType;
     private int bloodEchoes;
+    private int insight;
     private final List<Rune> RUNE_LIST;
     private Rune oathRune;
     private boolean lastAttackIsVisceral;
     private boolean firstDeathHappened;
     private int maxHP;
     private final Map<String, Integer> STATS;
+    private String timeOfNight;
 
     private static final Map<String, String> CONSTRUCT_MAP = new HashMap<>();
 
@@ -39,6 +41,7 @@ public class Hunter extends Entity {
         bulletsNumber = 0;
         damageType = DamageType.PHYS;
         bloodEchoes = 0;
+        insight = 0;
         RUNE_LIST = new ArrayList<>();
         lastAttackIsVisceral = false;
         firstDeathHappened = false;
@@ -50,6 +53,7 @@ public class Hunter extends Entity {
         STATS.put("Bloodtinge", 0);
         STATS.put("Arcane", 0);
         maxHP = 100;
+        timeOfNight = "day";
     }
 
     public void updateHP() {
@@ -70,8 +74,12 @@ public class Hunter extends Entity {
         INVENTORY.addItem(item);
     }
 
-    public void removeItem(Item item) {
-        INVENTORY.removeItem(item);
+    public void removeOneItemFromStack(Item item) {
+        INVENTORY.removeOneItemFromStack(item);
+    }
+
+    public void removeAllItemsFromInventory(Item item) {
+        INVENTORY.removeAllItemsFromInventory(item);
     }
 
     public void addVials(int vialAmount) {
@@ -90,8 +98,269 @@ public class Hunter extends Entity {
         bloodEchoes += finalAmount;
     }
 
+    public void gainInsight(int amount) {
+        insight += amount;
+    }
+
     public void spendBloodEchoes(int amount) {
         bloodEchoes -= amount;
+    }
+
+    public void spendInsight(int amount) {
+        insight -= amount;
+    }
+
+    public String heal(SoundManager soundManager) {
+        StringBuilder s = new StringBuilder();
+
+        if (vialsNumber == 0) {
+            s.append("You have no blood vials left.");
+        } else {
+            if (healthPoints == maxHP) {
+                s.append("You don't need to use a blood vial right now.");
+            } else {
+                healthPoints += (maxHP * 0.4);
+                if (healthPoints > maxHP) {
+                    healthPoints = maxHP;
+                }
+                s.append("You use a blood vial, your wounds heal and a dark part of you wants more of it.");
+                vialsNumber--;
+                soundManager.playSoundEffect("used-bloodvial.wav");
+            }
+        }
+        return s.toString();
+    }
+
+    public String healFromItem(double amount, HealingItem item) {
+        StringBuilder s = new StringBuilder();
+        if (healthPoints == maxHP) {
+            s.append("You don't need to use a this right now.");
+        } else {
+            healthPoints += (maxHP * amount);
+            if (healthPoints > maxHP) {
+                healthPoints = maxHP;
+            }
+            s.append("You use the").append(item.getNAME()).append(", your wounds heal and a dark part of you wants more of it.");
+        }
+        INVENTORY.removeOneItemFromStack(item);
+        return s.toString();
+    }
+
+    public String equipTrickWeapon(TrickWeapon weapon) {
+        if (trickWeapon != null) {
+            this.INVENTORY.addItem(trickWeapon);
+        }
+        INVENTORY.removeOneItemFromStack(weapon);
+        trickWeapon = weapon;
+
+        return "You equipped the " + weapon.getNAME() + " as your trick weapon.";
+    }
+
+    public String equipFireArm(FireArm weapon) {
+        if (fireArm != null) {
+            this.INVENTORY.addItem(fireArm);
+        }
+        INVENTORY.removeOneItemFromStack(weapon);
+        fireArm = weapon;
+
+        return "You equipped the " + weapon.getNAME() + " as your gun.";
+    }
+
+    public String equipRune(Rune rune, int position) {
+        if (position != -1) { //-1 is when we have less than 3 runes equipped and just want to add one more
+            RUNE_LIST.add(position, rune);
+            INVENTORY.addItem(RUNE_LIST.remove(position + 1));
+        }
+        RUNE_LIST.add(rune);
+        INVENTORY.removeOneItemFromStack(rune);
+        return rune.getEquipText();
+    }
+
+    public boolean hasRune(String runeName) {
+        boolean hasRune = false;
+        for (Rune r : RUNE_LIST) {
+            if (RUNE_LIST.isEmpty()) {
+                break;
+            }
+            if (r.getNAME().equals(runeName)) {
+                hasRune = true;
+                break;
+            }
+        }
+        return hasRune;
+    }
+
+    public String switchTrickWeaponState() {
+        String txt;
+        if (trickWeapon == null) {
+            txt = "You don't have any trick weapon equipped";
+        } else {
+            txt = "You switched your trick weapon's state, check your stats to see the changes";
+            trickWeapon.switchMode();
+        }
+        return txt;
+    }
+
+    public void boostDamage(int boost, BoostItem boostItem, SoundManager soundManager) {
+        damageBoost = boost;
+        boostLeft = 5;
+        removeOneItemFromStack(boostItem);
+        if (boostItem.getTYPE().equals("fire")) {
+            soundManager.playSoundEffect("fire-applied.wav");
+            damageType = DamageType.FIRE;
+        } else {
+            soundManager.playSoundEffect("bolt_applied.wav");
+            damageType = DamageType.BOLT;
+        }
+    }
+
+    public String resolveFightTurn(Entity target, String action, SoundManager soundManager) {
+        StringBuilder explanationText = new StringBuilder();
+        Enemy enemy = (Enemy) target;
+        double finalDodgeRate = calculateDodgeRate(action) + enemy.getAttackSpeed();
+        if (action.equals("heal") || action.equals("use")) { //If the player chose to heal or use an item, its turn is skipped and the enemy attacks immediately
+            explanationText.append(enemy.attack(this, finalDodgeRate, soundManager));
+        } else {
+            if (action.equals("range") && fireArm == null) {
+                explanationText.append("You have no gun equipped !\n");
+            } else if (action.equals("range") && cantShoot()) {
+                explanationText.append("You don't have enough bullets left to use your gun !\n");
+            } else {
+                int finalDamage = calculateDamage(action);
+                enemy.setIncapacitated(false); //To reset the enemy ability to attack if the last attack was a visceral one and survived
+                lastAttackIsVisceral = false;
+                if (action.equals("range")) {
+                    explanationText.append("You shoot at your enemy, ");
+                    soundManager.playSoundEffect("gunshot.wav");
+                    bulletsNumber -= fireArm.getBULLET_USE();
+                    if (Math.random() > fireArm.getHIT_RATE()) { //Shot is missed
+                        explanationText.append("but you missed\n");
+                    } else {
+                        if (Math.random() < fireArm.getVISCERAL_RATE()) { //Player performs a visceral attack, regenerating 20% health and cancelling the enemy's attack
+                            explanationText.append("and did it at the right timing and perform a visceral attack on him. It regenerates a bit of your life\n You did ")
+                                    .append(target.takeDamage(finalDamage, soundManager))
+                                    .append(" damage\n");
+                            soundManager.playSoundEffect("visceral-attack.wav");
+                            regenAfterVisceral();
+                            lastAttackIsVisceral = true;
+                            enemy.setIncapacitated(true);
+                        } else { //Classic ranged attack
+                            explanationText.append("and did ").append(target.takeDamage(finalDamage, soundManager)).append(" damage\n");
+                        }
+                    }
+                } else {
+                    explanationText.append("You attack your enemy in melee range, ");
+                    if (Math.random() < enemy.getDodgeRate()) {
+                        explanationText.append("he avoided the attack\n");
+                    } else {
+                        enemy.takeDamage(finalDamage, soundManager);
+                        explanationText.append("and did ").append(target.takeDamage(finalDamage, soundManager)).append(" damage\n");
+                        switch (damageType) {
+                            case FIRE -> soundManager.playSoundEffect("enemy-hit-fire.wav");
+                            case BOLT -> soundManager.playSoundEffect("enemy-hit-bolt.wav");
+                            default -> soundManager.playSoundEffect("enemy-hit.wav");
+                        }
+                    }
+                }
+            }
+            if (!enemy.isDead()) {
+                if (enemy.isIncapacitated()) {
+                    explanationText.append("Your enemy is not able to strike back\n");
+                } else {
+                    explanationText.append(enemy.attack(this, finalDodgeRate, soundManager));
+                }
+            }
+        }
+        return explanationText.toString();
+    }
+
+    public double calculateDodgeRate(String action) {
+        double calculatedDodgeRate = getDodgeRate();
+        switch (action) {
+            case "heavy-melee" -> calculatedDodgeRate *= 0.75;
+            case "charged-melee" -> calculatedDodgeRate *= 0.6;
+            case "range", "heal" -> calculatedDodgeRate += 0.2;
+        }
+        return calculatedDodgeRate;
+    }
+
+    public int calculateDamage(String action) {
+        int calculatedDamage;
+        if (action.equals("range")) {
+            calculatedDamage = getFireArmDamage() + (int) (calculateBonusDamage("Bloodtinge") * fireArm.getBloodScaling());
+        } else {
+            if (trickWeapon == null) {
+            calculatedDamage = 3;
+            } else {
+                calculatedDamage = getDamage()
+                        + (int) (calculateBonusDamage("Bloodtinge") * trickWeapon.getBloodScaling())
+                        + (int) (calculateBonusDamage("Arcane") * trickWeapon.getArcaneScaling())
+                        + (int) (calculateBonusDamage("Strength") * trickWeapon.getStrengthScaling())
+                        + (int) (calculateBonusDamage("Skill") * trickWeapon.getSkillScaling());
+            }
+            switch (action) {
+                case "heavy-melee" -> calculatedDamage *= 1.5;
+                case "charged-melee" -> calculatedDamage *= 1.9;
+            }
+        }
+        return calculatedDamage;
+    }
+
+    public double calculateBonusDamage(String stat) {
+        int statPoints = STATS.get(stat);
+        double bonusDamage;
+        if (statPoints <= 25) {
+            bonusDamage = statPoints;
+        } else if (statPoints <= 50) {
+            bonusDamage = 25 + (0.5 * (statPoints - 25));
+        } else {
+            bonusDamage = 25 + (0.5 * 25) + (0.3 * (statPoints - 50));
+        }
+        return bonusDamage;
+    }
+
+    public boolean cantShoot() {
+        boolean cantShoot = false;
+        if (fireArm == null) {
+            cantShoot = true;
+        } else {
+            int usage = fireArm.getBULLET_USE();
+            if ((bulletsNumber - usage) < 0) {
+                cantShoot = true;
+            }
+        }
+        return cantShoot;
+    }
+
+    @Override
+    public String takeDamage(int damage, SoundManager soundManager) {
+        int finalDamage = damage;
+        //TODO Add damage reduction due to armor
+        if (hasRune("Lake rune")) {
+            finalDamage--;
+        } //TODO Make the lake runes system to reduce the damage
+        if ((healthPoints - finalDamage) < 0) {
+            healthPoints = 0;
+        } else {
+            healthPoints -= finalDamage;
+        }
+        return "" + finalDamage;
+    }
+
+    public void regenAfterVisceral() {
+        if (hasRune("Heir rune")) {
+            gainBloodEchoes(500);
+        }
+        if (healthPoints != maxHP) {
+            healthPoints += (int) (maxHP * 0.2);
+            if (healthPoints > maxHP) {
+                healthPoints = maxHP;
+            }
+        }
+    }
+
+    public Rune getOathRune() {
+        return oathRune;
     }
 
     public Item getItemByName(String itemName) {
@@ -127,6 +396,10 @@ public class Hunter extends Entity {
         return bloodEchoes;
     }
 
+    public int getInsight() {
+        return insight;
+    }
+
     public int getBoostLeft() {
         return boostLeft;
     }
@@ -150,6 +423,10 @@ public class Hunter extends Entity {
     @Override
     public int getDamage() {
         return (trickWeapon == null) ? 3 : trickWeapon.getCurrentDamage() + this.damageBoost;
+    }
+
+    public int getFireArmDamage() {
+        return (fireArm == null) ? 0 : fireArm.getCurrentDamage();
     }
 
     @Override
@@ -199,6 +476,10 @@ public class Hunter extends Entity {
         return firstDeathHappened;
     }
 
+    public void setTimeOfNight(String time) {
+        timeOfNight = time;
+    }
+
     public void firstDeath() {
         firstDeathHappened = true;
         fullRegen();
@@ -208,206 +489,7 @@ public class Hunter extends Entity {
         return INVENTORY.hasItem(item);
     }
 
-    public String heal(SoundManager soundManager) {
-        StringBuilder s = new StringBuilder();
-
-        if (vialsNumber == 0) {
-            s.append("You have no blood vials left.");
-        } else {
-            if (healthPoints == maxHP) {
-                s.append("You don't need to use a blood vial right now.");
-            } else {
-                healthPoints += (maxHP * 0.4);
-                if (healthPoints > maxHP) {
-                    healthPoints = maxHP;
-                }
-                s.append("You use a blood vial, your wounds heal and a dark part of you wants more of it.");
-                vialsNumber--;
-                soundManager.playSoundEffect("used-bloodvial.wav");
-            }
-        }
-        return s.toString();
-    }
-
-    public String healFromItem(double amount, HealingItem item) {
-        StringBuilder s = new StringBuilder();
-        if (healthPoints == maxHP) {
-            s.append("You don't need to use a this right now.");
-        } else {
-            healthPoints += (maxHP * amount);
-            if (healthPoints > maxHP) {
-                healthPoints = maxHP;
-            }
-            s.append("You use the").append(item.getNAME()).append(", your wounds heal and a dark part of you wants more of it.");
-        }
-        INVENTORY.removeItem(item);
-        return s.toString();
-    }
-
-    public String equipTrickWeapon(TrickWeapon weapon) {
-        if (trickWeapon != null) {
-            this.INVENTORY.addItem(trickWeapon);
-        }
-        INVENTORY.removeItem(weapon);
-        trickWeapon = weapon;
-
-        return "You equipped the " + weapon.getNAME() + " as your trick weapon.";
-    }
-
-    public String equipFireArm(FireArm weapon) {
-        if (fireArm != null) {
-            this.INVENTORY.addItem(fireArm);
-        }
-        INVENTORY.removeItem(weapon);
-        fireArm = weapon;
-
-        return "You equipped the " + weapon.getNAME() + " as your gun.";
-    }
-
-    public String equipRune(Rune rune, int position) {
-        if (position != -1) { //-1 is when we have less than 3 runes equipped and just want to add one more
-            RUNE_LIST.add(position, rune);
-            INVENTORY.addItem(RUNE_LIST.remove(position + 1));
-        }
-        RUNE_LIST.add(rune);
-        INVENTORY.removeItem(rune);
-        return rune.getEquipText();
-    }
-
-    public boolean hasRune(String runeName) {
-        boolean hasRune = false;
-        for (Rune r : RUNE_LIST) {
-            if (RUNE_LIST.isEmpty()) {
-                break;
-            }
-            if (r.getNAME().equals(runeName)) {
-                hasRune = true;
-                break;
-            }
-        }
-        return hasRune;
-    }
-
-    public String switchTrickWeaponState() {
-        String txt;
-        if (trickWeapon == null) {
-            txt = "You don't have any trick weapon equipped";
-        } else {
-            txt = "You switched your trick weapon's state, check your stats to see the changes";
-            trickWeapon.switchMode();
-        }
-        return txt;
-    }
-
-    public void boostDamage(int boost, BoostItem p, SoundManager soundManager) {
-        damageBoost = boost;
-        boostLeft = 5;
-        removeItem(p);
-        if (p.getTYPE().equals("fire")) {
-            soundManager.playSoundEffect("fire-applied.wav");
-            damageType = DamageType.FIRE;
-        } else {
-            soundManager.playSoundEffect("bolt_applied.wav");
-            damageType = DamageType.BOLT;
-        }
-    }
-
-    @Override
-    public String attack(Entity target, SoundManager soundManager) {
-        StringBuilder s = new StringBuilder();
-        s.append("You attack your enemy, ");
-        if (Math.random() < target.getDodgeRate()) {
-            s.append("he avoided the attack.");
-        } else {
-            int finalDamage = getDamage(); //To avoid losing one instance of boosted damage from the code below
-            if (boostLeft != 0) {
-                boostLeft--;
-                if (boostLeft == 0) {
-                    damageBoost = 0;
-                    damageType = DamageType.PHYS;
-                }
-            }
-            target.takeDamage(finalDamage);
-            s.append("you did ").append(getDamage()).append(" damage !");
-            switch (damageType) {
-                case FIRE -> soundManager.playSoundEffect("enemy-hit-fire.wav");
-                case BOLT -> soundManager.playSoundEffect("enemy-hit-bolt.wav");
-                default -> soundManager.playSoundEffect("enemy-hit.wav");
-            }
-        }
-        lastAttackIsVisceral = false;
-        return s.toString();
-    }
-
-    @Override
-    public void takeDamage(int damage) {
-        int finalDamage = damage;
-        if (hasRune("Lake rune")) {
-            finalDamage--;
-        }
-        if ((healthPoints - finalDamage) < 0) {
-            healthPoints = 0;
-        } else {
-            healthPoints -= finalDamage;
-        }
-    }
-
-    public void regenAfterVisceral(int amount) {
-        if (hasRune("Heir rune")) {
-            gainBloodEchoes(500);
-        }
-        if (healthPoints != 30) {
-            healthPoints += amount;
-            if (healthPoints > 30) {
-                healthPoints = 30;
-            }
-        }
-    }
-
-    public String shoot(Entity target, SoundManager soundManager) {
-        StringBuilder s = new StringBuilder();
-        if (cantShoot()) {
-            s.append("You don't have enough quicksilver bullets left to shoot.");
-        } else if (fireArm == null) {
-            s.append("You have no gun equipped.");
-        } else {
-            s.append("You shoot at your enemy, ");
-            soundManager.playSoundEffect("gunshot.wav");
-            if (Math.random() > fireArm.getHIT_RATE()) { //Shot is missed
-                bulletsNumber -= fireArm.getBULLET_USE();
-                s.append("you missed.");
-            } else {
-                if (Math.random() < fireArm.getVISCERAL_RATE()) { //Player performs a visceral attack, regenerating health and cancelling the enemy's attack
-                    s.append("you shot at the right timing and perform a visceral attack on him. It regenerates a bit of your life.\n");
-                    soundManager.playSoundEffect("visceral-attack.wav");
-                    regenAfterVisceral(target.getDamage());
-                    target.takeDamage(fireArm.getCurrentDamage() + 10);
-                    lastAttackIsVisceral = true;
-                    s.append("You did ").append(fireArm.getCurrentDamage() + 10).append(" damage !");
-                } else { //Classic ranged attack
-                    target.takeDamage(fireArm.getCurrentDamage());
-                    lastAttackIsVisceral = false;
-                    s.append("You did ").append(fireArm.getCurrentDamage() + 10).append(" damage !");
-                }
-            }
-        }
-        return s.toString();
-    }
-
-    public boolean cantShoot() {
-        boolean cantShoot = false;
-        if (fireArm == null) {
-            cantShoot = true;
-        } else {
-            int usage = fireArm.getBULLET_USE();
-            if ((bulletsNumber - usage) < 0) {
-                cantShoot = true;
-            }
-        }
-        return cantShoot;
-    }
-
-    public Rune getOathRune() {
-        return oathRune;
+    public String getTimeOfNight() {
+        return timeOfNight;
     }
 }

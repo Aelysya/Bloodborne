@@ -2,26 +2,28 @@ package bloodborne.npcs;
 
 import bloodborne.entities.Hunter;
 import bloodborne.items.HealingItem;
+import bloodborne.items.Item;
+import bloodborne.json.Initializable;
+import bloodborne.world.World;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class Iosefka extends NPC {
+public class Iosefka extends NPC implements Initializable {
 
     private boolean hunterHasIosefkasBloodVial;
     private boolean talkedOnce;
-    private final HealingItem VIAL;
+    private Item vial;
 
     public Iosefka(String id, String description, Map<String, String> att) {
         super(id, description, att);
         hunterHasIosefkasBloodVial = false;
         talkedOnce = false;
-        Map<String, String> m = new HashMap<>();
-        m.put("name", "Iosefka's blood vial");
-        m.put("image", "consumables/iosefkas-blood-vial.png");
-        m.put("healValue", "0.7");
-        m.put("category", "consumable");
-        VIAL = new HealingItem("iosefkas-blood-vial", "Blood vial acquired from Iosefka's clinic. This refined blood, highly invigorating, restores a larger amount of HP. The product of a slow and careful refinement process, this rare blood vial appears to be a clinic original.", m);
+        vial = null;
+    }
+
+    @Override
+    public void initialize(World world) {
+        vial = world.getItemById("iosefkas-blood-vial");
     }
 
     @Override
@@ -30,12 +32,12 @@ public class Iosefka extends NPC {
         if (!talkedOnce) {
             talkedOnce = true;
             hunterHasIosefkasBloodVial = true;
-            hunter.addItem(VIAL);
+            hunter.addItem(vial);
             speech = getATTRIBUTES().get("firstSpeech");
         } else {
             if (!hunterHasIosefkasBloodVial) {
                 hunterHasIosefkasBloodVial = true;
-                hunter.addItem(VIAL);
+                hunter.addItem(vial);
                 speech = getATTRIBUTES().get("noVialSpeech");
             } else {
         speech = getATTRIBUTES().get("hasVialSpeech");

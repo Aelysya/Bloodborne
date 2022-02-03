@@ -1,8 +1,10 @@
 package bloodborne.sounds;
 
 import javax.sound.sampled.*;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
@@ -51,17 +53,23 @@ public class SoundManager {
     public void playSoundEffect(String fileName) {
         if (!isSoundMuted) {
             try {
-                File audioFile;
+                /*File audioFile;
                 AudioInputStream audioIn;
                 URL resource = SoundManager.class.getResource(fileName);
                 assert resource != null;
                 audioFile = Paths.get(resource.toURI()).toFile();
-                audioIn = AudioSystem.getAudioInputStream(audioFile);
+                audioIn = AudioSystem.getAudioInputStream(audioFile);*/
+                byte[] audioData;
+                try(InputStream inputStream = SoundManager.class.getResourceAsStream(fileName))  {
+                    assert inputStream != null;
+                    audioData = inputStream.readAllBytes();
+                }
+                AudioInputStream audioIn = AudioSystem.getAudioInputStream(new ByteArrayInputStream(audioData));
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioIn);
                 setVolume(0.5f, clip);
                 clip.start();
-            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | URISyntaxException e) {
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
                 e.printStackTrace();
             }
         }
@@ -71,12 +79,19 @@ public class SoundManager {
         if (!currentTheme.equals(fileName)) {
             try {
                 currentTheme = fileName;
-                File audioFile;
+                /*File audioFile;
                 AudioInputStream audioIn;
                 URL resource = SoundManager.class.getResource("themes/" + fileName);
                 assert resource != null;
                 audioFile = Paths.get(resource.toURI()).toFile();
-                audioIn = AudioSystem.getAudioInputStream(audioFile);
+                audioIn = AudioSystem.getAudioInputStream(audioFile);*/
+                byte[] audioData;
+                try(InputStream inputStream = SoundManager.class.getResourceAsStream("themes/" + fileName))  {
+                    assert inputStream != null;
+                    audioData = inputStream.readAllBytes();
+                }
+
+                AudioInputStream audioIn = AudioSystem.getAudioInputStream(new ByteArrayInputStream(audioData));
 
                 if (!sound.isRunning()) {
                     sound.stop();
@@ -96,7 +111,6 @@ public class SoundManager {
                         try {
                             while (0.001f < getVolume(sound)) {
                                 float newVolume = getVolume(sound) / (1.5f);
-                                //System.out.println("vol : " +getVolume(loopingSound));
                                 setVolume(newVolume, sound);
                                 Thread.sleep(500);
                             }
@@ -121,7 +135,7 @@ public class SoundManager {
                     myThread.start();
                 }
 
-            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | URISyntaxException e) {
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
                 sound.stop();
                 sound.close();
 

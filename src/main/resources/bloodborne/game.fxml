@@ -169,7 +169,7 @@
                 </cursor>
                 <Image url="@images/items/runes/empty-rune.png" />
             </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/UI/level.png" />
             </ImageView>
             <Label id="hunterName" layoutX="582.0" layoutY="92.0" prefHeight="35.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="Hunter" textFill="WHITE">
@@ -177,7 +177,7 @@
                     <Font size="24.0" />
                 </font>
             </Label>
-            <Label id="stat" layoutX="582.0" layoutY="146.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Level" textFill="WHITE">
+            <Label id="stat" layoutX="582.0" layoutY="139.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Level" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -185,10 +185,10 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/UI/blood_echoes.png" />
             </ImageView>
-            <Label id="stat" layoutX="582.0" layoutY="180.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Blood Echoes" textFill="WHITE">
+            <Label id="stat" layoutX="582.0" layoutY="173.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Blood Echoes" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -196,10 +196,10 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/UI/vitality.png" />
             </ImageView>
-            <Label id="stat" layoutX="582.0" layoutY="262.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Vitality" textFill="WHITE">
+            <Label id="stat" layoutX="582.0" layoutY="272.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Vitality" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -207,10 +207,10 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/UI/endurance.png" />
             </ImageView>
-            <Label id="stat" layoutX="582.0" layoutY="295.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Endurance" textFill="WHITE">
+            <Label id="stat" layoutX="582.0" layoutY="305.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Endurance" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -218,10 +218,10 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/UI/strength.png" />
             </ImageView>
-            <Label id="stat" layoutX="582.0" layoutY="329.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Strength" textFill="WHITE">
+            <Label id="stat" layoutX="582.0" layoutY="339.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Strength" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -229,10 +229,10 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/UI/skill.png" />
             </ImageView>
-            <Label id="stat" layoutX="582.0" layoutY="362.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Skill" textFill="WHITE">
+            <Label id="stat" layoutX="582.0" layoutY="372.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Skill" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -240,10 +240,10 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/UI/bloodtinge.png" />
             </ImageView>
-            <Label id="stat" layoutX="582.0" layoutY="395.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Bloodtinge" textFill="WHITE">
+            <Label id="stat" layoutX="582.0" layoutY="405.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Bloodtinge" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -251,10 +251,10 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/UI/arcane.png" />
             </ImageView>
-            <Label id="stat" layoutX="582.0" layoutY="429.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Arcane" textFill="WHITE">
+            <Label id="stat" layoutX="582.0" layoutY="439.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Arcane" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -262,14 +262,14 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-            <Label id="statNumber" fx:id="levelText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="150.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
-            <Label id="statNumber" fx:id="echoesText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="182.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
-            <Label id="statNumber" fx:id="vitText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="264.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
-            <Label id="statNumber" fx:id="endText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="299.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
-            <Label id="statNumber" fx:id="arcText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="435.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
-            <Label id="statNumber" fx:id="btText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="399.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
-            <Label id="statNumber" fx:id="sklText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="364.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
-            <Label id="statNumber" fx:id="strText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="331.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
+            <Label id="statNumber" fx:id="levelText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="143.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
+            <Label id="statNumber" fx:id="echoesText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="175.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
+            <Label id="statNumber" fx:id="vitText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="274.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
+            <Label id="statNumber" fx:id="endText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="309.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
+            <Label id="statNumber" fx:id="arcText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="445.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
+            <Label id="statNumber" fx:id="btText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="409.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
+            <Label id="statNumber" fx:id="sklText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="374.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
+            <Label id="statNumber" fx:id="strText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="341.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
             <TextField id="currentHP" fx:id="currentHP" editable="false" focusTraversable="false" layoutX="374.0" layoutY="27.0" prefHeight="30.0" prefWidth="147.0" style="-fx-border-color: #666666;" text="100/100 HP" />
             <ImageView fx:id="gunImage" fitHeight="100.0" fitWidth="100.0" layoutX="16.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
                 <cursor>
@@ -359,7 +359,7 @@
             <Label id="statNumber" fx:id="boostLeftText" alignment="CENTER_RIGHT" layoutX="201.0" layoutY="164.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
             <Label id="statNumber" fx:id="visceralRateText" alignment="CENTER_RIGHT" layoutX="201.0" layoutY="399.0" prefHeight="23.0" prefWidth="45.0" text="0.0" textAlignment="RIGHT" textFill="WHITE" />
             <Label id="statNumber" fx:id="hitRateText" alignment="CENTER_RIGHT" layoutX="201.0" layoutY="367.0" prefHeight="23.0" prefWidth="45.0" text="0.0" textAlignment="RIGHT" textFill="WHITE" />
-            <Label id="statNumber" fx:id="dodgeRateText" alignment="CENTER_RIGHT" layoutX="201.0" layoutY="197.0" prefHeight="23.0" prefWidth="45.0" text="0.0" textAlignment="RIGHT" textFill="WHITE" />
+            <Label id="statNumber" fx:id="dodgeRateText" alignment="CENTER_RIGHT" layoutX="201.0" layoutY="197.0" prefHeight="23.0" prefWidth="45.0" text="0.4" textAlignment="RIGHT" textFill="WHITE" />
             <Label id="stat" layoutX="16.0" layoutY="432.0" prefHeight="30.0" prefWidth="230.0" style="-fx-border-color: #666666;" text="Bullet consumption" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
@@ -401,6 +401,20 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
+         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@images/UI/insight.png" />
+            </image>
+         </ImageView>
+         <Label id="stat" layoutX="582.0" layoutY="222.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Insight" textFill="WHITE">
+            <font>
+               <Font size="22.0" />
+            </font>
+            <padding>
+               <Insets bottom="5.0" />
+            </padding>
+         </Label>
+         <Label id="statNumber" fx:id="insightText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="224.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
         </AnchorPane>
     </VBox>
 </AnchorPane>

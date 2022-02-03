@@ -1,5 +1,33 @@
 [
   {
+    "id": "iosefkas-blood-vial",
+    "type": "HealingItem",
+    "description": "Blood vial acquired from Iosefka's clinic.\n\nThis refined blood, highly invigorating, restores a larger amount of HP.\n\nThe product of a slow and careful refinement process, this rare blood vial appears to be a clinic original.",
+    "attributes": {
+      "name": "Iosefka's blood vial",
+      "image": "consumables/iosefkas-blood-vial.png",
+      "category": "consumable",
+      "healValue": "0.7"
+    }
+  },
+  {
+    "id": "molotov-cocktail",
+    "type": "ThrownItem",
+    "description": "Explodes in raging flames when thrown against an object. One of the oldest hunter tools available in the workshop.\n\nSince the tragedy that struck Old Yharnam, fire has become a staple in beast hunts, and is thought to cleanse impurity.\n\nCertain types of beasts have an abnormal fear of flame.",
+    "attributes": {
+      "name": "Molotov cocktail",
+      "image": "consumables/molotov-cocktail.png",
+      "category": "consumable",
+      "amount": "6",
+      "damage": "15",
+      "damageType": "FIRE",
+      "strengthScaling": "D",
+      "skillScaling": "NONE",
+      "bloodScaling": "NONE",
+      "arcaneScaling": "A"
+    }
+  },
+  {
     "id": "saw-cleaver",
     "type": "TrickWeapon",
     "description": "One of the trick weapons of the workshop, commonly used in the hunting business.\n\nThis saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force.\n\nThe saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
@@ -7,7 +35,7 @@
       "name": "Saw cleaver",
       "image": "weapons/saw-cleaver.png",
       "category": "trickWeapon",
-      "baseDamage": "4",
+      "baseDamage": "10",
       "baseDodgeRate": "0.4",
       "switchedDamage": "5",
       "switchedDodgeRate": "0.3",
@@ -25,7 +53,7 @@
       "name": "Hunter axe",
       "image": "weapons/hunter-axe.png",
       "category": "trickWeapon",
-      "baseDamage": "5",
+      "baseDamage": "12",
       "baseDodgeRate": "0.3",
       "switchedDamage": "6",
       "switchedDodgeRate": "0.2",
@@ -43,7 +71,7 @@
       "name": "Threaded cane",
       "image": "weapons/threaded-cane.png",
       "category": "trickWeapon",
-      "baseDamage": "3",
+      "baseDamage": "8",
       "baseDodgeRate": "0.5",
       "switchedDamage": "4",
       "switchedDodgeRate": "0.4",
@@ -61,7 +89,7 @@
       "name": "Hunter pistol",
       "image": "weapons/hunter-pistol.png",
       "category": "fireArm",
-      "damage": "3",
+      "damage": "5",
       "bulletUse": "1",
       "hitRate": "0.8",
       "visceralRate": "0.3",
@@ -79,7 +107,7 @@
       "name": "Hunter blunderbuss",
       "image": "weapons/hunter-blunderbuss.png",
       "category": "fireArm",
-      "damage": "4",
+      "damage": "7",
       "bulletUse": "1",
       "hitRate": "0.9",
       "visceralRate": "0.2",
@@ -87,6 +115,16 @@
       "skillScaling": "NONE",
       "bloodScaling": "D",
       "arcaneScaling": "NONE"
+    }
+  },
+  {
+    "id": "street-molotov-cocktails",
+    "type": "MultiItem",
+    "description": "Explodes in raging flames when thrown against an object. One of the oldest hunter tools available in the workshop.\n\nSince the tragedy that struck Old Yharnam, fire has become a staple in beast hunts, and is thought to cleanse impurity.\n\nCertain types of beasts have an abnormal fear of flame.",
+    "attributes": {
+      "name": "Molotov cocktails",
+      "itemId": "molotov-cocktail",
+      "amount": "6"
     }
   }
 ]

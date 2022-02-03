@@ -10,19 +10,19 @@ public abstract class Weapon extends Item {
 
     public abstract int getCurrentDamage();
 
-    public StatScaling getStrengthScaling() {
-        return StatScaling.valueOf(getATTRIBUTES().get("strengthScaling"));
+    public double getStrengthScaling() {
+        return StatScaling.valueOf(getATTRIBUTES().get("strengthScaling")).getRATIO();
     }
 
-    public StatScaling getSkillScaling() {
-        return StatScaling.valueOf(getATTRIBUTES().get("skillScaling"));
+    public double getSkillScaling() {
+        return StatScaling.valueOf(getATTRIBUTES().get("skillScaling")).getRATIO();
     }
 
-    public StatScaling getBloodScaling() {
-        return StatScaling.valueOf(getATTRIBUTES().get("bloodScaling"));
+    public double getBloodScaling() {
+        return StatScaling.valueOf(getATTRIBUTES().get("bloodScaling")).getRATIO();
     }
 
-    public StatScaling getArcaneScaling() {
-        return StatScaling.valueOf(getATTRIBUTES().get("arcaneScaling"));
+    public double getArcaneScaling() {
+        return StatScaling.valueOf(getATTRIBUTES().get("arcaneScaling")).getRATIO();
     }
 }

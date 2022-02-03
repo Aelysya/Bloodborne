@@ -1,8 +1,9 @@
 package bloodborne.system;
 
 import bloodborne.entities.Boss;
-import bloodborne.entities.Entity;
+import bloodborne.entities.Enemy;
 import bloodborne.entities.Hunter;
+import bloodborne.npcs.Gilbert;
 import bloodborne.npcs.Iosefka;
 import bloodborne.environment.Prop;
 import bloodborne.items.HealingItem;
@@ -72,13 +73,7 @@ public class ActionListener {
                 } else {
                     Iosefka i = (Iosefka) WORLD.getNpcById("iosefka");
                     i.setHunterHasIosefkasBloodVial(true);
-                    Map<String, String> m = new HashMap<>();
-                    m.put("name", "Iosefka's blood vial");
-                    m.put("image", "consumables/iosefkas-blood-vial.png");
-                    m.put("healValue", "0.7");
-                    m.put("category", "consumables");
-                    HealingItem vial = new HealingItem("iosefkas-blood-vial", "Blood vial acquired from Iosefka's clinic. This refined blood, highly invigorating, restores a larger amount of HP. The product of a slow and careful refinement process, this rare blood vial appears to be a clinic original.", m);
-                    HUNTER.addItem(vial);
+                    HUNTER.addItem(WORLD.getItemById("iosefkas-blood-vial"));
                 }
             }
             case "saw-cleaver" -> {//The 3 original trick weapons to choose from, 1 is taken the other two are gone
@@ -111,10 +106,11 @@ public class ActionListener {
 
     }
 
-    public void deadEnemyListener(Entity enemy) {
+    public void deadEnemyListener(Enemy enemy) {
         switch (enemy.getID()) {
             case "clinic-scourge-beast" -> WORLD.getPlaceById("clinic").switchToAltDescription();
             case "back-clinic-emissary" -> WORLD.getPlaceById("back-clinic").switchToAltDescription();
+            case "boss-cleric-beast" -> ((Gilbert) WORLD.getNpcById("gilbert")).hunterKilledClericBeast();
         }
     }
 }
