@@ -53,7 +53,7 @@ public class Hunter extends Entity {
         STATS.put("Bloodtinge", 0);
         STATS.put("Arcane", 0);
         maxHP = 100;
-        timeOfNight = "day";
+        timeOfNight = "night";
     }
 
     public void updateHP() {
@@ -78,8 +78,8 @@ public class Hunter extends Entity {
         INVENTORY.removeOneItemFromStack(item);
     }
 
-    public void removeAllItemsFromInventory(Item item) {
-        INVENTORY.removeAllItemsFromInventory(item);
+    public void removeStackFromInventory(Item item) {
+        INVENTORY.removeStackFromInventory(item);
     }
 
     public void addVials(int vialAmount) {

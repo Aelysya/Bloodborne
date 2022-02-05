@@ -36,7 +36,7 @@ public class Inventory {
         }
     }
 
-    public void removeAllItemsFromInventory(Item item) {
+    public void removeStackFromInventory(Item item) {
         String id = item.getID();
         for (Item i : ITEMS.keySet()) {
             if (i.getID().equals(id)) {

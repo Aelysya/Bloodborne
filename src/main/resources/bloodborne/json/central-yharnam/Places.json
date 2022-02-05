@@ -201,7 +201,7 @@
     "altDescription": "You are in one of the many twisting streets of Yharnam. On the left, COFFINS (L) are piled up and padlocked. The bodies of the huntsmen you killed are scattered around.",
     "hasLantern": "false",
     "items": {
-      "molotov cocktail": "street-molotov-cocktails"
+      "molotov cocktails": "street-molotov-cocktails"
     },
     "props": {
       "coffins": "street-coffins",
@@ -330,7 +330,7 @@
     "name": "Small path",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. Some huntsmen MINIONS (F) are wandering not far from you.",
+    "description": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. Some huntsmen MINIONS (F) are wandering not far from you. Near the metal gate on the way to the small square, there is a BLOODSTONE SHARD (T)",
     "altDescription": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. The corpses of the huntsmen minions are lying in the middle of the paved road.",
     "hasLantern": "false",
     "items": {
