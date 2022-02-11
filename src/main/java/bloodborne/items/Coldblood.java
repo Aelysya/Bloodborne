@@ -15,6 +15,7 @@ public class Coldblood extends Item {
     public String use(Hunter hunter, SoundManager soundManager) {
         soundManager.playSoundEffect("gain-echoes.wav");
         hunter.gainBloodEchoes(Integer.parseInt(getATTRIBUTES().get("value")));
-        return "You crush the coldblood in your hand and gain blood echoes.";
+        hunter.removeOneItemFromStack(this);
+        return "You crush the coldblood in your fist and gain blood echoes.";
     }
 }

@@ -140,7 +140,7 @@ public class Hunter extends Entity {
             if (healthPoints > maxHP) {
                 healthPoints = maxHP;
             }
-            s.append("You use the").append(item.getNAME()).append(", your wounds heal and a dark part of you wants more of it.");
+            s.append("You use the ").append(item.getNAME()).append(", your wounds heal and a dark part of you wants more of it.");
         }
         INVENTORY.removeOneItemFromStack(item);
         return s.toString();
@@ -218,7 +218,7 @@ public class Hunter extends Entity {
         StringBuilder explanationText = new StringBuilder();
         Enemy enemy = (Enemy) target;
         double finalDodgeRate = calculateDodgeRate(action) + enemy.getAttackSpeed();
-        if (action.equals("heal") || action.equals("use")) { //If the player chose to heal or use an item, its turn is skipped and the enemy attacks immediately
+        if (action.equals("heal") || action.equals("heal-from-item") || action.equals("use")) { //If the player chose to heal or use an item, its turn ends and the enemy attacks immediately
             explanationText.append(enemy.attack(this, finalDodgeRate, soundManager));
         } else {
             if (action.equals("range") && fireArm == null) {
@@ -253,8 +253,7 @@ public class Hunter extends Entity {
                     if (Math.random() < enemy.getDodgeRate()) {
                         explanationText.append("he avoided the attack\n");
                     } else {
-                        enemy.takeDamage(finalDamage, soundManager);
-                        explanationText.append("and did ").append(target.takeDamage(finalDamage, soundManager)).append(" damage\n");
+                        explanationText.append("and did ").append(enemy.takeDamage(finalDamage, soundManager)).append(" damage\n");
                         switch (damageType) {
                             case FIRE -> soundManager.playSoundEffect("enemy-hit-fire.wav");
                             case BOLT -> soundManager.playSoundEffect("enemy-hit-bolt.wav");
@@ -279,7 +278,7 @@ public class Hunter extends Entity {
         switch (action) {
             case "heavy-melee" -> calculatedDodgeRate *= 0.75;
             case "charged-melee" -> calculatedDodgeRate *= 0.6;
-            case "range", "heal" -> calculatedDodgeRate += 0.2;
+            case "range", "heal", "heal-from-item" -> calculatedDodgeRate += 0.2;
         }
         return calculatedDodgeRate;
     }

@@ -7,4 +7,8 @@ public class BloodComponent extends Item {
     public BloodComponent(String id, String description, Map<String, String> att) {
         super(id, description, att);
     }
+
+    public int getTier() {
+        return Integer.parseInt(getATTRIBUTES().get("tier"));
+    }
 }

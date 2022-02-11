@@ -30,7 +30,7 @@ public class Enemy extends Entity {
     public int getDamage() {
         int finalDamage = Integer.parseInt(getATTRIBUTES().get("damage"));
         if (Math.random() < 0.25) { // 1/4 chance to deal 50% more damage (Critical hit)
-            finalDamage += finalDamage * 1.5;
+            finalDamage = (int) (finalDamage * 1.5);
         }
         return finalDamage;
     }

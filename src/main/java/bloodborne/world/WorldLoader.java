@@ -3,7 +3,7 @@ package bloodborne.world;
 import bloodborne.entities.Enemy;
 import bloodborne.environment.ConditionalProp;
 import bloodborne.environment.Container;
-import bloodborne.items.MultiItem;
+import bloodborne.items.GroundItem;
 import bloodborne.npcs.NPC;
 import bloodborne.environment.Prop;
 import bloodborne.exceptions.*;
@@ -162,8 +162,8 @@ public final class WorldLoader {
 
     private static void initializeItems(World world) throws ReflectionException {
         for (Item item : world.getItems().values()) {
-            if (item instanceof MultiItem) {
-                ((MultiItem) item).initialize(world);
+            if (item instanceof GroundItem) {
+                ((GroundItem) item).initialize(world);
             }
         }
     }

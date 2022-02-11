@@ -72,44 +72,6 @@
     }
   },
   {
-    "id": "back-clinic",
-    "name": "Back clinic",
-    "area": "central-yharnam",
-    "headstone": "yharnam",
-    "description": "You are in the back of the clinic, the atmosphere here is different from the rest of the facility, everything is quiet as after a storm, it is unsettling. A celestial EMISSARY (F) is in the middle of an operating ROOM (L), there is an old CABINET (L) behind him. He clearly detected you but doesn't seem to be aggressive yet. In a second operating room, there is a wooden CHEST (L).",
-    "altDescription": "You are in the back of the clinic, the atmosphere here is different from the rest of the facility, everything is quiet as after a storm, it is unsettling. The celestial emissary's corpse is in the middle of an operating ROOM (L), there is an old CABINET (L) behind it. In a second operating room, there is a wooden CHEST (L).",
-    "hasLantern": "false",
-    "items": {
-    },
-    "props": {
-      "door": "back-clinic-door"
-    },
-    "exits": {
-      "north": {
-        "destination": "graveyard-annex",
-        "type": "Exit",
-        "attributes": {
-          "description": "NORTH -> Graveyard annex"
-        }
-      },
-      "west": {
-        "destination": "clinic",
-        "type": "ConditionalExit",
-        "attributes": {
-          "description": "WEST -> Iosefka's clinic, unlock the DOOR (A) to open it and allow free passage in both ways",
-          "altDescription": "WEST -> Iosefka's clinic",
-          "conditionType": "ActivatedProp",
-          "objectName": "back-clinic-door",
-          "conditionFalseText": "The door is locked unlock the DOOR (A) to open it."
-        }
-      }
-    },
-    "enemies": {
-    },
-    "npcs": {
-    }
-  },
-  {
     "id": "graveyard",
     "name": "Graveyard",
     "area": "central-yharnam",
@@ -163,9 +125,13 @@
     "altDescription": "As you look around, you realise you are back in Yharnam, in a smaller part of the graveyard. The dead carrion crows are scattered around a CORPSE (L). A small courtyard adjoins this part of the graveyard, with a large TREE (L) in its center.",
     "hasLantern": "false",
     "items": {
+      "coldblood dew": "graveyard-annex-coldblood-dew-1",
+      "madman's knowledge": "graveyard-annex-madmans-knowledge"
     },
     "props": {
-      "lever": "graveyard-annex-lever"
+      "lever": "graveyard-annex-lever",
+      "corpse": "graveyard-annex-corpse",
+      "tree": "graveyard-annex-tree"
     },
     "exits": {
       "west": {
@@ -184,6 +150,45 @@
         "type": "Exit",
         "attributes": {
           "description": "SOUTH -> Back clinic"
+        }
+      }
+    },
+    "enemies": {
+      "crows": "graveyard-annex-crows"
+    },
+    "npcs": {
+    }
+  },
+  {
+    "id": "back-clinic",
+    "name": "Back clinic",
+    "area": "central-yharnam",
+    "headstone": "yharnam",
+    "description": "You are in the back of the clinic, the atmosphere here is different from the rest of the facility, everything is quiet as after a storm, it is unsettling. A celestial EMISSARY (F) is in the middle of an operating ROOM (L), there is an old CABINET (L) behind him. He clearly detected you but doesn't seem to be aggressive yet. In a second operating room, there is a wooden CHEST (L).",
+    "altDescription": "You are in the back of the clinic, the atmosphere here is different from the rest of the facility, everything is quiet as after a storm, it is unsettling. The celestial emissary's corpse is in the middle of an operating ROOM (L), there is an old CABINET (L) behind it. In a second operating room, there is a wooden CHEST (L).",
+    "hasLantern": "false",
+    "items": {
+    },
+    "props": {
+      "door": "back-clinic-door"
+    },
+    "exits": {
+      "north": {
+        "destination": "graveyard-annex",
+        "type": "Exit",
+        "attributes": {
+          "description": "NORTH -> Graveyard annex"
+        }
+      },
+      "west": {
+        "destination": "clinic",
+        "type": "ConditionalExit",
+        "attributes": {
+          "description": "WEST -> Iosefka's clinic, unlock the DOOR (A) to open it and allow free passage in both ways",
+          "altDescription": "WEST -> Iosefka's clinic",
+          "conditionType": "ActivatedProp",
+          "objectName": "back-clinic-door",
+          "conditionFalseText": "The door is locked unlock the DOOR (A) to open it."
         }
       }
     },
@@ -246,6 +251,7 @@
       }
     },
     "enemies": {
+      "huntsmen": "street-huntsmen"
     },
     "npcs": {
     }
@@ -273,6 +279,7 @@
       }
     },
     "enemies": {
+      "executioner": "dead-end-executioner"
     },
     "npcs": {
     }
@@ -330,10 +337,11 @@
     "name": "Small path",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. Some huntsmen MINIONS (F) are wandering not far from you. Near the metal gate on the way to the small square, there is a BLOODSTONE SHARD (T)",
-    "altDescription": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. The corpses of the huntsmen minions are lying in the middle of the paved road.",
+    "description": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. Some huntsmen MINIONS (F) are wandering not far from you. Near the metal gate on the way to the small square, there is a BLOOD STONE SHARD (T).",
+    "altDescription": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. The corpses of the huntsmen minions are lying in the middle of the paved road. Near the metal gate on the way to the small square, there is a BLOOD STONE SHARD (T).",
     "hasLantern": "false",
     "items": {
+      "blood stone shard": "small-path-blood-stone-shard"
     },
     "props": {
       "lever": "small-path-lever"
@@ -370,6 +378,7 @@
       }
     },
     "enemies": {
+      "minions": "small-path-minions"
     },
     "npcs": {
     }
@@ -385,6 +394,7 @@
     "items": {
     },
     "props": {
+      "furniture": "central-house-furniture"
     },
     "exits": {
       "west": {

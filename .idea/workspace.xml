@@ -9,11 +9,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Completed the first bunch of places with the items and props&#10;Added the NPC gilbert to the small place&#10;Refactored the inventory system to allow items to stack">
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Renamed Method to throw entire stack in Inventory and Hunter">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ConditionalGroundItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/InsightItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ItemWithDamageScaling.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/materials/blood-rock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/materials/blood-stone-chunk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/materials/blood-stone-shard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/materials/twin-blood-stone-shards.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/environment/Prop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/ArcaneItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ArcaneItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/BloodComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/BloodComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/MultiItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/GroundItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/ThrownItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ThrownItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/CommandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/WorldLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/WorldLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/coldbloods/l3-2021-2022-projet-mi.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/environment/Prop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/CommandHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +51,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -70,7 +98,7 @@
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/bloodborne" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files/Java/javafx-sdk-17.0.1/lib" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37356323" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -335,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643929380053</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Renamed Method to throw entire stack in Inventory and Hunter">
+      <created>1644043210188</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1644043210188</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,7 +386,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added many new images to resources directory and adjusted game.fxml" />
     <MESSAGE value="added rune effects and some changes to json files" />
     <MESSAGE value="Removed all unnecessary attributes from the classes and refactored the getters accordingly" />
     <MESSAGE value="Added methods to Place and Exit classes for future use of alternative descriptions" />
@@ -376,7 +410,8 @@
     <MESSAGE value="Added detailed image and text functionality when clicking on images from the inventory or equipped items" />
     <MESSAGE value="Completed the Enemies.json file and added classes to entities package to implement the bosses" />
     <MESSAGE value="Completed the first bunch of places with the items and props&#10;Added the NPC gilbert to the small place&#10;Refactored the inventory system to allow items to stack" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed the first bunch of places with the items and props&#10;Added the NPC gilbert to the small place&#10;Refactored the inventory system to allow items to stack" />
+    <MESSAGE value="Renamed Method to throw entire stack in Inventory and Hunter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed Method to throw entire stack in Inventory and Hunter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

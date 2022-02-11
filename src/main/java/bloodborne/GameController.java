@@ -14,8 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -23,10 +22,8 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -62,8 +59,7 @@ public class GameController {
     private List<String> lastCommands;
     private int previousCommandIndex;
     private Hunter hunter;
-    private String currentCategory;
-    private String currentlyDetailedItemId;
+    private String currentCategory, draggedTrickWeaponName, draggedFirearmName, draggedRuneName;
 
     public void setGame(Game game) {
         this.game = game;
@@ -79,6 +75,9 @@ public class GameController {
         lastCommands = new ArrayList<>();
         previousCommandIndex = 0;
         currentCategory = "consumable";
+        draggedTrickWeaponName = null;
+        draggedFirearmName = null;
+        draggedRuneName = null;
 
         northArrow.setOnMouseEntered(event -> northArrow.setStyle("-fx-opacity: 1;"));
         northArrow.setOnMouseExited(event -> northArrow.setStyle("-fx-opacity: 0.6;"));
@@ -111,9 +110,28 @@ public class GameController {
             } else {
                 detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getTrickWeaponIcon()))));
                 detailText.setText(hunter.getTrickWeapon().getDESCRIPTION());
-                currentlyDetailedItemId = hunter.getTrickWeapon().getID();
             }
         });
+        trickWeaponImage.setOnDragOver(event -> {
+            if (event.getGestureSource() != trickWeaponImage && event.getDragboard().hasImage()) {
+                event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+            }
+            event.consume();
+        });
+        trickWeaponImage.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            boolean success = false;
+            if (db.hasImage()) {
+                if (draggedTrickWeaponName != null) {
+                    trickWeaponImage.setImage(db.getImage());
+                    game.equipFunction(draggedTrickWeaponName);
+                    success = true;
+                }
+            }
+            event.setDropCompleted(success);
+            event.consume();
+        });
+
         gunImage.setOnMouseClicked(event -> {
             if (hunter.getFireArm() == null) {
                 detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
@@ -121,8 +139,26 @@ public class GameController {
             } else {
                 detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getFireArmIcon()))));
                 detailText.setText(hunter.getFireArm().getDESCRIPTION());
-                currentlyDetailedItemId = hunter.getFireArm().getID();
             }
+        });
+        gunImage.setOnDragOver(event -> {
+            if (event.getGestureSource() != gunImage && event.getDragboard().hasImage()) {
+                event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+            }
+            event.consume();
+        });
+        gunImage.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            boolean success = false;
+            if (db.hasImage()) {
+                if (draggedFirearmName != null) {
+                    gunImage.setImage(db.getImage());
+                    game.equipFunction(draggedFirearmName);
+                    success = true;
+                }
+            }
+            event.setDropCompleted(success);
+            event.consume();
         });
 
         List<ImageView> runeImages = new ArrayList<>();
@@ -141,7 +177,6 @@ public class GameController {
                     } else {
                         detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getRUNE_LIST().get(finalRuneIndex).getImage()))));
                         detailText.setText(hunter.getRUNE_LIST().get(finalRuneIndex).getDESCRIPTION());
-                        currentlyDetailedItemId = hunter.getRUNE_LIST().get(finalRuneIndex).getID();
                     }
                 });
             } else {
@@ -152,7 +187,6 @@ public class GameController {
                     } else {
                         detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getOathRune().getImage()))));
                         detailText.setText(hunter.getOathRune().getDESCRIPTION());
-                        currentlyDetailedItemId = hunter.getOathRune().getID();
                     }
                 });
             }
@@ -195,7 +229,7 @@ public class GameController {
             trickWeaponDmgText.setText(hunter.getTrickWeapon().getCurrentDamage() + " damage");
         }
         if (hunter.getFireArm() == null) {
-            gunNameText.setText("No weapon equipped");
+            gunNameText.setText("No gun equipped");
             gunDmgText.setText("0 damage");
         } else {
             gunNameText.setText(hunter.getFireArm().getNAME());
@@ -261,10 +295,34 @@ public class GameController {
                     itemImage.setOnMouseClicked(event -> {
                         detailImage.setImage(new Image(String.valueOf(getClass().getResource(i.getImage()))));
                         detailText.setText(i.getDESCRIPTION());
-                        currentlyDetailedItemId = i.getID();
                     });
                     itemImage.setOnMouseEntered(event -> itemImage.getScene().setCursor(Cursor.HAND));
                     itemImage.setOnMouseExited(event -> itemImage.getScene().setCursor(Cursor.DEFAULT));
+
+                    if (category.equals("trickWeapon") || category.equals("fireArm")) {
+                        String finalCategory = category; //To use in following lambdas
+
+                        itemImage.setOnDragDetected((MouseEvent event) -> {
+                            if (finalCategory.equals("trickWeapon")) {
+                                draggedTrickWeaponName = i.getNAME();
+                            } else {
+                                draggedFirearmName = i.getNAME();
+                            }
+                            Dragboard db = itemImage.startDragAndDrop(TransferMode.ANY);
+                            ClipboardContent content = new ClipboardContent();
+                            content.putImage(itemImage.getImage());
+                            db.setContent(content);
+                            event.consume();
+                        });
+                        itemImage.setOnDragDone(event -> {
+                            draggedTrickWeaponName = null;
+                            draggedFirearmName = null;
+                            if (event.getTransferMode() == TransferMode.MOVE) {
+                                updateInventory(finalCategory);
+                            }
+                            event.consume();
+                        });
+                    }
 
                     int itemAmount = hunter.getINVENTORY().getItems().get(i);
                     TextField itemText = new TextField(i.getNAME() + (itemAmount == 1 ? "" : " x" + itemAmount));

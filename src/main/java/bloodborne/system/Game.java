@@ -301,7 +301,7 @@ public class Game {
             CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
             if (currentlyFoughtEntity != null) {
                 if (item instanceof HealingItem) {
-                    resolveFightTurn("heal");
+                    resolveFightTurn("heal-from-item");
                 } else {
                     resolveFightTurn("use");
                 }
@@ -322,7 +322,7 @@ public class Game {
         if (item != null) {
             if (!item.isTaken()) {
                 CONTROLLER.writeInstantly(item.take(HUNTER));
-                SOUND_MANAGER.playSoundEffect("take-item.wav");
+                SOUND_MANAGER.playSoundEffect("take-item.wav"); //TODO Move the sound effect into the class to avoid playing it for unavailable conditional ground items
                 ACTION_LISTENER.takeListener(item);
                 CONTROLLER.updateInventory(item.getCategory());
             } else {
@@ -333,9 +333,8 @@ public class Game {
         }
     }
 
-
-    public void equipFunction(String object) {
-        Item item = HUNTER.getItemByName(object);
+    public void equipFunction(String itemName) {
+        Item item = HUNTER.getItemByName(itemName);
         if (item != null) {
             if (item instanceof Weapon) {
                 if (item instanceof TrickWeapon) {

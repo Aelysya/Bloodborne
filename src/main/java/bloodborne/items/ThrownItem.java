@@ -5,7 +5,7 @@ import bloodborne.sounds.SoundManager;
 
 import java.util.Map;
 
-public class ThrownItem extends Item {
+public class ThrownItem extends ItemWithDamageScaling {
 
     public ThrownItem(String id, String description, Map<String, String> att) {
         super(id, description, att);

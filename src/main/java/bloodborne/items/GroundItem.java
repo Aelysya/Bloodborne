@@ -7,11 +7,11 @@ import bloodborne.world.World;
 
 import java.util.Map;
 
-public class MultiItem extends Item implements Initializable {
+public class GroundItem extends Item implements Initializable {
 
     private Item baseItem;
 
-    public MultiItem(String id, String description, Map<String, String> attributes) {
+    public GroundItem(String id, String description, Map<String, String> attributes) {
         super(id, description, attributes);
         baseItem = null;
     }
@@ -19,7 +19,6 @@ public class MultiItem extends Item implements Initializable {
     @Override
     public void initialize(World world) throws ReflectionException {
         baseItem = world.getItemById(getATTRIBUTES().get("itemId"));
-        System.out.println(baseItem.getNAME());
     }
 
     @Override
@@ -31,8 +30,9 @@ public class MultiItem extends Item implements Initializable {
         return "You took the " + getATTRIBUTES().get("name");
     }
 
-    public String getNAME() {
-        return baseItem.getATTRIBUTES().get("name");
+    @Override
+    public String getDESCRIPTION() {
+        return baseItem.getDESCRIPTION();
     }
 
     public String getCategory() {

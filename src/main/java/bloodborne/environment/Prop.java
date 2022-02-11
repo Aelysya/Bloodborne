@@ -18,11 +18,20 @@ public class Prop extends ElementTemplate {
     }
 
     public String look(Hunter hunter) {
+        String lookDescriptionText;
         if (!hasBeenLookedOnce) {
             addConsumablesToHunterInventory(hunter);
         }
+        if (Boolean.parseBoolean(getATTRIBUTES().get("isTrapped"))) {
+            if (!hasBeenLookedOnce) {
+                hunter.takeDamage(Integer.parseInt(getATTRIBUTES().get("damageDone")), new SoundManager());
+            }
+            lookDescriptionText = hunter.isDead() ? getATTRIBUTES().get("deathDescription") : getATTRIBUTES().get("activationText");
+        } else {
+            lookDescriptionText = getDESCRIPTION();
+        }
         hasBeenLookedOnce = true;
-        return getDESCRIPTION();
+        return lookDescriptionText;
     }
 
     public void addConsumablesToHunterInventory(Hunter hunter) {

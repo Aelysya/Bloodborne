@@ -28,12 +28,57 @@
   },
   {
     "id": "clinic-shelves",
-    "type": "Prop",
+    "type": "ConditionalProp",
     "description": "You scatter through the shelves and find a handwritten scrawl : \"Seek Paleblood to transcend the hunt\". Next to another shelf you find two blood vials.",
     "attributes": {
       "isActionable": "false",
       "isTrapped": "false",
+      "conditionType": "KilledNPC",
+      "objectName": "clinic-scourge-beast",
+      "conditionFalseText": "You must kill the scourge beast before you searching the shelves",
       "vialsContained": "2"
+    }
+  },
+  {
+    "id": "graveyard-tombstone",
+    "type": "Prop",
+    "description": "You read \"Mingo\" on the tombstone, she was probably an ancient hunter. You look around and find 10 quicksilver bullets and 4 blood vials",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "vialsContained": "4",
+      "bulletsContained": "10"
+    }
+  },
+  {
+    "id": "graveyard-annex-lever",
+    "type": "Prop",
+    "description": "This is a mechanical lever, you can activate (A) it to unlock the metal gate.",
+    "attributes": {
+      "isActionable": "true",
+      "isTrapped": "false",
+      "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Graveyard and back."
+    }
+  },
+  {
+    "id": "graveyard-annex-corpse",
+    "type": "ConditionalProp",
+    "description": "A poor man has been surrounded by the carrion crows you killed, he was certainly overwhelmed and quickly died under their assault. His blood has formed a COLDBLOOD DEW (T) for you to take.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "conditionType": "KilledNPC",
+      "objectName": "graveyard-annex-crows",
+      "conditionFalseText": "You must kill the crows before you can examine the corpse"
+    }
+  },
+  {
+    "id": "graveyard-annex-tree",
+    "type": "Prop",
+    "description": "A tree without any leaves is enthroned in the middle of the courtyard, you look around and find a MADMAN'S KNOWLEDGE (T), hidden near an old well.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false"
     }
   },
   {
@@ -71,45 +116,6 @@
       "isActionable": "true",
       "isTrapped": "false",
       "activationText": "You unlock and gently open the door. You may now freely go to the Clinic and back."
-    }
-  },
-  {
-    "id": "graveyard-tombstone",
-    "type": "Prop",
-    "description": "You read \"Mingo\" on the tombstone, she was probably an ancient hunter. You look around and find 10 quicksilver bullets and 4 blood vials",
-    "attributes": {
-      "isActionable": "false",
-      "isTrapped": "false",
-      "vialsContained": "4",
-      "bulletsContained": "10"
-    }
-  },
-  {
-    "id": "graveyard-annex-lever",
-    "type": "Prop",
-    "description": "This is a mechanical lever, you can activate (A) it to unlock the metal gate.",
-    "attributes": {
-      "isActionable": "true",
-      "isTrapped": "false",
-      "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Graveyard and back."
-    }
-  },
-  {
-    "id": "graveyard-annex-corpse",
-    "type": "Prop",
-    "description": "TODO desc",
-    "attributes": {
-      "isActionable": "false",
-      "isTrapped": "false"
-    }
-  },
-  {
-    "id": "graveyard-annex-tree",
-    "type": "Prop",
-    "description": "TODO desc",
-    "attributes": {
-      "isActionable": "false",
-      "isTrapped": "false"
     }
   },
   {
@@ -170,6 +176,18 @@
       "isActionable": "true",
       "isTrapped": "false",
       "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Small square and back."
+    }
+  },
+  {
+    "id": "central-house-furniture",
+    "type": "Prop",
+    "description": "Trapped Prop, no description",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "true",
+      "damageDone": "20",
+      "activationText": "On the ground in front of the furniture there are some PUNGENT BLOOD COCKTAILS (T), but before you are able to pick them up, you get sprayed with bullet by a grandpa in a wheelchair you thought dead. You took 20 damage. When you recover, you find a note on the furniture, it says \"When the hunt began, the Healing Church left us, blocking the great bridge to Cathedral Ward, as Old Yharnam burned to the ground that moonlit night.\"",
+      "deathDescription": "On the ground in front of the furniture there are some PUNGENT BLOOD COCKTAILS (T), but before you are able to pick them up, you get sprayed with bullet by a grandpa in a wheelchair you thought dead. You were too weak to survive and die."
     }
   },
   {

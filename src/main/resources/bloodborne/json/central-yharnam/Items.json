@@ -18,13 +18,111 @@
       "name": "Molotov cocktail",
       "image": "consumables/molotov-cocktail.png",
       "category": "consumable",
-      "amount": "6",
       "damage": "15",
       "damageType": "FIRE",
       "strengthScaling": "D",
       "skillScaling": "NONE",
       "bloodScaling": "NONE",
       "arcaneScaling": "A"
+    }
+  },
+  {
+    "id": "madmans-knowledge",
+    "type": "InsightItem",
+    "description": "Skull of a madman touched by the wisdom of the Great Ones.\n\nUse to gain Insight.\n\nMaking contact with eldritch wisdom is a blessing, for even if it drives one mad, it allows one to serve a grander purpose, for posterity.",
+    "attributes": {
+      "name": "Madman's knowledge",
+      "image": "consumables/madmans-knowledge.png",
+      "category": "consumable",
+      "value": "1"
+    }
+  },
+  {
+    "id": "great-ones-wisdom",
+    "type": "InsightItem",
+    "description": "Fragments of the lost wisdom of the Great Ones, beings that might be described as gods.\n\nUse to gain Insight.\n\nAt Byrgenwerth, Master Willem had an epiphany: \"We are thinking on the basest of planes. What we need, are more eyes.\"",
+    "attributes": {
+      "name": "Great one's wisdom",
+      "image": "consumables/great-ones-wisdom.png",
+      "category": "consumable",
+      "value": "2"
+    }
+  },
+  {
+    "id": "coldblood-dew-1",
+    "type": "Coldblood",
+    "description": "Droplet of coldblood containing Blood Echoes.\n\nUse to gain Blood Echoes.\n\nHunters sustained by the dream gain strength from Blood Echoes. They imbibe the blood with thoughts of reverence, indeed gratitude, for their victims.",
+    "attributes": {
+      "name": "Coldblood dew (1)",
+      "image": "coldbloods/coldblood-dew-1.png",
+      "category": "consumable",
+      "value": "350"
+    }
+  },
+  {
+    "id": "coldblood-dew-2",
+    "type": "Coldblood",
+    "description": "Droplet of coldblood containing Blood Echoes.\n\nUse to gain Blood Echoes.\n\nHunters sustained by the dream gain strength from Blood Echoes. They imbibe the blood with thoughts of reverence, indeed gratitude, for their victims.",
+    "attributes": {
+      "name": "Coldblood dew (2)",
+      "image": "coldbloods/coldblood-dew-2.png",
+      "category": "consumable",
+      "value": "500"
+    }
+  },
+  {
+    "id": "coldblood-dew-3",
+    "type": "Coldblood",
+    "description": "Droplet of coldblood containing Blood Echoes.\n\nUse to gain Blood Echoes.\n\nHunters sustained by the dream gain strength from Blood Echoes. They imbibe the blood with thoughts of reverence, indeed gratitude, for their victims.",
+    "attributes": {
+      "name": "Coldblood dew (3)",
+      "image": "coldbloods/coldblood-dew-3.png",
+      "category": "consumable",
+      "value": "100"
+    }
+  },
+  {
+    "id": "blood-stone-shard",
+    "type": "BloodComponent",
+    "description": "A solid shard that forms in coldblood.\n\nAfter death, a substance in the blood hardens, and that which does not crystallize is called a bloodstone.\n\nAt the workshop. these bloodstones are embedded in weapons to fortify them.",
+    "attributes": {
+      "name": "Blood stone shard",
+      "image": "materials/blood-stone-shard.png",
+      "category": "material",
+      "tier": "1"
+    }
+  },
+  {
+    "id": "twin-blood-stone-shard",
+    "type": "BloodComponent",
+    "description": "A solid shard that forms in coldblood.\n\nAfter death, a substance in the blood hardens, and that which does not crystallize is called a bloodstone.\n\nAt the workshop. these bloodstones are embedded in weapons to fortify them.",
+    "attributes": {
+      "name": "Twin blood stone shard",
+      "image": "materials/twin-blood-stone-shard.png",
+      "category": "material",
+      "tier": "2"
+    }
+  },
+  {
+    "id": "blood-stone-chunk",
+    "type": "BloodComponent",
+    "description": "A solid shard that forms in coldblood.\n\nAfter death, a substance in the blood hardens, and that which does not crystallize is called a bloodstone.\n\nA chunk will never appear in the blood of an ordinary human. Seek deadlier foes if bloodstone chunks are needed.",
+    "attributes": {
+      "name": "Blood stone chunk",
+      "image": "materials/blood-stone-chunk.png",
+      "category": "material",
+      "tier": "3"
+    }
+  },
+  {
+    "id": "blood-rock",
+    "type": "BloodComponent",
+    "description": "A large solid chunk that forms in coldblood.\n\nAfter death, a substance in the blood hardens, and that which does not crystallize is called a blood stone.\n\nThis is no mere chunk, it is nearly a boulder.\n\nFew blood stones of such size have ever been discovered, even considering the combined experience of all the hunters.",
+    "attributes": {
+      "name": "Blood rock",
+      "image": "materials/blood-rock.png",
+      "category": "material",
+      "tier": "4"
     }
   },
   {
@@ -37,7 +135,7 @@
       "category": "trickWeapon",
       "baseDamage": "10",
       "baseDodgeRate": "0.4",
-      "switchedDamage": "5",
+      "switchedDamage": "12",
       "switchedDodgeRate": "0.3",
       "strengthScaling": "D",
       "skillScaling": "E",
@@ -55,7 +153,7 @@
       "category": "trickWeapon",
       "baseDamage": "12",
       "baseDodgeRate": "0.3",
-      "switchedDamage": "6",
+      "switchedDamage": "15",
       "switchedDodgeRate": "0.2",
       "strengthScaling": "D",
       "skillScaling": "E",
@@ -73,7 +171,7 @@
       "category": "trickWeapon",
       "baseDamage": "8",
       "baseDodgeRate": "0.5",
-      "switchedDamage": "4",
+      "switchedDamage": "10",
       "switchedDodgeRate": "0.4",
       "strengthScaling": "E",
       "skillScaling": "C",
@@ -119,12 +217,48 @@
   },
   {
     "id": "street-molotov-cocktails",
-    "type": "MultiItem",
-    "description": "Explodes in raging flames when thrown against an object. One of the oldest hunter tools available in the workshop.\n\nSince the tragedy that struck Old Yharnam, fire has become a staple in beast hunts, and is thought to cleanse impurity.\n\nCertain types of beasts have an abnormal fear of flame.",
+    "type": "ConditionalGroundItem",
+    "description": "",
     "attributes": {
       "name": "Molotov cocktails",
       "itemId": "molotov-cocktail",
-      "amount": "6"
+      "amount": "6",
+      "conditionType": "KilledNPC",
+      "objectName": "street-huntsmen",
+      "conditionFalseText": "You must kill the huntsmen before taking this"
+    }
+  },
+  {
+    "id": "small-path-blood-stone-shard",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Blood stone shard",
+      "itemId": "blood-stone-shard",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "graveyard-annex-coldblood-dew-1",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Coldblood dew",
+      "itemId": "coldblood-dew-1",
+      "amount": "1",
+      "conditionType": "KilledNPC",
+      "objectName": "graveyard-annex-crows",
+      "conditionFalseText": "You must kill the crows before taking this"
+    }
+  },
+  {
+    "id": "graveyard-annex-madmans-knowledge",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Madman's knowledge",
+      "itemId": "madmans-knowledge",
+      "amount": "1"
     }
   }
 ]

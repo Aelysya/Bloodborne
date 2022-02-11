@@ -139,7 +139,7 @@ public class CommandHandler {
         String position = args[0];
         switch (position) {
             case "1", "2", "3" -> GAME.runeDecisionFunction(Integer.parseInt(position) - 1);
-            case "c", "cancel" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
+            case "c", "cancel" -> Game.setAnalyzer(TextAnalyzer.EXPLORATION);
             default -> GAME.writeInstantly("You can't memorize a rune at this position.");
         }
     }
@@ -184,7 +184,6 @@ public class CommandHandler {
                     throw new TooFewArgumentsException();
                 } else {
                     GAME.useFunction(target);
-                    GAME.resolveFightTurn("use");
                 }
             }
             case "h", "help" -> GAME.writeInstantly(FIGHT_HELP_TEXT);
@@ -212,7 +211,7 @@ public class CommandHandler {
             case "y", "yes" -> GAME.warpBackToLastLantern();
             case "n", "no" -> {
                 GAME.writeInstantly("Do you want to quit the game ? [Y/N]");
-                GAME.setAnalyzer(TextAnalyzer.QUIT_FROM_DEATH);
+                Game.setAnalyzer(TextAnalyzer.QUIT_FROM_DEATH);
             }
             default -> GAME.writeInstantly("Unknown command !\n\nYou died, do you want to reappear at the last lantern ? [Y/N]");
         }
@@ -230,7 +229,7 @@ public class CommandHandler {
 
         switch (command) {
             case "y", "yes" -> GAME.goFunction("hunter's-dream");
-            case "n", "no" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
+            case "n", "no" -> Game.setAnalyzer(TextAnalyzer.EXPLORATION);
             case "mute" -> GAME.muteGame();
             case "unmute" -> GAME.unMuteGame();
             default -> GAME.writeInstantly("Unknown command !");
@@ -248,7 +247,7 @@ public class CommandHandler {
             case "2" -> GAME.checkIfWarpFromDreamPossible("small-square");
             case "3" -> GAME.checkIfWarpFromDreamPossible("bridge-end");
             case "4" -> GAME.checkIfWarpFromDreamPossible("tomb-of-oedon");
-            case "c", "cancel" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
+            case "c", "cancel" -> Game.setAnalyzer(TextAnalyzer.EXPLORATION);
             default -> GAME.writeHeadstoneText("yharnam");
         }
     }
@@ -267,7 +266,7 @@ public class CommandHandler {
             case "y", "yes" -> System.exit(0);
             case "n", "no" -> {
                 GAME.writeInstantly("You died, do you want to reappear at the last lantern ? [Y/N]");
-                GAME.setAnalyzer(TextAnalyzer.DEATH);
+                Game.setAnalyzer(TextAnalyzer.DEATH);
             }
             default -> GAME.writeInstantly("Unknown command !\n\nDo you want to quit the game ? [Y/N]");
         }
@@ -285,7 +284,7 @@ public class CommandHandler {
 
         switch (command) {
             case "y", "yes" -> System.exit(0);
-            case "n", "no" -> GAME.setAnalyzer(TextAnalyzer.EXPLORATION);
+            case "n", "no" -> Game.setAnalyzer(TextAnalyzer.EXPLORATION);
             default -> GAME.writeInstantly("Unknown command !");
         }
     }
