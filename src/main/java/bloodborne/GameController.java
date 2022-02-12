@@ -23,7 +23,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -40,7 +39,7 @@ public class GameController {
     TextArea console, detailText;
 
     @FXML
-    TextField writeLine, firstText, currentHP;
+    TextField writeLine, currentHP;
 
     @FXML
     GridPane inventoryItems;
@@ -49,10 +48,10 @@ public class GameController {
     Button useButton, throwOneButton, throwAllButton;
 
     @FXML
-    ImageView placeImage, firstImage, detailImage, trickWeaponImage, runeOath, rune3, rune2, rune1, gunImage, headArmorImage, chestArmorImage, legsArmorImage, feetArmorImage, consumablesTab, materialsTab, keysTab, trickWeaponsTab, fireArmsTab, gemsTab, runesTab;
+    ImageView placeImage, detailImage, trickWeaponImage, firearmImage, runeOath, rune3, rune2, rune1, headArmorImage, chestArmorImage, legsArmorImage, feetArmorImage, consumablesTab, materialsTab, keysTab, trickWeaponsTab, firearmsTab,  attiresTab, gemsTab, runesTab;
 
     @FXML
-    Label levelText, echoesText, insightText, vitText, endText, arcText, btText, sklText, strText, vialAmountText, bulletAmountText, dmgBoostText, boostLeftText, visceralRateText, hitRateText, dodgeRateText, bulletConsumptionText, trickWeaponNameText, trickWeaponDmgText, gunNameText, gunDmgText;
+    Label levelText, echoesText, insightText, vitText, endText, arcText, btText, sklText, strText, vialAmountText, bulletAmountText, dmgBoostText, boostLeftText, visceralRateText, hitRateText, dodgeRateText, bulletConsumptionText, trickWeaponNameText, trickWeaponDmgText, firearmNameText, firearmDmgText;
 
     private Game game;
     private final Lock LOCK = new ReentrantLock(true);
@@ -99,13 +98,14 @@ public class GameController {
         materialsTab.setOnMouseReleased(event -> updateInventory("material"));
         keysTab.setOnMouseReleased(event -> updateInventory("key"));
         trickWeaponsTab.setOnMouseReleased(event -> updateInventory("trickWeapon"));
-        fireArmsTab.setOnMouseReleased(event -> updateInventory("fireArm"));
+        firearmsTab.setOnMouseReleased(event -> updateInventory("firearm"));
+        firearmsTab.setOnMouseReleased(event -> updateInventory("attire"));
         gemsTab.setOnMouseReleased(event -> updateInventory("gem"));
         runesTab.setOnMouseReleased(event -> updateInventory("rune"));
 
         trickWeaponImage.setOnMouseClicked(event -> {
             if (hunter.getTrickWeapon() == null) {
-                detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+                detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/empty.png"))));
                 detailText.clear();
             } else {
                 detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getTrickWeaponIcon()))));
@@ -132,27 +132,27 @@ public class GameController {
             event.consume();
         });
 
-        gunImage.setOnMouseClicked(event -> {
-            if (hunter.getFireArm() == null) {
-                detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+        firearmImage.setOnMouseClicked(event -> {
+            if (hunter.getFirearm() == null) {
+                detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/empty.png"))));
                 detailText.clear();
             } else {
-                detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getFireArmIcon()))));
-                detailText.setText(hunter.getFireArm().getDESCRIPTION());
+                detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getFirearmIcon()))));
+                detailText.setText(hunter.getFirearm().getDESCRIPTION());
             }
         });
-        gunImage.setOnDragOver(event -> {
-            if (event.getGestureSource() != gunImage && event.getDragboard().hasImage()) {
+        firearmImage.setOnDragOver(event -> {
+            if (event.getGestureSource() != firearmImage && event.getDragboard().hasImage()) {
                 event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
             }
             event.consume();
         });
-        gunImage.setOnDragDropped(event -> {
+        firearmImage.setOnDragDropped(event -> {
             Dragboard db = event.getDragboard();
             boolean success = false;
             if (db.hasImage()) {
                 if (draggedFirearmName != null) {
-                    gunImage.setImage(db.getImage());
+                    firearmImage.setImage(db.getImage());
                     game.equipFunction(draggedFirearmName);
                     success = true;
                 }
@@ -172,7 +172,7 @@ public class GameController {
                 int finalRuneIndex = runeIndex;
                 image.setOnMouseClicked(event -> {
                     if (hunter.getRUNE_LIST().size() <= finalRuneIndex) {
-                        detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+                        detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/empty.png"))));
                         detailText.clear();
                     } else {
                         detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getRUNE_LIST().get(finalRuneIndex).getImage()))));
@@ -182,7 +182,7 @@ public class GameController {
             } else {
                 runeOath.setOnMouseClicked(event -> {
                     if (hunter.getOathRune() == null) {
-                        detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+                        detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/empty.png"))));
                         detailText.clear();
                     } else {
                         detailImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getOathRune().getImage()))));
@@ -220,7 +220,7 @@ public class GameController {
 
     public void updateWeapons() {
         trickWeaponImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getTrickWeaponIcon()))));
-        gunImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getFireArmIcon()))));
+        firearmImage.setImage(new Image(String.valueOf(getClass().getResource(hunter.getFirearmIcon()))));
         if (hunter.getTrickWeapon() == null) {
             trickWeaponNameText.setText("No weapon equipped");
             trickWeaponDmgText.setText("3 damage");
@@ -228,12 +228,12 @@ public class GameController {
             trickWeaponNameText.setText(hunter.getTrickWeapon().getNAME());
             trickWeaponDmgText.setText(hunter.getTrickWeapon().getCurrentDamage() + " damage");
         }
-        if (hunter.getFireArm() == null) {
-            gunNameText.setText("No gun equipped");
-            gunDmgText.setText("0 damage");
+        if (hunter.getFirearm() == null) {
+            firearmNameText.setText("No firearm equipped");
+            firearmDmgText.setText("0 damage");
         } else {
-            gunNameText.setText(hunter.getFireArm().getNAME());
-            gunDmgText.setText(hunter.getFireArm().getCurrentDamage() + " damage");
+            firearmNameText.setText(hunter.getFirearm().getNAME());
+            firearmDmgText.setText(hunter.getFirearm().getCurrentDamage() + " damage");
         }
         updateHUD();
     }
@@ -275,10 +275,11 @@ public class GameController {
             emptyImage.setFitHeight(75);
             emptyImage.setFitWidth(75);
             emptyImage.setPreserveRatio(true);
-            emptyImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+            emptyImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/empty.png"))));
 
-            TextField emptyText = new TextField("Empty inventory");
-            emptyText.setEditable(false);
+            Label emptyText = new Label("Empty inventory");
+            emptyText.setPrefWidth(230);
+            emptyText.setWrapText(true);
             emptyText.setFocusTraversable(false);
 
             inventoryItems.add(emptyImage, 0, 0);
@@ -299,7 +300,7 @@ public class GameController {
                     itemImage.setOnMouseEntered(event -> itemImage.getScene().setCursor(Cursor.HAND));
                     itemImage.setOnMouseExited(event -> itemImage.getScene().setCursor(Cursor.DEFAULT));
 
-                    if (category.equals("trickWeapon") || category.equals("fireArm")) {
+                    if (category.equals("trickWeapon") || category.equals("firearm")) {
                         String finalCategory = category; //To use in following lambdas
 
                         itemImage.setOnDragDetected((MouseEvent event) -> {
@@ -325,8 +326,9 @@ public class GameController {
                     }
 
                     int itemAmount = hunter.getINVENTORY().getItems().get(i);
-                    TextField itemText = new TextField(i.getNAME() + (itemAmount == 1 ? "" : " x" + itemAmount));
-                    itemText.setEditable(false);
+                    Label itemText = new Label(i.getNAME() + (itemAmount == 1 ? "" : " x" + itemAmount));
+                    itemText.setPrefWidth(230);
+                    itemText.setWrapText(true);
                     itemText.setFocusTraversable(false);
 
                     inventoryItems.add(itemImage, 0, numberOfItemInCategory);
@@ -339,10 +341,11 @@ public class GameController {
                 emptyImage.setFitHeight(75);
                 emptyImage.setFitWidth(75);
                 emptyImage.setPreserveRatio(true);
-                emptyImage.setImage(new Image(String.valueOf(getClass().getResource("images/empty.png"))));
+                emptyImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/empty.png"))));
 
-                TextField emptyText = new TextField("Empty category");
-                emptyText.setEditable(false);
+                Label emptyText = new Label("Empty category");
+                emptyText.setPrefWidth(230);
+                emptyText.setWrapText(true);
                 emptyText.setFocusTraversable(false);
 
                 inventoryItems.add(emptyImage, 0, 0);

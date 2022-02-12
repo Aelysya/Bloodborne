@@ -84,16 +84,7 @@
   {
     "id": "back-clinic-room",
     "type": "Prop",
-    "description": "TODO desc",
-    "attributes": {
-      "isActionable": "false",
-      "isTrapped": "false"
-    }
-  },
-  {
-    "id": "back-clinic-cabinet",
-    "type": "Prop",
-    "description": "TODO desc",
+    "description": "You look around the operating room, like the one you awaken in, many beds and blood-covered instruments are here. On one of the beds, you find the CAINHURST SUMMONS (T).",
     "attributes": {
       "isActionable": "false",
       "isTrapped": "false"
@@ -102,20 +93,25 @@
   {
     "id": "back-clinic-chest",
     "type": "Container",
-    "description": "TODO desc",
+    "description": "It is a small wooden chest. There nothing that seem to lock it, you can open it (A).",
     "attributes": {
-      "isActionable": "false",
-      "isTrapped": "false"
+      "isActionable": "true",
+      "isTrapped": "false",
+      "itemId": "rune-communion-3",
+      "activationText": "You open the chest and find a Communion rune."
     }
   },
   {
     "id": "back-clinic-door",
-    "type": "Prop",
+    "type": "ConditionalProp",
     "description": "It is a wooden door with a small glass window on the upper part.",
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
-      "activationText": "You unlock and gently open the door. You may now freely go to the Clinic and back."
+      "conditionType": "KilledNPC",
+      "objectName": "back-clinic-emissary",
+      "conditionFalseText": "You must kill the celestial emissary before accessing the door",
+      "activationText": "You unlock and gently open the door. You may now freely go to Iosefka's clinic and back."
     }
   },
   {
@@ -181,7 +177,7 @@
   {
     "id": "central-house-furniture",
     "type": "Prop",
-    "description": "Trapped Prop, no description",
+    "description": "Trapped prop, no description",
     "attributes": {
       "isActionable": "false",
       "isTrapped": "true",

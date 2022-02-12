@@ -1,3 +1,3 @@
 package bloodborne.entities;
 
-public enum DamageType {PHYS, FIRE, BOLT, ARC, BLOOD}
+public enum DamageType {BASE, FIRE, BOLT, ARCANE, BLOOD}

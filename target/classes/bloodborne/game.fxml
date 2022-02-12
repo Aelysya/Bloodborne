@@ -50,7 +50,7 @@
     <VBox id="leftSide" layoutX="350.0" layoutY="156.0" prefHeight="1080.0" prefWidth="900.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <HBox prefHeight="600.0" prefWidth="900.0">
             <ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="330.0">
-                <GridPane fx:id="inventoryItems" vgap="10.0">
+                <GridPane fx:id="inventoryItems" hgap="5.0" prefHeight="85.0" prefWidth="205.0" vgap="10.0">
                     <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" />
@@ -61,60 +61,60 @@
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
-                    <ImageView fx:id="firstImage" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                         <cursor>
                             <Cursor fx:constant="HAND" />
                         </cursor>
-                        <Image url="@images/empty.png" />
+                        <Image url="@images/items/empty.png" />
                     </ImageView>
-                    <TextField fx:id="firstText" editable="false" focusTraversable="false" text="Empty inventory" GridPane.columnIndex="1" />
+               <Label focusTraversable="false" prefHeight="75.0" prefWidth="230.0" text="Empty inventory" wrapText="true" GridPane.columnIndex="1" />
                 </GridPane>
             </ScrollPane>
             <AnchorPane prefHeight="600.0" prefWidth="567.0">
-                <ImageView fx:id="consumablesTab" fitHeight="75.0" fitWidth="75.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="consumablesTab" fitHeight="68.0" fitWidth="68.0" layoutX="4.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                     <Image url="@images/UI/consumables.png" />
                 </ImageView>
-                <ImageView fx:id="materialsTab" fitHeight="75.0" fitWidth="75.0" layoutX="89.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="materialsTab" fitHeight="68.0" fitWidth="68.0" layoutX="74.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                     <Image url="@images/UI/materials.png" />
                 </ImageView>
-                <ImageView fx:id="keysTab" fitHeight="75.0" fitWidth="75.0" layoutX="168.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="keysTab" fitHeight="68.0" fitWidth="68.0" layoutX="144.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                     <Image url="@images/UI/keys.png" />
                 </ImageView>
-                <ImageView fx:id="trickWeaponsTab" fitHeight="75.0" fitWidth="75.0" layoutX="247.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="trickWeaponsTab" fitHeight="68.0" fitWidth="68.0" layoutX="214.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                     <Image url="@images/UI/trick-weapons.png" />
                 </ImageView>
-                <ImageView fx:id="fireArmsTab" fitHeight="75.0" fitWidth="75.0" layoutX="326.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="firearmsTab" fitHeight="68.0" fitWidth="68.0" layoutX="284.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
-                    <Image url="@images/UI/guns.png" />
+                    <Image url="@images/UI/firearms.png" />
                 </ImageView>
-                <ImageView fx:id="gemsTab" fitHeight="75.0" fitWidth="75.0" layoutX="405.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="gemsTab" fitHeight="68.0" fitWidth="68.0" layoutX="425.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                     <Image url="@images/UI/gems.png" />
                 </ImageView>
-                <ImageView fx:id="runesTab" fitHeight="75.0" fitWidth="75.0" layoutX="483.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="runesTab" fitHeight="68.0" fitWidth="68.0" layoutX="496.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                     <Image url="@images/UI/runes.png" />
                 </ImageView>
                 <ImageView fx:id="detailImage" fitHeight="200.0" fitWidth="200.0" layoutX="15.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@images/empty.png" />
+                    <Image url="@images/items/empty.png" />
                 </ImageView>
                 <Line endX="381.0" layoutX="185.0" layoutY="104.0" startX="-185.0" stroke="#ffe3e3" strokeWidth="2.0" />
                 <TextArea fx:id="detailText" editable="false" layoutX="15.0" layoutY="326.0" prefHeight="262.0" prefWidth="538.0" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
@@ -136,6 +136,12 @@
                         <Font size="14.0" />
                     </font>
                 </Button>
+                <ImageView fx:id="attiresTab" fitHeight="68.0" fitWidth="68.0" layoutX="354.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <Image url="@images/UI/attire.png" />
+                </ImageView>
             </AnchorPane>
         </HBox>
         <AnchorPane id="bottomLeft" prefHeight="479.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
@@ -143,7 +149,7 @@
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
-                <Image url="@images/empty.png" />
+                <Image url="@images/items/empty.png" />
             </ImageView>
             <ImageView fx:id="runeOath" fitHeight="75.0" fitWidth="75.0" layoutX="810.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                 <cursor>
@@ -271,11 +277,11 @@
             <Label id="statNumber" fx:id="sklText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="374.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
             <Label id="statNumber" fx:id="strText" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="341.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
             <TextField id="currentHP" fx:id="currentHP" editable="false" focusTraversable="false" layoutX="374.0" layoutY="27.0" prefHeight="30.0" prefWidth="147.0" style="-fx-border-color: #666666;" text="100/100 HP" />
-            <ImageView fx:id="gunImage" fitHeight="100.0" fitWidth="100.0" layoutX="16.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="firearmImage" fitHeight="100.0" fitWidth="100.0" layoutX="16.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
-                <Image url="@images/empty.png" />
+                <Image url="@images/items/empty.png" />
             </ImageView>
             <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="360.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
                 <cursor>
@@ -293,25 +299,25 @@
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
-                <Image url="@images/UI/empty.png" />
+                <Image url="@images/items/attires/empty.png" />
             </ImageView>
             <ImageView fx:id="chestArmorImage" fitHeight="75.0" fitWidth="75.0" layoutX="463.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
-                <Image url="@images/UI/empty.png" />
+                <Image url="@images/items/attires/empty.png" />
             </ImageView>
             <ImageView fx:id="legsArmorImage" fitHeight="75.0" fitWidth="75.0" layoutX="360.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
-                <Image url="@images/UI/empty.png" />
+                <Image url="@images/items/attires/empty.png" />
             </ImageView>
             <ImageView fx:id="feetArmorImage" fitHeight="75.0" fitWidth="75.0" layoutX="463.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
-                <Image url="@images/UI/empty.png" />
+                <Image url="@images/items/attires/empty.png" />
             </ImageView>
             <Label id="consumableAmount" fx:id="vialAmountText" alignment="CENTER_RIGHT" layoutX="390.0" layoutY="165.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
             <Label id="consumableAmount" fx:id="bulletAmountText" alignment="CENTER_RIGHT" layoutX="492.0" layoutY="165.0" prefHeight="23.0" prefWidth="45.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
@@ -377,7 +383,7 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-            <Label id="stat" fx:id="gunNameText" layoutX="124.0" layoutY="270.0" prefHeight="30.0" prefWidth="190.0" style="-fx-border-color: #666666;" text="No gun equipped" textFill="WHITE">
+            <Label id="stat" fx:id="firearmNameText" layoutX="124.0" layoutY="270.0" prefHeight="30.0" prefWidth="190.0" style="-fx-border-color: #666666;" text="No firearm equipped" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -393,7 +399,7 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-            <Label id="stat" fx:id="gunDmgText" layoutX="124.0" layoutY="302.0" prefHeight="30.0" prefWidth="190.0" style="-fx-border-color: #666666;" text="0 damage" textFill="WHITE">
+            <Label id="stat" fx:id="firearmDmgText" layoutX="124.0" layoutY="302.0" prefHeight="30.0" prefWidth="190.0" style="-fx-border-color: #666666;" text="0 damage" textFill="WHITE">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -401,11 +407,9 @@
                     <Insets bottom="5.0" />
                 </padding>
             </Label>
-         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@images/UI/insight.png" />
-            </image>
-         </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="582.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@images/UI/insight.png" />
+            </ImageView>
          <Label id="stat" layoutX="582.0" layoutY="222.0" prefHeight="30.0" prefWidth="301.0" style="-fx-border-color: #666666;" text="    Insight" textFill="WHITE">
             <font>
                <Font size="22.0" />

@@ -11,7 +11,7 @@ public class Hunter extends Entity {
     private int boostLeft;
     private final Inventory INVENTORY;
     private TrickWeapon trickWeapon;
-    private FireArm fireArm;
+    private Firearm firearm;
     private int vialsNumber;
     private int bulletsNumber;
     private DamageType damageType;
@@ -39,7 +39,7 @@ public class Hunter extends Entity {
         boostLeft = 0;
         vialsNumber = 0;
         bulletsNumber = 0;
-        damageType = DamageType.PHYS;
+        damageType = DamageType.BASE;
         bloodEchoes = 0;
         insight = 0;
         RUNE_LIST = new ArrayList<>();
@@ -156,14 +156,14 @@ public class Hunter extends Entity {
         return "You equipped the " + weapon.getNAME() + " as your trick weapon.";
     }
 
-    public String equipFireArm(FireArm weapon) {
-        if (fireArm != null) {
-            this.INVENTORY.addItem(fireArm);
+    public String equipFirearm(Firearm weapon) {
+        if (firearm != null) {
+            this.INVENTORY.addItem(firearm);
         }
         INVENTORY.removeOneItemFromStack(weapon);
-        fireArm = weapon;
+        firearm = weapon;
 
-        return "You equipped the " + weapon.getNAME() + " as your gun.";
+        return "You equipped the " + weapon.getNAME() + " as your firearm.";
     }
 
     public String equipRune(Rune rune, int position) {
@@ -221,22 +221,21 @@ public class Hunter extends Entity {
         if (action.equals("heal") || action.equals("heal-from-item") || action.equals("use")) { //If the player chose to heal or use an item, its turn ends and the enemy attacks immediately
             explanationText.append(enemy.attack(this, finalDodgeRate, soundManager));
         } else {
-            if (action.equals("range") && fireArm == null) {
-                explanationText.append("You have no gun equipped !\n");
+            if (action.equals("range") && firearm == null) {
+                explanationText.append("You have no firearm equipped !\n");
             } else if (action.equals("range") && cantShoot()) {
-                explanationText.append("You don't have enough bullets left to use your gun !\n");
+                explanationText.append("You don't have enough bullets left to use your firearm !\n");
             } else {
                 int finalDamage = calculateDamage(action);
-                enemy.setIncapacitated(false); //To reset the enemy ability to attack if the last attack was a visceral one and survived
                 lastAttackIsVisceral = false;
                 if (action.equals("range")) {
                     explanationText.append("You shoot at your enemy, ");
                     soundManager.playSoundEffect("gunshot.wav");
-                    bulletsNumber -= fireArm.getBULLET_USE();
-                    if (Math.random() > fireArm.getHIT_RATE()) { //Shot is missed
+                    bulletsNumber -= firearm.getBULLET_USE();
+                    if (Math.random() > firearm.getHIT_RATE()) { //Shot is missed
                         explanationText.append("but you missed\n");
                     } else {
-                        if (Math.random() < fireArm.getVISCERAL_RATE()) { //Player performs a visceral attack, regenerating 20% health and cancelling the enemy's attack
+                        if (Math.random() < firearm.getVISCERAL_RATE()) { //Player performs a visceral attack, regenerating 20% health and cancelling the enemy's attack
                             explanationText.append("and did it at the right timing and perform a visceral attack on him. It regenerates a bit of your life\n You did ")
                                     .append(target.takeDamage(finalDamage, soundManager))
                                     .append(" damage\n");
@@ -268,6 +267,7 @@ public class Hunter extends Entity {
                 } else {
                     explanationText.append(enemy.attack(this, finalDodgeRate, soundManager));
                 }
+                enemy.setIncapacitated(false); //To reset the enemy ability to attack if the last attack was a visceral one and survived
             }
         }
         return explanationText.toString();
@@ -286,7 +286,7 @@ public class Hunter extends Entity {
     public int calculateDamage(String action) {
         int calculatedDamage;
         if (action.equals("range")) {
-            calculatedDamage = getFireArmDamage() + (int) (calculateBonusDamage("Bloodtinge") * fireArm.getBloodScaling());
+            calculatedDamage = getFirearmDamage() + (int) (calculateBonusDamage("Bloodtinge") * firearm.getBloodScaling());
         } else {
             if (trickWeapon == null) {
             calculatedDamage = 3;
@@ -320,10 +320,10 @@ public class Hunter extends Entity {
 
     public boolean cantShoot() {
         boolean cantShoot = false;
-        if (fireArm == null) {
+        if (firearm == null) {
             cantShoot = true;
         } else {
-            int usage = fireArm.getBULLET_USE();
+            int usage = firearm.getBULLET_USE();
             if ((bulletsNumber - usage) < 0) {
                 cantShoot = true;
             }
@@ -367,8 +367,8 @@ public class Hunter extends Entity {
         Item returnedItem;
         if (trickWeapon != null && itemName.equals(trickWeapon.getNAME().toLowerCase(Locale.ROOT))) {
             returnedItem = trickWeapon;
-        } else if (fireArm != null && itemName.equals(fireArm.getNAME().toLowerCase(Locale.ROOT))) {
-            returnedItem = fireArm;
+        } else if (firearm != null && itemName.equals(firearm.getNAME().toLowerCase(Locale.ROOT))) {
+            returnedItem = firearm;
         } else {
             returnedItem = INVENTORY.getItemByName(itemName);
         }
@@ -411,8 +411,8 @@ public class Hunter extends Entity {
         return trickWeapon == null ? null : trickWeapon;
     }
 
-    public FireArm getFireArm() {
-        return fireArm == null ? null : fireArm;
+    public Firearm getFirearm() {
+        return firearm == null ? null : firearm;
     }
 
     public int getNumberOfRunes() {
@@ -424,8 +424,8 @@ public class Hunter extends Entity {
         return (trickWeapon == null) ? 3 : trickWeapon.getCurrentDamage() + this.damageBoost;
     }
 
-    public int getFireArmDamage() {
-        return (fireArm == null) ? 0 : fireArm.getCurrentDamage();
+    public int getFirearmDamage() {
+        return (firearm == null) ? 0 : firearm.getCurrentDamage();
     }
 
     @Override
@@ -444,23 +444,23 @@ public class Hunter extends Entity {
     }
 
     public double getHitRate() {
-        return fireArm == null ? 0 : fireArm.getHIT_RATE();
+        return firearm == null ? 0 : firearm.getHIT_RATE();
     }
 
     public double getVisceralRate() {
-        return fireArm == null ? 0 : fireArm.getVISCERAL_RATE();
+        return firearm == null ? 0 : firearm.getVISCERAL_RATE();
     }
 
     public int getBulletConsumption() {
-        return fireArm == null ? 0 : fireArm.getBULLET_USE();
+        return firearm == null ? 0 : firearm.getBULLET_USE();
     }
 
     public String getTrickWeaponIcon() {
-        return trickWeapon == null ? "images/empty.png" : trickWeapon.getImage();
+        return trickWeapon == null ? "images/items/empty.png" : trickWeapon.getImage();
     }
 
-    public String getFireArmIcon() {
-        return fireArm == null ? "images/empty.png" : fireArm.getImage();
+    public String getFirearmIcon() {
+        return firearm == null ? "images/items/empty.png" : firearm.getImage();
     }
 
     public List<Rune> getRUNE_LIST() {

@@ -11,6 +11,16 @@
     }
   },
   {
+    "id": "cainhurst-summons",
+    "type": "KeyItem",
+    "description": "An old blood-stained summons, inviting an honored guest to the forsaken Castle Cainhurst.\n\nRather bafflingly, it is addressed to you.\n\nDo not hesitate; the stagecoach leaves from Hemwick crossing.",
+    "attributes": {
+      "name": "Cainhurst summons",
+      "image": "keys/cainhurst-summons.png",
+      "category": "key"
+    }
+  },
+  {
     "id": "molotov-cocktail",
     "type": "ThrownItem",
     "description": "Explodes in raging flames when thrown against an object. One of the oldest hunter tools available in the workshop.\n\nSince the tragedy that struck Old Yharnam, fire has become a staple in beast hunts, and is thought to cleanse impurity.\n\nCertain types of beasts have an abnormal fear of flame.",
@@ -24,6 +34,16 @@
       "skillScaling": "NONE",
       "bloodScaling": "NONE",
       "arcaneScaling": "A"
+    }
+  },
+  {
+    "id": "pungent-blood-cocktail",
+    "type": "PungentBloodCocktail",
+    "description": "Mature blood cocktail that releases a pungent odor when thrown that attracts blood-thirsty beasts.\n\nA precious tool in sadly short supply.\n\nIn Yharnam, they produce more blood than alcohol, as the former is the more intoxicating.",
+    "attributes": {
+      "name": "Pungent blood cocktail",
+      "image": "consumables/pungent-blood-cocktail.png",
+      "category": "consumable"
     }
   },
   {
@@ -54,7 +74,7 @@
     "description": "Droplet of coldblood containing Blood Echoes.\n\nUse to gain Blood Echoes.\n\nHunters sustained by the dream gain strength from Blood Echoes. They imbibe the blood with thoughts of reverence, indeed gratitude, for their victims.",
     "attributes": {
       "name": "Coldblood dew (1)",
-      "image": "coldbloods/coldblood-dew-1.png",
+      "image": "consumables/coldbloods/coldblood-dew-1.png",
       "category": "consumable",
       "value": "350"
     }
@@ -65,7 +85,7 @@
     "description": "Droplet of coldblood containing Blood Echoes.\n\nUse to gain Blood Echoes.\n\nHunters sustained by the dream gain strength from Blood Echoes. They imbibe the blood with thoughts of reverence, indeed gratitude, for their victims.",
     "attributes": {
       "name": "Coldblood dew (2)",
-      "image": "coldbloods/coldblood-dew-2.png",
+      "image": "consumables/coldbloods/coldblood-dew-2.png",
       "category": "consumable",
       "value": "500"
     }
@@ -76,7 +96,7 @@
     "description": "Droplet of coldblood containing Blood Echoes.\n\nUse to gain Blood Echoes.\n\nHunters sustained by the dream gain strength from Blood Echoes. They imbibe the blood with thoughts of reverence, indeed gratitude, for their victims.",
     "attributes": {
       "name": "Coldblood dew (3)",
-      "image": "coldbloods/coldblood-dew-3.png",
+      "image": "consumables/coldbloods/coldblood-dew-3.png",
       "category": "consumable",
       "value": "100"
     }
@@ -126,12 +146,67 @@
     }
   },
   {
+    "id": "rune-communion-1",
+    "type": "Rune",
+    "description": "A secret symbol left by Caryll, runesmith of Byrgenwerth.\n\nSeveral runes relate to \"Blood\", including \"Communion,\" which raises the maximum number of blood vials one may carry.\n\nThis rune represents the Healing Church and its ministers. Blood ministration is, of course, the pursuit of communion.",
+    "attributes": {
+      "name": "Communion (1)",
+      "image": "runes/communion-1.png",
+      "category": "rune",
+      "value": "1"
+    }
+  },
+  {
+    "id": "rune-communion-2",
+    "type": "Rune",
+    "description": "A secret symbol left by Caryll, runesmith of Byrgenwerth.\n\nSeveral runes relate to \"Blood\", including \"Communion,\" which raises the maximum number of blood vials one may carry.\n\nThis rune represents the Healing Church and its ministers. Blood ministration is, of course, the pursuit of communion.",
+    "attributes": {
+      "name": "Communion (2)",
+      "image": "runes/communion-2.png",
+      "category": "rune",
+      "value": "2"
+    }
+  },
+  {
+    "id": "rune-communion-3",
+    "type": "Rune",
+    "description": "A secret symbol left by Caryll, runesmith of Byrgenwerth.\n\nSeveral runes relate to \"Blood\", including \"Communion,\" which raises the maximum number of blood vials one may carry.\n\nThis rune represents the Healing Church and its ministers. Blood ministration is, of course, the pursuit of communion.",
+    "attributes": {
+      "name": "Communion (3)",
+      "image": "runes/communion-3.png",
+      "category": "rune",
+      "value": "3"
+    }
+  },
+  {
+    "id": "rune-communion-4",
+    "type": "Rune",
+    "description": "A secret symbol left by Caryll, runesmith of Byrgenwerth.\n\nSeveral runes relate to \"Blood\", including \"Communion,\" which raises the maximum number of blood vials one may carry.\n\nThis rune represents the Healing Church and its ministers. Blood ministration is, of course, the pursuit of communion.",
+    "attributes": {
+      "name": "Communion (4)",
+      "image": "runes/communion-4.png",
+      "category": "rune",
+      "value": "4"
+    }
+  },
+  {
+    "id": "rune-communion-5",
+    "type": "Rune",
+    "description": "A secret symbol left by Caryll, runesmith of Byrgenwerth.\n\nSeveral runes relate to \"Blood\", including \"Communion,\" which raises the maximum number of blood vials one may carry.\n\nThis rune represents the Healing Church and its ministers. Blood ministration is, of course, the pursuit of communion.",
+    "attributes": {
+      "name": "Communion (5)",
+      "image": "runes/communion-5.png",
+      "category": "rune",
+      "value": "5"
+    }
+  },
+  {
     "id": "saw-cleaver",
     "type": "TrickWeapon",
     "description": "One of the trick weapons of the workshop, commonly used in the hunting business.\n\nThis saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force.\n\nThe saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
     "attributes": {
       "name": "Saw cleaver",
-      "image": "weapons/saw-cleaver.png",
+      "image": "trickWeapons/saw-cleaver.png",
       "category": "trickWeapon",
       "baseDamage": "10",
       "baseDodgeRate": "0.4",
@@ -149,7 +224,7 @@
     "description": "One of the trick weapons of the workshop, commonly used on the hunt.\n\nRetains the qualities of an axe, but offers wider palette of attacks by transforming. Boasts a heavy blunt attack, leading to high rally potential.\n\nNo matter their pasts, beasts are no more than beasts. Some choose this axe to play the part of executioner.",
     "attributes": {
       "name": "Hunter axe",
-      "image": "weapons/hunter-axe.png",
+      "image": "trickWeapons/hunter-axe.png",
       "category": "trickWeapon",
       "baseDamage": "12",
       "baseDodgeRate": "0.3",
@@ -167,7 +242,7 @@
     "description": "One of the trick weapons of the workshop, commonly used by hunters on their duties.\n\nSufficiently deadly as a rigid bladed cane, but also serves as a whip when its blade is split into many.\n\nConcealing the weapon inside the cane and flogging the beasts with the whip is partly an act of ceremony, an attempt to demonstrate to oneself that the bloodlust of the hunt will never encroach upon the soul.",
     "attributes": {
       "name": "Threaded cane",
-      "image": "weapons/threaded-cane.png",
+      "image": "trickWeapons/threaded-cane.png",
       "category": "trickWeapon",
       "baseDamage": "8",
       "baseDodgeRate": "0.5",
@@ -181,12 +256,12 @@
   },
   {
     "id": "hunter-pistol",
-    "type": "FireArm",
+    "type": "Firearm",
     "description": "Pistol made at the workshop, for hunters stalking beasts.\n\nHunter firearms are specially crafted to employ Quicksilver Bullets fused with the wielder's own blood, boosting damage against beasts.\n\nThe pistol is a quicker draw than the blunderbuss, allowing for speedier responses to attacks.",
     "attributes": {
       "name": "Hunter pistol",
-      "image": "weapons/hunter-pistol.png",
-      "category": "fireArm",
+      "image": "firearms/hunter-pistol.png",
+      "category": "firearm",
       "damage": "5",
       "bulletUse": "1",
       "hitRate": "0.8",
@@ -199,12 +274,12 @@
   },
   {
     "id": "hunter-blunderbuss",
-    "type": "FireArm",
+    "type": "Firearm",
     "description": "A blunderbuss created at the workshop for the hunters' line of work.\n\nHunter firearms are specially crafted to employ Quicksilver Bullets fused with the wielder's own blood, boosting damage against beasts.\n\nThe impact of this highly-effective weapon counters beasts' swift movements, and its wide spread is nigh-on guaranteed to hit the mark.",
     "attributes": {
       "name": "Hunter blunderbuss",
-      "image": "weapons/hunter-blunderbuss.png",
-      "category": "fireArm",
+      "image": "firearms/hunter-blunderbuss.png",
+      "category": "firearm",
       "damage": "7",
       "bulletUse": "1",
       "hitRate": "0.9",
@@ -259,6 +334,16 @@
       "name": "Madman's knowledge",
       "itemId": "madmans-knowledge",
       "amount": "1"
+    }
+  },
+  {
+    "id": "central-house-pungent-blood-cocktails",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Pungent blood cocktails",
+      "itemId": "pungent-blood-cocktail",
+      "amount": "2"
     }
   }
 ]

@@ -90,7 +90,7 @@ public class Game {
         CONTROLLER.transitionImage(WORLD.getCurrentPlace().getIMAGE());
         String START_TEXT = """
                 """;
-        //CONTROLLER.writeLetterByLetter(WORLD.getCurrentPlace().getDESCRIPTION());
+        CONTROLLER.writeLetterByLetter(WORLD.getCurrentPlace().getDESCRIPTION());
         CONTROLLER.updateDirectionalArrows(WORLD.getCurrentPlace());
         CONTROLLER.updateRunes();
     }
@@ -340,7 +340,7 @@ public class Game {
                 if (item instanceof TrickWeapon) {
                     CONTROLLER.writeInstantly(HUNTER.equipTrickWeapon((TrickWeapon) item));
                 } else {
-                    CONTROLLER.writeInstantly(HUNTER.equipFireArm((FireArm) item));
+                    CONTROLLER.writeInstantly(HUNTER.equipFirearm((Firearm) item));
                 }
                 SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
                 CONTROLLER.updateWeapons();

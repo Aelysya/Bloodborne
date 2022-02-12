@@ -30,6 +30,6 @@ public class Container extends Prop implements Initializable {
 
     @Override
     public void initialize(World world) {
-        containedItem = world.getItemById(getATTRIBUTES().get("content"));
+        containedItem = world.getItemById(getATTRIBUTES().get("itemId"));
     }
 }

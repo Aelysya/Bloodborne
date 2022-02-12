@@ -34,6 +34,7 @@
     "altDescription": "You are in a small medical room, a LANTERN (L) on the damaged floor illuminates the surroundings. Many operating tables are found in the next room. Judging by the blood covering the instruments they are used to perform blood ministration on patients. The only interesting things here are the SHELVES (L).",
     "hasLantern": "true",
     "items": {
+      "axe": "hunter-axe"
     },
     "props": {
       "door": "clinic-door",
@@ -56,7 +57,7 @@
         "destination": "back-clinic",
         "type": "ConditionalExit",
         "attributes": {
-          "description": "EAST -> Back clinic, the door is locked from the other side",
+          "description": "EAST -> Back clinic, the DOOR (L) is locked from the other side",
           "altDescription": "EAST -> Back clinic",
           "conditionType": "ActivatedProp",
           "objectName": "back-clinic-door",
@@ -164,13 +165,16 @@
     "name": "Back clinic",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You are in the back of the clinic, the atmosphere here is different from the rest of the facility, everything is quiet as after a storm, it is unsettling. A celestial EMISSARY (F) is in the middle of an operating ROOM (L), there is an old CABINET (L) behind him. He clearly detected you but doesn't seem to be aggressive yet. In a second operating room, there is a wooden CHEST (L).",
-    "altDescription": "You are in the back of the clinic, the atmosphere here is different from the rest of the facility, everything is quiet as after a storm, it is unsettling. The celestial emissary's corpse is in the middle of an operating ROOM (L), there is an old CABINET (L) behind it. In a second operating room, there is a wooden CHEST (L).",
+    "description": "You are in the back of the clinic, the atmosphere here is different from the rest of the facility, everything is quiet as after a storm, it is unsettling. A celestial EMISSARY (F) is in the middle of an operating ROOM (L), he currently blocks your access to the DOOR (A). He clearly detected you but doesn't seem to be aggressive yet. In a second operating room, there is a wooden CHEST (A).",
+    "altDescription": "You are in the back of the clinic, the atmosphere here is different from the rest of the facility, everything is quiet as after a storm, it is unsettling. The celestial emissary's corpse is in the middle of an operating ROOM (L), you can access the DOOR (A) now. In a second operating room, there is a wooden CHEST (A).",
     "hasLantern": "false",
     "items": {
+      "cainhurst summons": "cainhurst-summons"
     },
     "props": {
-      "door": "back-clinic-door"
+      "door": "back-clinic-door",
+      "chest": "back-clinic-chest",
+      "room": "back-clinic-room"
     },
     "exits": {
       "north": {
@@ -193,6 +197,7 @@
       }
     },
     "enemies": {
+      "emissary": "back-clinic-emissary"
     },
     "npcs": {
     }
@@ -392,6 +397,7 @@
     "altDescription": "No alt description for this area, if you see this it's a bug !",
     "hasLantern": "false",
     "items": {
+      "pungent blood cocktails": "central-house-pungent-blood-cocktails"
     },
     "props": {
       "furniture": "central-house-furniture"
@@ -478,8 +484,8 @@
     "name": "Fountain square",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You arrive at a square. A stone and metal fountain is enthroned in the centre, it is rusted and the water in it doesn't seem clean, nobody has maintained it for a long time. There is an old WELL (L) behind the fountain with some benches around it. A huntsman MINION (F) is knocking on a huge door and is probably the reason you saw it shake from the other side. A metal FENCE (L) is in a very bad state on your right. There is an open WINDOW (L) near the way down the sewers.",
-    "altDescription": "You arrive at a square. A stone and metal fountain is enthroned in the centre, it is rusted and the water in it doesn't seem clean, nobody has maintained it for a long time. There is an old WELL (L) behind the fountain with some benches around it. A metal FENCE (L) is in a very bad state on your right. There is an open WINDOW (L) near the way down the sewers.",
+    "description": "You arrive at a square. A stone and metal FOUNTAIN (L) is enthroned in the centre, it is rusted and the water in it doesn't seem clean, nobody has maintained it for a long time. There is an old WELL (L) behind the fountain with some benches around it. A huntsman MINION (F) is knocking on a huge door and is probably the reason you saw it shake from the other side. A metal FENCE (L) is in a very bad state on your right. There is an open WINDOW (L) near the way down the sewers.",
+    "altDescription": "You arrive at a square. A stone and metal FOUNTAIN (L) is enthroned in the centre, it is rusted and the water in it doesn't seem clean, nobody has maintained it for a long time. There is an old WELL (L) behind the fountain with some benches around it. A metal FENCE (L) is in a very bad state on your right. There is an open WINDOW (L) near the way down the sewers.",
     "hasLantern": "false",
     "items": {
     },

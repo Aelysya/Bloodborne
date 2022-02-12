@@ -66,7 +66,7 @@
   },
   {
     "id": "hunter-pistol",
-    "type": "FireArm",
+    "type": "Firearm",
     "description": "Pistol made at the workshop, for hunters stalking beasts. Hunter firearms are specially crafted to employ Quicksilver Bullets fused with the wielder's own blood, boosting damage against beasts.",
     "attributes": {
       "name": "Hunter Pistol",
@@ -79,7 +79,7 @@
   },
   {
     "id": "hunter-blunderbuss",
-    "type": "FireArm",
+    "type": "Firearm",
     "description": "A blunderbuss created at the workshop for the hunters' line of work. The impact of this highly-effective weapon counters beasts' swift movements, and its wide spread is nigh-on guaranteed to hit the mark.",
     "attributes": {
       "name": "Hunter Blunderbuss",
@@ -92,7 +92,7 @@
   },
   {
     "id": "cannon",
-    "type": "FireArm",
+    "type": "Firearm",
     "description": "Large prototype firearms fashioned by the workshop heretics, the Powder Kegs. Use of this weapon is equivalent to toting a mounted cannon, complete with its ridiculous weight, staggering kick, and lavish use of Quicksilver Bullets, into battle. Such a monstrosity was doomed from the start, and indeed its development was cut short. Yet, against impossibly gigantic foes, it might be just the thing.",
     "attributes": {
       "name": "Cannon",
@@ -105,7 +105,7 @@
   },
   {
     "id": "evelyn",
-    "type": "FireArm",
+    "type": "Firearm",
     "description": "Special pistol used by the vileblood hunters of Cainhurst. It is more precise and deadly than the classic hunter pistol, but is also rarer.",
     "attributes": {
       "name": "Evelyn",

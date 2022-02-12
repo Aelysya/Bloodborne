@@ -16,6 +16,14 @@ HBox{
     -fx-border-width: 0px 0px 1px 0px;
 }
 
+#inventoryItems .label {
+    -fx-font-size: 28px;
+    -fx-font-family: 'VT323', monospace;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-color: black;
+}
+
 #writeLine{
     -fx-border-color: white;
     -fx-border-width: 1px;
@@ -65,6 +73,7 @@ HBox{
     -fx-font-weight: bold;
     -fx-border-width: 0px 0px 1px 0px;
 }
+
 #buttons {
      -fx-font-size: 20px;
      -fx-font-family: 'VT323', monospace;
@@ -109,6 +118,7 @@ HBox{
     -fx-font-weight: bold;
     -fx-background-color: black;
 }
+
 .text-field:disabled {
     -fx-opacity: 1;
 }

@@ -160,7 +160,7 @@ public class CommandHandler {
                 - (A) Attack : Attack the enemy with your Trick weapon
                 - (HA) Heavy-attack : Attacks the enemy with a heavy attack
                 - (CHA) Charged-heavy-attack : Attacks the enemy with a charged heavy attack
-                - (S) Shoot : Attack the enemy with your gun
+                - (S) Shoot : Attack the enemy with your firearm
                 - (SW) Switch : Switch the state of your trick weapon
                 - (U) Use [object] : Use an object in your inventory
                 - (F) Flee : Try to flee the fight
@@ -172,7 +172,7 @@ public class CommandHandler {
                 - (A) Basic attack : Damage x 1, Dodge rate x 1
                 - (HA) Heavy attack : Damage x 1.5, Dodge rate x 0.75
                 - (CHA) Charged heavy attack : Damage x 1.9, Dodge rate x 0.6
-                - (S) Gun shot : Damage x 1, + 0.2 to Dodge rate
+                - (S) firearm shot : Damage x 1, + 0.2 to Dodge rate
                 - (HL/U) Healing or using an item : Pass the turn, + 0.2 to Dodge rate
                 - (F) Flee : Flee the fight but take some damage. You can't flee from a boss fight
                                 

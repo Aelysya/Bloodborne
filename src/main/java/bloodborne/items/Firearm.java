@@ -2,9 +2,9 @@ package bloodborne.items;
 
 import java.util.Map;
 
-public class FireArm extends Weapon {
+public class Firearm extends Weapon {
 
-    public FireArm(String id, String description, Map<String, String> att) {
+    public Firearm(String id, String description, Map<String, String> att) {
         super(id, description, att);
     }
 
