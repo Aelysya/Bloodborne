@@ -439,9 +439,15 @@
     "altDescription": "You arrive in an open street where some blood-drunk huntsmen built a PYRE (L) to burn a scourge beast. The huge DOOR (L) to the north doesn't shake anymore. Some wooden CRATES (L) are piled up on the right.",
     "hasLantern": "false",
     "items": {
+      "molotov cocktails": "pyre-molotov-cocktails",
+      "blood stone shard": "pyre-blood-stone-shard",
+      "coldblood dew": "pyre-coldblood-dew-1"
     },
     "props": {
-      "lever": "pyre-lever"
+      "lever": "pyre-lever",
+      "crates": "pyre-crates",
+      "door": "pyre-door",
+      "pyre": "pyre-pyre"
     },
     "exits": {
       "west": {

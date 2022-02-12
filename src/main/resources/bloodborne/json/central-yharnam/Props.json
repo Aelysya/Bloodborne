@@ -193,8 +193,36 @@
     "attributes": {
       "isActionable": "true",
       "isTrapped": "false",
-      "containsConsumables": "false",
       "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Street and back."
+    }
+  },
+  {
+    "id": "pyre-pyre",
+    "type": "Prop",
+    "description": "A tall scourge beast has been hung on the pyre to burn as a warning effigy. Around it there are some abandoned stagecoaches. Among the huntsmen's stuff you found a COLDBLOOD DEW (T)",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false"
+    }
+  },
+  {
+    "id": "pyre-door",
+    "type": "Prop",
+    "description": "This a very heavy iron-reinforced door, you can't open it since it is locked. The immediate surroundings are covered in dust because of it's shaking. You found 5 quicksilver bullets and 2 blood vials near it.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "vialsContained": "2",
+      "bulletsContained": "5"
+    }
+  },
+  {
+    "id": "pyre-crates",
+    "type": "Prop",
+    "description": "Many crated and locked coffins are piled up around the area. You managed to find some useful things such as some MOLOTOV COCKTAILS (T) and a BLOOD STONE SHARD (T).",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false"
     }
   },
   {

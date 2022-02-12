@@ -17,7 +17,7 @@ HBox{
 }
 
 #inventoryItems .label {
-    -fx-font-size: 28px;
+    -fx-font-size: 25px;
     -fx-font-family: 'VT323', monospace;
     -fx-text-fill: white;
     -fx-font-weight: bold;

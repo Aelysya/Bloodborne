@@ -338,12 +338,45 @@
   },
   {
     "id": "central-house-pungent-blood-cocktails",
-    "type": "GroundItem",
+    "type": "ConditionalGroundItem",
     "description": "",
     "attributes": {
       "name": "Pungent blood cocktails",
       "itemId": "pungent-blood-cocktail",
-      "amount": "2"
+      "amount": "2",
+      "conditionType": "LookedProp",
+      "objectName": "central-house-furniture",
+      "conditionFalseText": "You can't see anything like this around you yet, you might need to search the FURNITURE (L)"
+    }
+  },
+  {
+    "id": "pyre-molotov-cocktails",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Molotov cocktails",
+      "itemId": "molotov-cocktail",
+      "amount": "4"
+    }
+  },
+  {
+    "id": "pyre-blood-stone-shard",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Blood stone shard",
+      "itemId": "blood-stone-shard",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "pyre-coldblood-dew-1",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Coldblood dew",
+      "itemId": "coldblood-dew-1",
+      "amount": "1"
     }
   }
 ]

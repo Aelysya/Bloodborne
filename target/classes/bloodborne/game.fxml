@@ -50,7 +50,7 @@
     <VBox id="leftSide" layoutX="350.0" layoutY="156.0" prefHeight="1080.0" prefWidth="900.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <HBox prefHeight="600.0" prefWidth="900.0">
             <ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="330.0">
-                <GridPane fx:id="inventoryItems" hgap="5.0" prefHeight="85.0" prefWidth="205.0" vgap="10.0">
+                <GridPane fx:id="inventoryItems" hgap="10.0" prefHeight="85.0" prefWidth="205.0" vgap="10.0">
                     <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" />
@@ -67,7 +67,7 @@
                         </cursor>
                         <Image url="@images/items/empty.png" />
                     </ImageView>
-               <Label focusTraversable="false" prefHeight="75.0" prefWidth="230.0" text="Empty inventory" wrapText="true" GridPane.columnIndex="1" />
+               <Label prefHeight="75.0" prefWidth="230.0" text="Empty inventory" wrapText="true" GridPane.columnIndex="1" />
                 </GridPane>
             </ScrollPane>
             <AnchorPane prefHeight="600.0" prefWidth="567.0">
