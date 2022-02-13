@@ -13,7 +13,7 @@ public class HealingItem extends Item {
 
     @Override
     public String use(Hunter hunter, SoundManager soundManager) {
-        soundManager.playSoundEffect("used-bloodvial.wav");
+        soundManager.playSoundEffect("itemsUse/heal.wav");
         return hunter.healFromItem(Double.parseDouble(getATTRIBUTES().get("healValue")), this);
     }
 }

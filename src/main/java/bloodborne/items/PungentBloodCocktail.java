@@ -13,7 +13,7 @@ public class PungentBloodCocktail extends Item{
 
     @Override
     public String use(Hunter hunter, SoundManager soundManager) { //TODO Make the system to make the item work properly
-        //soundManager.playSoundEffect("thrown-pungent-blood-cocktail.wav"); //TODO Find the sound effect
+        soundManager.playSoundEffect("itemsUse/pungent-blood-cocktail.wav");
         hunter.removeOneItemFromStack(this);
         return "You throw the cocktail bottle on the ground, a rancid smell emanates from the puddle of blood. Some kind of enemies may be attracted and prevented from attacking you.";
     }

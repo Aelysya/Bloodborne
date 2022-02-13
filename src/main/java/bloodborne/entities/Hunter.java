@@ -125,7 +125,7 @@ public class Hunter extends Entity {
                 }
                 s.append("You use a blood vial, your wounds heal and a dark part of you wants more of it.");
                 vialsNumber--;
-                soundManager.playSoundEffect("used-bloodvial.wav");
+                soundManager.playSoundEffect("itemsUse/heal.wav");
             }
         }
         return s.toString();
@@ -190,13 +190,14 @@ public class Hunter extends Entity {
         return hasRune;
     }
 
-    public String switchTrickWeaponState() {
+    public String switchTrickWeaponState(SoundManager soundManager) {
         String txt;
         if (trickWeapon == null) {
             txt = "You don't have any trick weapon equipped";
         } else {
             txt = "You switched your trick weapon's state, check your stats to see the changes";
             trickWeapon.switchMode();
+            soundManager.playSoundEffect(trickWeapon.getSwitchSound());
         }
         return txt;
     }
@@ -230,7 +231,7 @@ public class Hunter extends Entity {
                 lastAttackIsVisceral = false;
                 if (action.equals("range")) {
                     explanationText.append("You shoot at your enemy, ");
-                    soundManager.playSoundEffect("gunshot.wav");
+                    soundManager.playSoundEffect(firearm.getAttackSound());
                     bulletsNumber -= firearm.getBULLET_USE();
                     if (Math.random() > firearm.getHIT_RATE()) { //Shot is missed
                         explanationText.append("but you missed\n");
@@ -239,7 +240,7 @@ public class Hunter extends Entity {
                             explanationText.append("and did it at the right timing and perform a visceral attack on him. It regenerates a bit of your life\n You did ")
                                     .append(target.takeDamage(finalDamage, soundManager))
                                     .append(" damage\n");
-                            soundManager.playSoundEffect("visceral-attack.wav");
+                            soundManager.playSoundEffect("weapons/visceral-attack.wav");
                             regenAfterVisceral();
                             lastAttackIsVisceral = true;
                             enemy.setIncapacitated(true);

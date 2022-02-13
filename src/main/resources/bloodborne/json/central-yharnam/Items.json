@@ -28,12 +28,76 @@
       "name": "Molotov cocktail",
       "image": "consumables/molotov-cocktail.png",
       "category": "consumable",
-      "damage": "15",
+      "damage": "10",
       "damageType": "FIRE",
       "strengthScaling": "D",
       "skillScaling": "NONE",
       "bloodScaling": "NONE",
       "arcaneScaling": "A"
+    }
+  },
+  {
+    "id": "pebble",
+    "type": "ThrownItem",
+    "description": "Small pebbles found throughout Yharnam.\n\nCan be thrown at foes.\n\nQuite thrilling.",
+    "attributes": {
+      "name": "Pebble",
+      "image": "consumables/pebble.png",
+      "category": "consumable",
+      "damage": "3",
+      "damageType": "PHYS",
+      "strengthScaling": "A",
+      "skillScaling": "D",
+      "bloodScaling": "NONE",
+      "arcaneScaling": "NONE"
+    }
+  },
+  {
+    "id": "throwing-knife",
+    "type": "ThrownItem",
+    "description": "Throwing knife with a finely serrated blade.\n\nOne of the old hunter Henryk's favorite weapons.\n\nDoes not cause a great deal of damage to beasts,but with deft use, can distract attackers and keep them at bay.",
+    "attributes": {
+      "name": "Throwing knife",
+      "image": "consumables/throwing-knife.png",
+      "category": "consumable",
+      "damage": "5",
+      "damageType": "PHYS",
+      "strengthScaling": "D",
+      "skillScaling": "A",
+      "bloodScaling": "NONE",
+      "arcaneScaling": "NONE"
+    }
+  },
+  {
+    "id": "poison-knife",
+    "type": "ThrownItem",
+    "description": "A knife slathered in poison.\n\nThis curved knife is as thin and sharp as a surgeon's blade. Often used for self-defence by special doctors in the Healing Church.\n\nThey say that hunters traditionally avoid the use of poison, likely because the poison is too slow to act in the heat of the hunt.",
+    "attributes": {
+      "name": "Poison knife",
+      "image": "consumables/poison-knife.png",
+      "category": "consumable",
+      "damage": "4",
+      "damageType": "PHYS",
+      "strengthScaling": "D",
+      "skillScaling": "A",
+      "bloodScaling": "NONE",
+      "arcaneScaling": "NONE"
+    }
+  },
+  {
+    "id": "oil-urn",
+    "type": "ThrownItem",
+    "description": "When this urn hits its mark, the target is drenched in oil, and made extremely flammable.\n\nFire is commonplace on the hunt, and oil urns accentuate its effect. Sometimes, when hunters burn beasts, they appear intoxicated by the euphoria of purification.",
+    "attributes": {
+      "name": "Oil urn",
+      "image": "consumables/oil-urn.png",
+      "category": "consumable",
+      "damage": "2",
+      "damageType": "PHYS",
+      "strengthScaling": "D",
+      "skillScaling": "NONE",
+      "bloodScaling": "NONE",
+      "arcaneScaling": "NONE"
     }
   },
   {
@@ -291,29 +355,6 @@
     }
   },
   {
-    "id": "street-molotov-cocktails",
-    "type": "ConditionalGroundItem",
-    "description": "",
-    "attributes": {
-      "name": "Molotov cocktails",
-      "itemId": "molotov-cocktail",
-      "amount": "6",
-      "conditionType": "KilledNPC",
-      "objectName": "street-huntsmen",
-      "conditionFalseText": "You must kill the huntsmen before taking this"
-    }
-  },
-  {
-    "id": "small-path-blood-stone-shard",
-    "type": "GroundItem",
-    "description": "",
-    "attributes": {
-      "name": "Blood stone shard",
-      "itemId": "blood-stone-shard",
-      "amount": "1"
-    }
-  },
-  {
     "id": "graveyard-annex-coldblood-dew-1",
     "type": "ConditionalGroundItem",
     "description": "",
@@ -337,16 +378,26 @@
     }
   },
   {
-    "id": "central-house-pungent-blood-cocktails",
+    "id": "street-molotov-cocktails",
     "type": "ConditionalGroundItem",
     "description": "",
     "attributes": {
-      "name": "Pungent blood cocktails",
-      "itemId": "pungent-blood-cocktail",
-      "amount": "2",
-      "conditionType": "LookedProp",
-      "objectName": "central-house-furniture",
-      "conditionFalseText": "You can't see anything like this around you yet, you might need to search the FURNITURE (L)"
+      "name": "Molotov cocktails",
+      "itemId": "molotov-cocktail",
+      "amount": "6",
+      "conditionType": "KilledNPC",
+      "objectName": "street-huntsmen",
+      "conditionFalseText": "You must kill the huntsmen before taking this"
+    }
+  },
+  {
+    "id": "small-square-pebbles",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Pebbles",
+      "itemId": "pebble",
+      "amount": "8"
     }
   },
   {
@@ -377,6 +428,118 @@
       "name": "Coldblood dew",
       "itemId": "coldblood-dew-1",
       "amount": "1"
+    }
+  },
+  {
+    "id": "small-path-blood-stone-shard",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Blood stone shard",
+      "itemId": "blood-stone-shard",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "central-house-pungent-blood-cocktails",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Pungent blood cocktails",
+      "itemId": "pungent-blood-cocktail",
+      "amount": "2",
+      "conditionType": "LookedProp",
+      "objectName": "central-house-furniture",
+      "conditionFalseText": "You can't see anything like this around here"
+    }
+  },
+  {
+    "id": "central-house-coldblood-dew-1",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Coldblood dew",
+      "itemId": "coldblood-dew-1",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "narrow-alley-coldblood-dew-3",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Coldblood dew",
+      "itemId": "coldblood-dew-3",
+      "amount": "1",
+      "conditionType": "KilledNPC",
+      "objectName": "narrow-alley-dogs",
+      "conditionFalseText": "You can't see anything like this around here"
+    }
+  },
+  {
+    "id": "fountain-square-oil-urns",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Oil urns",
+      "itemId": "oil-urn",
+      "amount": "2"
+    }
+  },
+  {
+    "id": "fountain-square-coldblood-dew-1",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Coldblood dew",
+      "itemId": "coldblood-dew-1",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "fountain-square-molotov-cocktails",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Molotov cocktails",
+      "itemId": "molotov-cocktail",
+      "amount": "4",
+      "conditionType": "KilledNPC",
+      "objectName": "fountain-square-minion",
+      "conditionFalseText": "You must kill the huntsman minion before taking this"
+    }
+  },
+  {
+    "id": "fountain-square-blood-stone-shard",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Blood stone shard",
+      "itemId": "blood-stone-shard",
+      "amount": "1",
+      "conditionType": "LookedProp",
+      "objectName": "fountain-square-fence",
+      "conditionFalseText": "There is nothing like this in the area."
+    }
+  },
+  {
+    "id": "pyre-overhang-blood-stone-shards",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Blood stone shards",
+      "itemId": "blood-stone-shard",
+      "amount": "2"
+    }
+  },
+  {
+    "id": "pyre-overhang-pebbles",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Pebbles",
+      "itemId": "pebble",
+      "amount": "10"
     }
   }
 ]

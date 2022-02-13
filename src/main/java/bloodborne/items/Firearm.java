@@ -8,11 +8,6 @@ public class Firearm extends Weapon {
         super(id, description, att);
     }
 
-    @Override
-    public int getCurrentDamage() {
-        return Integer.parseInt(getATTRIBUTES().get("damage"));
-    }
-
     public double getHIT_RATE() {
         return Double.parseDouble(getATTRIBUTES().get("hitRate"));
     }
@@ -23,5 +18,10 @@ public class Firearm extends Weapon {
 
     public int getBULLET_USE() {
         return Integer.parseInt(getATTRIBUTES().get("bulletUse"));
+    }
+
+    @Override
+    public int getCurrentDamage() {
+        return Integer.parseInt(getATTRIBUTES().get("damage"));
     }
 }

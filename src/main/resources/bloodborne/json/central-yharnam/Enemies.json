@@ -137,6 +137,26 @@
     }
   },
   {
+    "id": "narrow-alley-dogs",
+    "type": "MultiEnemy",
+    "description": "",
+    "attributes": {
+      "canRespawn": "true",
+      "enemyAmount": "3",
+      "maxHealth": "30",
+      "damage": "7",
+      "damageType": "PHYS",
+      "attackSpeed": "FAST",
+      "dodgeRate": "0.2",
+      "fireWeakness": "1.5",
+      "boltWeakness": "1.0",
+      "arcaneWeakness": "1.0",
+      "isBeast": "true",
+      "attractedByCocktail": "true",
+      "bloodEchoes": "300"
+    }
+  },
+  {
     "id": "fountain-square-minion",
     "type": "Enemy",
     "description": "",

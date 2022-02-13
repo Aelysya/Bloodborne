@@ -9,13 +9,63 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Changed TextFields for Labels in the inventory GridPane to allow correct display of long names">
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Continued the construction of the Yharnam zone">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/OldLady.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/YoungGirl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/antidote.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/blue-elixir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/lead-elixir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/oil-urn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/pebble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/poison-knife.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/sedative.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/throwing-knife.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/narrow-alley-alt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/zones/central-yharnam/narrow-alley.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/itemsUse/antidote.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/itemsUse/blue-elixir.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/itemsUse/bone-marrow-ash.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/itemsUse/gain-echoes.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/itemsUse/gain-insight.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/itemsUse/heal.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/itemsUse/lead-elixir.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/itemsUse/molotov-cocktail.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/itemsUse/pungent-blood-cocktail.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/itemsUse/sedative.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapons/firearms/hunter-blunderbuss.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapons/firearms/hunter-pistol.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapons/trickWeapons/hunter-axe-switch-back.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapons/trickWeapons/hunter-axe-switch.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapons/trickWeapons/saw-cleaver-switch-back.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapons/trickWeapons/saw-cleaver-switch.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapons/visceral-attack.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapons/weapon-equip.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Coldblood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Firearm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Firearm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/HealingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/HealingItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/InsightItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/InsightItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/PungentBloodCocktail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/PungentBloodCocktail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/ThrownItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ThrownItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/world/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/world/Place.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Npcs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Npcs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/gain-echoes.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/used-bloodvial.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/visceral-attack.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapon-equip.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/FireArm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/FireArm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/TrickWeapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/TrickWeapon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -358,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644696151363</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Continued the construction of the Yharnam zone">
+      <created>1644702426067</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1644702426067</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,7 +431,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added class LookedProp for future use in secret paths. Changed the path to images in json files to sort better the resources between dedicated directories" />
     <MESSAGE value="Constructed the base of the Places.json file with all the Exits." />
     <MESSAGE value="Reworked the fight system by swapping boolean returns for strings" />
     <MESSAGE value="Reworked the fight system by swapping boolean returns for strings in attack and shoot methods" />
@@ -399,7 +455,8 @@
     <MESSAGE value="Continued the first zone's constructions with various props and items" />
     <MESSAGE value="Continued the first zone's constructions with various props and items. Created new Items classes for conditional ones and entirely new types" />
     <MESSAGE value="Changed TextFields for Labels in the inventory GridPane to allow correct display of long names" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed TextFields for Labels in the inventory GridPane to allow correct display of long names" />
+    <MESSAGE value="Continued the construction of the Yharnam zone" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continued the construction of the Yharnam zone" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -342,7 +342,7 @@ public class Game {
                 } else {
                     CONTROLLER.writeInstantly(HUNTER.equipFirearm((Firearm) item));
                 }
-                SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
+                SOUND_MANAGER.playSoundEffect("weapons/weapon-equip.wav");
                 CONTROLLER.updateWeapons();
             } else if (item instanceof Rune) {
                 if (HUNTER.getNumberOfRunes() >= 3) {
@@ -351,7 +351,7 @@ public class Game {
                     CONTROLLER.writeInstantly("You already have 3 runes equipped, which one do you want to replace ? [1/2/3/Cancel]");
                 } else {
                     CONTROLLER.writeInstantly(HUNTER.equipRune((Rune) item, -1)); //-1 to just add the rune to the list
-                    SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
+                    SOUND_MANAGER.playSoundEffect("weapons/weapon-equip.wav");
                     CONTROLLER.updateRunes();
                 }
             } else {
@@ -366,7 +366,7 @@ public class Game {
 
     public void runeDecisionFunction(int position) {
         CONTROLLER.writeInstantly(HUNTER.equipRune(memorizedRune, position));
-        SOUND_MANAGER.playSoundEffect("weapon-equip.wav");
+        SOUND_MANAGER.playSoundEffect("weapons/weapon-equip.wav");
         CONTROLLER.updateRunes();
         setAnalyzer(TextAnalyzer.EXPLORATION);
     }
@@ -427,7 +427,7 @@ public class Game {
     }
 
     public void switchFunction() {
-        CONTROLLER.writeInstantly(HUNTER.switchTrickWeaponState());
+        CONTROLLER.writeInstantly(HUNTER.switchTrickWeaponState(SOUND_MANAGER));
         CONTROLLER.updateWeapons();
     }
 

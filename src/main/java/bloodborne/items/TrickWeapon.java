@@ -8,6 +8,15 @@ public class TrickWeapon extends Weapon {
 
     public TrickWeapon(String id, String description, Map<String, String> att) {
         super(id, description, att);
+        isSwitched = false;
+    }
+
+    public void switchMode() {
+        isSwitched = !isSwitched;
+    }
+
+    public String getSwitchSound() {
+        return "weapons/trickWeapons/" + getID() + "-switch" + (!isSwitched ? "-back" : "") + ".wav";
     }
 
     @Override
@@ -17,9 +26,5 @@ public class TrickWeapon extends Weapon {
 
     public double getCurrentDodgeRate() {
         return isSwitched ? Double.parseDouble(getATTRIBUTES().get("switchedDodgeRate")) : Double.parseDouble(getATTRIBUTES().get("baseDodgeRate"));
-    }
-
-    public void switchMode() {
-        isSwitched = !isSwitched;
     }
 }

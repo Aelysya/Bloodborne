@@ -26,5 +26,19 @@
       "nightSpeech-4": "\"...Enough blood...\"",
       "nightSpeech-5": "\"...Keep away...\""
     }
+  },
+  {
+    "id": "young-girl",
+    "type": "YoungGirl",
+    "description": "You see a young girl inside the house. You may try to talk to her",
+    "attributes": {
+    }
+  },
+  {
+    "id": "old-lady",
+    "type": "OldLady",
+    "description": "You hear an old lady inside the house. She is mumbling incomprehensibly",
+    "attributes": {
+    }
   }
 ]

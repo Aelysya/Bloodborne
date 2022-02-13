@@ -13,7 +13,7 @@ public class InsightItem extends Item{
 
     @Override
     public String use(Hunter hunter, SoundManager soundManager) {
-        //soundManager.playSoundEffect("gain-insight.wav"); //TODO Find the sound effect
+        soundManager.playSoundEffect("itemsUse/gain-insight.wav");
         hunter.gainInsight(Integer.parseInt(getATTRIBUTES().get("value")));
         hunter.removeOneItemFromStack(this);
         return "You crush the item in your fist, your vision expands and you gain insight.";

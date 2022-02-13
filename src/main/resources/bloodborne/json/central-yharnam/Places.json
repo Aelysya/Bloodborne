@@ -53,12 +53,12 @@
           "conditionFalseText": "The monster is still alive you can't go this way yet"
         }
       },
-      "east": {
+      "south": {
         "destination": "back-clinic",
         "type": "ConditionalExit",
         "attributes": {
-          "description": "EAST -> Back clinic, the DOOR (L) is locked from the other side",
-          "altDescription": "EAST -> Back clinic",
+          "description": "SOUTH -> Back clinic, the DOOR (L) is locked from the other side",
+          "altDescription": "SOUTH -> Back clinic",
           "conditionType": "ActivatedProp",
           "objectName": "back-clinic-door",
           "conditionFalseText": "The door is locked from the other side."
@@ -86,11 +86,11 @@
       "tombstone": "graveyard-tombstone"
     },
     "exits": {
-      "north": {
-        "destination": "street",
+      "south": {
+        "destination": "clinic",
         "type": "Exit",
         "attributes": {
-          "description": "NORTH -> Street"
+          "description": "SOUTH -> Iosefka's clinic"
         }
       },
       "east": {
@@ -104,11 +104,11 @@
           "conditionFalseText": "The iron gate is closed by a mechanism, you can't open it from this side."
         }
       },
-      "south": {
-        "destination": "clinic",
+      "north": {
+        "destination": "street",
         "type": "Exit",
         "attributes": {
-          "description": "SOUTH -> Iosefka's clinic"
+          "description": "NORTH -> Street"
         }
       }
     },
@@ -135,22 +135,22 @@
       "tree": "graveyard-annex-tree"
     },
     "exits": {
-      "west": {
+      "south": {
         "destination": "graveyard",
         "type": "ConditionalExit",
         "attributes": {
-          "description": "WEST -> Graveyard annex, the path is blocked by a metal gate",
-          "altDescription": "WEST -> Graveyard annex",
+          "description": "SOUTH -> Graveyard annex, the path is blocked by a metal gate",
+          "altDescription": "SOUTH -> Graveyard annex",
           "conditionType": "ActivatedProp",
           "objectName": "graveyard-annex-lever",
           "conditionFalseText": "The iron gate is closed by a mechanism, you must activate the LEVER (A) to unlock the mechanism blocking it."
         }
       },
-      "south": {
+      "north": {
         "destination": "back-clinic",
         "type": "Exit",
         "attributes": {
-          "description": "SOUTH -> Back clinic"
+          "description": "NORTH -> Back clinic"
         }
       }
     },
@@ -177,19 +177,19 @@
       "room": "back-clinic-room"
     },
     "exits": {
-      "north": {
+      "east": {
         "destination": "graveyard-annex",
         "type": "Exit",
         "attributes": {
-          "description": "NORTH -> Graveyard annex"
+          "description": "EAST -> Graveyard annex"
         }
       },
-      "west": {
+      "north": {
         "destination": "clinic",
         "type": "ConditionalExit",
         "attributes": {
-          "description": "WEST -> Iosefka's clinic, unlock the DOOR (A) to open it and allow free passage in both ways",
-          "altDescription": "WEST -> Iosefka's clinic",
+          "description": "NORTH -> Iosefka's clinic, unlock the DOOR (A) to open it and allow free passage in both ways",
+          "altDescription": "NORTH -> Iosefka's clinic",
           "conditionType": "ActivatedProp",
           "objectName": "back-clinic-door",
           "conditionFalseText": "The door is locked unlock the DOOR (A) to open it."
@@ -218,40 +218,33 @@
       "lever": "street-lever"
     },
     "exits": {
-      "west": {
-        "destination": "small-square",
-        "type": "ConditionalExit",
-        "attributes": {
-          "description": "WEST -> Small Square, there is a ladder but its currently out of reach, activate the LEVER (A) next to it to make it drop down",
-          "altDescription": "WEST -> Small Square",
-          "conditionType": "ActivatedProp",
-          "objectName": "street-lever",
-          "conditionFalseText": "The ladder is still out of your reach, you must activate the LEVER (A) to make it drop down."
-        }
-      },
-      "north": {
-        "destination": "pyre",
-        "type": "ConditionalExit",
-        "attributes": {
-          "description": "NORTH -> Pyre, the path is blocked by a metal gate",
-          "altDescription": "NORTH -> Pyre",
-          "conditionType": "ActivatedProp",
-          "objectName": "pyre-lever",
-          "conditionFalseText": "The iron gate is closed by a mechanism, you can't open it from this side."
-        }
-      },
-      "east": {
-        "destination": "dead-end",
-        "type": "Exit",
-        "attributes": {
-          "description": "EAST -> Dead end"
-        }
-      },
       "south": {
         "destination": "graveyard",
         "type": "Exit",
         "attributes": {
           "description": "SOUTH -> Graveyard"
+        }
+      },
+      "east": {
+        "destination": "pyre",
+        "type": "ConditionalExit",
+        "attributes": {
+          "description": "EAST -> Pyre, the path is blocked by a metal gate",
+          "altDescription": "EAST -> Pyre",
+          "conditionType": "ActivatedProp",
+          "objectName": "pyre-lever",
+          "conditionFalseText": "The iron gate is closed by a mechanism, you can't open it from this side."
+        }
+      },
+      "north": {
+        "destination": "small-square",
+        "type": "ConditionalExit",
+        "attributes": {
+          "description": "NORTH -> Small Square, there is a ladder but its currently out of reach, activate the LEVER (A) next to it to make it drop down",
+          "altDescription": "NORTH -> Small Square",
+          "conditionType": "ActivatedProp",
+          "objectName": "street-lever",
+          "conditionFalseText": "The ladder is still out of your reach, you must activate the LEVER (A) to make it drop down."
         }
       }
     },
@@ -262,72 +255,45 @@
     }
   },
   {
-    "id": "dead-end",
-    "name": "Dead end",
-    "area": "central-yharnam",
-    "headstone": "yharnam",
-    "description": "You arrive in a straight path, an EXECUTIONER (F) blocks you from going to it's end where you see some COFFINS (L) scattered around.",
-    "altDescription": "You arrive in a straight path, you see some COFFINS (L) scattered around the back of the area. Now that the executioner is dead you can safely go search through their content.",
-    "hasLantern": "false",
-    "items": {
-    },
-    "props": {
-      "coffins": "dead-end-coffins"
-    },
-    "exits": {
-      "west": {
-        "destination": "street",
-        "type": "Exit",
-        "attributes": {
-          "description": "WEST -> Street"
-        }
-      }
-    },
-    "enemies": {
-      "executioner": "dead-end-executioner"
-    },
-    "npcs": {
-    }
-  },
-  {
     "id": "small-square",
     "name": "Small square",
     "area": "central-yharnam",
     "headstone": "yharnam",
     "headstoneIndex": "2",
-    "description": "You are in a small square, a LANTERN (L) lights up the surroundings, creating eldritch shadows on the walls. You see an open WINDOW (L) on a house close to you.",
-    "altDescription": "You are in a small square, a LANTERN (L) lights up the surroundings, creating eldritch shadows on the walls. You see an open WINDOW (L) on a house close to you.",
+    "description": "You are in a small square, a LANTERN (L) lights up the surroundings, creating eldritch shadows on the walls. You see an open WINDOW (L) on a house close to you. On a little bridge not far there are some PEBBLES (T).",
+    "altDescription": "You are in a small square, a LANTERN (L) lights up the surroundings, creating eldritch shadows on the walls. You see an open WINDOW (L) on a house close to you. On a little bridge not far there are some PEBBLES (T).",
     "hasLantern": "true",
     "items": {
+      "pebbles": "small-square-pebbles"
     },
     "props": {
       "lantern": "small-square-lantern",
       "window": "small-square-window"
     },
     "exits": {
-      "west": {
-        "destination": "small-path",
-        "type": "ConditionalExit",
-        "attributes": {
-          "description": "WEST -> Small path, the path is blocked by a metal gate",
-          "altDescription": "WEST -> Small path",
-          "conditionType": "ActivatedProp",
-          "objectName": "small-path-lever",
-          "conditionFalseText": "The iron gate is closed by a mechanism, you can't open it from this side."
-        }
-      },
-      "north": {
-        "destination": "pyre",
-        "type": "Exit",
-        "attributes": {
-          "description": "NORTH -> Pyre"
-        }
-      },
-      "east": {
+      "south": {
         "destination": "street",
         "type": "Exit",
         "attributes": {
-          "description": "EAST -> Street"
+          "description": "SOUTH -> Street"
+        }
+      },
+      "east": {
+        "destination": "pyre",
+        "type": "Exit",
+        "attributes": {
+          "description": "EAST -> Pyre"
+        }
+      },
+      "north": {
+        "destination": "small-path",
+        "type": "ConditionalExit",
+        "attributes": {
+          "description": "NORTH -> Small path, the path is blocked by a metal gate",
+          "altDescription": "NORTH -> Small path",
+          "conditionType": "ActivatedProp",
+          "objectName": "small-path-lever",
+          "conditionFalseText": "The iron gate is closed by a mechanism, you can't open it from this side."
         }
       }
     },
@@ -335,99 +301,6 @@
     },
     "npcs": {
       "gilbert": "gilbert"
-    }
-  },
-  {
-    "id": "small-path",
-    "name": "Small path",
-    "area": "central-yharnam",
-    "headstone": "yharnam",
-    "description": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. Some huntsmen MINIONS (F) are wandering not far from you. Near the metal gate on the way to the small square, there is a BLOOD STONE SHARD (T).",
-    "altDescription": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. The corpses of the huntsmen minions are lying in the middle of the paved road. Near the metal gate on the way to the small square, there is a BLOOD STONE SHARD (T).",
-    "hasLantern": "false",
-    "items": {
-      "blood stone shard": "small-path-blood-stone-shard"
-    },
-    "props": {
-      "lever": "small-path-lever"
-    },
-    "exits": {
-      "north": {
-        "destination": "aqueduct",
-        "type": "ConditionalExit",
-        "attributes": {
-          "description": "NORTH -> Aqueduct, the elevator is down and you can't call it, you must find a way to go down to reactivate it",
-          "altDescription": "NORTH -> Aqueduct",
-          "conditionType": "ActivatedProp",
-          "objectName": "aqueduct-elevator",
-          "conditionFalseText": "You can't go this way yet, the elevator is not activated."
-        }
-      },
-      "east": {
-        "destination": "central-house",
-        "type": "Exit",
-        "attributes": {
-          "description": "EAST -> House"
-        }
-      },
-      "south": {
-        "destination": "small-square",
-        "type": "ConditionalExit",
-        "attributes": {
-          "description": "SOUTH -> Small square, the path is blocked by a metal gate, you can open it by using the LEVER (A) next to it",
-          "altDescription": "SOUTH -> Small square",
-          "conditionType": "ActivatedProp",
-          "objectName": "small-path-lever",
-          "conditionFalseText": "The iron gate is closed by a mechanism, you must activate the LEVER (A) to unlock the mechanism blocking it."
-        }
-      }
-    },
-    "enemies": {
-      "minions": "small-path-minions"
-    },
-    "npcs": {
-    }
-  },
-  {
-    "id": "central-house",
-    "name": "House",
-    "area": "central-yharnam",
-    "headstone": "yharnam",
-    "description": "You enter a house in a deplorable state, the floor is covered with dust, the windows are broken and the walls are decrepit. You notice the presence of a few corpses scattered around, in more or less good condition. One of them, a grandpa in a wheelchair, seems almost still alive, in front of him there is a very old FURNITURE (L).",
-    "altDescription": "No alt description for this area, if you see this it's a bug !",
-    "hasLantern": "false",
-    "items": {
-      "pungent blood cocktails": "central-house-pungent-blood-cocktails"
-    },
-    "props": {
-      "furniture": "central-house-furniture"
-    },
-    "exits": {
-      "west": {
-        "destination": "small-path",
-        "type": "Exit",
-        "attributes": {
-          "description": "SOUTH -> Small path"
-        }
-      },
-      "north": {
-        "destination": "dry-dock",
-        "type": "Exit",
-        "attributes": {
-          "description": "NORTH -> Dry dock"
-        }
-      },
-      "east": {
-        "destination": "great-bridge",
-        "type": "Exit",
-        "attributes": {
-          "description": "EAST -> Great bridge"
-        }
-      }
-    },
-    "enemies": {
-    },
-    "npcs": {
     }
   },
   {
@@ -450,6 +323,24 @@
       "pyre": "pyre-pyre"
     },
     "exits": {
+      "south": {
+        "destination": "street",
+        "type": "ConditionalExit",
+        "attributes": {
+          "description": "SOUTH -> Street, the path is blocked by a metal gate, you can open it by using the LEVER (A) next to it",
+          "altDescription": "SOUTH -> Street",
+          "conditionType": "ActivatedProp",
+          "objectName": "pyre-lever",
+          "conditionFalseText": "The iron gate is closed by a mechanism, you must activate the LEVER (A) to unlock the mechanism blocking it."
+        }
+      },
+      "east": {
+        "destination": "dead-end",
+        "type": "Exit",
+        "attributes": {
+          "description": "EAST -> Dead end"
+        }
+      },
       "west": {
         "destination": "small-square",
         "type": "Exit",
@@ -467,16 +358,128 @@
           "objectName": "pyre-huntsmen",
           "conditionFalseText": "The monsters are still alive you can't go this way yet"
         }
-      },
+      }
+    },
+    "enemies": {
+      "huntsmen": "pyre-huntsmen"
+    },
+    "npcs": {
+    }
+  },
+  {
+    "id": "dead-end",
+    "name": "Dead end",
+    "area": "central-yharnam",
+    "headstone": "yharnam",
+    "description": "You arrive in a straight path, an EXECUTIONER (F) blocks you from going to it's end where you see some COFFINS (L) scattered around.",
+    "altDescription": "You arrive in a straight path, you see some COFFINS (L) scattered around the back of the area. Now that the executioner is dead you can safely go search through their content.",
+    "hasLantern": "false",
+    "items": {
+    },
+    "props": {
+      "coffins": "dead-end-coffins"
+    },
+    "exits": {
       "south": {
-        "destination": "street",
+        "destination": "pyre",
+        "type": "Exit",
+        "attributes": {
+          "description": "SOUTH -> Pyre"
+        }
+      }
+    },
+    "enemies": {
+      "executioner": "dead-end-executioner"
+    },
+    "npcs": {
+    }
+  },
+  {
+    "id": "small-path",
+    "name": "Small path",
+    "area": "central-yharnam",
+    "headstone": "yharnam",
+    "description": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. Some huntsmen MINIONS (F) are wandering not far from you. Near the metal gate on the way to the small square, there is a BLOOD STONE SHARD (T).",
+    "altDescription": "You are on a path that passes under the great bridge. At the end of the bridge is an elevator that leads to the aqueduct. The corpses of the huntsmen minions are lying in the middle of the paved road. Near the metal gate on the way to the small square, there is a BLOOD STONE SHARD (T).",
+    "hasLantern": "false",
+    "items": {
+      "blood stone shard": "small-path-blood-stone-shard"
+    },
+    "props": {
+      "lever": "small-path-lever"
+    },
+    "exits": {
+      "south": {
+        "destination": "small-square",
         "type": "ConditionalExit",
         "attributes": {
-          "description": "SOUTH -> Street, the path is blocked by a metal gate, you can open it by using the LEVER (A) next to it",
-          "altDescription": "SOUTH -> Street",
+          "description": "SOUTH -> Small square, the path is blocked by a metal gate, you can open it by using the LEVER (A) next to it",
+          "altDescription": "SOUTH -> Small square",
           "conditionType": "ActivatedProp",
-          "objectName": "pyre-lever",
+          "objectName": "small-path-lever",
           "conditionFalseText": "The iron gate is closed by a mechanism, you must activate the LEVER (A) to unlock the mechanism blocking it."
+        }
+      },
+      "east": {
+        "destination": "central-house",
+        "type": "Exit",
+        "attributes": {
+          "description": "EAST -> Bridge residence"
+        }
+      },
+      "north": {
+        "destination": "aqueduct",
+        "type": "ConditionalExit",
+        "attributes": {
+          "description": "NORTH -> Aqueduct, the elevator is down and you can't call it, you must find a way to go down to reactivate it",
+          "altDescription": "NORTH -> Aqueduct",
+          "conditionType": "ActivatedProp",
+          "objectName": "aqueduct-elevator",
+          "conditionFalseText": "You can't go this way yet, the elevator is not activated."
+        }
+      }
+    },
+    "enemies": {
+      "minions": "small-path-minions"
+    },
+    "npcs": {
+    }
+  },
+  {
+    "id": "central-house",
+    "name": "Bridge residence",
+    "area": "central-yharnam",
+    "headstone": "yharnam",
+    "description": "You enter a house in a deplorable state, the floor is covered with dust, the windows are broken and the walls are decrepit. You notice the presence of a few corpses scattered around, in more or less good condition. One of them, a grandpa in a wheelchair, seems almost still alive, in front of him there is a very old FURNITURE (L). Upstairs there is a COLDBLOOD DEW (T).",
+    "altDescription": "No alt description for this area, if you see this it's a bug !",
+    "hasLantern": "false",
+    "items": {
+      "pungent blood cocktails": "central-house-pungent-blood-cocktails",
+      "coldblood dew": "central-house-coldblood-dew-1"
+    },
+    "props": {
+      "furniture": "central-house-furniture"
+    },
+    "exits": {
+      "east": {
+        "destination": "narrow-alley",
+        "type": "Exit",
+        "attributes": {
+          "description": "EAST -> Great bridge"
+        }
+      },
+      "west": {
+        "destination": "small-path",
+        "type": "Exit",
+        "attributes": {
+          "description": "WEST -> Small path"
+        }
+      },
+      "north": {
+        "destination": "great-bridge",
+        "type": "Exit",
+        "attributes": {
+          "description": "NORTH -> Great bridge"
         }
       }
     },
@@ -486,24 +489,83 @@
     }
   },
   {
+    "id": "narrow-alley",
+    "name": "Narrow alley",
+    "area": "central-yharnam",
+    "headstone": "yharnam",
+    "description": "You are in a badly lit alley near the dry dock of Yharnam. Some house entrances can be seen around here as well as many rabid DOGS (F) cages. Some of them escaped their cage and block your path to the end of the alley.",
+    "altDescription": "You are in a badly lit alley near the dry dock of Yharnam. Some house entrances can be seen around here as well as many rabid dogs cages. Now that you killed the ones that escaped, you hear someone inside one of the houses through the DOOR (L). You also now see a COLDBLOOD DEW (T) near the dry dock doorway.",
+    "hasLantern": "false",
+    "items": {
+      "coldblood dew": "narrow-alley-coldblood-dew-3"
+    },
+    "props": {
+      "door": "narrow-alley-door"
+    },
+    "exits": {
+      "west": {
+        "destination": "central-house",
+        "type": "Exit",
+        "attributes": {
+          "description": "WEST -> Bridge residence"
+        }
+      },
+      "north": {
+        "destination": "dry-dock",
+        "type": "Exit",
+        "attributes": {
+          "description": "NORTH -> Dry dock"
+        }
+      }
+    },
+    "enemies": {
+      "dogs": "narrow-alley-dogs"
+    },
+    "npcs": {
+      "old lady": "old-lady"
+    }
+  },
+  {
     "id": "fountain-square",
     "name": "Fountain square",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You arrive at a square. A stone and metal FOUNTAIN (L) is enthroned in the centre, it is rusted and the water in it doesn't seem clean, nobody has maintained it for a long time. There is an old WELL (L) behind the fountain with some benches around it. A huntsman MINION (F) is knocking on a huge door and is probably the reason you saw it shake from the other side. A metal FENCE (L) is in a very bad state on your right. There is an open WINDOW (L) near the way down the sewers.",
-    "altDescription": "You arrive at a square. A stone and metal FOUNTAIN (L) is enthroned in the centre, it is rusted and the water in it doesn't seem clean, nobody has maintained it for a long time. There is an old WELL (L) behind the fountain with some benches around it. A metal FENCE (L) is in a very bad state on your right. There is an open WINDOW (L) near the way down the sewers.",
+    "description": "You arrive at a square. A stone and metal FOUNTAIN (L) is enthroned in the centre, it is rusted and the water in it doesn't seem clean, nobody has maintained it for a long time. There is an old WELL (L) behind the fountain with some benches around it. A huntsman MINION (F) is knocking on a huge door and is probably the reason you saw it shake from the other side, near him you see some MOLOTOV COCKTAILS (T). A metal FENCE (L) is in a very bad state on your right. There is an open WINDOW (L) near the way down the sewers.",
+    "altDescription": "You arrive at a square. A stone and metal FOUNTAIN (L) is enthroned in the centre, it is rusted and the water in it doesn't seem clean, nobody has maintained it for a long time. There is an old WELL (L) behind the fountain with some benches around it. The MOLOTOV COCKTAILS (T) are now accessible. A metal FENCE (L) is in a very bad state on your right. There is an open WINDOW (L) near the way down the sewers.",
     "hasLantern": "false",
     "items": {
+      "oil urns": "fountain-square-oil-urns",
+      "coldblood dew": "fountain-square-coldblood-dew-1",
+      "molotov cocktails": "fountain-square-molotov-cocktails",
+      "blood stone shard": "fountain-square-blood-stone-shard"
     },
     "props": {
+      "fountain": "fountain-square-fountain",
+      "well": "fountain-square-well",
+      "fence": "fountain-square-fence",
+      "window": "fountain-square-window"
     },
     "exits": {
+      "south": {
+        "destination": "pyre",
+        "type": "Exit",
+        "attributes": {
+          "description": "SOUTH -> Pyre"
+        }
+      },
+      "east": {
+        "destination": "great-bridge",
+        "type": "Exit",
+        "attributes": {
+          "description": "EAST -> Great bridge"
+        }
+      },
       "west": {
-        "destination": "dry-dock",
+        "destination": "narrow-alley",
         "type": "ConditionalExit",
         "attributes": {
           "description": "",
-          "altDescription": "WEST -> Dry dock (One way)",
+          "altDescription": "WEST -> Narrow alley (One way)",
           "conditionType": "LookedProp",
           "objectName": "fountain-square-fence",
           "conditionFalseText": "There is no such exit here."
@@ -519,25 +581,13 @@
           "objectName": "lower-sewers-lever",
           "conditionFalseText": "The iron gate is closed by a mechanism, you can't open it from this side."
         }
-      },
-      "east": {
-        "destination": "great-bridge",
-        "type": "Exit",
-        "attributes": {
-          "description": "EAST -> Great bridge"
-        }
-      },
-      "south": {
-        "destination": "pyre",
-        "type": "Exit",
-        "attributes": {
-          "description": "SOUTH -> Pyre"
-        }
       }
     },
     "enemies": {
+      "minion": "fountain-square-minion"
     },
     "npcs": {
+      "young girl": "young-girl"
     }
   },
   {
@@ -549,33 +599,36 @@
     "altDescription": "No alt description for this area, if you see this it's a bug !",
     "hasLantern": "false",
     "items": {
+      "blood stone shards": "pyre-overhang-blood-stone-shards",
+      "pebbles": "pyre-overhang-pebbles"
     },
     "props": {
+      "crates": "pyre-overhang-crates"
     },
     "exits": {
-      "west": {
-        "destination": "great-bridge",
-        "type": "Exit",
-        "attributes": {
-          "description": "WEST -> Great bridge"
-        }
-      },
-      "north": {
+      "south": {
         "destination": "sewers-structure",
         "type": "ConditionalExit",
         "attributes": {
           "description": "",
-          "altDescription": "NORTH -> Sewers' structure (One way)",
+          "altDescription": "SOUTH -> Sewers' structure (One way)",
           "conditionType": "LookedProp",
           "objectName": "pyre-overhang-crates",
           "conditionFalseText": "There is no such exit here."
         }
       },
-      "south": {
+      "east": {
+        "destination": "great-bridge",
+        "type": "Exit",
+        "attributes": {
+          "description": "EAST -> Great bridge"
+        }
+      },
+      "north": {
         "destination": "pyre",
         "type": "Exit",
         "attributes": {
-          "description": "SOUTH -> Pyre (One way)"
+          "description": "NORTH -> Pyre (One way)"
         }
       }
     },
@@ -589,7 +642,7 @@
     "name": "Dry dock",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) on the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers, it is infested with giant RATS (F). Numerous storage BOXES (L) and various CABINETS (L) are lined up along the walls.",
+    "description": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) on the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers, it is infested by giant RATS (F). Numerous storage BOXES (L) and various CABINETS (L) are lined up along the walls.",
     "altDescription": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) on the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers. Numerous storage BOXES (L) and various CABINETS (L) are lined up along the walls.",
     "hasLantern": "false",
     "items": {
@@ -597,18 +650,18 @@
     "props": {
     },
     "exits": {
+      "south": {
+        "destination": "narrow-alley",
+        "type": "Exit",
+        "attributes": {
+          "description": "SOUTH -> Narrow alley"
+        }
+      },
       "north": {
         "destination": "lower-sewers",
         "type": "Exit",
         "attributes": {
           "description": "NORTH -> Lower sewers"
-        }
-      },
-      "south": {
-        "destination": "central-house",
-        "type": "Exit",
-        "attributes": {
-          "description": "SOUTH -> House"
         }
       }
     },
@@ -661,11 +714,11 @@
       "lever": "lower-sewers-lever"
     },
     "exits": {
-      "west": {
-        "destination": "upper-sewers",
+      "south": {
+        "destination": "dry-dock",
         "type": "Exit",
         "attributes": {
-          "description": "WEST -> Upper sewers"
+          "description": "SOUTH -> Dry dock"
         }
       },
       "east": {
@@ -679,11 +732,11 @@
           "conditionFalseText": "The iron gate is closed by a mechanism, you must activate the LEVER (A) to unlock the mechanism blocking it."
         }
       },
-      "south": {
-        "destination": "dry-dock",
+      "north": {
+        "destination": "upper-sewers",
         "type": "Exit",
         "attributes": {
-          "description": "SOUTH -> Dry dock"
+          "description": "NORTH -> Upper sewers"
         }
       }
     },
@@ -705,18 +758,18 @@
     "props": {
     },
     "exits": {
-      "west": {
-        "destination": "aqueduct",
-        "type": "Exit",
-        "attributes": {
-          "description": "WEST -> Aqueduct"
-        }
-      },
-      "east": {
+      "south": {
         "destination": "lower-sewers",
         "type": "Exit",
         "attributes": {
-          "description": "EAST -> Lower sewers"
+          "description": "SOUTH -> Lower sewers"
+        }
+      },
+      "north": {
+        "destination": "aqueduct",
+        "type": "Exit",
+        "attributes": {
+          "description": "NORTH -> Aqueduct"
         }
       }
     },
@@ -738,22 +791,11 @@
     "props": {
     },
     "exits": {
-      "west": {
-        "destination": "bridge-end",
-        "type": "ConditionalExit",
-        "attributes": {
-          "description": "WEST -> Bridge end, the path is blocked by another SCOURGE BEAST (F)",
-          "altDescription": "WEST -> Bridge end",
-          "conditionType": "KilledNPC",
-          "objectName": "great-bridge-mandatory-scourge-beast",
-          "conditionFalseText": "The monster is still alive you can't go this way yet"
-        }
-      },
-      "north": {
-        "destination": "central-house",
+      "south": {
+        "destination": "pyre-overhang",
         "type": "Exit",
         "attributes": {
-          "description": "NORTH -> House"
+          "description": "SOUTH -> Pyre overhang"
         }
       },
       "east": {
@@ -763,11 +805,22 @@
           "description": "EAST -> Fountain square"
         }
       },
-      "south": {
-        "destination": "pyre-overhang",
+      "west": {
+        "destination": "central-house",
         "type": "Exit",
         "attributes": {
-          "description": "SOUTH -> Pyre overhang"
+          "description": "WEST -> Bridge residence"
+        }
+      },
+      "north": {
+        "destination": "bridge-end",
+        "type": "ConditionalExit",
+        "attributes": {
+          "description": "NORTH -> Bridge end, the path is blocked by another SCOURGE BEAST (F)",
+          "altDescription": "NORTH -> Bridge end",
+          "conditionType": "KilledNPC",
+          "objectName": "great-bridge-mandatory-scourge-beast",
+          "conditionFalseText": "The monster is still alive you can't go this way yet"
         }
       }
     },
@@ -791,12 +844,12 @@
     "props": {
     },
     "exits": {
-      "east": {
+      "south": {
         "destination": "great-bridge",
         "type": "ConditionalExit",
         "attributes": {
-          "description": "EAST -> Great bridge, the path is blocked by the CLERIC BEAST (F)",
-          "altDescription": "EAST -> Great bridge",
+          "description": "SOUTH -> Great bridge, the path is blocked by the CLERIC BEAST (F)",
+          "altDescription": "SOUTH -> Great bridge",
           "conditionType": "KilledNPC",
           "objectName": "boss-cleric-beast",
           "conditionFalseText": "The boss is still alive you can't go this way yet"
@@ -821,6 +874,24 @@
     "props": {
     },
     "exits": {
+      "south": {
+        "destination": "upper-sewers",
+        "type": "Exit",
+        "attributes": {
+          "description": "SOUTH -> Upper sewers"
+        }
+      },
+      "west": {
+        "destination": "small-path",
+        "type": "ConditionalExit",
+        "attributes": {
+          "description": "WEST -> Small path, you must reactivate the ELEVATOR (A) to use it",
+          "altDescription": "WEST -> Small path",
+          "conditionType": "ActivatedProp",
+          "objectName": "aqueduct-elevator",
+          "conditionFalseText": "You can't go up yet, you must reactivate the ELEVATOR (A)."
+        }
+      },
       "north": {
         "destination": "tomb-of-oedon",
         "type": "ConditionalExit",
@@ -830,24 +901,6 @@
           "conditionType": "KilledNPC",
           "objectName": "aqueduct-huntsmen",
           "conditionFalseText": "The monsters are still alive you can't go this way yet"
-        }
-      },
-      "east": {
-        "destination": "upper-sewers",
-        "type": "Exit",
-        "attributes": {
-          "description": "EAST -> Upper sewers"
-        }
-      },
-      "south": {
-        "destination": "small-path",
-        "type": "ConditionalExit",
-        "attributes": {
-          "description": "SOUTH -> Small path, you must reactivate the ELEVATOR (A) to use it",
-          "altDescription": "SOUTH -> Small path",
-          "conditionType": "ActivatedProp",
-          "objectName": "aqueduct-elevator",
-          "conditionFalseText": "You can't go up yet, you must reactivate the ELEVATOR (A)."
         }
       }
     },

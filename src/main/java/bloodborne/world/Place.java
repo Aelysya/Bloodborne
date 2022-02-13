@@ -160,7 +160,9 @@ public class Place {
         StringBuilder s = new StringBuilder();
         s.append(showAltDescription ? ALT_DESCRIPTION : DESCRIPTION).append("\n\n");
         for (Exit e : EXITS.values()) {
-            s.append(e.getDescription()).append("\n");
+            if (!e.getDescription().equals("")) {
+                s.append(e.getDescription()).append("\n");
+            }
         }
         return s.toString();
     }
