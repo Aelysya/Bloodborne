@@ -40,5 +40,12 @@
     "description": "You hear an old lady inside the house. She is mumbling incomprehensibly",
     "attributes": {
     }
+  },
+  {
+    "id": "eileen",
+    "type": "Eileen",
+    "description": "She wears a scary outfit that imitates a crow with its mask and its cape covered with feathers.",
+    "attributes": {
+    }
   }
 ]

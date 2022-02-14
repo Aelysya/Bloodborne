@@ -162,7 +162,40 @@
       "name": "Coldblood dew (3)",
       "image": "consumables/coldbloods/coldblood-dew-3.png",
       "category": "consumable",
-      "value": "100"
+      "value": "1000"
+    }
+  },
+  {
+    "id": "thick-coldblood-4",
+    "type": "Coldblood",
+    "description": "A thick droplet of coldblood containing Blood Echoes.\n\nUse to gain a larger amount of Blood Echoes.\n\nA strong will produces thick blood. Doubtless, the product of obsession, a potent source of human strength.",
+    "attributes": {
+      "name": "Thick coldblood (4)",
+      "image": "consumables/coldbloods/thick-coldblood-4.png",
+      "category": "consumable",
+      "value": "1200"
+    }
+  },
+  {
+    "id": "thick-coldblood-5",
+    "type": "Coldblood",
+    "description": "A thick droplet of coldblood containing Blood Echoes.\n\nUse to gain a larger amount of Blood Echoes.\n\nA strong will produces thick blood. Doubtless, the product of obsession, a potent source of human strength.",
+    "attributes": {
+      "name": "Thick coldblood (5)",
+      "image": "consumables/coldbloods/thick-coldblood-5.png",
+      "category": "consumable",
+      "value": "1500"
+    }
+  },
+  {
+    "id": "thick-coldblood-6",
+    "type": "Coldblood",
+    "description": "A thick droplet of coldblood containing Blood Echoes.\n\nUse to gain a larger amount of Blood Echoes.\n\nA strong will produces thick blood. Doubtless, the product of obsession, a potent source of human strength.",
+    "attributes": {
+      "name": "Thick coldblood (6)",
+      "image": "consumables/coldbloods/thick-coldblood-6.png",
+      "category": "consumable",
+      "value": "1800"
     }
   },
   {
@@ -265,6 +298,16 @@
     }
   },
   {
+    "id": "saw-hunter-badge",
+    "type": "Badge",
+    "description": "Badge crafted long ago at the Workshop. Attests to one's prowess as a hunter of beasts.\n\nThe Workshop is gone, and no group recognises this meaningless badge, except the messengers in the bath, who understand its profundity.\n\nCertain things can only be entrusted with a hunter in possession of this badge, or so they believe.",
+    "attributes": {
+      "name": "Saw hunter badge",
+      "image": "keys/badges/saw-hunter-badge.png",
+      "category": "key"
+    }
+  },
+  {
     "id": "saw-cleaver",
     "type": "TrickWeapon",
     "description": "One of the trick weapons of the workshop, commonly used in the hunting business.\n\nThis saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force.\n\nThe saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
@@ -274,10 +317,28 @@
       "category": "trickWeapon",
       "baseDamage": "10",
       "baseDodgeRate": "0.4",
-      "switchedDamage": "12",
+      "switchedDamage": "13",
       "switchedDodgeRate": "0.3",
       "strengthScaling": "D",
       "skillScaling": "E",
+      "bloodScaling": "NONE",
+      "arcaneScaling": "D"
+    }
+  },
+  {
+    "id": "saw-spear",
+    "type": "TrickWeapon",
+    "description": "One of the trick weapons of the workshop, commonly used by those who dedicate themselves to the hunt.\n\nThis saw, effective at drawing the blood of beasts, transforms into a medium-range spear.\n\nThe saw, with its set of blood-letting teeth, has become a symbol of the hunt, and only grows in effectiveness the more grotesquely transformed the beast.",
+    "attributes": {
+      "name": "Saw spear",
+      "image": "trickWeapons/saw-spear.png",
+      "category": "trickWeapon",
+      "baseDamage": "8",
+      "baseDodgeRate": "0.45",
+      "switchedDamage": "11",
+      "switchedDodgeRate": "0.35",
+      "strengthScaling": "D",
+      "skillScaling": "D",
       "bloodScaling": "NONE",
       "arcaneScaling": "D"
     }
@@ -308,7 +369,7 @@
       "name": "Threaded cane",
       "image": "trickWeapons/threaded-cane.png",
       "category": "trickWeapon",
-      "baseDamage": "8",
+      "baseDamage": "7",
       "baseDodgeRate": "0.5",
       "switchedDamage": "10",
       "switchedDodgeRate": "0.4",
@@ -540,6 +601,183 @@
       "name": "Pebbles",
       "itemId": "pebble",
       "amount": "10"
+    }
+  },
+  {
+    "id": "dry-dock-coldblood-dews-1",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Coldblood dews",
+      "itemId": "coldblood-dew-1",
+      "amount": "3"
+    }
+  },
+  {
+    "id": "dry-dock-saw-spear",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Saw spear",
+      "itemId": "saw-spear",
+      "amount": "1",
+      "conditionType": "LookedProp",
+      "objectName": "dry-dock-corpses",
+      "conditionFalseText": "There is nothing like this in the area."
+    }
+  },
+  {
+    "id": "dry-dock-blood-stone-shards",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Blood stone shards",
+      "itemId": "blood-stone-shard",
+      "amount": "2",
+      "conditionType": "LookedProp",
+      "objectName": "dry-dock-corpses",
+      "conditionFalseText": "There is nothing like this in the area."
+    }
+  },
+  {
+    "id": "dry-dock-madmans-knowledge",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Madman's knowledge",
+      "itemId": "madmans-knowledge",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "sewers-structure-thick-coldblood-5",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Thick coldblood",
+      "itemId": "thick-coldblood-5",
+      "amount": "1",
+      "conditionType": "LookedProp",
+      "objectName": "sewers-structure-body",
+      "conditionFalseText": "There is nothing like this in the area."
+    }
+  },
+  {
+    "id": "hunter-hat",
+    "type": "Armor",
+    "description": "One of the standard articles of hunter attire fashioned at the workshop.\n\nA fine piece of hunter attire that provides stable defence to anyone facing Yharnam's beastly threat.\n\nAllows one to stalk beasts unannounced, by cover of night.",
+    "attributes": {
+      "name": "Hunter hat",
+      "image": "attires/hunter-hat.png",
+      "category": "attire",
+      "conditionType": "LookedProp",
+      "objectName": "sewers-structure-body",
+      "conditionFalseText": "There is nothing like this in the area."
+    }
+  },
+  {
+    "id": "hunter-garb",
+    "type": "Armor",
+    "description": "One of the standard articles of hunter attire fashioned at the workshop, accompanied with a short cape to wipe away blood.\n\nA fine piece of hunter attire that provides stable defence to anyone facing Yharnam's beastly threat.\n\nAllows one to stalk beasts unannounced, by cover of night.",
+    "attributes": {
+      "name": "Hunter garb",
+      "image": "attires/hunter-garb.png",
+      "category": "attire",
+      "conditionType": "LookedProp",
+      "objectName": "sewers-structure-body",
+      "conditionFalseText": "There is nothing like this in the area."
+    }
+  },
+  {
+    "id": "hunter-gloves",
+    "type": "Armor",
+    "description": "One of the standard articles of hunter attire fashioned at the workshop.\n\nA fine piece of hunter attire that provides stable defence to anyone facing Yharnam's beastly threat.\n\nAllows one to stalk beasts unannounced, by cover of night.",
+    "attributes": {
+      "name": "Hunter gloves",
+      "image": "attires/hunter-gloves.png",
+      "category": "attire",
+      "conditionType": "LookedProp",
+      "objectName": "sewers-structure-body",
+      "conditionFalseText": "There is nothing like this in the area."
+    }
+  },
+  {
+    "id": "hunter-trousers",
+    "type": "Armor",
+    "description": "One of the standard articles of hunter attire fashioned at the workshop.\n\nA fine piece of hunter attire that provides stable defence to anyone facing Yharnam's beastly threat.\n\nAllows one to stalk beasts unannounced, by cover of night.",
+    "attributes": {
+      "name": "Hunter trousers",
+      "image": "attires/hunter-trousers.png",
+      "category": "attire",
+      "conditionType": "LookedProp",
+      "objectName": "sewers-structure-body",
+      "conditionFalseText": "There is nothing like this in the area."
+    }
+  },
+  {
+    "id": "lower-sewers-blood-stone-shard",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Blood stone shard",
+      "itemId": "blood-stone-shard",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "lower-sewers-madmans-knowledge",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Madman's knowledge",
+      "itemId": "madmans-knowledge",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "lower-sewers-oil-urns",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Oil urns",
+      "itemId": "oil-urn",
+      "amount": "2"
+    }
+  },
+  {
+    "id": "upper-sewers-blood-stone-shard",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Blood stone shard",
+      "itemId": "blood-stone-shard",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "upper-sewers-coldblood-dew-1",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Coldblood dew",
+      "itemId": "coldblood-dew-1",
+      "amount": "1",
+      "conditionType": "KilledNPC",
+      "objectName": "upper-sewers-boar",
+      "conditionFalseText": "There is nothing like this in the area."
+    }
+  },
+  {
+    "id": "upper-sewers-saw-hunter-badge",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Saw hunter badge",
+      "itemId": "saw-hunter-badge",
+      "amount": "1",
+      "conditionType": "KilledNPC",
+      "objectName": "upper-sewers-boar",
+      "conditionFalseText": "There is nothing like this in the area."
     }
   }
 ]

@@ -288,6 +288,45 @@
     }
   },
   {
+    "id": "dry-dock-structure",
+    "type": "Prop",
+    "description": "Wooden beams support the roof, they are quite old and deteriorated. Planks are lined up along the walls to make up a platform to walk on. Behind a broken window there is a rooftop where you spot a hunter, she definitely heard you but doesn't seems to feel threatened. You can talk to EILEEN (TK). With further research you find 3 COLDBLOOD DEWS (T).",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false"
+    }
+  },
+  {
+    "id": "dry-dock-corpses",
+    "type": "Prop",
+    "description": "Two corpses are chained and hung from the ceiling. You decide to cut the chains to make them fall down. One of them was wearing a SAW SPEAR (T), the other one 2 BLOOD STONE SHARDS (T).",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false"
+    }
+  },
+  {
+    "id": "dry-dock-boxes",
+    "type": "Prop",
+    "description": "You destroy all the storage boxes inside the facility, in vain. When you finally give up the idea to find anything valuable, you discern a MADMAN'S KNOWLEDGE (T) down in the canal.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false"
+    }
+  },
+  {
+    "id": "sewers-structure-body",
+    "type": "ConditionalProp",
+    "description": "Now that the large huntsman is dead, you can safely search the body. You quickly realise that he was a hunter because he still wears his highly recognisable outfit. You can retrieve the HUNTER HAT (T), HUNTER GARB (T), HUNTER GLOVES (T) and HUNTER TROUSERS (T), he also had a THICK COLDBLOOD (T) in his pocket.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "conditionType": "KilledNPC",
+      "objectName": "sewers-structure-large-huntsman",
+      "conditionFalseText": "You must kill the large huntsman before searching the coffins"
+    }
+  },
+  {
     "id": "lower-sewers-lever",
     "type": "Prop",
     "description": "This is a mechanical lever, you can activate (A) it to unlock the metal gate.",
@@ -295,6 +334,37 @@
       "isActionable": "true",
       "isTrapped": "false",
       "activationText": "You pull the lever, the iron gate next to you opens. You may now freely go to the Fountain square and back."
+    }
+  },
+  {
+    "id": "lower-sewers-rubbish",
+    "type": "Prop",
+    "description": "You're digging in the heap of rubbish. This thankless task is not useless because you find 10 quicksilver bullets and a BLOOD STONE SHARD (T)",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "bulletsContained": "10"
+    }
+  },
+  {
+    "id": "lower-sewers-platform",
+    "type": "Prop",
+    "description": "You climb up the first ladder to reach the platform, a MADMAN'S KNOWLEDGE (T) and 2 OIL URNS (T) are waiting for you to take",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false"
+    }
+  },
+  {
+    "id": "upper-sewers-corpses",
+    "type": "ConditionalProp",
+    "description": "You search the half-eaten corpses that were guarded by the man-eater boar. The first body had a COLDBLOOD DEW (T) in his pocket while the second had a special item in hers, a SAW HUNTER BADGE (T).",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "conditionType": "KilledNPC",
+      "objectName": "upper-sewers-boar",
+      "conditionFalseText": "You must kill the large huntsman before searching the coffins"
     }
   },
   {

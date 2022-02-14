@@ -99,7 +99,7 @@ public class GameController {
         keysTab.setOnMouseReleased(event -> updateInventory("key"));
         trickWeaponsTab.setOnMouseReleased(event -> updateInventory("trickWeapon"));
         firearmsTab.setOnMouseReleased(event -> updateInventory("firearm"));
-        firearmsTab.setOnMouseReleased(event -> updateInventory("attire"));
+        attiresTab.setOnMouseReleased(event -> updateInventory("attire"));
         gemsTab.setOnMouseReleased(event -> updateInventory("gem"));
         runesTab.setOnMouseReleased(event -> updateInventory("rune"));
 

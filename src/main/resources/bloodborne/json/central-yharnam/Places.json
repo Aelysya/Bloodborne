@@ -642,12 +642,19 @@
     "name": "Dry dock",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) on the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers, it is infested by giant RATS (F). Numerous storage BOXES (L) and various CABINETS (L) are lined up along the walls.",
-    "altDescription": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) on the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers. Numerous storage BOXES (L) and various CABINETS (L) are lined up along the walls.",
+    "description": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) under the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers, it is infested by giant RATS (F). Numerous storage BOXES (L) are lined up along the walls.",
+    "altDescription": "You are in the dry dock of Yharnam, a wooden STRUCTURE (L) under the ceiling holds the roof in place, some chained CORPSES (L) hang from it. In the center of the warehouse, a canal filled with dirty water is connected to the city's sewers. Numerous storage BOXES (L) are lined up along the walls.",
     "hasLantern": "false",
     "items": {
+      "coldblood dews": "dry-dock-coldblood-dews-1",
+      "saw spear": "dry-dock-saw-spear",
+      "blood stone shards": "dry-dock-blood-stone-shards",
+      "madman's knowledge": "dry-dock-madmans-knowledge"
     },
     "props": {
+      "structure": "dry-dock-structure",
+      "corpses": "dry-dock-corpses",
+      "boxes": "dry-dock-boxes"
     },
     "exits": {
       "south": {
@@ -666,8 +673,10 @@
       }
     },
     "enemies": {
+      "rats": "dry-dock-rats"
     },
     "npcs": {
+      "eileen": "eileen"
     }
   },
   {
@@ -679,8 +688,14 @@
     "altDescription": "You have dropped from the pyre and now realize that you can't get back up. You find yourself in the sewers' structure of Yharnam that you see below you. You discern a BODY (L) behind the corpse of the large huntsman you eliminated.",
     "hasLantern": "false",
     "items": {
+      "thick coldblood": "sewers-structure-thick-coldblood-5",
+      "hat": "hunter-hat",
+      "garb": "hunter-garb",
+      "gloves": "hunter-gloves",
+      "trousers": "hunter-trousers"
     },
     "props": {
+      "body": "sewers-structure-body"
     },
     "exits": {
       "north": {
@@ -696,6 +711,7 @@
       }
     },
     "enemies": {
+      "huntsman": "sewers-structure-large-huntsman"
     },
     "npcs": {
     }
@@ -705,12 +721,17 @@
     "name": "Lower sewers",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You are in the lower part of the sewers of Yharnam. A few lanterns on the walls dimly illuminate the area but you can discern some ROTTED CORPSES (F) not far away. A heap of RUBBISH (L) is on your right.",
-    "altDescription": "You are in the lower part of the sewers of Yharnam. A few lanterns on the walls dimly illuminate the area but you can discern the rotted corpses you killed not far away. A heap of RUBBISH (L) is on your right.",
+    "description": "You are in the lower part of the sewers of Yharnam. A few lanterns on the walls dimly illuminate the area but you can discern some ROTTED CORPSES (F) not far away. A heap of RUBBISH (L) is on your right and two ladders lead to a wooden PLATFORM (L) and then to the Fountain square.",
+    "altDescription": "You are in the lower part of the sewers of Yharnam. A few lanterns on the walls dimly illuminate the area but you can discern the rotted corpses you killed not far away. A heap of RUBBISH (L) is on your right and two ladders lead to a wooden PLATFORM (L) and then to the Fountain square.",
     "hasLantern": "false",
     "items": {
+      "blood stone shard": "lower-sewers-blood-stone-shard",
+      "madman's knowledge": "lower-sewers-madmans-knowledge",
+      "oil urns": "lower-sewers-oil-urns"
     },
     "props": {
+      "rubbish": "lower-sewers-rubbish",
+      "platform": "lower-sewers-platform",
       "lever": "lower-sewers-lever"
     },
     "exits": {
@@ -741,6 +762,7 @@
       }
     },
     "enemies": {
+      "rotted corpses": "lower-sewers-rotted-corpses"
     },
     "npcs": {
     }
@@ -750,12 +772,16 @@
     "name": "Upper sewers",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You are in the upper part of the sewers, the surroundings are not very attractive, the canal is filled with tainted water. You can see a man-eater BOAR (F) at the end of it, it guards some CORPSES (L), probably it's last meals.",
-    "altDescription": "You are in the upper part of the sewers, the surroundings are not very attractive, the canal is filled with tainted water. The CORPSES (L) that were previously guarded by the man-eater boar are now free to search.",
+    "description": "You are in the upper part of the sewers, the surroundings are not very attractive, the canal is filled with tainted water. A BLOOD STONE SHARD (T) is located in an alcove on the right. You can see a man-eater BOAR (F) at the end of it, it guards some CORPSES (L), probably it's last meals.",
+    "altDescription": "You are in the upper part of the sewers, the surroundings are not very attractive, the canal is filled with tainted water. A BLOOD STONE SHARD (T) is located in an alcove on the right. The CORPSES (L) that were previously guarded by the man-eater boar are now free to search.",
     "hasLantern": "false",
     "items": {
+      "blood stone shard": "lower-sewers-blood-stone-shard",
+      "coldblood dew": "upper-sewers-coldblood-dew-1",
+      "saw hunter badge": "upper-sewers-saw-hunter-badge"
     },
     "props": {
+      "corpses": "upper-sewers-corpses"
     },
     "exits": {
       "south": {
@@ -774,6 +800,7 @@
       }
     },
     "enemies": {
+      "boar": "upper-sewers-boar"
     },
     "npcs": {
     }
@@ -783,8 +810,8 @@
     "name": "Great bridge",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a STAGECOACH (L) on the left side. A SCOURGE BEAST (F) is roaming nearby.",
-    "altDescription": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a STAGECOACH (L) on the left side.",
+    "description": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a stagecoach on the left side. A SCOURGE BEAST (F) is roaming nearby.",
+    "altDescription": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a stagecoach on the left side.",
     "hasLantern": "false",
     "items": {
     },
