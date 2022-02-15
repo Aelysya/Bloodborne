@@ -15,10 +15,17 @@ public class Item extends ElementTemplate {
         isTaken = false;
     }
 
-    public String take(Hunter hunter) {
-        isTaken = true;
-        hunter.addItem(this);
-        return "You took the " + getATTRIBUTES().get("name");
+    public String take(Hunter hunter, SoundManager soundManager) {
+        String explanationText;
+        if (!isTaken) {
+            isTaken = true;
+            hunter.addItem(this);
+            soundManager.playSoundEffect("take-item.wav");
+            explanationText = "You took the " + getATTRIBUTES().get("name");
+        } else {
+            explanationText = "You already took this item.";
+        }
+        return explanationText;
     }
 
     public String use(Hunter hunter, SoundManager soundManager) {

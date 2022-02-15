@@ -48,7 +48,7 @@ public class GameController {
     Button useButton, throwOneButton, throwAllButton;
 
     @FXML
-    ImageView placeImage, detailImage, trickWeaponImage, firearmImage, runeOath, rune3, rune2, rune1, headArmorImage, chestArmorImage, legsArmorImage, feetArmorImage, consumablesTab, materialsTab, keysTab, trickWeaponsTab, firearmsTab,  attiresTab, gemsTab, runesTab;
+    ImageView vialsImage, bulletsImage, placeImage, detailImage, trickWeaponImage, firearmImage, runeOath, rune3, rune2, rune1, headArmorImage, chestArmorImage, legsArmorImage, feetArmorImage, consumablesTab, materialsTab, keysTab, trickWeaponsTab, firearmsTab,  attiresTab, gemsTab, runesTab;
 
     @FXML
     Label levelText, echoesText, insightText, vitText, endText, arcText, btText, sklText, strText, vialAmountText, bulletAmountText, dmgBoostText, boostLeftText, visceralRateText, hitRateText, dodgeRateText, bulletConsumptionText, trickWeaponNameText, trickWeaponDmgText, firearmNameText, firearmDmgText;
@@ -102,6 +102,15 @@ public class GameController {
         attiresTab.setOnMouseReleased(event -> updateInventory("attire"));
         gemsTab.setOnMouseReleased(event -> updateInventory("gem"));
         runesTab.setOnMouseReleased(event -> updateInventory("rune"));
+
+        vialsImage.setOnMouseClicked(event -> {
+            detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/vial.png"))));
+            detailText.setText("Special blood used in ministration. Restores HP.\n\nOnce a patient has had their blood ministered, a unique but common treatment in Yharnam, successive infusions recall the first, and are all the more invigorating for it.\n\nNo surprise that most Yharnamites are heavy users of blood.");
+        });
+        bulletsImage.setOnMouseClicked(event -> {
+            detailImage.setImage(new Image(String.valueOf(getClass().getResource("images/items/bullet.png"))));
+            detailText.setText("Special bullets used with hunter firearms.\n\nOrdinary bullets have no effect on beasts, and so Quicksilver Bullets, fused with the wielder's own blood, must be employed.\n\nThe strength of Quicksilver Bullets depends greatly upon the wielder's bloodtinge.");
+        });
 
         trickWeaponImage.setOnMouseClicked(event -> {
             if (hunter.getTrickWeapon() == null) {

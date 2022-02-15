@@ -299,7 +299,7 @@ public class Game {
         Item item = HUNTER.getItemByName(object);
         if (item != null) {
             CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
-            if (currentlyFoughtEntity != null) {
+            if (currentlyFoughtEntity != null) { //If the player is currently fighting an enemy, pass the turn
                 if (item instanceof HealingItem) {
                     resolveFightTurn("heal-from-item");
                 } else {
@@ -320,14 +320,9 @@ public class Game {
     public void takeFunction(String itemName) {
         Item item = WORLD.getCurrentPlace().getItemByName(itemName);
         if (item != null) {
-            if (!item.isTaken()) {
-                CONTROLLER.writeInstantly(item.take(HUNTER));
-                SOUND_MANAGER.playSoundEffect("take-item.wav"); //TODO Move the sound effect into the class to avoid playing it for unavailable conditional ground items
-                ACTION_LISTENER.takeListener(item);
-                CONTROLLER.updateInventory(item.getCategory());
-            } else {
-                CONTROLLER.writeInstantly("You already took this item.");
-            }
+            CONTROLLER.writeInstantly(item.take(HUNTER, SOUND_MANAGER));
+            ACTION_LISTENER.takeListener(item);
+            CONTROLLER.updateInventory(item.getCategory());
         } else {
             CONTROLLER.writeInstantly("You try to take something that doesn't exist.");
         }

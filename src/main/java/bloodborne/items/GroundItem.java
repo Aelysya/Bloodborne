@@ -3,6 +3,7 @@ package bloodborne.items;
 import bloodborne.entities.Hunter;
 import bloodborne.exceptions.ReflectionException;
 import bloodborne.json.Initializable;
+import bloodborne.sounds.SoundManager;
 import bloodborne.world.World;
 
 import java.util.Map;
@@ -22,12 +23,19 @@ public class GroundItem extends Item implements Initializable {
     }
 
     @Override
-    public String take(Hunter hunter) {
-        setTaken(true);
-        for (int i = 0; i < Integer.parseInt(getATTRIBUTES().get("amount")); i++) {
-            hunter.addItem(baseItem);
+    public String take(Hunter hunter, SoundManager soundManager) {
+        String explanationText;
+        if (!isTaken()) {
+            setTaken(true);
+            for (int i = 0; i < Integer.parseInt(getATTRIBUTES().get("amount")); i++) {
+                hunter.addItem(baseItem);
+            }
+            soundManager.playSoundEffect("take-item.wav");
+            explanationText = "You took the " + getATTRIBUTES().get("name");
+        } else {
+            explanationText = "You already took this item.";
         }
-        return "You took the " + getATTRIBUTES().get("name");
+        return explanationText;
     }
 
     @Override

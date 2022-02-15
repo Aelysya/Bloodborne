@@ -254,12 +254,13 @@
     }
   },
   {
-    "id": "great-bridge-scourge-beast",
-    "type": "Enemy",
-    "description": "This monster has been completely transformed by the beast scourge, it now looks like a wolf with razor-sharp claws.",
+    "id": "great-bridge-scourge-beasts",
+    "type": "MultiEnemy",
+    "description": "These monsters have been completely transformed by the beast scourge, they now look like wolves with razor-sharp claws.",
     "attributes": {
       "canRespawn": "true",
-      "maxHealth": "70",
+      "enemyAmount": "2",
+      "maxHealth": "150",
       "damage": "15",
       "damageType": "PHYS",
       "attackSpeed": "MEDIUM",
@@ -269,26 +270,26 @@
       "arcaneWeakness": "1.0",
       "isBeast": "true",
       "attractedByCocktail": "true",
-      "bloodEchoes": "400"
+      "bloodEchoes": "1000"
     }
   },
   {
-    "id": "great-bridge-mandatory-scourge-beast",
+    "id": "great-bridge-minion",
     "type": "Enemy",
-    "description": "This monster has been completely transformed by the beast scourge, it now looks like a wolf with razor-sharp claws.",
+    "description": "",
     "attributes": {
       "canRespawn": "true",
-      "maxHealth": "70",
-      "damage": "15",
+      "maxHealth": "45",
+      "damage": "13",
       "damageType": "PHYS",
       "attackSpeed": "MEDIUM",
       "dodgeRate": "0.1",
-      "fireWeakness": "1.5",
+      "fireWeakness": "1.0",
       "boltWeakness": "1.0",
       "arcaneWeakness": "1.0",
-      "isBeast": "true",
-      "attractedByCocktail": "true",
-      "bloodEchoes": "400"
+      "isBeast": "false",
+      "attractedByCocktail": "false",
+      "bloodEchoes": "450"
     }
   },
   {

@@ -810,12 +810,16 @@
     "name": "Great bridge",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a stagecoach on the left side. A SCOURGE BEAST (F) is roaming nearby.",
-    "altDescription": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a stagecoach on the left side.",
+    "description": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a stagecoach on the left side. Two SCOURGE BEASTS (F) are roaming nearby.",
+    "altDescription": "You are on the Great bridge of Yharnam, from here you see the majority of the CITY (L). There is a huge PILE (L) of dead bodies behind a stagecoach on the left side. The scourge beasts corpses are now lying on the bridge, lifeless.",
     "hasLantern": "false",
     "items": {
+      "coldblood dew": "great-bridge-coldblood-dew-1",
+      "blood stone shard": "great-bridge-blood-stone-shard"
     },
     "props": {
+      "city": "great-bridge-city",
+      "pile": "great-bridge-pile"
     },
     "exits": {
       "south": {
@@ -843,15 +847,17 @@
         "destination": "bridge-end",
         "type": "ConditionalExit",
         "attributes": {
-          "description": "NORTH -> Bridge end, the path is blocked by another SCOURGE BEAST (F)",
+          "description": "NORTH -> Bridge end, the path is blocked by a huntsman MINION (F)",
           "altDescription": "NORTH -> Bridge end",
           "conditionType": "KilledNPC",
-          "objectName": "great-bridge-mandatory-scourge-beast",
+          "objectName": "great-bridge-minion",
           "conditionFalseText": "The monster is still alive you can't go this way yet"
         }
       }
     },
     "enemies": {
+      "minion": "great-bridge-minion",
+      "scourge beasts": "great-bridge-scourge-beasts"
     },
     "npcs": {
     }
@@ -869,6 +875,7 @@
     "items": {
     },
     "props": {
+      "body": "bridge-end-body"
     },
     "exits": {
       "south": {
@@ -884,6 +891,7 @@
       }
     },
     "enemies": {
+      "cleric beast": "boss-cleric-beast"
     },
     "npcs": {
     }
@@ -893,12 +901,14 @@
     "name": "Aqueduct",
     "area": "central-yharnam",
     "headstone": "yharnam",
-    "description": "You are on one of the many aqueducts of Yharnam. At one end is a LIFT (A), the other end can only be reached when you have eliminated the HUNTSMEN (F) blocking your way.",
-    "altDescription": "You are on one of the many aqueducts of Yharnam. At one end is a LIFT (A). Now that the huntsmen are dead, you notice a few CRATES (L) sitting in a small alcove near the path leading to Oedon tomb.",
+    "description": "You are on one of the many aqueducts of Yharnam. At one end is an ELEVATOR (A), the other end can only be reached when you have eliminated the HUNTSMEN (F) blocking your way.",
+    "altDescription": "You are on one of the many aqueducts of Yharnam. At one end is an ELEVATOR (A). Now that the huntsmen are dead, you notice a small alcove near the path leading to Oedon tomb where 2 BOLD HUNTER'S MARKS (T) are on the floor.",
     "hasLantern": "false",
     "items": {
+      "bold hunters marks": "aqueduct-bold-hunters-marks"
     },
     "props": {
+      "elevator": "aqueduct-elevator"
     },
     "exits": {
       "south": {
@@ -932,6 +942,7 @@
       }
     },
     "enemies": {
+      "huntsmen": "aqueduct-huntsmen"
     },
     "npcs": {
     }
@@ -942,11 +953,12 @@
     "area": "central-yharnam",
     "headstone": "yharnam",
     "headstoneIndex": "4",
-    "description": "You have arrived at the tomb of Oedon, the atmosphere is very strange, heavy. At the back of the small cemetery, you can see a hunter, he is wearing the black church outfit and is apparently cutting up dead monsters. He notices your presence. As he turns around, you hear what he says: \"Beasts all over the shop... You'll be one of them, sooner or later...\". You now have no other choice but to fight FATHER GASCOIGNE (F).",
-    "altDescription": "You are in the tomb of Oedon, the atmosphere is very strange, heavy. Now that Father Gascoigne is dead, you can inspect the surroundings peacefully. On a roof at the bottom of the cemetery, you find the body of a WOMAN (L), probably killed by Gascoigne.",
+    "description": "You have arrived at the tomb of Oedon, the atmosphere is very strange, heavy. At the back of the small cemetery, you can see a hunter, he is wearing the black church outfit and is apparently cutting up dead beasts. He notices your presence. As he turns around, you hear what he says: \"Beasts all over the shop... You'll be one of them, sooner or later...\". You now have no other choice but to fight FATHER GASCOIGNE (F).",
+    "altDescription": "You are in the tomb of Oedon, the atmosphere is very strange, heavy. Now that Father Gascoigne is dead, you can inspect the surroundings peacefully. On a roof at the bottom of the cemetery, you find the body of a WOMAN (L).",
     "theme": "father-gascoigne-theme.wav",
     "hasLantern": "true",
     "items": {
+      "red jeweled brooch": "red-jeweled-brooch"
     },
     "props": {
     },
@@ -960,6 +972,46 @@
           "conditionType": "KilledNPC",
           "objectName": "boss-father-gascoigne",
           "conditionFalseText": "The boss is still alive you can't go this way yet"
+        }
+      },
+      "north": {
+        "destination": "oedon-chapel-basement",
+        "type": "ConditionalExit",
+        "attributes": {
+          "description": "NORTH -> Oedon chapel basement, the path is blocked by a metal gate",
+          "altDescription": "NORTH -> Oedon chapel basement",
+          "conditionType": "HasKey",
+          "objectName": "oedon-tomb-key",
+          "conditionFalseText": "The massive metal gate blocks your path. You must find the key to open it."
+        }
+      }
+    },
+    "enemies": {
+      "father gascoigne": "boss-father-gascoigne"
+    },
+    "npcs": {
+    }
+  },
+  {
+    "id": "oedon-chapel-basement",
+    "name": "Oedon chapel basement",
+    "area": "central-yharnam",
+    "headstone": "yharnam",
+    "description": "You are in the basement of the Oedon chapel. After climbing a wooden ladder, you arrived in a small room with many shelves filled with books. You see a CHEST (A) in the back corner of the room.",
+    "altDescription": "No alt description for this area, if you see this it's a bug !",
+    "hasLantern": "false",
+    "items": {
+      "blood gem workshop tool": "blood-gem-workshop-tool"
+    },
+    "props": {
+      "chest": "oedon-chapel-basement-chest"
+    },
+    "exits": {
+      "south": {
+        "destination": "tomb-of-oedon",
+        "type": "Exit",
+        "attributes": {
+          "description": "SOUTH -> Tomb of Oedon"
         }
       }
     },

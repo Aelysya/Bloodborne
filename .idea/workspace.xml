@@ -9,21 +9,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Added a new place to replicate better the real game area. Changed nearly entirely the zone layout with Exits tweaking">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Armor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/npcs/Eileen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/attires/hunter-garb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/attires/hunter-gloves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/attires/hunter-hat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/attires/hunter-trousers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/keys/badges/saw-hunter-badge.png" afterDir="false" />
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Continued construction of the places with added items and props">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Gem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/GemContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/GemSocketType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/WakingItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/bold-hunters-mark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/gold-pendant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/hunters-mark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/red-jeweled-brooch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/consumables/tear-stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/gems/gold-blood-gem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/gems/red-blood-gem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/gems/tear-blood-gem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/keys/badges/sword-hunter-badge.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/ConditionalGroundItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/ConditionalGroundItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/GroundItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/GroundItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/images/items/hunter-mark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Enemies.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Npcs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Npcs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +48,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -380,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644786768482</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Continued construction of the places with added items and props">
+      <created>1644797463413</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1644797463413</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -396,7 +418,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Reworked the fight system by swapping boolean returns for strings" />
     <MESSAGE value="Reworked the fight system by swapping boolean returns for strings in attack and shoot methods" />
     <MESSAGE value="Changed all files names for - instead of _" />
     <MESSAGE value="Added new images" />
@@ -421,7 +442,8 @@
     <MESSAGE value="Changed TextFields for Labels in the inventory GridPane to allow correct display of long names" />
     <MESSAGE value="Continued the construction of the Yharnam zone" />
     <MESSAGE value="Added a new place to replicate better the real game area. Changed nearly entirely the zone layout with Exits tweaking" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a new place to replicate better the real game area. Changed nearly entirely the zone layout with Exits tweaking" />
+    <MESSAGE value="Continued construction of the places with added items and props" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continued construction of the places with added items and props" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

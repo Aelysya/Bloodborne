@@ -4,6 +4,7 @@ import bloodborne.conditions.Condition;
 import bloodborne.entities.Hunter;
 import bloodborne.exceptions.ReflectionException;
 import bloodborne.json.Initializable;
+import bloodborne.sounds.SoundManager;
 import bloodborne.world.World;
 
 import java.lang.reflect.Constructor;
@@ -34,7 +35,7 @@ public class ConditionalGroundItem extends GroundItem implements Initializable {
     }
 
     @Override
-    public String take(Hunter hunter) {
-        return condition.checkCondition() ? super.take(hunter) : getATTRIBUTES().get("conditionFalseText");
+    public String take(Hunter hunter, SoundManager soundManager) {
+        return condition.checkCondition() ? super.take(hunter, soundManager) : getATTRIBUTES().get("conditionFalseText");
     }
 }

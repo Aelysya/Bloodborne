@@ -283,13 +283,13 @@
                 </cursor>
                 <Image url="@images/items/empty.png" />
             </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="360.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="vialsImage" fitHeight="75.0" fitWidth="75.0" layoutX="360.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
                 <Image url="@images/items/vial.png" />
             </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="462.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bulletsImage" fitHeight="75.0" fitWidth="75.0" layoutX="462.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>

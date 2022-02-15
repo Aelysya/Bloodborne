@@ -298,12 +298,97 @@
     }
   },
   {
+    "id": "bold-hunters-mark",
+    "type": "WakingItem",
+    "description": "Dangling, upside-down rune etched in the mind of a hunter.\n\nThis reminder allows one to envision the rune with clarity.\n\nAllows a hunter to awaken again without losing Blood Echoes, a trick that seems nearly too good to be true.",
+    "attributes": {
+      "name": "Bold hunter's mark",
+      "image": "consumables/bold-hunters-mark.png",
+      "category": "consumable",
+      "keepEchoes": "true"
+    }
+  },
+  {
+    "id": "hunters-mark",
+    "type": "WakingItem",
+    "description": "Dangling, upside-down rune etched in one's mind.\n\nSymbol of a hunter.\n\nBy focusing one's thoughts on this rune, a hunter loses all Blood Echoes, but awakens afresh, as if it were all just a bad dream.",
+    "attributes": {
+      "name": "Hunter's mark",
+      "image": "consumables/hunters-mark.png",
+      "category": "consumable",
+      "keepEchoes": "false"
+    }
+  },
+  {
+    "id": "red-jeweled-brooch",
+    "type": "GemContainer",
+    "description": "A woman's bright-red brooch, engraved with the name Viola.\n\nPerhaps the jewel is a gift from a hunter. Use to change into a droplet blood gem that fortifies any weapon.\n\nWith the proper workshop tool, various weapons can be fortified.",
+    "attributes": {
+      "name": "Red jeweled brooch",
+      "image": "consumables/red-jeweled-brooch.png",
+      "category": "consumable",
+      "itemId": "red-blood-gem"
+    }
+  },
+  {
+    "id": "gold-pendant",
+    "type": "GemContainer",
+    "description": "Pendant of Vicar Amelia. Use to change into a blood gem,which fortifies weapons.\n\nThis pendant, passed down among the vicars who head the Healing Church, is a reminder of the cautionary adage, words that will open the gates of Byrgenwerth.",
+    "attributes": {
+      "name": "Gold pendant",
+      "image": "consumables/gold-pendant.png",
+      "category": "consumable",
+      "itemId": "gold-blood-gem"
+    }
+  },
+  {
+    "id": "tear-stone",
+    "type": "GemContainer",
+    "description": "Silver-shining tear stone.\n\nUse to change into a droplet blood gem that fortifies any weapon.\n\nA doll sheds neither blood nor tears, and thus its nature remains unknown. Whoever thinks this is precious must be troubled by severe naiveté.",
+    "attributes": {
+      "name": "Tear stone",
+      "image": "consumables/tear-stone.png",
+      "category": "consumable",
+      "itemId": "tear-blood-gem"
+    }
+  },
+  {
     "id": "saw-hunter-badge",
     "type": "Badge",
     "description": "Badge crafted long ago at the Workshop. Attests to one's prowess as a hunter of beasts.\n\nThe Workshop is gone, and no group recognises this meaningless badge, except the messengers in the bath, who understand its profundity.\n\nCertain things can only be entrusted with a hunter in possession of this badge, or so they believe.",
     "attributes": {
       "name": "Saw hunter badge",
       "image": "keys/badges/saw-hunter-badge.png",
+      "category": "key"
+    }
+  },
+  {
+    "id": "sword-hunter-badge",
+    "type": "Badge",
+    "description": "One of the badges crafted by the Healing Church.\n\nThe silver sword is a symbol of a Church hunter.\n\nLudwig was the first of many Healing Church hunters to come, many of whom were clerics. As it was, clerics transformed into the most hideous beasts.",
+    "attributes": {
+      "name": "Sword hunter badge",
+      "image": "keys/badges/sword-hunter-badge.png",
+      "category": "key"
+    }
+  },
+  {
+    "id": "blood-gem-workshop-tool",
+    "type": "Tool",
+    "description": "A misplaced workshop tool from the Hunter's Dream.\n\nThe hunter who retrieves this can fortify weapons by kneading blood gems into them.\n\nBlood gems add properties to weapons when used to fortify them, as blood defines an organism.",
+    "attributes": {
+      "name": "Blood gem workshop tool",
+      "image": "keys/blood-gem-workshop-tool.png",
+      "category": "key"
+    }
+  },
+  {
+    "id": "oedon-tomb-key",
+    "type": "KeyItem",
+    "description": "Key to the gate that blocks the Tomb of Oedon.\n\nBeyond the tomb, Oedon Chapel can be found in the center of the Cathedral Ward.\n\nOnly today the church is abandoned, and some say that the residents of Oedon have all gone mad.",
+    "attributes": {
+      "name": "Oedon tomb key",
+      "image": "keys/oedon-tomb-key.png",
       "category": "key"
     }
   },
@@ -777,6 +862,39 @@
       "amount": "1",
       "conditionType": "KilledNPC",
       "objectName": "upper-sewers-boar",
+      "conditionFalseText": "There is nothing like this in the area."
+    }
+  },
+  {
+    "id": "great-bridge-blood-stone-shard",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Blood stone shard",
+      "itemId": "blood-stone-shard",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "great-bridge-coldblood-dew-1",
+    "type": "GroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Coldblood dew",
+      "itemId": "coldblood-dew-1",
+      "amount": "1"
+    }
+  },
+  {
+    "id": "aqueduct-bold-hunters-marks",
+    "type": "ConditionalGroundItem",
+    "description": "",
+    "attributes": {
+      "name": "Bold hunter's marks",
+      "itemId": "bold-hunters-mark",
+      "amount": "2",
+      "conditionType": "KilledNPC",
+      "objectName": "aqueduct-huntsmen",
       "conditionFalseText": "There is nothing like this in the area."
     }
   }

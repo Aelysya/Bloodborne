@@ -323,7 +323,7 @@
       "isTrapped": "false",
       "conditionType": "KilledNPC",
       "objectName": "sewers-structure-large-huntsman",
-      "conditionFalseText": "You must kill the large huntsman before searching the coffins"
+      "conditionFalseText": "You must kill the large huntsman before searching the body"
     }
   },
   {
@@ -349,7 +349,7 @@
   {
     "id": "lower-sewers-platform",
     "type": "Prop",
-    "description": "You climb up the first ladder to reach the platform, a MADMAN'S KNOWLEDGE (T) and 2 OIL URNS (T) are waiting for you to take",
+    "description": "You climb up the first ladder to reach the platform, a MADMAN'S KNOWLEDGE (T) and 2 OIL URNS (T) are waiting for you to take.",
     "attributes": {
       "isActionable": "false",
       "isTrapped": "false"
@@ -364,7 +364,35 @@
       "isTrapped": "false",
       "conditionType": "KilledNPC",
       "objectName": "upper-sewers-boar",
-      "conditionFalseText": "You must kill the large huntsman before searching the coffins"
+      "conditionFalseText": "You must kill the large huntsman before searching the corpses"
+    }
+  },
+  {
+    "id": "great-bridge-city",
+    "type": "Prop",
+    "description": "You are on the Great bridge of Yharnam, from here you can see the majority of the city. Looking down over the railing you see the sewers and another part of Yharnam, probably the old Yharnam. When you come back from your observation of the city you spot a COLDBLOOD DEW (T).",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false"
+    }
+  },
+  {
+    "id": "great-bridge-pile",
+    "type": "Prop",
+    "description": "You are becoming more and more used to searching corpses piles by now. You found a BLOOD STONE SHARD (T) in this one.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false"
+    }
+  },
+  {
+    "id": "bridge-end-body",
+    "type": "Prop",
+    "description": "You search the pockets of the dead man, he was probably a hunter because you find 10 quicksilver bullets on him.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false",
+      "bulletsContained": "10"
     }
   },
   {
@@ -375,6 +403,26 @@
       "isActionable": "true",
       "isTrapped": "false",
       "activationText": "You re-activate the elevator. You may now use it go to the Small path and back."
+    }
+  },
+  {
+    "id": "tomb-of-oedon-woman",
+    "type": "Prop",
+    "description": "You drop on the rooftop to examine the woman's corpse. On her dress you see a big RED JEWELED BROOCH (T). The poor woman has been brutally murdered, most probably by Gascoigne.",
+    "attributes": {
+      "isActionable": "false",
+      "isTrapped": "false"
+    }
+  },
+  {
+    "id": "oedon-chapel-basement-chest",
+    "type": "Container",
+    "description": "It is a small wooden chest. There nothing that seem to lock it, you can open it (A).",
+    "attributes": {
+      "isActionable": "true",
+      "isTrapped": "false",
+      "itemId": "blood-gem-workshop-tool",
+      "activationText": "You open the chest and find the blood gem workshop tool."
     }
   }
 ]
