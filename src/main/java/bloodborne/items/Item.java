@@ -1,5 +1,6 @@
 package bloodborne.items;
 
+import bloodborne.entities.Entity;
 import bloodborne.entities.Hunter;
 import bloodborne.json.ElementTemplate;
 import bloodborne.sounds.SoundManager;
@@ -28,7 +29,7 @@ public class Item extends ElementTemplate {
         return explanationText;
     }
 
-    public String use(Hunter hunter, SoundManager soundManager) {
+    public String use(Hunter hunter, SoundManager soundManager, Entity target) {
         return "You can't use that.";
     }
 

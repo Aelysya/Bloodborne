@@ -1,5 +1,6 @@
 package bloodborne.items;
 
+import bloodborne.entities.Entity;
 import bloodborne.entities.Hunter;
 import bloodborne.sounds.SoundManager;
 
@@ -12,7 +13,7 @@ public class Tool extends Item {
     }
 
     @Override
-    public String use(Hunter hunter, SoundManager soundManager) {
+    public String use(Hunter hunter, SoundManager soundManager, Entity target) {
         return "You can't use that.";
     }
 }

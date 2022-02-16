@@ -1,5 +1,6 @@
 package bloodborne.items;
 
+import bloodborne.entities.Entity;
 import bloodborne.entities.Hunter;
 import bloodborne.sounds.SoundManager;
 
@@ -16,7 +17,7 @@ public class BoostItem extends Item {
     }
 
     @Override
-    public String use(Hunter hunter, SoundManager soundManager) {
+    public String use(Hunter hunter, SoundManager soundManager, Entity target) {
         String txt;
         if (hunter.getTrickWeapon() == null) {
             txt = "You can't use this right now, you don't have any trick weapon equipped.";

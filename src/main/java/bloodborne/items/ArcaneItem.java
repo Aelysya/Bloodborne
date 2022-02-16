@@ -1,5 +1,6 @@
 package bloodborne.items;
 
+import bloodborne.entities.Entity;
 import bloodborne.entities.Hunter;
 import bloodborne.sounds.SoundManager;
 
@@ -12,7 +13,7 @@ public class ArcaneItem extends ItemWithDamageScaling {
     }
 
     @Override
-    public String use(Hunter hunter, SoundManager soundManage) {
+    public String use(Hunter hunter, SoundManager soundManage, Entity target) {
         return ""; //TODO method use ArcaneItem
     }
 }

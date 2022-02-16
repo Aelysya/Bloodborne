@@ -243,32 +243,36 @@ public class Hunter extends Entity {
                             soundManager.playSoundEffect("weapons/visceral-attack.wav");
                             regenAfterVisceral();
                             lastAttackIsVisceral = true;
-                            enemy.setIncapacitated(true);
+                            enemy.stunForXTurns(1);
                         } else { //Classic ranged attack
                             explanationText.append("and did ").append(target.takeDamage(finalDamage, soundManager)).append(" damage\n");
                         }
                     }
                 } else {
-                    explanationText.append("You attack your enemy in melee range, ");
-                    if (Math.random() < enemy.getDodgeRate()) {
-                        explanationText.append("he avoided the attack\n");
+                    if (enemy instanceof MultiEnemy) {
+                        explanationText.append(enemy.takeDamage(action, finalDamage, soundManager));
                     } else {
-                        explanationText.append("and did ").append(enemy.takeDamage(finalDamage, soundManager)).append(" damage\n");
-                        switch (damageType) {
-                            case FIRE -> soundManager.playSoundEffect("enemy-hit-fire.wav");
-                            case BOLT -> soundManager.playSoundEffect("enemy-hit-bolt.wav");
-                            default -> soundManager.playSoundEffect("enemy-hit.wav");
+                        explanationText.append("You attack your enemy in melee range, ");
+                        if (Math.random() < enemy.getDodgeRate()) {
+                            explanationText.append("he avoided the attack\n");
+                        } else {
+                            explanationText.append(enemy.takeDamage(action, finalDamage, soundManager));
+                            switch (damageType) {
+                                case FIRE -> soundManager.playSoundEffect("enemy-hit-fire.wav");
+                                case BOLT -> soundManager.playSoundEffect("enemy-hit-bolt.wav");
+                                default -> soundManager.playSoundEffect("enemy-hit.wav");
+                            }
                         }
                     }
                 }
             }
             if (!enemy.isDead()) {
-                if (enemy.isIncapacitated()) {
+                if (enemy.isStunned()) {
                     explanationText.append("Your enemy is not able to strike back\n");
+                    enemy.recoverOneStunTurn();
                 } else {
                     explanationText.append(enemy.attack(this, finalDodgeRate, soundManager));
                 }
-                enemy.setIncapacitated(false); //To reset the enemy ability to attack if the last attack was a visceral one and survived
             }
         }
         return explanationText.toString();

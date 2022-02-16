@@ -1,5 +1,6 @@
 package bloodborne.items;
 
+import bloodborne.entities.Entity;
 import bloodborne.entities.Hunter;
 import bloodborne.sounds.SoundManager;
 
@@ -12,7 +13,7 @@ public class ThrownItem extends ItemWithDamageScaling {
     }
 
     @Override
-    public String use(Hunter hunter, SoundManager soundManager) { //TODO Make ThrownItem methods
+    public String use(Hunter hunter, SoundManager soundManager, Entity target) { //TODO Make ThrownItem methods
         //TODO Make switch to make all the specific actions depending on the item
         return "You can't use that.";
     }

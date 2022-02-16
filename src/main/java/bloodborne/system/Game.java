@@ -298,7 +298,7 @@ public class Game {
         String objString = object.toLowerCase(Locale.ROOT);
         Item item = HUNTER.getItemByName(object);
         if (item != null) {
-            CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER));
+            CONTROLLER.writeLetterByLetter(item.use(HUNTER, SOUND_MANAGER, currentlyFoughtEntity));
             if (currentlyFoughtEntity != null) { //If the player is currently fighting an enemy, pass the turn
                 if (item instanceof HealingItem) {
                     resolveFightTurn("heal-from-item");
