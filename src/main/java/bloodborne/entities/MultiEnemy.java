@@ -18,17 +18,41 @@ public class MultiEnemy extends Enemy {
         }
     }
 
+    public List<Enemy> getEnemies() {
+        return ENEMIES;
+    }
+
     @Override
-    public String takeDamage(String action, int damage, SoundManager soundManager) {
-        StringBuilder explanationText = new StringBuilder();
-        int counter = 0;
+    public boolean isDead() {
+        boolean allDead = true;
         for (Enemy e : ENEMIES) {
             if (!e.isDead()) {
-                explanationText.append("You attack the n°").append(counter).append("enemy in melee range, ");
-                if (Math.random() < e.getDodgeRate()) {
-                    explanationText.append("he avoided the attack\n");
-                } else {
+                allDead = false;
+                break;
+            }
+        }
+        return allDead;
+    }
+
+    @Override
+    public String takeDamage(String action, int damage, SoundManager soundManager) { //TODO Make the method variation for when the hunter shoots
+        StringBuilder explanationText = new StringBuilder();
+        int counter = 1;
+        for (Enemy e : ENEMIES) {
+            if (!e.isDead()) {
+                if (action.equals("range")) {
                     explanationText.append(e.takeDamage(action, damage, soundManager));
+                    break;
+                } else {
+                    explanationText.append("You attack the n°").append(counter).append(" enemy in melee range, ");
+                    if (Math.random() < e.getDodgeRate()) {
+                        explanationText.append("he avoided the attack\n");
+                    } else {
+                        explanationText.append(e.takeDamage(action, damage, soundManager));
+                        if (e.isDead()) {
+                            explanationText.append("You killed this enemy\n");
+                        }
+                    }
                 }
             }
             counter++;
@@ -40,13 +64,18 @@ public class MultiEnemy extends Enemy {
     public String attack(Entity target, double hunterDodgeRate, SoundManager soundManager) {
         Hunter hunter = (Hunter) target;
         StringBuilder explanationText = new StringBuilder();
-        int counter = 0;
+        int counter = 1;
         for (Enemy e : ENEMIES) {
             if (!e.isDead()) {
-                if (Math.random() < hunterDodgeRate) {
-                    explanationText.append("You avoided the n°").append(counter).append(" enemy's attack");
+                if (e.isStunned()) {
+                    explanationText.append("The enemy n°").append(counter).append(" is not able to strike back\n");
+                    e.recoverOneStunTurn();
                 } else {
-                    explanationText.append("The n°").append(counter).append(" enemy strikes back, you took ").append(hunter.takeDamage(getDamage(), soundManager)).append(" damage");
+                    if (Math.random() < hunterDodgeRate) {
+                        explanationText.append("You avoided the n°").append(counter).append(" enemy's attack\n");
+                    } else {
+                        explanationText.append("The n°").append(counter).append(" enemy strikes back, you took ").append(hunter.takeDamage(getDamage(), soundManager)).append(" damage\n");
+                    }
                 }
             }
             counter++;

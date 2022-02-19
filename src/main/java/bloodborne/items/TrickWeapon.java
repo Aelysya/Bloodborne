@@ -24,6 +24,11 @@ public class TrickWeapon extends Weapon {
         return isSwitched ? Integer.parseInt(getATTRIBUTES().get("switchedDamage")) : Integer.parseInt(getATTRIBUTES().get("baseDamage"));
     }
 
+    @Override
+    public String getAttackSound() {
+        return "weapons/trickWeapons/" + getID() + ".wav";
+    }
+
     public double getCurrentDodgeRate() {
         return isSwitched ? Double.parseDouble(getATTRIBUTES().get("switchedDodgeRate")) : Double.parseDouble(getATTRIBUTES().get("baseDodgeRate"));
     }

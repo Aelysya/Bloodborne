@@ -18,10 +18,15 @@ public class Enemy extends Entity {
     public String attack(Entity target, double hunterDodgeRate, SoundManager soundManager) {
         Hunter hunter = (Hunter) target;
         StringBuilder explanationText = new StringBuilder();
-        if (Math.random() < hunterDodgeRate) {
-            explanationText.append("You avoided your enemy's attack");
+        if (isStunned()) {
+            explanationText.append("Your enemy is not able to strike back\n");
+            recoverOneStunTurn();
         } else {
-            explanationText.append("Your enemy strikes back, you took ").append(hunter.takeDamage(getDamage(), soundManager)).append(" damage");
+            if (Math.random() < hunterDodgeRate) {
+                explanationText.append("You avoided your enemy's attack\n");
+            } else {
+                explanationText.append("Your enemy strikes back, you took ").append(hunter.takeDamage(getDamage(), soundManager)).append(" damage\n");
+            }
         }
         return explanationText.toString();
     }
@@ -37,7 +42,7 @@ public class Enemy extends Entity {
 
     public String takeDamage(String action, int damage, SoundManager soundManager) {
         StringBuilder explanationText = new StringBuilder();
-        explanationText.append("you did").append(damage).append(" damage");
+        explanationText.append("you did ").append(damage).append(" damage");
         if ((healthPoints - damage) < 0) {
             healthPoints = 0;
         } else {

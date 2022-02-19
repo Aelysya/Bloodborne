@@ -8,6 +8,11 @@ public class Firearm extends Weapon {
         super(id, description, att);
     }
 
+    @Override
+    public String getAttackSound() {
+        return "weapons/firearms/" + getID() + ".wav";
+    }
+
     public double getHIT_RATE() {
         return Double.parseDouble(getATTRIBUTES().get("hitRate"));
     }
@@ -24,4 +29,5 @@ public class Firearm extends Weapon {
     public int getCurrentDamage() {
         return Integer.parseInt(getATTRIBUTES().get("damage"));
     }
+
 }

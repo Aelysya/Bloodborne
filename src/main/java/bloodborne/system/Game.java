@@ -372,7 +372,7 @@ public class Game {
             if (eTarget.isDead()) {
                 CONTROLLER.writeInstantly("This enemy is already dead.");
             } else {
-                CONTROLLER.writeLetterByLetter("You engage the enemy. Now you must fight or flee.");
+                CONTROLLER.writeLetterByLetter("You engage combat. Now you must fight or flee.");
                 setAnalyzer(TextAnalyzer.FIGHT);
                 currentlyFoughtEntity = (Enemy) eTarget;
                 ACTION_LISTENER.initiateFightListener();
@@ -411,8 +411,10 @@ public class Game {
         } else {
             if (!HUNTER.isLastAttackVisceral()) {
                 SOUND_MANAGER.playSoundEffect("enemy-killed.wav");
+            } else {
+                SOUND_MANAGER.playSoundEffect("itemsUse/gain-echoes.wav");
             }
-            CONTROLLER.writeLetterByLetter("You defeated your enemy and survived this fight.");
+            CONTROLLER.writeLetterByLetter("You survived this fight and got out victorious.");
         }
         CONTROLLER.writeLetterByLetter(enemy.loot(HUNTER));
         CONTROLLER.updateInventory("default");

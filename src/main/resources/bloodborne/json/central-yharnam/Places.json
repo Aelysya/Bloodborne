@@ -961,6 +961,7 @@
       "red jeweled brooch": "red-jeweled-brooch"
     },
     "props": {
+      "woman": "tomb-of-oedon-woman"
     },
     "exits": {
       "south": {

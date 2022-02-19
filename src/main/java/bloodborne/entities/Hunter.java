@@ -53,7 +53,7 @@ public class Hunter extends Entity {
         STATS.put("Bloodtinge", 0);
         STATS.put("Arcane", 0);
         maxHP = 100;
-        timeOfNight = "night";
+        timeOfNight = "day";
     }
 
     public void updateHP() {
@@ -230,22 +230,49 @@ public class Hunter extends Entity {
                 int finalDamage = calculateDamage(action);
                 lastAttackIsVisceral = false;
                 if (action.equals("range")) {
-                    explanationText.append("You shoot at your enemy, ");
                     soundManager.playSoundEffect(firearm.getAttackSound());
                     bulletsNumber -= firearm.getBULLET_USE();
-                    if (Math.random() > firearm.getHIT_RATE()) { //Shot is missed
-                        explanationText.append("but you missed\n");
+                    if (enemy instanceof MultiEnemy) { //TODO Clean up the code later, repetitions might be reduced ?
+                        explanationText.append("You shoot at your enemies, ");
+                        int counter = 1;
+                        for (Enemy e : ((MultiEnemy) enemy).getEnemies()) {
+                            if (e.isDead()) {
+                                counter++;
+                            } else {
+                                if (Math.random() > firearm.getHIT_RATE()) { //Shot is missed
+                                    explanationText.append("you missed the n°").append(counter).append(" enemy\n");
+                                    counter++;
+                                } else {
+                                    explanationText.append("you hit the n°").append(counter).append(" enemy and did ");
+                                    if (Math.random() < firearm.getVISCERAL_RATE()) { //Player performs a visceral attack, regenerating 20% health and cancelling the enemy's attack
+                                        lastAttackIsVisceral = true;
+                                        e.stunForXTurns(1);
+                                        explanationText.append("it at the right timing and perform a visceral attack on him. It regenerates a bit of your life and ")
+                                                .append(e.takeDamage(action, calculateDamage("visceral"), soundManager));
+                                        soundManager.playSoundEffect("weapons/visceral-attack.wav");
+                                        regenAfterVisceral();
+                                    } else { //Classic ranged attack
+                                        explanationText.append(e.takeDamage(finalDamage, soundManager)).append(" damage\n");
+                                    }
+                                    break;
+                                }
+                            }
+                        }
                     } else {
-                        if (Math.random() < firearm.getVISCERAL_RATE()) { //Player performs a visceral attack, regenerating 20% health and cancelling the enemy's attack
-                            explanationText.append("and did it at the right timing and perform a visceral attack on him. It regenerates a bit of your life\n You did ")
-                                    .append(target.takeDamage(finalDamage, soundManager))
-                                    .append(" damage\n");
-                            soundManager.playSoundEffect("weapons/visceral-attack.wav");
-                            regenAfterVisceral();
-                            lastAttackIsVisceral = true;
-                            enemy.stunForXTurns(1);
-                        } else { //Classic ranged attack
-                            explanationText.append("and did ").append(target.takeDamage(finalDamage, soundManager)).append(" damage\n");
+                        explanationText.append("You shoot at your enemy, ");
+                        if (Math.random() > firearm.getHIT_RATE()) { //Shot is missed
+                            explanationText.append("but you missed\n");
+                        } else {
+                            if (Math.random() < firearm.getVISCERAL_RATE()) { //Player performs a visceral attack, regenerating 20% health and cancelling the enemy's attack
+                                lastAttackIsVisceral = true;
+                                enemy.stunForXTurns(1);
+                                explanationText.append("and did it at the right timing and perform a visceral attack on him. It regenerates a bit of your life and ")
+                                        .append(enemy.takeDamage(action, calculateDamage("visceral"), soundManager));
+                                soundManager.playSoundEffect("weapons/visceral-attack.wav");
+                                regenAfterVisceral();
+                            } else { //Classic ranged attack
+                                explanationText.append(enemy.takeDamage(action, finalDamage, soundManager));
+                            }
                         }
                     }
                 } else {
@@ -267,12 +294,7 @@ public class Hunter extends Entity {
                 }
             }
             if (!enemy.isDead()) {
-                if (enemy.isStunned()) {
-                    explanationText.append("Your enemy is not able to strike back\n");
-                    enemy.recoverOneStunTurn();
-                } else {
-                    explanationText.append(enemy.attack(this, finalDodgeRate, soundManager));
-                }
+                explanationText.append(enemy.attack(this, finalDodgeRate, soundManager));
             }
         }
         return explanationText.toString();
@@ -305,6 +327,7 @@ public class Hunter extends Entity {
             switch (action) {
                 case "heavy-melee" -> calculatedDamage *= 1.5;
                 case "charged-melee" -> calculatedDamage *= 1.9;
+                case "visceral" -> calculatedDamage *= 2.5;
             }
         }
         return calculatedDamage;

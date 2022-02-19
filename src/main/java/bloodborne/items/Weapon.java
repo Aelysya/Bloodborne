@@ -8,9 +8,7 @@ public abstract class Weapon extends ItemWithDamageScaling {
         super(id, description, att);
     }
 
-    public String getAttackSound() {
-        return getID() + ".wav";
-    }
+    public abstract String getAttackSound();
 
     public abstract int getCurrentDamage();
 }
