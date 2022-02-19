@@ -126,12 +126,15 @@
   },
   {
     "id": "street-coffins",
-    "type": "Prop",
+    "type": "ConditionalProp",
     "description": "You rummage through the coffins, breaking them to find anything valuable. You manage to find 2 blood vials and 6 MOLOTOV COCKTAILS (T)",
     "attributes": {
       "isActionable": "false",
       "isTrapped": "false",
-      "vialsContained": "2"
+      "vialsContained": "2",
+      "conditionType": "KilledNPC",
+      "objectName": "street-huntsmen",
+      "conditionFalseText": "You must kill the huntsmen before you can search the coffins"
     }
   },
   {

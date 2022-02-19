@@ -45,7 +45,12 @@
             </Polygon>
         </AnchorPane>
         <TextArea fx:id="console" editable="false" prefHeight="440.0" prefWidth="1020.0" wrapText="true" />
-        <TextField id="writeLine" fx:id="writeLine" onKeyPressed="#onKeyPressedWriteLine" prefHeight="40.0" prefWidth="1020.0" />
+      <HBox prefHeight="36.0" prefWidth="1020.0">
+         <children>
+            <TextField fx:id="tag" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="43.0" text="START &gt;&gt;" />
+              <TextField id="writeLine" fx:id="writeLine" onKeyPressed="#onKeyPressedWriteLine" prefHeight="43.0" prefWidth="898.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
     </VBox>
     <VBox id="leftSide" layoutX="350.0" layoutY="156.0" prefHeight="1080.0" prefWidth="900.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <HBox prefHeight="600.0" prefWidth="900.0">

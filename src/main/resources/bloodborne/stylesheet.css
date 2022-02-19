@@ -29,6 +29,11 @@ HBox{
     -fx-border-width: 1px;
 }
 
+#tag{
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+}
+
 #rightSide{
     -fx-border-color: white;
     -fx-border-width: 1px 1px 0px 1px;

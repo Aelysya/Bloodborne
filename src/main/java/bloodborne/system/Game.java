@@ -23,7 +23,7 @@ public class Game {
 
     private final Hunter HUNTER;
     private final CommandHandler COMMAND_HANDLER;
-    private final GameController CONTROLLER;
+    private static GameController CONTROLLER;
     private final SoundManager SOUND_MANAGER;
     private final ActionListener ACTION_LISTENER;
     private static TextAnalyzer analyzer;
@@ -83,6 +83,7 @@ public class Game {
 
     public static void setAnalyzer(TextAnalyzer newAnalyzer) {
         analyzer = newAnalyzer;
+        CONTROLLER.changeAnalyzerTag(newAnalyzer.getTAG());
     }
 
     public void startGame() {

@@ -9,20 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Implemented methods for MultiEnemy class">
+    <list default="true" id="72a2ca19-ed1b-4852-9933-67219dec6314" name="Changes" comment="Fixed and upgraded methods for MultiEnemy class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/entities/MultiEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/entities/MultiEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Firearm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Firearm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/TrickWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/items/GemContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/items/GemContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Places.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bloodborne/system/TextAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bloodborne/system/TextAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/json/central-yharnam/Props.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapons/visceral-attack.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/sounds/weapons/visceral-attack.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/entities/Hunter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bloodborne/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bloodborne/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/FireArm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/FireArm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/TrickWeapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/TrickWeapon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/items/Weapon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bloodborne/system/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -401,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645047687574</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Fixed and upgraded methods for MultiEnemy class">
+      <created>1645285253446</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1645285253446</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -417,7 +423,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added new images" />
     <MESSAGE value="Added new Item classes and ActionListener class to react to specific events in-game and perform precise actions without polluting the class Game" />
     <MESSAGE value="Renamed System classes and switched to central-yharnam zone from legacy-yharnam for manual testing purposes, Props are urgent to add to Props.json file" />
     <MESSAGE value="Added system of Hunter's dream, first death teleportation to the dream, teleportation to places with lanterns from the dream (only the visited ones) and an Action Listener class to react to specific actions from the user that would normally require writing too much 'if' conditions to test everything" />
@@ -442,7 +447,8 @@
     <MESSAGE value="Continued construction of the places with added items and props" />
     <MESSAGE value="Finished construction of central-yharnam zone" />
     <MESSAGE value="Implemented methods for MultiEnemy class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented methods for MultiEnemy class" />
+    <MESSAGE value="Fixed and upgraded methods for MultiEnemy class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed and upgraded methods for MultiEnemy class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

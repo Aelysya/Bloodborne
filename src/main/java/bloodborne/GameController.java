@@ -39,7 +39,7 @@ public class GameController {
     TextArea console, detailText;
 
     @FXML
-    TextField writeLine, currentHP;
+    TextField writeLine, currentHP, tag;
 
     @FXML
     GridPane inventoryItems;
@@ -201,6 +201,11 @@ public class GameController {
             }
             runeIndex++;
         }
+    }
+
+    public void changeAnalyzerTag(String analyzerTag) {
+        tag.setText(analyzerTag);
+        tag.setPrefWidth(60 + analyzerTag.length() * 10);
     }
 
     public void updateDirectionalArrows(Place place) {
